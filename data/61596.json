@@ -1,0 +1,983 @@
+{
+    "id": "openstack%2Fglance~master~I85f55fbaa290956ad03edbc8d019f73daa02d0a9",
+    "project": "openstack/glance",
+    "branch": "master",
+    "topic": "F811",
+    "hashtags": [],
+    "change_id": "I85f55fbaa290956ad03edbc8d019f73daa02d0a9",
+    "subject": "Remove duplicate method implementations in ImageLocationsProxy",
+    "status": "MERGED",
+    "created": "2013-12-11 22:55:26.000000000",
+    "updated": "2013-12-27 07:05:15.000000000",
+    "submitted": "2013-12-27 07:05:15.000000000",
+    "submitter": {
+        "_account_id": 3,
+        "name": "Jenkins",
+        "username": "jenkins"
+    },
+    "insertions": 0,
+    "deletions": 18,
+    "total_comment_count": 0,
+    "unresolved_comment_count": 0,
+    "has_review_started": true,
+    "meta_rev_id": "b1bf66db20be0c1d5e9229eb85a6eb2204915b9d",
+    "_number": 61596,
+    "owner": {
+        "_account_id": 6593,
+        "name": "Dirk Mueller",
+        "email": "dirk@dmllr.de",
+        "username": "dmllr"
+    },
+    "labels": {
+        "Verified": {
+            "approved": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 7884,
+                    "name": "Noboru Arai",
+                    "email": "arai@mxa.nes.nec.co.jp",
+                    "username": "NoboruArai"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 616,
+                    "name": "Mark Washenberger",
+                    "email": "mark.washenberger@markwash.net",
+                    "username": "markwash"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 6484,
+                    "name": "Feilong Wang",
+                    "email": "hustemb@gmail.com",
+                    "username": "flwang"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 6593,
+                    "name": "Dirk Mueller",
+                    "email": "dirk@dmllr.de",
+                    "username": "dmllr"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 5170,
+                    "name": "Microsoft Hyper-V CI",
+                    "email": "hyper-v_ci@microsoft.com",
+                    "username": "hyper-v-ci",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 2,
+                    "date": "2013-12-27 07:05:15.000000000",
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-2": "Fails",
+                "-1": "Doesn't seem to work",
+                " 0": "No score",
+                "+1": "Works for me",
+                "+2": "Verified"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        },
+        "Code-Review": {
+            "approved": {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            "all": [
+                {
+                    "value": 0,
+                    "date": "2013-12-27 06:03:54.000000000",
+                    "permitted_voting_range": {
+                        "min": 0,
+                        "max": 1
+                    },
+                    "_account_id": 7884,
+                    "name": "Noboru Arai",
+                    "email": "arai@mxa.nes.nec.co.jp",
+                    "username": "NoboruArai"
+                },
+                {
+                    "value": 2,
+                    "date": "2013-12-23 20:23:58.000000000",
+                    "_account_id": 616,
+                    "name": "Mark Washenberger",
+                    "email": "mark.washenberger@markwash.net",
+                    "username": "markwash"
+                },
+                {
+                    "value": 2,
+                    "date": "2013-12-23 20:23:58.000000000",
+                    "_account_id": 6484,
+                    "name": "Feilong Wang",
+                    "email": "hustemb@gmail.com",
+                    "username": "flwang"
+                },
+                {
+                    "value": 0,
+                    "date": "2013-12-24 00:02:27.000000000",
+                    "permitted_voting_range": {
+                        "min": 0,
+                        "max": 1
+                    },
+                    "_account_id": 6593,
+                    "name": "Dirk Mueller",
+                    "email": "dirk@dmllr.de",
+                    "username": "dmllr"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 5170,
+                    "name": "Microsoft Hyper-V CI",
+                    "email": "hyper-v_ci@microsoft.com",
+                    "username": "hyper-v-ci",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 0,
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-2": "Do not merge",
+                "-1": "This patch needs further work before it can be merged",
+                " 0": "No score",
+                "+1": "Looks good to me, but someone else must approve",
+                "+2": "Looks good to me (core reviewer)"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        },
+        "Workflow": {
+            "approved": {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 7884,
+                    "name": "Noboru Arai",
+                    "email": "arai@mxa.nes.nec.co.jp",
+                    "username": "NoboruArai"
+                },
+                {
+                    "value": 1,
+                    "date": "2013-12-24 00:53:29.000000000",
+                    "_account_id": 616,
+                    "name": "Mark Washenberger",
+                    "email": "mark.washenberger@markwash.net",
+                    "username": "markwash"
+                },
+                {
+                    "value": 0,
+                    "date": "2013-12-26 07:38:09.000000000",
+                    "_account_id": 6484,
+                    "name": "Feilong Wang",
+                    "email": "hustemb@gmail.com",
+                    "username": "flwang"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 6593,
+                    "name": "Dirk Mueller",
+                    "email": "dirk@dmllr.de",
+                    "username": "dmllr"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 5170,
+                    "name": "Microsoft Hyper-V CI",
+                    "email": "hyper-v_ci@microsoft.com",
+                    "username": "hyper-v-ci",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 0,
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-1": "Work in progress",
+                " 0": "Ready for reviews",
+                "+1": "Approved"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        },
+        "Review-Priority": {
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 7884,
+                    "name": "Noboru Arai",
+                    "email": "arai@mxa.nes.nec.co.jp",
+                    "username": "NoboruArai"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 616,
+                    "name": "Mark Washenberger",
+                    "email": "mark.washenberger@markwash.net",
+                    "username": "markwash"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 6484,
+                    "name": "Feilong Wang",
+                    "email": "hustemb@gmail.com",
+                    "username": "flwang"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 6593,
+                    "name": "Dirk Mueller",
+                    "email": "dirk@dmllr.de",
+                    "username": "dmllr"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 5170,
+                    "name": "Microsoft Hyper-V CI",
+                    "email": "hyper-v_ci@microsoft.com",
+                    "username": "hyper-v-ci",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 0,
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-1": "Branch Freeze",
+                " 0": "No Priority",
+                "+1": "Important Change",
+                "+2": "Top Priority / Holds Gate"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        }
+    },
+    "removable_reviewers": [],
+    "reviewers": {
+        "REVIEWER": [
+            {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            {
+                "_account_id": 5170,
+                "name": "Microsoft Hyper-V CI",
+                "email": "hyper-v_ci@microsoft.com",
+                "username": "hyper-v-ci",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            {
+                "_account_id": 6484,
+                "name": "Feilong Wang",
+                "email": "hustemb@gmail.com",
+                "username": "flwang"
+            },
+            {
+                "_account_id": 6593,
+                "name": "Dirk Mueller",
+                "email": "dirk@dmllr.de",
+                "username": "dmllr"
+            },
+            {
+                "_account_id": 7884,
+                "name": "Noboru Arai",
+                "email": "arai@mxa.nes.nec.co.jp",
+                "username": "NoboruArai"
+            }
+        ]
+    },
+    "pending_reviewers": {},
+    "reviewer_updates": [
+        {
+            "updated": "2013-12-23 16:08:03.000000000",
+            "updated_by": {
+                "_account_id": 5170,
+                "name": "Microsoft Hyper-V CI",
+                "email": "hyper-v_ci@microsoft.com",
+                "username": "hyper-v-ci",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "reviewer": {
+                "_account_id": 5170,
+                "name": "Microsoft Hyper-V CI",
+                "email": "hyper-v_ci@microsoft.com",
+                "username": "hyper-v-ci",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2013-12-24 00:53:29.000000000",
+            "updated_by": {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            "reviewer": {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2013-12-26 07:38:09.000000000",
+            "updated_by": {
+                "_account_id": 6484,
+                "name": "Feilong Wang",
+                "email": "hustemb@gmail.com",
+                "username": "flwang"
+            },
+            "reviewer": {
+                "_account_id": 6484,
+                "name": "Feilong Wang",
+                "email": "hustemb@gmail.com",
+                "username": "flwang"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2013-12-27 06:03:54.000000000",
+            "updated_by": {
+                "_account_id": 7884,
+                "name": "Noboru Arai",
+                "email": "arai@mxa.nes.nec.co.jp",
+                "username": "NoboruArai"
+            },
+            "reviewer": {
+                "_account_id": 7884,
+                "name": "Noboru Arai",
+                "email": "arai@mxa.nes.nec.co.jp",
+                "username": "NoboruArai"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2013-12-27 07:05:15.000000000",
+            "updated_by": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "reviewer": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "state": "REVIEWER"
+        }
+    ],
+    "messages": [
+        {
+            "id": "d7b61007f0b8ab58c6f59e6adb9d699f92bdbd23",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2013-12-11 23:50:16.000000000",
+            "message": "Patch Set 1: Doesn't seem to work\n\nBuild failed.  For information on how to proceed, see https://wiki.openstack.org/wiki/GerritJenkinsGit#Test_Failures\n\n- gate-glance-pep8 http://logs.openstack.org/96/61596/1/check/gate-glance-pep8/3cfcab1 : SUCCESS in 1m 36s\n- gate-glance-docs http://logs.openstack.org/96/61596/1/check/gate-glance-docs/e48fee1 : FAILURE in 1m 27s\n- gate-glance-python26 http://logs.openstack.org/96/61596/1/check/gate-glance-python26/3245c0c : SUCCESS in 9m 26s\n- gate-glance-python27 http://logs.openstack.org/96/61596/1/check/gate-glance-python27/64f892b : SUCCESS in 11m 46s\n- check-tempest-dsvm-full http://logs.openstack.org/96/61596/1/check/check-tempest-dsvm-full/e6809d7 : SUCCESS in 37m 11s\n- check-tempest-dsvm-postgres-full http://logs.openstack.org/96/61596/1/check/check-tempest-dsvm-postgres-full/9df34ab : SUCCESS in 35m 32s\n- check-tempest-dsvm-neutron http://logs.openstack.org/96/61596/1/check/check-tempest-dsvm-neutron/907cb32 : SUCCESS in 33m 12s\n- gate-tempest-dsvm-large-ops http://logs.openstack.org/96/61596/1/check/gate-tempest-dsvm-large-ops/345d1fa : SUCCESS in 12m 38s\n- gate-tempest-dsvm-neutron-large-ops http://logs.openstack.org/96/61596/1/check/gate-tempest-dsvm-neutron-large-ops/ba08d96 : SUCCESS in 14m 03s\n- check-grenade-dsvm http://logs.openstack.org/96/61596/1/check/check-grenade-dsvm/bec8f94 : SUCCESS in 31m 01s\n",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "8cfa92ff1135d8d1b27e379b07c64fbcc9d867bd",
+            "author": {
+                "_account_id": 6593,
+                "name": "Dirk Mueller",
+                "email": "dirk@dmllr.de",
+                "username": "dmllr"
+            },
+            "real_author": {
+                "_account_id": 6593,
+                "name": "Dirk Mueller",
+                "email": "dirk@dmllr.de",
+                "username": "dmllr"
+            },
+            "date": "2013-12-12 18:17:50.000000000",
+            "message": "Patch Set 1:\n\nrecheck no bug",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "06eff8279da8fafc69d1aa6f03f964ca42cae619",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2013-12-12 19:24:41.000000000",
+            "message": "Patch Set 1:\n\nBuild failed.  For information on how to proceed, see https://wiki.openstack.org/wiki/GerritJenkinsGit#Test_Failures\n\n- gate-glance-pep8 http://logs.openstack.org/96/61596/1/check/gate-glance-pep8/d62f1ce : SUCCESS in 2m 10s\n- gate-glance-docs http://docs-draft.openstack.org/96/61596/1/check/gate-glance-docs/0bd76bd/doc/build/html/ : SUCCESS in 1m 38s\n- gate-glance-python26 http://logs.openstack.org/96/61596/1/check/gate-glance-python26/c99e3a7 : SUCCESS in 11m 58s\n- gate-glance-python27 http://logs.openstack.org/96/61596/1/check/gate-glance-python27/ee54b2f : SUCCESS in 14m 31s\n- check-tempest-dsvm-full http://logs.openstack.org/96/61596/1/check/check-tempest-dsvm-full/ac6f7b6 : FAILURE in 38m 13s\n- check-tempest-dsvm-postgres-full http://logs.openstack.org/96/61596/1/check/check-tempest-dsvm-postgres-full/f4fe0a2 : SUCCESS in 36m 26s\n- check-tempest-dsvm-neutron http://logs.openstack.org/96/61596/1/check/check-tempest-dsvm-neutron/7a9dda1 : SUCCESS in 31m 28s\n- gate-tempest-dsvm-large-ops http://logs.openstack.org/96/61596/1/check/gate-tempest-dsvm-large-ops/3b0f382 : SUCCESS in 15m 20s\n- gate-tempest-dsvm-neutron-large-ops http://logs.openstack.org/96/61596/1/check/gate-tempest-dsvm-neutron-large-ops/71c2371 : SUCCESS in 16m 41s\n- check-grenade-dsvm http://logs.openstack.org/96/61596/1/check/check-grenade-dsvm/0730fe5 : SUCCESS in 29m 40s\n",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "dd9c4c08ae4d28d54d4beca56b5ac0036ca14c52",
+            "author": {
+                "_account_id": 6593,
+                "name": "Dirk Mueller",
+                "email": "dirk@dmllr.de",
+                "username": "dmllr"
+            },
+            "real_author": {
+                "_account_id": 6593,
+                "name": "Dirk Mueller",
+                "email": "dirk@dmllr.de",
+                "username": "dmllr"
+            },
+            "date": "2013-12-13 13:58:22.000000000",
+            "message": "Uploaded patch set 2.",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "ad009ef31dd3a015f953f295e0f9db8edbaf4885",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2013-12-13 14:49:31.000000000",
+            "message": "Patch Set 2: Doesn't seem to work\n\nBuild failed.  For information on how to proceed, see https://wiki.openstack.org/wiki/GerritJenkinsGit#Test_Failures\n\n- gate-glance-pep8 http://logs.openstack.org/96/61596/2/check/gate-glance-pep8/210741a : FAILURE in 3s\n- gate-glance-docs http://docs-draft.openstack.org/96/61596/2/check/gate-glance-docs/305df70/doc/build/html/ : SUCCESS in 2m 50s\n- gate-glance-python26 http://logs.openstack.org/96/61596/2/check/gate-glance-python26/2811fea : SUCCESS in 16m 45s\n- gate-glance-python27 http://logs.openstack.org/96/61596/2/check/gate-glance-python27/2704b80 : SUCCESS in 11m 41s\n- check-tempest-dsvm-full http://logs.openstack.org/96/61596/2/check/check-tempest-dsvm-full/5cba4eb : SUCCESS in 36m 28s\n- check-tempest-dsvm-postgres-full http://logs.openstack.org/96/61596/2/check/check-tempest-dsvm-postgres-full/cedc38b : SUCCESS in 43m 34s\n- check-tempest-dsvm-neutron http://logs.openstack.org/96/61596/2/check/check-tempest-dsvm-neutron/9f91585 : SUCCESS in 32m 45s\n- gate-tempest-dsvm-large-ops http://logs.openstack.org/96/61596/2/check/gate-tempest-dsvm-large-ops/9fdc3be : SUCCESS in 17m 34s\n- gate-tempest-dsvm-neutron-large-ops http://logs.openstack.org/96/61596/2/check/gate-tempest-dsvm-neutron-large-ops/8ab698b : SUCCESS in 16m 28s\n- check-grenade-dsvm http://logs.openstack.org/96/61596/2/check/check-grenade-dsvm/3e366fa : SUCCESS in 38m 49s\n",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "eb8b2eac7eeae697f6c7b46fce13c2e9f4b965fc",
+            "author": {
+                "_account_id": 6593,
+                "name": "Dirk Mueller",
+                "email": "dirk@dmllr.de",
+                "username": "dmllr"
+            },
+            "real_author": {
+                "_account_id": 6593,
+                "name": "Dirk Mueller",
+                "email": "dirk@dmllr.de",
+                "username": "dmllr"
+            },
+            "date": "2013-12-14 10:05:06.000000000",
+            "message": "Patch Set 2:\n\nrecheck bug 1260654",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "17270fdfd95b609150343b588163f964942e6f3a",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2013-12-14 10:56:56.000000000",
+            "message": "Patch Set 2: Works for me\n\nBuild succeeded.\n\n- gate-glance-pep8 http://logs.openstack.org/96/61596/2/check/gate-glance-pep8/08687c6 : SUCCESS in 2m 11s\n- gate-glance-docs http://docs-draft.openstack.org/96/61596/2/check/gate-glance-docs/3e6af89/doc/build/html/ : SUCCESS in 1m 31s\n- gate-glance-python26 http://logs.openstack.org/96/61596/2/check/gate-glance-python26/39ac5e5 : SUCCESS in 14m 04s\n- gate-glance-python27 http://logs.openstack.org/96/61596/2/check/gate-glance-python27/d200287 : SUCCESS in 13m 15s\n- check-tempest-dsvm-full http://logs.openstack.org/96/61596/2/check/check-tempest-dsvm-full/65c868d : SUCCESS in 51m 01s\n- check-tempest-dsvm-postgres-full http://logs.openstack.org/96/61596/2/check/check-tempest-dsvm-postgres-full/a10f98f : SUCCESS in 35m 02s\n- check-tempest-dsvm-neutron http://logs.openstack.org/96/61596/2/check/check-tempest-dsvm-neutron/e947bcc : SUCCESS in 31m 16s\n- gate-tempest-dsvm-large-ops http://logs.openstack.org/96/61596/2/check/gate-tempest-dsvm-large-ops/48c3319 : SUCCESS in 14m 15s\n- gate-tempest-dsvm-neutron-large-ops http://logs.openstack.org/96/61596/2/check/gate-tempest-dsvm-neutron-large-ops/82475b4 : SUCCESS in 16m 08s\n- check-grenade-dsvm http://logs.openstack.org/96/61596/2/check/check-grenade-dsvm/f3031d7 : SUCCESS in 32m 17s\n",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "071f65c2a657348d84f8718808f9618ada527f6d",
+            "author": {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            "real_author": {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            "date": "2013-12-22 17:49:43.000000000",
+            "message": "Patch Set 2:\n\nrecheck no bug",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "a4ae24bf1434bf67491c9322f05d3cfe8cca55ce",
+            "author": {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            "real_author": {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            "date": "2013-12-22 17:49:50.000000000",
+            "message": "Patch Set 2: Looks good to me (core reviewer)\n\n",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "ed2634b13ab16ed807fe981466584e67a16f9f05",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2013-12-22 18:34:04.000000000",
+            "message": "Patch Set 2:\n\nBuild succeeded.\n\n- gate-glance-pep8 http://logs.openstack.org/96/61596/2/check/gate-glance-pep8/e286c70 : SUCCESS in 2m 13s\n- gate-glance-docs http://docs-draft.openstack.org/96/61596/2/check/gate-glance-docs/58b5a3f/doc/build/html/ : SUCCESS in 2m 41s\n- gate-glance-python26 http://logs.openstack.org/96/61596/2/check/gate-glance-python26/666af3f : SUCCESS in 13m 35s\n- gate-glance-python27 http://logs.openstack.org/96/61596/2/check/gate-glance-python27/df4e21f : SUCCESS in 12m 44s\n- check-tempest-dsvm-full http://logs.openstack.org/96/61596/2/check/check-tempest-dsvm-full/53bdbb9 : SUCCESS in 43m 00s\n- check-tempest-dsvm-postgres-full http://logs.openstack.org/96/61596/2/check/check-tempest-dsvm-postgres-full/27ed87b : SUCCESS in 44m 03s\n- check-tempest-dsvm-neutron http://logs.openstack.org/96/61596/2/check/check-tempest-dsvm-neutron/c3dfdd9 : SUCCESS in 33m 44s\n- gate-tempest-dsvm-large-ops http://logs.openstack.org/96/61596/2/check/gate-tempest-dsvm-large-ops/2c15123 : SUCCESS in 13m 24s\n- gate-tempest-dsvm-neutron-large-ops http://logs.openstack.org/96/61596/2/check/gate-tempest-dsvm-neutron-large-ops/88a3315 : SUCCESS in 15m 09s\n- check-grenade-dsvm http://logs.openstack.org/96/61596/2/check/check-grenade-dsvm/36b48a7 : SUCCESS in 32m 26s\n",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "82fe2af963978dde8f62a1899f7052ec300fe157",
+            "author": {
+                "_account_id": 6484,
+                "name": "Feilong Wang",
+                "email": "hustemb@gmail.com",
+                "username": "flwang"
+            },
+            "real_author": {
+                "_account_id": 6484,
+                "name": "Feilong Wang",
+                "email": "hustemb@gmail.com",
+                "username": "flwang"
+            },
+            "date": "2013-12-23 04:25:05.000000000",
+            "message": "Patch Set 2: Looks good to me (core reviewer); Approved\n\n",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "2515500873c59fef403561258a431f73f669963d",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2013-12-23 16:07:58.000000000",
+            "message": "Patch Set 2: No score\n\nStarting gate jobs.\nhttp://status.openstack.org/zuul/",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "bbe6977e423330df9d25f669e4078afc5a42e0a2",
+            "author": {
+                "_account_id": 5170,
+                "name": "Microsoft Hyper-V CI",
+                "email": "hyper-v_ci@microsoft.com",
+                "username": "hyper-v-ci",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 5170,
+                "name": "Microsoft Hyper-V CI",
+                "email": "hyper-v_ci@microsoft.com",
+                "username": "hyper-v-ci",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2013-12-23 16:08:03.000000000",
+            "message": "Patch Set 2:\n\nStarting gate jobs.\nhttps://zuul.openstack.tld/",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "76398d7d158732c74f2ccf71171c44ef4fed29dc",
+            "date": "2013-12-23 17:06:12.000000000",
+            "message": "Your change requires a recursive merge to resolve.\n\nPlease merge (or rebase) the change locally and upload the resolution for review.",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "0fe4b2e67786cb6f8cd318d9d03f1df796b799b7",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2013-12-23 17:06:12.000000000",
+            "message": "Patch Set 2: Verified\n\nBuild succeeded.\n\n- gate-glance-docs http://docs-draft.openstack.org/96/61596/2/gate/gate-glance-docs/2a86dd4/doc/build/html/ : SUCCESS in 1m 51s\n- gate-glance-pep8 http://logs.openstack.org/96/61596/2/gate/gate-glance-pep8/d322c7a : SUCCESS in 2m 39s\n- gate-glance-python26 http://logs.openstack.org/96/61596/2/gate/gate-glance-python26/9d7a02c : SUCCESS in 12m 17s\n- gate-glance-python27 http://logs.openstack.org/96/61596/2/gate/gate-glance-python27/6cbb284 : SUCCESS in 8m 59s\n- gate-tempest-dsvm-full http://logs.openstack.org/96/61596/2/gate/gate-tempest-dsvm-full/b3a7917 : SUCCESS in 57m 55s\n- gate-tempest-dsvm-postgres-full http://logs.openstack.org/96/61596/2/gate/gate-tempest-dsvm-postgres-full/94d2a64 : SUCCESS in 39m 51s\n- gate-tempest-dsvm-neutron http://logs.openstack.org/96/61596/2/gate/gate-tempest-dsvm-neutron/da877e5 : SUCCESS in 35m 17s\n- gate-tempest-dsvm-large-ops http://logs.openstack.org/96/61596/2/gate/gate-tempest-dsvm-large-ops/8eafb32 : SUCCESS in 15m 51s\n- gate-tempest-dsvm-neutron-large-ops http://logs.openstack.org/96/61596/2/gate/gate-tempest-dsvm-neutron-large-ops/22c57a7 : SUCCESS in 15m 54s\n- gate-grenade-dsvm http://logs.openstack.org/96/61596/2/gate/gate-grenade-dsvm/0511555 : SUCCESS in 30m 37s\n",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "65ee0566ca0dc3535aeb7164edc83db184a06fe9",
+            "author": {
+                "_account_id": 6593,
+                "name": "Dirk Mueller",
+                "email": "dirk@dmllr.de",
+                "username": "dmllr"
+            },
+            "real_author": {
+                "_account_id": 6593,
+                "name": "Dirk Mueller",
+                "email": "dirk@dmllr.de",
+                "username": "dmllr"
+            },
+            "date": "2013-12-23 20:23:51.000000000",
+            "message": "Uploaded patch set 3.",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "1cd63b2789d36cbcc6d5b1ba50ef9d9cbc92b2ab",
+            "author": {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            "real_author": {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            "date": "2013-12-23 20:23:58.000000000",
+            "message": "Patch Set 3: Looks good to me (core reviewer)\n\nAutomatically re-added by Gerrit trivial rebase detection script.",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "b79a98f1a1633eac9d667acf67f0ba04f6dfc229",
+            "author": {
+                "_account_id": 6484,
+                "name": "Feilong Wang",
+                "email": "hustemb@gmail.com",
+                "username": "flwang"
+            },
+            "real_author": {
+                "_account_id": 6484,
+                "name": "Feilong Wang",
+                "email": "hustemb@gmail.com",
+                "username": "flwang"
+            },
+            "date": "2013-12-23 20:23:58.000000000",
+            "message": "Patch Set 3: Looks good to me (core reviewer)\n\nAutomatically re-added by Gerrit trivial rebase detection script.",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "755c7977d74b8136cf7c34e9bdba85ff33f3660c",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2013-12-23 21:07:40.000000000",
+            "message": "Patch Set 3: Doesn't seem to work\n\nBuild failed.  For information on how to proceed, see https://wiki.openstack.org/wiki/GerritJenkinsGit#Test_Failures\n\n- gate-glance-pep8 http://logs.openstack.org/96/61596/3/check/gate-glance-pep8/2e1b5e0 : SUCCESS in 1m 38s\n- gate-glance-docs http://docs-draft.openstack.org/96/61596/3/check/gate-glance-docs/7fdd55e/doc/build/html/ : SUCCESS in 1m 50s\n- gate-glance-python26 http://logs.openstack.org/96/61596/3/check/gate-glance-python26/2f345d3 : FAILURE in 41s\n- gate-glance-python27 http://logs.openstack.org/96/61596/3/check/gate-glance-python27/4ac417c : SUCCESS in 10m 41s\n- check-tempest-dsvm-full http://logs.openstack.org/96/61596/3/check/check-tempest-dsvm-full/9ddbf4d : SUCCESS in 43m 35s\n- check-tempest-dsvm-postgres-full http://logs.openstack.org/96/61596/3/check/check-tempest-dsvm-postgres-full/97345c7 : SUCCESS in 39m 01s\n- check-tempest-dsvm-neutron http://logs.openstack.org/96/61596/3/check/check-tempest-dsvm-neutron/9d1c35c : SUCCESS in 33m 52s\n- gate-tempest-dsvm-large-ops http://logs.openstack.org/96/61596/3/check/gate-tempest-dsvm-large-ops/89d0f3a : SUCCESS in 13m 56s\n- gate-tempest-dsvm-neutron-large-ops http://logs.openstack.org/96/61596/3/check/gate-tempest-dsvm-neutron-large-ops/277f4c0 : SUCCESS in 17m 39s\n- check-grenade-dsvm http://logs.openstack.org/96/61596/3/check/check-grenade-dsvm/e040b40 : SUCCESS in 31m 15s\n",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "bc1c4f59d542330d3611d08a6c5d8ba83ceef6fa",
+            "author": {
+                "_account_id": 6593,
+                "name": "Dirk Mueller",
+                "email": "dirk@dmllr.de",
+                "username": "dmllr"
+            },
+            "real_author": {
+                "_account_id": 6593,
+                "name": "Dirk Mueller",
+                "email": "dirk@dmllr.de",
+                "username": "dmllr"
+            },
+            "date": "2013-12-24 00:02:27.000000000",
+            "message": "Patch Set 3:\n\nreverify no bug",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "8951bc48321485f58bba442308ca365f5b73e6f0",
+            "author": {
+                "_account_id": 6593,
+                "name": "Dirk Mueller",
+                "email": "dirk@dmllr.de",
+                "username": "dmllr"
+            },
+            "real_author": {
+                "_account_id": 6593,
+                "name": "Dirk Mueller",
+                "email": "dirk@dmllr.de",
+                "username": "dmllr"
+            },
+            "date": "2013-12-24 00:02:41.000000000",
+            "message": "Patch Set 3:\n\nrecheck no bug",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "c7047e9572060b0c5813c5bfec3c7a159bec71b5",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2013-12-24 00:51:53.000000000",
+            "message": "Patch Set 3:\n\nBuild failed.  For information on how to proceed, see https://wiki.openstack.org/wiki/GerritJenkinsGit#Test_Failures\n\n- gate-glance-pep8 http://logs.openstack.org/96/61596/3/check/gate-glance-pep8/51c9eb2 : SUCCESS in 1m 25s\n- gate-glance-docs http://docs-draft.openstack.org/96/61596/3/check/gate-glance-docs/12efe19/doc/build/html/ : SUCCESS in 1m 35s\n- gate-glance-python26 http://logs.openstack.org/96/61596/3/check/gate-glance-python26/1e4e560 : SUCCESS in 9m 38s\n- gate-glance-python27 http://logs.openstack.org/96/61596/3/check/gate-glance-python27/43ec85d : SUCCESS in 8m 58s\n- check-tempest-dsvm-full http://logs.openstack.org/96/61596/3/check/check-tempest-dsvm-full/41f765b : SUCCESS in 43m 22s\n- check-tempest-dsvm-postgres-full http://logs.openstack.org/96/61596/3/check/check-tempest-dsvm-postgres-full/18d3d71 : SUCCESS in 48m 57s\n- check-tempest-dsvm-neutron http://logs.openstack.org/96/61596/3/check/check-tempest-dsvm-neutron/e76425f : SUCCESS in 40m 47s\n- gate-tempest-dsvm-large-ops http://logs.openstack.org/96/61596/3/check/gate-tempest-dsvm-large-ops/ec0b3bc : SUCCESS in 15m 54s\n- gate-tempest-dsvm-neutron-large-ops http://logs.openstack.org/96/61596/3/check/gate-tempest-dsvm-neutron-large-ops/c4d5770 : SUCCESS in 17m 22s\n- check-grenade-dsvm http://logs.openstack.org/96/61596/3/check/check-grenade-dsvm/9dbccd2 : FAILURE in 15m 33s\n",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "d86100e9746039988383df679dcb515ea253b4f6",
+            "author": {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            "real_author": {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            "date": "2013-12-24 00:53:29.000000000",
+            "message": "Patch Set 3: Approved\n\nThe jenkins error was clearly not a problem with the patch.",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "b93b5f08677ccd5a2fe40bdc2a5c9bce1999f39f",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2013-12-24 00:53:30.000000000",
+            "message": "Patch Set 3: No score\n\nStarting gate jobs.\nhttp://status.openstack.org/zuul/",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "e50022b09b96f55613e6f6263a603a7e10b35bd8",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2013-12-24 03:49:30.000000000",
+            "message": "Patch Set 3: Fails\n\nBuild failed.  For information on how to proceed, see https://wiki.openstack.org/wiki/GerritJenkinsGit#Test_Failures\n\n- gate-glance-docs http://docs-draft.openstack.org/96/61596/3/gate/gate-glance-docs/e82482d/doc/build/html/ : SUCCESS in 2m 35s\n- gate-glance-pep8 http://logs.openstack.org/96/61596/3/gate/gate-glance-pep8/351857a : SUCCESS in 2m 20s\n- gate-glance-python26 http://logs.openstack.org/96/61596/3/gate/gate-glance-python26/eab7836 : SUCCESS in 12m 03s\n- gate-glance-python27 http://logs.openstack.org/96/61596/3/gate/gate-glance-python27/1dece64 : SUCCESS in 14m 07s\n- gate-tempest-dsvm-full http://logs.openstack.org/96/61596/3/gate/gate-tempest-dsvm-full/0aebb85 : SUCCESS in 40m 42s\n- gate-tempest-dsvm-postgres-full http://logs.openstack.org/96/61596/3/gate/gate-tempest-dsvm-postgres-full/3603ca0 : SUCCESS in 48m 16s\n- gate-tempest-dsvm-neutron http://logs.openstack.org/96/61596/3/gate/gate-tempest-dsvm-neutron/f95830a : SUCCESS in 34m 22s\n- gate-tempest-dsvm-large-ops http://logs.openstack.org/96/61596/3/gate/gate-tempest-dsvm-large-ops/8634c04 : SUCCESS in 14m 36s\n- gate-tempest-dsvm-neutron-large-ops http://logs.openstack.org/96/61596/3/gate/gate-tempest-dsvm-neutron-large-ops/44414d6 : SUCCESS in 16m 01s\n- gate-grenade-dsvm http://logs.openstack.org/96/61596/3/gate/gate-grenade-dsvm/f7673f6 : FAILURE in 12m 52s\n",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "6dbd0667a7dbe798171b2b9757eaeb375d8b2b4d",
+            "author": {
+                "_account_id": 6593,
+                "name": "Dirk Mueller",
+                "email": "dirk@dmllr.de",
+                "username": "dmllr"
+            },
+            "real_author": {
+                "_account_id": 6593,
+                "name": "Dirk Mueller",
+                "email": "dirk@dmllr.de",
+                "username": "dmllr"
+            },
+            "date": "2013-12-24 10:20:52.000000000",
+            "message": "Patch Set 3:\n\nreverify no bug",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "5a8bfb856b09ac5695540c3d96e3c029ac9f7f03",
+            "author": {
+                "_account_id": 6484,
+                "name": "Feilong Wang",
+                "email": "hustemb@gmail.com",
+                "username": "flwang"
+            },
+            "real_author": {
+                "_account_id": 6484,
+                "name": "Feilong Wang",
+                "email": "hustemb@gmail.com",
+                "username": "flwang"
+            },
+            "date": "2013-12-26 07:38:09.000000000",
+            "message": "Patch Set 3:\n\nreverify no bug",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "b68ede90e3e6d783f6acfb05b75f28ec4ede91c2",
+            "author": {
+                "_account_id": 7884,
+                "name": "Noboru Arai",
+                "email": "arai@mxa.nes.nec.co.jp",
+                "username": "NoboruArai"
+            },
+            "real_author": {
+                "_account_id": 7884,
+                "name": "Noboru Arai",
+                "email": "arai@mxa.nes.nec.co.jp",
+                "username": "NoboruArai"
+            },
+            "date": "2013-12-27 06:03:54.000000000",
+            "message": "Patch Set 3:\n\nreverify bug 1263105",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "1760bb17f5af888b8fbd6a355645054ea578fe21",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2013-12-27 06:03:55.000000000",
+            "message": "Patch Set 3: No score\n\nStarting gate jobs.\nhttp://status.openstack.org/zuul/",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "e879bd129fb4d9a3fcb0e686cae39ca94862f8d2",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2013-12-27 07:05:15.000000000",
+            "message": "Patch Set 3: Verified\n\nBuild succeeded.\n\n- gate-glance-docs http://docs-draft.openstack.org/96/61596/3/gate/gate-glance-docs/377dea8/doc/build/html/ : SUCCESS in 2m 10s\n- gate-glance-pep8 http://logs.openstack.org/96/61596/3/gate/gate-glance-pep8/7ea5984 : SUCCESS in 2m 09s\n- gate-glance-python26 http://logs.openstack.org/96/61596/3/gate/gate-glance-python26/eb009e5 : SUCCESS in 12m 46s\n- gate-glance-python27 http://logs.openstack.org/96/61596/3/gate/gate-glance-python27/85e7950 : SUCCESS in 13m 13s\n- gate-tempest-dsvm-full http://logs.openstack.org/96/61596/3/gate/gate-tempest-dsvm-full/6ce6a2a : SUCCESS in 1h 00m 11s\n- gate-tempest-dsvm-postgres-full http://logs.openstack.org/96/61596/3/gate/gate-tempest-dsvm-postgres-full/5807aa2 : SUCCESS in 45m 02s\n- gate-tempest-dsvm-neutron http://logs.openstack.org/96/61596/3/gate/gate-tempest-dsvm-neutron/838c8b7 : SUCCESS in 35m 28s\n- gate-tempest-dsvm-large-ops http://logs.openstack.org/96/61596/3/gate/gate-tempest-dsvm-large-ops/8f751d2 : SUCCESS in 14m 37s\n- gate-tempest-dsvm-neutron-large-ops http://logs.openstack.org/96/61596/3/gate/gate-tempest-dsvm-neutron-large-ops/249d9ca : SUCCESS in 17m 19s\n- gate-grenade-dsvm http://logs.openstack.org/96/61596/3/gate/gate-grenade-dsvm/0ef14c8 : SUCCESS in 26m 42s\n",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "c484183e9d070a346e64c730ee04594554be8f46",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2013-12-27 07:05:15.000000000",
+            "message": "Change has been successfully merged into the git repository.",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        }
+    ],
+    "requirements": [],
+    "submit_records": []
+}

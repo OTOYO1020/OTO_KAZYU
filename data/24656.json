@@ -1,0 +1,947 @@
+{
+    "id": "openstack%2Fglance~master~Iffd800f62d61bf7608f7be5b23d76d702e6d4064",
+    "project": "openstack/glance",
+    "branch": "master",
+    "topic": "bug/1155749",
+    "hashtags": [],
+    "change_id": "Iffd800f62d61bf7608f7be5b23d76d702e6d4064",
+    "subject": "Remove internal store references from migration 017",
+    "status": "MERGED",
+    "created": "2013-03-18 17:47:17.000000000",
+    "updated": "2013-04-04 10:40:27.000000000",
+    "submitted": "2013-04-04 10:40:27.000000000",
+    "submitter": {
+        "_account_id": 3,
+        "name": "Jenkins",
+        "username": "jenkins"
+    },
+    "insertions": 60,
+    "deletions": 35,
+    "total_comment_count": 3,
+    "unresolved_comment_count": 0,
+    "has_review_started": true,
+    "meta_rev_id": "eda87c4829e366fdbfa79e5dc6faeb5044bf6a20",
+    "_number": 24656,
+    "owner": {
+        "_account_id": 6493,
+        "name": "John Bresnahan",
+        "email": "john@bresnahan.me",
+        "username": "jbresnah"
+    },
+    "labels": {
+        "Verified": {
+            "approved": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "recommended": {
+                "_account_id": 2166,
+                "name": "SmokeStack CI",
+                "username": "smokestack",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 1132,
+                    "name": "Brian Waldon",
+                    "email": "brian@waldon.cc",
+                    "username": "bcwaldon"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 5196,
+                    "name": "Matthew Treinish",
+                    "email": "mtreinish@kortar.org",
+                    "username": "treinish"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 2284,
+                    "name": "Eoghan Glynn",
+                    "email": "eglynn@redhat.com",
+                    "username": "eglynn"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 6493,
+                    "name": "John Bresnahan",
+                    "email": "john@bresnahan.me",
+                    "username": "jbresnah"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 6159,
+                    "name": "Flavio Percoco",
+                    "display_name": "flaper87",
+                    "email": "fpercoco@redhat.com",
+                    "username": "flaper87"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 616,
+                    "name": "Mark Washenberger",
+                    "email": "mark.washenberger@markwash.net",
+                    "username": "markwash"
+                },
+                {
+                    "value": 1,
+                    "date": "2013-03-22 01:48:41.000000000",
+                    "_account_id": 2166,
+                    "name": "SmokeStack CI",
+                    "username": "smokestack",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 2,
+                    "date": "2013-04-04 10:40:27.000000000",
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-2": "Fails",
+                "-1": "Doesn't seem to work",
+                " 0": "No score",
+                "+1": "Works for me",
+                "+2": "Verified"
+            },
+            "description": "",
+            "value": 1,
+            "default_value": 0,
+            "optional": true
+        },
+        "Code-Review": {
+            "approved": {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            "recommended": {
+                "_account_id": 6159,
+                "name": "Flavio Percoco",
+                "display_name": "flaper87",
+                "email": "fpercoco@redhat.com",
+                "username": "flaper87"
+            },
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 1132,
+                    "name": "Brian Waldon",
+                    "email": "brian@waldon.cc",
+                    "username": "bcwaldon"
+                },
+                {
+                    "value": 1,
+                    "date": "2013-04-04 01:11:14.000000000",
+                    "permitted_voting_range": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "_account_id": 5196,
+                    "name": "Matthew Treinish",
+                    "email": "mtreinish@kortar.org",
+                    "username": "treinish"
+                },
+                {
+                    "value": 0,
+                    "date": "2013-04-04 10:00:22.000000000",
+                    "permitted_voting_range": {
+                        "min": 0,
+                        "max": 1
+                    },
+                    "_account_id": 2284,
+                    "name": "Eoghan Glynn",
+                    "email": "eglynn@redhat.com",
+                    "username": "eglynn"
+                },
+                {
+                    "value": 0,
+                    "date": "2013-03-22 18:48:20.000000000",
+                    "permitted_voting_range": {
+                        "min": 0,
+                        "max": 1
+                    },
+                    "_account_id": 6493,
+                    "name": "John Bresnahan",
+                    "email": "john@bresnahan.me",
+                    "username": "jbresnah"
+                },
+                {
+                    "value": 1,
+                    "date": "2013-03-26 22:03:16.000000000",
+                    "permitted_voting_range": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "_account_id": 6159,
+                    "name": "Flavio Percoco",
+                    "display_name": "flaper87",
+                    "email": "fpercoco@redhat.com",
+                    "username": "flaper87"
+                },
+                {
+                    "value": 2,
+                    "date": "2013-03-25 18:23:57.000000000",
+                    "_account_id": 616,
+                    "name": "Mark Washenberger",
+                    "email": "mark.washenberger@markwash.net",
+                    "username": "markwash"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 2166,
+                    "name": "SmokeStack CI",
+                    "username": "smokestack",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 0,
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-2": "Do not merge",
+                "-1": "This patch needs further work before it can be merged",
+                " 0": "No score",
+                "+1": "Looks good to me, but someone else must approve",
+                "+2": "Looks good to me (core reviewer)"
+            },
+            "description": "",
+            "value": 1,
+            "default_value": 0,
+            "optional": true
+        },
+        "Workflow": {
+            "approved": {
+                "_account_id": 2284,
+                "name": "Eoghan Glynn",
+                "email": "eglynn@redhat.com",
+                "username": "eglynn"
+            },
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 1132,
+                    "name": "Brian Waldon",
+                    "email": "brian@waldon.cc",
+                    "username": "bcwaldon"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 5196,
+                    "name": "Matthew Treinish",
+                    "email": "mtreinish@kortar.org",
+                    "username": "treinish"
+                },
+                {
+                    "value": 1,
+                    "date": "2013-04-04 10:00:22.000000000",
+                    "_account_id": 2284,
+                    "name": "Eoghan Glynn",
+                    "email": "eglynn@redhat.com",
+                    "username": "eglynn"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 6493,
+                    "name": "John Bresnahan",
+                    "email": "john@bresnahan.me",
+                    "username": "jbresnah"
+                },
+                {
+                    "value": 0,
+                    "date": "2013-03-22 21:43:50.000000000",
+                    "_account_id": 6159,
+                    "name": "Flavio Percoco",
+                    "display_name": "flaper87",
+                    "email": "fpercoco@redhat.com",
+                    "username": "flaper87"
+                },
+                {
+                    "value": 0,
+                    "date": "2013-03-22 16:53:51.000000000",
+                    "_account_id": 616,
+                    "name": "Mark Washenberger",
+                    "email": "mark.washenberger@markwash.net",
+                    "username": "markwash"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 2166,
+                    "name": "SmokeStack CI",
+                    "username": "smokestack",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 0,
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-1": "Work in progress",
+                " 0": "Ready for reviews",
+                "+1": "Approved"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        },
+        "Review-Priority": {
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 1132,
+                    "name": "Brian Waldon",
+                    "email": "brian@waldon.cc",
+                    "username": "bcwaldon"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 5196,
+                    "name": "Matthew Treinish",
+                    "email": "mtreinish@kortar.org",
+                    "username": "treinish"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 2284,
+                    "name": "Eoghan Glynn",
+                    "email": "eglynn@redhat.com",
+                    "username": "eglynn"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 6493,
+                    "name": "John Bresnahan",
+                    "email": "john@bresnahan.me",
+                    "username": "jbresnah"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 6159,
+                    "name": "Flavio Percoco",
+                    "display_name": "flaper87",
+                    "email": "fpercoco@redhat.com",
+                    "username": "flaper87"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 616,
+                    "name": "Mark Washenberger",
+                    "email": "mark.washenberger@markwash.net",
+                    "username": "markwash"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 2166,
+                    "name": "SmokeStack CI",
+                    "username": "smokestack",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 0,
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-1": "Branch Freeze",
+                " 0": "No Priority",
+                "+1": "Important Change",
+                "+2": "Top Priority / Holds Gate"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        }
+    },
+    "removable_reviewers": [],
+    "reviewers": {
+        "REVIEWER": [
+            {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            {
+                "_account_id": 2166,
+                "name": "SmokeStack CI",
+                "username": "smokestack",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            {
+                "_account_id": 2284,
+                "name": "Eoghan Glynn",
+                "email": "eglynn@redhat.com",
+                "username": "eglynn"
+            },
+            {
+                "_account_id": 5196,
+                "name": "Matthew Treinish",
+                "email": "mtreinish@kortar.org",
+                "username": "treinish"
+            },
+            {
+                "_account_id": 6159,
+                "name": "Flavio Percoco",
+                "display_name": "flaper87",
+                "email": "fpercoco@redhat.com",
+                "username": "flaper87"
+            },
+            {
+                "_account_id": 6493,
+                "name": "John Bresnahan",
+                "email": "john@bresnahan.me",
+                "username": "jbresnah"
+            }
+        ]
+    },
+    "pending_reviewers": {},
+    "reviewer_updates": [
+        {
+            "updated": "2013-03-19 19:03:10.000000000",
+            "updated_by": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "reviewer": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2013-03-22 01:48:41.000000000",
+            "updated_by": {
+                "_account_id": 2166,
+                "name": "SmokeStack CI",
+                "username": "smokestack",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "reviewer": {
+                "_account_id": 2166,
+                "name": "SmokeStack CI",
+                "username": "smokestack",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2013-03-22 16:53:51.000000000",
+            "updated_by": {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            "reviewer": {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2013-03-22 21:43:50.000000000",
+            "updated_by": {
+                "_account_id": 6159,
+                "name": "Flavio Percoco",
+                "display_name": "flaper87",
+                "email": "fpercoco@redhat.com",
+                "username": "flaper87"
+            },
+            "reviewer": {
+                "_account_id": 6159,
+                "name": "Flavio Percoco",
+                "display_name": "flaper87",
+                "email": "fpercoco@redhat.com",
+                "username": "flaper87"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2013-04-04 01:11:14.000000000",
+            "updated_by": {
+                "_account_id": 5196,
+                "name": "Matthew Treinish",
+                "email": "mtreinish@kortar.org",
+                "username": "treinish"
+            },
+            "reviewer": {
+                "_account_id": 5196,
+                "name": "Matthew Treinish",
+                "email": "mtreinish@kortar.org",
+                "username": "treinish"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2013-04-04 10:00:22.000000000",
+            "updated_by": {
+                "_account_id": 2284,
+                "name": "Eoghan Glynn",
+                "email": "eglynn@redhat.com",
+                "username": "eglynn"
+            },
+            "reviewer": {
+                "_account_id": 2284,
+                "name": "Eoghan Glynn",
+                "email": "eglynn@redhat.com",
+                "username": "eglynn"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2013-04-04 10:40:27.000000000",
+            "updated_by": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "reviewer": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "state": "REVIEWER"
+        }
+    ],
+    "messages": [
+        {
+            "id": "7007379ab1b7d9ca24c0953e3c0f821e50350cb7",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2013-03-18 18:32:15.000000000",
+            "message": "Patch Set 1: Doesn't seem to work\n\nBuild failed.  For information on how to proceed, see https://wiki.openstack.org/wiki/GerritJenkinsGithub#Test_Failures\n\n- http://logs.openstack.org/24656/1/check/gate-glance-pep8/4207 : SUCCESS\n- http://logs.openstack.org/24656/1/check/gate-glance-docs/2243 : SUCCESS\n- http://logs.openstack.org/24656/1/check/gate-glance-python26/3663 : FAILURE\n- http://logs.openstack.org/24656/1/check/gate-glance-python27/3693 : FAILURE\n- http://logs.openstack.org/24656/1/check/gate-tempest-devstack-vm-full/9368 : FAILURE\n- http://logs.openstack.org/24656/1/check/gate-tempest-devstack-vm-postgres-full/9083 : FAILURE\n- http://logs.openstack.org/24656/1/check/gate-tempest-devstack-vm-quantum/14732 : FAILURE\n",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "0ed43f215cab138f63fbb6c470584cfcbccbf745",
+            "author": {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            "real_author": {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            "date": "2013-03-19 17:14:57.000000000",
+            "message": "Patch Set 1:\n\nrecheck no bug",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "19fac7527bd1a6743de4b7b3ab058d80cc557656",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2013-03-19 18:00:01.000000000",
+            "message": "Patch Set 1:\n\nBuild failed.  For information on how to proceed, see https://wiki.openstack.org/wiki/GerritJenkinsGithub#Test_Failures\n\n- http://logs.openstack.org/24656/1/check/gate-glance-pep8/4216 : SUCCESS\n- http://logs.openstack.org/24656/1/check/gate-glance-docs/2252 : SUCCESS\n- http://logs.openstack.org/24656/1/check/gate-glance-python26/3672 : FAILURE\n- http://logs.openstack.org/24656/1/check/gate-glance-python27/3702 : FAILURE\n- http://logs.openstack.org/24656/1/check/gate-tempest-devstack-vm-full/9535 : FAILURE\n- http://logs.openstack.org/24656/1/check/gate-tempest-devstack-vm-postgres-full/9250 : FAILURE\n- http://logs.openstack.org/24656/1/check/gate-tempest-devstack-vm-quantum/14928 : FAILURE\n",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "7e17f02a3f8411c0e9629bdffe54ed923bd1af96",
+            "author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "real_author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "date": "2013-03-19 19:03:10.000000000",
+            "message": "Patch Set 1:\n\nrecheck jenkins timeout",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "b3880fdceea9330f2e3e48611871f2caf70f96a0",
+            "author": {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            "real_author": {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            "date": "2013-03-19 20:17:08.000000000",
+            "message": "Patch Set 1: Do not merge\n\nIt seems like there are some changes to v2 filtering that would be better separated to a different patchset.",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "a32b2852ddecbe93eca1ceb6b9c7e817f52c5089",
+            "author": {
+                "_account_id": 6493,
+                "name": "John Bresnahan",
+                "email": "john@bresnahan.me",
+                "username": "jbresnah"
+            },
+            "real_author": {
+                "_account_id": 6493,
+                "name": "John Bresnahan",
+                "email": "john@bresnahan.me",
+                "username": "jbresnah"
+            },
+            "date": "2013-03-20 01:46:19.000000000",
+            "message": "Patch Set 1:\n\nMark can you elaborate?",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "0b4857fa94d4eb9a7fc3bea77a093ed8942c3ba0",
+            "author": {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            "real_author": {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            "date": "2013-03-21 21:44:32.000000000",
+            "message": "Patch Set 1: (2 inline comments)\n\nSure, see inline.",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "3e85cdb19af237615f013d1d08aeb7c204470b68",
+            "author": {
+                "_account_id": 6493,
+                "name": "John Bresnahan",
+                "email": "john@bresnahan.me",
+                "username": "jbresnah"
+            },
+            "real_author": {
+                "_account_id": 6493,
+                "name": "John Bresnahan",
+                "email": "john@bresnahan.me",
+                "username": "jbresnah"
+            },
+            "date": "2013-03-22 01:07:02.000000000",
+            "message": "Patch Set 1:\n\nwow... that should have been quite obvious.  sorry about that.",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "af72cf65985f8ea083eaa957c1813faf1ca57bd7",
+            "author": {
+                "_account_id": 6493,
+                "name": "John Bresnahan",
+                "email": "john@bresnahan.me",
+                "username": "jbresnah"
+            },
+            "real_author": {
+                "_account_id": 6493,
+                "name": "John Bresnahan",
+                "email": "john@bresnahan.me",
+                "username": "jbresnah"
+            },
+            "date": "2013-03-22 01:31:39.000000000",
+            "message": "Uploaded patch set 2.",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "f45bc6f8ba17c46fcb4210c883093a1d6b3c79c3",
+            "author": {
+                "_account_id": 2166,
+                "name": "SmokeStack CI",
+                "username": "smokestack",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 2166,
+                "name": "SmokeStack CI",
+                "username": "smokestack",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2013-03-22 01:48:41.000000000",
+            "message": "Patch Set 2: Works for me\n\nSmokeStack Results (patch set 2):\n\tLibvirt (Fedora 18) Success: http://smokestack.openstack.org/?go=/jobs/79365\n\tXenServer 5.6 (F18 domU) Success: http://smokestack.openstack.org/?go=/jobs/79366\n",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "f2abbb8a9da678d08868f4ef1b96d52697e5afc7",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2013-03-22 02:10:57.000000000",
+            "message": "Patch Set 2: Doesn't seem to work\n\nBuild failed.  For information on how to proceed, see https://wiki.openstack.org/wiki/GerritJenkinsGithub#Test_Failures\n\n- http://logs.openstack.org/24656/2/check/gate-glance-pep8/4242 : SUCCESS\n- http://logs.openstack.org/24656/2/check/gate-glance-docs/2277 : SUCCESS\n- http://logs.openstack.org/24656/2/check/gate-glance-python26/3697 : FAILURE\n- http://logs.openstack.org/24656/2/check/gate-glance-python26-rhel6/9 : FAILURE (non-voting)\n- http://logs.openstack.org/24656/2/check/gate-glance-python27/3727 : SUCCESS\n- http://logs.openstack.org/24656/2/check/gate-tempest-devstack-vm-full/9980 : SUCCESS\n- http://logs.openstack.org/24656/2/check/gate-tempest-devstack-vm-postgres-full/9695 : SUCCESS\n- http://logs.openstack.org/24656/2/check/gate-tempest-devstack-vm-quantum/15449 : SUCCESS\n",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "9a4c7bc9991e772c291cf394f4367f248ef84902",
+            "author": {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            "real_author": {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            "date": "2013-03-22 16:53:51.000000000",
+            "message": "Patch Set 2: No score\n\n",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "57b5341121a152676f434ee557caf10c97a14399",
+            "author": {
+                "_account_id": 6493,
+                "name": "John Bresnahan",
+                "email": "john@bresnahan.me",
+                "username": "jbresnah"
+            },
+            "real_author": {
+                "_account_id": 6493,
+                "name": "John Bresnahan",
+                "email": "john@bresnahan.me",
+                "username": "jbresnah"
+            },
+            "date": "2013-03-22 18:48:20.000000000",
+            "message": "Patch Set 2:\n\nrecheck",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "147b085142ee154c6d569b8bd22014d485c17c1d",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2013-03-22 19:28:29.000000000",
+            "message": "Patch Set 2: Works for me\n\nBuild succeeded.\n\n- http://logs.openstack.org/24656/2/check/gate-glance-pep8/4257 : SUCCESS\n- http://logs.openstack.org/24656/2/check/gate-glance-docs/2290 : SUCCESS\n- http://logs.openstack.org/24656/2/check/gate-glance-python26/3710 : SUCCESS\n- http://logs.openstack.org/24656/2/check/gate-glance-python26-rhel6/22 : FAILURE (non-voting)\n- http://logs.openstack.org/24656/2/check/gate-glance-python27/3740 : SUCCESS\n- http://logs.openstack.org/24656/2/check/gate-tempest-devstack-vm-full/10100 : SUCCESS\n- http://logs.openstack.org/24656/2/check/gate-tempest-devstack-vm-postgres-full/9815 : SUCCESS\n- http://logs.openstack.org/24656/2/check/gate-tempest-devstack-vm-quantum/15581 : SUCCESS\n",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "3a2a72454f5c9c87b454c4b720187d1ed145c179",
+            "author": {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            "real_author": {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            "date": "2013-03-25 18:23:57.000000000",
+            "message": "Patch Set 2: Looks good to me (core reviewer)\n\n",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "479b6014b380b4d370d5f36b356ebdc66637e4bc",
+            "author": {
+                "_account_id": 6159,
+                "name": "Flavio Percoco",
+                "display_name": "flaper87",
+                "email": "fpercoco@redhat.com",
+                "username": "flaper87"
+            },
+            "real_author": {
+                "_account_id": 6159,
+                "name": "Flavio Percoco",
+                "display_name": "flaper87",
+                "email": "fpercoco@redhat.com",
+                "username": "flaper87"
+            },
+            "date": "2013-03-26 22:03:16.000000000",
+            "message": "Patch Set 2: Looks good to me, but someone else must approve\n\n",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "fb6a88a15033f52097aad4ee89a48decb0a69f21",
+            "author": {
+                "_account_id": 5196,
+                "name": "Matthew Treinish",
+                "email": "mtreinish@kortar.org",
+                "username": "treinish"
+            },
+            "real_author": {
+                "_account_id": 5196,
+                "name": "Matthew Treinish",
+                "email": "mtreinish@kortar.org",
+                "username": "treinish"
+            },
+            "date": "2013-04-04 01:11:14.000000000",
+            "message": "Patch Set 2: Looks good to me, but someone else must approve\n\n",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "fe76aaf55f3ab00f1bf11fa938bdc1c21c8562cf",
+            "author": {
+                "_account_id": 2284,
+                "name": "Eoghan Glynn",
+                "email": "eglynn@redhat.com",
+                "username": "eglynn"
+            },
+            "real_author": {
+                "_account_id": 2284,
+                "name": "Eoghan Glynn",
+                "email": "eglynn@redhat.com",
+                "username": "eglynn"
+            },
+            "date": "2013-04-04 10:00:22.000000000",
+            "message": "Patch Set 2: Approved\n\n(1 inline comment)\n\nOne tiny non-blocking nit-pick inline, otherwise all good!\n\nCheers,\nEoghan",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "640113435ab3242861241f5b1e0fa40487ad5aa2",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2013-04-04 10:00:23.000000000",
+            "message": "Patch Set 2: No score\n\nStarting gate jobs.\nhttp://status.openstack.org/zuul/",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "63864e11971aec5f39a97109f0c90e1e9b6dc543",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2013-04-04 10:40:27.000000000",
+            "message": "Patch Set 2: Verified\n\nBuild succeeded.\n\n- http://logs.openstack.org/24656/2/gate/gate-glance-docs/2400 : SUCCESS\n- http://logs.openstack.org/24656/2/gate/gate-glance-pep8/4369 : SUCCESS\n- http://logs.openstack.org/24656/2/gate/gate-glance-python26/3818 : SUCCESS\n- http://logs.openstack.org/24656/2/gate/gate-glance-python27/3849 : SUCCESS\n- http://logs.openstack.org/24656/2/gate/gate-tempest-devstack-vm-full/11559 : SUCCESS\n- http://logs.openstack.org/24656/2/gate/gate-tempest-devstack-vm-postgres-full/11274 : SUCCESS\n- http://logs.openstack.org/24656/2/gate/gate-tempest-devstack-vm-quantum/17271 : SUCCESS\n",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "d17b005a34756e1368f3eac7bebbdaecac12597a",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2013-04-04 10:40:27.000000000",
+            "message": "Change has been successfully merged into the git repository.",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        }
+    ],
+    "requirements": [],
+    "submit_records": []
+}

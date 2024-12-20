@@ -1,0 +1,943 @@
+{
+    "id": "openstack%2Fglance~master~I8a13b8c302b13ba219b1edcc128d02481ed7666e",
+    "project": "openstack/glance",
+    "branch": "master",
+    "topic": "bug/1039897",
+    "hashtags": [],
+    "change_id": "I8a13b8c302b13ba219b1edcc128d02481ed7666e",
+    "subject": "Delete image from backend store on delete.",
+    "status": "MERGED",
+    "created": "2012-08-27 21:29:28.000000000",
+    "updated": "2012-09-03 21:11:09.000000000",
+    "submitted": "2012-09-03 21:11:09.000000000",
+    "submitter": {
+        "_account_id": 3,
+        "name": "Jenkins",
+        "username": "jenkins"
+    },
+    "insertions": 109,
+    "deletions": 40,
+    "total_comment_count": 5,
+    "unresolved_comment_count": 0,
+    "has_review_started": true,
+    "meta_rev_id": "8ff5dba7a499beb00eaffbc44f3d118e5926cd15",
+    "_number": 12022,
+    "owner": {
+        "_account_id": 5387,
+        "name": "Andrew Melton",
+        "email": "andrew.melton@rackspace.com",
+        "username": "andrew-melton"
+    },
+    "labels": {
+        "Verified": {
+            "approved": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "recommended": {
+                "_account_id": 2166,
+                "name": "SmokeStack CI",
+                "username": "smokestack",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 1132,
+                    "name": "Brian Waldon",
+                    "email": "brian@waldon.cc",
+                    "username": "bcwaldon"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 616,
+                    "name": "Mark Washenberger",
+                    "email": "mark.washenberger@markwash.net",
+                    "username": "markwash"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 5387,
+                    "name": "Andrew Melton",
+                    "email": "andrew.melton@rackspace.com",
+                    "username": "andrew-melton"
+                },
+                {
+                    "value": 1,
+                    "date": "2012-09-03 20:25:50.000000000",
+                    "_account_id": 2166,
+                    "name": "SmokeStack CI",
+                    "username": "smokestack",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 0,
+                    "_account_id": 177,
+                    "name": "Alex Meade",
+                    "email": "mr.alex.meade@gmail.com",
+                    "username": "alex-meade"
+                },
+                {
+                    "value": 2,
+                    "date": "2012-09-03 21:11:09.000000000",
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-2": "Fails",
+                "-1": "Doesn't seem to work",
+                " 0": "No score",
+                "+1": "Works for me",
+                "+2": "Verified"
+            },
+            "description": "",
+            "value": 1,
+            "default_value": 0,
+            "optional": true
+        },
+        "Code-Review": {
+            "approved": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "all": [
+                {
+                    "value": 2,
+                    "date": "2012-09-03 20:07:40.000000000",
+                    "_account_id": 1132,
+                    "name": "Brian Waldon",
+                    "email": "brian@waldon.cc",
+                    "username": "bcwaldon"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 616,
+                    "name": "Mark Washenberger",
+                    "email": "mark.washenberger@markwash.net",
+                    "username": "markwash"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 5387,
+                    "name": "Andrew Melton",
+                    "email": "andrew.melton@rackspace.com",
+                    "username": "andrew-melton"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 2166,
+                    "name": "SmokeStack CI",
+                    "username": "smokestack",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 0,
+                    "_account_id": 177,
+                    "name": "Alex Meade",
+                    "email": "mr.alex.meade@gmail.com",
+                    "username": "alex-meade"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-2": "Do not merge",
+                "-1": "This patch needs further work before it can be merged",
+                " 0": "No score",
+                "+1": "Looks good to me, but someone else must approve",
+                "+2": "Looks good to me (core reviewer)"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        },
+        "Workflow": {
+            "approved": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "all": [
+                {
+                    "value": 1,
+                    "date": "2012-09-03 20:07:40.000000000",
+                    "_account_id": 1132,
+                    "name": "Brian Waldon",
+                    "email": "brian@waldon.cc",
+                    "username": "bcwaldon"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 616,
+                    "name": "Mark Washenberger",
+                    "email": "mark.washenberger@markwash.net",
+                    "username": "markwash"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 5387,
+                    "name": "Andrew Melton",
+                    "email": "andrew.melton@rackspace.com",
+                    "username": "andrew-melton"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 2166,
+                    "name": "SmokeStack CI",
+                    "username": "smokestack",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 0,
+                    "_account_id": 177,
+                    "name": "Alex Meade",
+                    "email": "mr.alex.meade@gmail.com",
+                    "username": "alex-meade"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-1": "Work in progress",
+                " 0": "Ready for reviews",
+                "+1": "Approved"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        },
+        "Review-Priority": {
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 1132,
+                    "name": "Brian Waldon",
+                    "email": "brian@waldon.cc",
+                    "username": "bcwaldon"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 616,
+                    "name": "Mark Washenberger",
+                    "email": "mark.washenberger@markwash.net",
+                    "username": "markwash"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 5387,
+                    "name": "Andrew Melton",
+                    "email": "andrew.melton@rackspace.com",
+                    "username": "andrew-melton"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 2166,
+                    "name": "SmokeStack CI",
+                    "username": "smokestack",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 0,
+                    "_account_id": 177,
+                    "name": "Alex Meade",
+                    "email": "mr.alex.meade@gmail.com",
+                    "username": "alex-meade"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-1": "Branch Freeze",
+                " 0": "No Priority",
+                "+1": "Important Change",
+                "+2": "Top Priority / Holds Gate"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        }
+    },
+    "removable_reviewers": [],
+    "reviewers": {
+        "REVIEWER": [
+            {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            {
+                "_account_id": 177,
+                "name": "Alex Meade",
+                "email": "mr.alex.meade@gmail.com",
+                "username": "alex-meade"
+            },
+            {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            {
+                "_account_id": 2166,
+                "name": "SmokeStack CI",
+                "username": "smokestack",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            {
+                "_account_id": 5387,
+                "name": "Andrew Melton",
+                "email": "andrew.melton@rackspace.com",
+                "username": "andrew-melton"
+            }
+        ]
+    },
+    "pending_reviewers": {},
+    "reviewer_updates": [
+        {
+            "updated": "2012-08-27 21:29:28.000000000",
+            "updated_by": {
+                "_account_id": 177,
+                "name": "Alex Meade",
+                "email": "mr.alex.meade@gmail.com",
+                "username": "alex-meade"
+            },
+            "reviewer": {
+                "_account_id": 177,
+                "name": "Alex Meade",
+                "email": "mr.alex.meade@gmail.com",
+                "username": "alex-meade"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2012-09-03 07:23:16.000000000",
+            "updated_by": {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            "reviewer": {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2012-09-03 20:07:40.000000000",
+            "updated_by": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "reviewer": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2012-09-03 20:25:50.000000000",
+            "updated_by": {
+                "_account_id": 2166,
+                "name": "SmokeStack CI",
+                "username": "smokestack",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "reviewer": {
+                "_account_id": 2166,
+                "name": "SmokeStack CI",
+                "username": "smokestack",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2012-09-03 21:11:09.000000000",
+            "updated_by": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "reviewer": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "state": "REVIEWER"
+        }
+    ],
+    "messages": [
+        {
+            "id": "eb2752dd51a5813d334836814dfb300a37e4bf79",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2012-08-27 21:50:25.000000000",
+            "message": "Patch Set 1: Works for me\n\nBuild successful\n\n- http://logs.openstack.org/12022/1/check/gate-glance-merge/1929 : SUCCESS\n- http://logs.openstack.org/12022/1/check/gate-glance-docs/107 : SUCCESS\n- http://logs.openstack.org/12022/1/check/gate-glance-pep8/2041 : SUCCESS\n- http://logs.openstack.org/12022/1/check/gate-glance-python26/1548 : SUCCESS\n- http://logs.openstack.org/12022/1/check/gate-glance-python27/1552 : SUCCESS\n- http://logs.openstack.org/12022/1/check/gate-tempest-devstack-vm/9388 : SUCCESS\n",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "fc292babd7c8f42045cc2447dc46a4b282a8e054",
+            "author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "real_author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "date": "2012-08-28 01:14:59.000000000",
+            "message": "Patch Set 1: (5 inline comments)\n\nWhile not optimal, this is an appropriate fix for now. You need to tidy up the spacing/formatting of your code in a few places. I made some explicit comments but please take what I pointed out and apply it across your whole patch.",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "f600e6f267e93d7eaf9c267a75805535b8bf1454",
+            "author": {
+                "_account_id": 2166,
+                "name": "SmokeStack CI",
+                "username": "smokestack",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 2166,
+                "name": "SmokeStack CI",
+                "username": "smokestack",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2012-08-28 02:57:03.000000000",
+            "message": "Patch Set 1: Works for me\n\nSmokeStack Results (patch set 1):\n\tUnit Success: http://smokestack.openstack.org/?go=/jobs/31789\n\tLibvirt (Fedora 17) Success: http://smokestack.openstack.org/?go=/jobs/31787\n\tXenServer 5.6 (F17 domU) Success: http://smokestack.openstack.org/?go=/jobs/31788\n",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "c089a17b4542e6f1976895e8136277db0a19a6f5",
+            "author": {
+                "_account_id": 5387,
+                "name": "Andrew Melton",
+                "email": "andrew.melton@rackspace.com",
+                "username": "andrew-melton"
+            },
+            "real_author": {
+                "_account_id": 5387,
+                "name": "Andrew Melton",
+                "email": "andrew.melton@rackspace.com",
+                "username": "andrew-melton"
+            },
+            "date": "2012-08-28 15:11:02.000000000",
+            "message": "Uploaded patch set 2.",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "f5dffefdd0bcd65a9a2ea86ab39bcc3cab88b3d8",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2012-08-28 15:26:51.000000000",
+            "message": "Patch Set 2: Doesn't seem to work\n\nBuild failed\n\n- http://logs.openstack.org/12022/2/check/gate-glance-merge/1945 : SUCCESS\n- http://logs.openstack.org/12022/2/check/gate-glance-docs/123 : SUCCESS\n- http://logs.openstack.org/12022/2/check/gate-glance-pep8/2057 : SUCCESS\n- http://logs.openstack.org/12022/2/check/gate-glance-python26/1564 : FAILURE\n- http://logs.openstack.org/12022/2/check/gate-glance-python27/1568 : SUCCESS\n- http://logs.openstack.org/12022/2/check/gate-tempest-devstack-vm/9460 : SUCCESS\n",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "147e024688794a8bda8688ee7d7ae9ec20c1f763",
+            "author": {
+                "_account_id": 2166,
+                "name": "SmokeStack CI",
+                "username": "smokestack",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 2166,
+                "name": "SmokeStack CI",
+                "username": "smokestack",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2012-08-28 15:27:39.000000000",
+            "message": "Patch Set 2: Works for me\n\nSmokeStack Results (patch set 2):\n\tUnit Success: http://smokestack.openstack.org/?go=/jobs/31942\n\tLibvirt (Fedora 17) Success: http://smokestack.openstack.org/?go=/jobs/31940\n\tXenServer 5.6 (F17 domU) Success: http://smokestack.openstack.org/?go=/jobs/31941\n",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "70744759c72301f5e53b90b1a8a836ca2aa8c86c",
+            "author": {
+                "_account_id": 5387,
+                "name": "Andrew Melton",
+                "email": "andrew.melton@rackspace.com",
+                "username": "andrew-melton"
+            },
+            "real_author": {
+                "_account_id": 5387,
+                "name": "Andrew Melton",
+                "email": "andrew.melton@rackspace.com",
+                "username": "andrew-melton"
+            },
+            "date": "2012-08-28 17:26:59.000000000",
+            "message": "Patch Set 2:\n\nrecheck",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "2c67ea75f434cd7c97b5ca4b2372c09ee8e7a454",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2012-08-28 17:47:48.000000000",
+            "message": "Patch Set 2: Works for me\n\nBuild successful\n\n- http://logs.openstack.org/12022/2/check/gate-glance-merge/1953 : SUCCESS\n- http://logs.openstack.org/12022/2/check/gate-glance-docs/131 : SUCCESS\n- http://logs.openstack.org/12022/2/check/gate-glance-pep8/2065 : SUCCESS\n- http://logs.openstack.org/12022/2/check/gate-glance-python26/1572 : SUCCESS\n- http://logs.openstack.org/12022/2/check/gate-glance-python27/1576 : SUCCESS\n- http://logs.openstack.org/12022/2/check/gate-tempest-devstack-vm/9483 : SUCCESS\n",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "ead24accfe5f2bde0e576c23312ed5c005f82f68",
+            "author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "real_author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "date": "2012-08-30 03:37:04.000000000",
+            "message": "Patch Set 2: Looks good to me (core reviewer)\n\nFantastic!",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "978b7056ff2562222fa580cf37ad39f70f41f8d7",
+            "author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "real_author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "date": "2012-08-30 03:38:26.000000000",
+            "message": "Patch Set 2:\n\nThis isn't a blocker, but if you could expand the commit message to explain what you did in more detail that would be great - specifically some discussion on the new functions you created and how images are (scheduled to be) deleted.",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "ed6136c174a2ed0303f3cc65ead254fc10f6356d",
+            "author": {
+                "_account_id": 5387,
+                "name": "Andrew Melton",
+                "email": "andrew.melton@rackspace.com",
+                "username": "andrew-melton"
+            },
+            "real_author": {
+                "_account_id": 5387,
+                "name": "Andrew Melton",
+                "email": "andrew.melton@rackspace.com",
+                "username": "andrew-melton"
+            },
+            "date": "2012-08-30 14:52:45.000000000",
+            "message": "Uploaded patch set 3.",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "2cdedf5e8ed9f4cbb13fd8cdb29ba6b29e8e0036",
+            "author": {
+                "_account_id": 5387,
+                "name": "Andrew Melton",
+                "email": "andrew.melton@rackspace.com",
+                "username": "andrew-melton"
+            },
+            "real_author": {
+                "_account_id": 5387,
+                "name": "Andrew Melton",
+                "email": "andrew.melton@rackspace.com",
+                "username": "andrew-melton"
+            },
+            "date": "2012-08-30 14:57:57.000000000",
+            "message": "Patch Set 3:\n\nOnly change in Patch Set 3 is the amended commit message.",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "ae7cba3b585dc8a9fc052b5dfe73c6d4b9e1e1d6",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2012-08-30 15:08:08.000000000",
+            "message": "Patch Set 3: Works for me\n\nBuild successful\n\n- http://logs.openstack.org/12022/3/check/gate-glance-merge/2014 : SUCCESS\n- http://logs.openstack.org/12022/3/check/gate-glance-docs/192 : SUCCESS\n- http://logs.openstack.org/12022/3/check/gate-glance-pep8/2126 : SUCCESS\n- http://logs.openstack.org/12022/3/check/gate-glance-python26/1633 : SUCCESS\n- http://logs.openstack.org/12022/3/check/gate-glance-python27/1645 : SUCCESS\n- http://logs.openstack.org/12022/3/check/gate-tempest-devstack-vm/9808 : SUCCESS\n",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "88cca68ff79c342b0883384b46f34cf5077e053b",
+            "author": {
+                "_account_id": 2166,
+                "name": "SmokeStack CI",
+                "username": "smokestack",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 2166,
+                "name": "SmokeStack CI",
+                "username": "smokestack",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2012-08-30 15:10:12.000000000",
+            "message": "Patch Set 3: Works for me\n\nSmokeStack Results (patch set 3):\n\tUnit Success: http://smokestack.openstack.org/?go=/jobs/32392\n\tLibvirt (Fedora 17) Success: http://smokestack.openstack.org/?go=/jobs/32390\n\tXenServer 5.6 (F17 domU) Success: http://smokestack.openstack.org/?go=/jobs/32391\n",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "f627e8e00e401a0a6b190c7317f95bf290edc28d",
+            "author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "real_author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "date": "2012-08-30 17:21:34.000000000",
+            "message": "Patch Set 3: Looks good to me (core reviewer)\n\nFantastic!",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "2253fd2638ccc5f391f6cfe3c5dd5b3ef0c8025a",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2012-09-03 07:23:16.000000000",
+            "message": "Patch Set 3: No score\n\nStarting gate jobs.",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "ba0832112ffea174702185adcd0f512a575be277",
+            "author": {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            "real_author": {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            "date": "2012-09-03 07:23:16.000000000",
+            "message": "Patch Set 3: Looks good to me (core reviewer); Approved\n\nself.assertTrue(filter(lambda ...)) is pretty clever. .  maybe too clever?",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "19e9898ab56d64c05eb6be32d834c73f839e6e12",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2012-09-03 07:38:35.000000000",
+            "message": "Patch Set 3: Fails\n\nBuild failed\n\nThis change was unable to be automatically merged with the current state of the repository. Please rebase your change and upload a new patchset.",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "58b53ce133cca8d639022b9b0dae3c0132b5e797",
+            "author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "real_author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "date": "2012-09-03 20:07:06.000000000",
+            "message": "Uploaded patch set 4.",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "e907f94f3261f11310b9dbbb2e1d874ba5fff956",
+            "author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "real_author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "date": "2012-09-03 20:07:40.000000000",
+            "message": "Patch Set 4: Looks good to me (core reviewer); Approved\n\nRebased that for you.",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "618cfb8dc20ad538aff674feed70d4ea7126289f",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2012-09-03 20:07:41.000000000",
+            "message": "Patch Set 4:\n\nStarting gate jobs.",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "449765d53a44a2919c99e62b5eb2d84036c9335a",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2012-09-03 20:24:48.000000000",
+            "message": "Patch Set 4: Works for me\n\nBuild successful\n\n- http://logs.openstack.org/12022/4/check/gate-glance-merge/2059 : SUCCESS\n- http://logs.openstack.org/12022/4/check/gate-glance-docs/237 : SUCCESS\n- http://logs.openstack.org/12022/4/check/gate-glance-pep8/2171 : SUCCESS\n- http://logs.openstack.org/12022/4/check/gate-glance-python26/1678 : SUCCESS\n- http://logs.openstack.org/12022/4/check/gate-glance-python27/1690 : SUCCESS\n- http://logs.openstack.org/12022/4/check/gate-tempest-devstack-vm/10113 : SUCCESS\n- http://logs.openstack.org/12022/4/check/gate-tempest-devstack-vm-cinder/93 : SUCCESS\n",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "fd3b1849537060b38cbc721106dd5aa059d20564",
+            "author": {
+                "_account_id": 2166,
+                "name": "SmokeStack CI",
+                "username": "smokestack",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 2166,
+                "name": "SmokeStack CI",
+                "username": "smokestack",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2012-09-03 20:25:50.000000000",
+            "message": "Patch Set 4: Works for me\n\nSmokeStack Results (patch set 4):\n\tUnit Success: http://smokestack.openstack.org/?go=/jobs/32821\n\tLibvirt (Fedora 17) Success: http://smokestack.openstack.org/?go=/jobs/32819\n\tXenServer 5.6 (F17 domU) Success: http://smokestack.openstack.org/?go=/jobs/32820\n",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "046bfcff74e5cc7c3113fd3733080570cad8b178",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2012-09-03 20:26:37.000000000",
+            "message": "Patch Set 4: Fails\n\nBuild failed\n\n- http://logs.openstack.org/12022/4/gate/gate-glance-merge/2061 : SUCCESS\n- http://logs.openstack.org/12022/4/gate/gate-glance-docs/239 : SUCCESS\n- http://logs.openstack.org/12022/4/gate/gate-glance-pep8/2173 : SUCCESS\n- http://logs.openstack.org/12022/4/gate/gate-glance-python26/1680 : SUCCESS\n- http://logs.openstack.org/12022/4/gate/gate-glance-python27/1692 : SUCCESS\n- http://logs.openstack.org/12022/4/gate/gate-tempest-devstack-vm/10115 : FAILURE\n- http://logs.openstack.org/12022/4/gate/gate-tempest-devstack-vm-cinder/95 : SUCCESS\n",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "f8e79c9fbba9671189cbfcb87c621af494b02a00",
+            "author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "real_author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "date": "2012-09-03 20:37:55.000000000",
+            "message": "Patch Set 4:\n\nreverify",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "506e81ca009e39281604bf31d95f671c45ad59c5",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2012-09-03 20:37:57.000000000",
+            "message": "Patch Set 4: No score\n\nStarting gate jobs.",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "bef591127de786615143311b2678afdc8424951a",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2012-09-03 21:11:09.000000000",
+            "message": "Patch Set 4: Verified\n\nBuild successful\n\n- http://logs.openstack.org/12022/4/gate/gate-glance-merge/2071 : SUCCESS\n- http://logs.openstack.org/12022/4/gate/gate-glance-docs/249 : SUCCESS\n- http://logs.openstack.org/12022/4/gate/gate-glance-pep8/2183 : SUCCESS\n- http://logs.openstack.org/12022/4/gate/gate-glance-python26/1690 : SUCCESS\n- http://logs.openstack.org/12022/4/gate/gate-glance-python27/1702 : SUCCESS\n- http://logs.openstack.org/12022/4/gate/gate-tempest-devstack-vm/10127 : SUCCESS\n- http://logs.openstack.org/12022/4/gate/gate-tempest-devstack-vm-cinder/107 : SUCCESS\n",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "ea7bef39570a6691b3d748a0c32d967b6d1680db",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2012-09-03 21:11:09.000000000",
+            "message": "Change has been successfully merged into the git repository.",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        }
+    ],
+    "requirements": [],
+    "submit_records": []
+}

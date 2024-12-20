@@ -23,9 +23,11 @@ def main():
     print("Loading PR data...")
     pr_data = load_pr_data(args.data_path)
 
-    # 2. 特徴量抽出
+    # 2. 特徴量抽出(動作確認済み)
     print("Extracting features...")
     metrics_list, objective_list = extract_features(pr_data, args.start_date, args.end_date)
+
+
 
     # 3. モデル学習と予測
     print("Training model...")

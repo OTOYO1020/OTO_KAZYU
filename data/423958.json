@@ -1,0 +1,1473 @@
+{
+    "id": "openstack%2Fglance~master~I334368c0de74f953aa877942569ddfa52defb028",
+    "project": "openstack/glance",
+    "branch": "master",
+    "topic": "db_purge_optimize",
+    "hashtags": [],
+    "change_id": "I334368c0de74f953aa877942569ddfa52defb028",
+    "subject": "Optimise: Use sqlalchemy to build table sequence",
+    "status": "NEW",
+    "created": "2017-01-23 07:21:21.000000000",
+    "updated": "2017-12-20 06:11:32.000000000",
+    "submit_type": "MERGE_IF_NECESSARY",
+    "mergeable": false,
+    "insertions": 14,
+    "deletions": 27,
+    "total_comment_count": 5,
+    "unresolved_comment_count": 0,
+    "has_review_started": true,
+    "meta_rev_id": "e90193f924dfa2b3ca4cc5bbd092336e211dc0ca",
+    "_number": 423958,
+    "owner": {
+        "_account_id": 20191,
+        "name": "Dinesh Bhor",
+        "email": "bhordinesh07@gmail.com",
+        "username": "dineshbhor"
+    },
+    "labels": {
+        "Verified": {
+            "recommended": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "all": [
+                {
+                    "date": "2017-12-19 15:42:49.000000000",
+                    "_account_id": 26734,
+                    "name": "Scott McClymont",
+                    "email": "scott.mcclymont@verizonwireless.com",
+                    "username": "smcclymont"
+                },
+                {
+                    "_account_id": 6159,
+                    "name": "Flavio Percoco",
+                    "display_name": "flaper87",
+                    "email": "fpercoco@redhat.com",
+                    "username": "flaper87"
+                },
+                {
+                    "_account_id": 8871,
+                    "name": "Elastic Recheck",
+                    "username": "elasticrecheck"
+                },
+                {
+                    "_account_id": 11904,
+                    "name": "Sean McGinnis",
+                    "email": "sean.mcginnis@gmail.com",
+                    "username": "SeanM"
+                },
+                {
+                    "_account_id": 12000,
+                    "name": "Ian Cordasco",
+                    "email": "sigmavirus24@gmail.com",
+                    "username": "sigmavirus24"
+                },
+                {
+                    "_account_id": 5314,
+                    "name": "Brian Rosmaita",
+                    "email": "rosmaita.fossdev@gmail.com",
+                    "username": "brian-rosmaita"
+                },
+                {
+                    "value": 1,
+                    "date": "2017-07-23 20:11:13.000000000",
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                },
+                {
+                    "_account_id": 8158,
+                    "name": "Hemanth Makkapati",
+                    "email": "makstacker+osgerrit@gmail.com",
+                    "username": "hemanth.makkapati"
+                },
+                {
+                    "_account_id": 20191,
+                    "name": "Dinesh Bhor",
+                    "email": "bhordinesh07@gmail.com",
+                    "username": "dineshbhor"
+                },
+                {
+                    "_account_id": 21722,
+                    "name": "Dharini Chandrasekar",
+                    "email": "dharini.chandrasekar@intel.com",
+                    "username": "dharinic"
+                },
+                {
+                    "_account_id": 14676,
+                    "name": "Kairat Kushaev",
+                    "email": "kkushaev@mirantis.com",
+                    "username": "kairat_kushaev"
+                },
+                {
+                    "_account_id": 9303,
+                    "name": "Abhishek Kekane",
+                    "email": "akekane@redhat.com",
+                    "username": "abhishekkekane"
+                },
+                {
+                    "date": "2017-07-23 20:12:22.000000000",
+                    "_account_id": 9008,
+                    "name": "VMware NSX CI",
+                    "username": "vmwareminesweeper",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                }
+            ],
+            "values": {
+                "-2": "Fails",
+                "-1": "Doesn't seem to work",
+                " 0": "No score",
+                "+1": "Works for me",
+                "+2": "Verified"
+            },
+            "description": "",
+            "value": 1,
+            "default_value": 0,
+            "optional": true
+        },
+        "Code-Review": {
+            "approved": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "all": [
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 26734,
+                    "name": "Scott McClymont",
+                    "email": "scott.mcclymont@verizonwireless.com",
+                    "username": "smcclymont"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 6159,
+                    "name": "Flavio Percoco",
+                    "display_name": "flaper87",
+                    "email": "fpercoco@redhat.com",
+                    "username": "flaper87"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 8871,
+                    "name": "Elastic Recheck",
+                    "username": "elasticrecheck"
+                },
+                {
+                    "value": 1,
+                    "date": "2017-12-13 20:11:15.000000000",
+                    "permitted_voting_range": {
+                        "min": -2,
+                        "max": 2
+                    },
+                    "_account_id": 11904,
+                    "name": "Sean McGinnis",
+                    "email": "sean.mcginnis@gmail.com",
+                    "username": "SeanM"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 12000,
+                    "name": "Ian Cordasco",
+                    "email": "sigmavirus24@gmail.com",
+                    "username": "sigmavirus24"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -2,
+                        "max": 2
+                    },
+                    "_account_id": 5314,
+                    "name": "Brian Rosmaita",
+                    "email": "rosmaita.fossdev@gmail.com",
+                    "username": "brian-rosmaita"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 8158,
+                    "name": "Hemanth Makkapati",
+                    "email": "makstacker+osgerrit@gmail.com",
+                    "username": "hemanth.makkapati"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 20191,
+                    "name": "Dinesh Bhor",
+                    "email": "bhordinesh07@gmail.com",
+                    "username": "dineshbhor"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 21722,
+                    "name": "Dharini Chandrasekar",
+                    "email": "dharini.chandrasekar@intel.com",
+                    "username": "dharinic"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 14676,
+                    "name": "Kairat Kushaev",
+                    "email": "kkushaev@mirantis.com",
+                    "username": "kairat_kushaev"
+                },
+                {
+                    "value": 2,
+                    "date": "2017-12-20 06:11:32.000000000",
+                    "permitted_voting_range": {
+                        "min": -2,
+                        "max": 2
+                    },
+                    "_account_id": 9303,
+                    "name": "Abhishek Kekane",
+                    "email": "akekane@redhat.com",
+                    "username": "abhishekkekane"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 9008,
+                    "name": "VMware NSX CI",
+                    "username": "vmwareminesweeper",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                }
+            ],
+            "values": {
+                "-2": "Do not merge",
+                "-1": "This patch needs further work before it can be merged",
+                " 0": "No score",
+                "+1": "Looks good to me, but someone else must approve",
+                "+2": "Looks good to me (core reviewer)"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        },
+        "Workflow": {
+            "all": [
+                {
+                    "_account_id": 26734,
+                    "name": "Scott McClymont",
+                    "email": "scott.mcclymont@verizonwireless.com",
+                    "username": "smcclymont"
+                },
+                {
+                    "_account_id": 6159,
+                    "name": "Flavio Percoco",
+                    "display_name": "flaper87",
+                    "email": "fpercoco@redhat.com",
+                    "username": "flaper87"
+                },
+                {
+                    "_account_id": 8871,
+                    "name": "Elastic Recheck",
+                    "username": "elasticrecheck"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 11904,
+                    "name": "Sean McGinnis",
+                    "email": "sean.mcginnis@gmail.com",
+                    "username": "SeanM"
+                },
+                {
+                    "_account_id": 12000,
+                    "name": "Ian Cordasco",
+                    "email": "sigmavirus24@gmail.com",
+                    "username": "sigmavirus24"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 5314,
+                    "name": "Brian Rosmaita",
+                    "email": "rosmaita.fossdev@gmail.com",
+                    "username": "brian-rosmaita"
+                },
+                {
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                },
+                {
+                    "_account_id": 8158,
+                    "name": "Hemanth Makkapati",
+                    "email": "makstacker+osgerrit@gmail.com",
+                    "username": "hemanth.makkapati"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 0
+                    },
+                    "_account_id": 20191,
+                    "name": "Dinesh Bhor",
+                    "email": "bhordinesh07@gmail.com",
+                    "username": "dineshbhor"
+                },
+                {
+                    "_account_id": 21722,
+                    "name": "Dharini Chandrasekar",
+                    "email": "dharini.chandrasekar@intel.com",
+                    "username": "dharinic"
+                },
+                {
+                    "_account_id": 14676,
+                    "name": "Kairat Kushaev",
+                    "email": "kkushaev@mirantis.com",
+                    "username": "kairat_kushaev"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 9303,
+                    "name": "Abhishek Kekane",
+                    "email": "akekane@redhat.com",
+                    "username": "abhishekkekane"
+                },
+                {
+                    "_account_id": 9008,
+                    "name": "VMware NSX CI",
+                    "username": "vmwareminesweeper",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                }
+            ],
+            "values": {
+                "-1": "Work in progress",
+                " 0": "Ready for reviews",
+                "+1": "Approved"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        },
+        "Review-Priority": {
+            "all": [
+                {
+                    "_account_id": 26734,
+                    "name": "Scott McClymont",
+                    "email": "scott.mcclymont@verizonwireless.com",
+                    "username": "smcclymont"
+                },
+                {
+                    "_account_id": 6159,
+                    "name": "Flavio Percoco",
+                    "display_name": "flaper87",
+                    "email": "fpercoco@redhat.com",
+                    "username": "flaper87"
+                },
+                {
+                    "_account_id": 8871,
+                    "name": "Elastic Recheck",
+                    "username": "elasticrecheck"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 2
+                    },
+                    "_account_id": 11904,
+                    "name": "Sean McGinnis",
+                    "email": "sean.mcginnis@gmail.com",
+                    "username": "SeanM"
+                },
+                {
+                    "_account_id": 12000,
+                    "name": "Ian Cordasco",
+                    "email": "sigmavirus24@gmail.com",
+                    "username": "sigmavirus24"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 2
+                    },
+                    "_account_id": 5314,
+                    "name": "Brian Rosmaita",
+                    "email": "rosmaita.fossdev@gmail.com",
+                    "username": "brian-rosmaita"
+                },
+                {
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                },
+                {
+                    "_account_id": 8158,
+                    "name": "Hemanth Makkapati",
+                    "email": "makstacker+osgerrit@gmail.com",
+                    "username": "hemanth.makkapati"
+                },
+                {
+                    "_account_id": 20191,
+                    "name": "Dinesh Bhor",
+                    "email": "bhordinesh07@gmail.com",
+                    "username": "dineshbhor"
+                },
+                {
+                    "_account_id": 21722,
+                    "name": "Dharini Chandrasekar",
+                    "email": "dharini.chandrasekar@intel.com",
+                    "username": "dharinic"
+                },
+                {
+                    "_account_id": 14676,
+                    "name": "Kairat Kushaev",
+                    "email": "kkushaev@mirantis.com",
+                    "username": "kairat_kushaev"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 2
+                    },
+                    "_account_id": 9303,
+                    "name": "Abhishek Kekane",
+                    "email": "akekane@redhat.com",
+                    "username": "abhishekkekane"
+                },
+                {
+                    "_account_id": 9008,
+                    "name": "VMware NSX CI",
+                    "username": "vmwareminesweeper",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                }
+            ],
+            "values": {
+                "-1": "Branch Freeze",
+                " 0": "No Priority",
+                "+1": "Important Change",
+                "+2": "Top Priority / Holds Gate"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        }
+    },
+    "removable_reviewers": [],
+    "reviewers": {
+        "REVIEWER": [
+            {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            {
+                "_account_id": 6159,
+                "name": "Flavio Percoco",
+                "display_name": "flaper87",
+                "email": "fpercoco@redhat.com",
+                "username": "flaper87"
+            },
+            {
+                "_account_id": 8158,
+                "name": "Hemanth Makkapati",
+                "email": "makstacker+osgerrit@gmail.com",
+                "username": "hemanth.makkapati"
+            },
+            {
+                "_account_id": 8871,
+                "name": "Elastic Recheck",
+                "username": "elasticrecheck"
+            },
+            {
+                "_account_id": 9008,
+                "name": "VMware NSX CI",
+                "username": "vmwareminesweeper",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            {
+                "_account_id": 11904,
+                "name": "Sean McGinnis",
+                "email": "sean.mcginnis@gmail.com",
+                "username": "SeanM"
+            },
+            {
+                "_account_id": 12000,
+                "name": "Ian Cordasco",
+                "email": "sigmavirus24@gmail.com",
+                "username": "sigmavirus24"
+            },
+            {
+                "_account_id": 14676,
+                "name": "Kairat Kushaev",
+                "email": "kkushaev@mirantis.com",
+                "username": "kairat_kushaev"
+            },
+            {
+                "_account_id": 20191,
+                "name": "Dinesh Bhor",
+                "email": "bhordinesh07@gmail.com",
+                "username": "dineshbhor"
+            },
+            {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            {
+                "_account_id": 26734,
+                "name": "Scott McClymont",
+                "email": "scott.mcclymont@verizonwireless.com",
+                "username": "smcclymont"
+            }
+        ]
+    },
+    "pending_reviewers": {},
+    "reviewer_updates": [
+        {
+            "updated": "2017-01-23 09:19:46.000000000",
+            "updated_by": {
+                "_account_id": 14676,
+                "name": "Kairat Kushaev",
+                "email": "kkushaev@mirantis.com",
+                "username": "kairat_kushaev"
+            },
+            "reviewer": {
+                "_account_id": 14676,
+                "name": "Kairat Kushaev",
+                "email": "kkushaev@mirantis.com",
+                "username": "kairat_kushaev"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2017-02-03 20:42:49.000000000",
+            "updated_by": {
+                "_account_id": 12000,
+                "name": "Ian Cordasco",
+                "email": "sigmavirus24@gmail.com",
+                "username": "sigmavirus24"
+            },
+            "reviewer": {
+                "_account_id": 12000,
+                "name": "Ian Cordasco",
+                "email": "sigmavirus24@gmail.com",
+                "username": "sigmavirus24"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2017-03-02 14:19:28.000000000",
+            "updated_by": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "reviewer": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2017-04-06 18:57:15.000000000",
+            "updated_by": {
+                "_account_id": 8871,
+                "name": "Elastic Recheck",
+                "username": "elasticrecheck"
+            },
+            "reviewer": {
+                "_account_id": 8871,
+                "name": "Elastic Recheck",
+                "username": "elasticrecheck"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2017-04-06 19:35:54.000000000",
+            "updated_by": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "reviewer": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2017-04-07 14:25:53.000000000",
+            "updated_by": {
+                "_account_id": 8158,
+                "name": "Hemanth Makkapati",
+                "email": "makstacker+osgerrit@gmail.com",
+                "username": "hemanth.makkapati"
+            },
+            "reviewer": {
+                "_account_id": 8158,
+                "name": "Hemanth Makkapati",
+                "email": "makstacker+osgerrit@gmail.com",
+                "username": "hemanth.makkapati"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2017-07-13 07:44:07.000000000",
+            "updated_by": {
+                "_account_id": 6159,
+                "name": "Flavio Percoco",
+                "display_name": "flaper87",
+                "email": "fpercoco@redhat.com",
+                "username": "flaper87"
+            },
+            "reviewer": {
+                "_account_id": 6159,
+                "name": "Flavio Percoco",
+                "display_name": "flaper87",
+                "email": "fpercoco@redhat.com",
+                "username": "flaper87"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2017-07-23 20:11:13.000000000",
+            "updated_by": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "reviewer": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2017-07-23 20:12:22.000000000",
+            "updated_by": {
+                "_account_id": 9008,
+                "name": "VMware NSX CI",
+                "username": "vmwareminesweeper",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "reviewer": {
+                "_account_id": 9008,
+                "name": "VMware NSX CI",
+                "username": "vmwareminesweeper",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2017-12-13 20:11:15.000000000",
+            "updated_by": {
+                "_account_id": 11904,
+                "name": "Sean McGinnis",
+                "email": "sean.mcginnis@gmail.com",
+                "username": "SeanM"
+            },
+            "reviewer": {
+                "_account_id": 11904,
+                "name": "Sean McGinnis",
+                "email": "sean.mcginnis@gmail.com",
+                "username": "SeanM"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2017-12-19 15:42:49.000000000",
+            "updated_by": {
+                "_account_id": 26734,
+                "name": "Scott McClymont",
+                "email": "scott.mcclymont@verizonwireless.com",
+                "username": "smcclymont"
+            },
+            "reviewer": {
+                "_account_id": 26734,
+                "name": "Scott McClymont",
+                "email": "scott.mcclymont@verizonwireless.com",
+                "username": "smcclymont"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2017-12-20 06:11:32.000000000",
+            "updated_by": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "reviewer": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "state": "REVIEWER"
+        }
+    ],
+    "messages": [
+        {
+            "id": "f5b689786937955bf0a4e92e44f6da5d14ae7b85",
+            "author": {
+                "_account_id": 20191,
+                "name": "Dinesh Bhor",
+                "email": "bhordinesh07@gmail.com",
+                "username": "dineshbhor"
+            },
+            "real_author": {
+                "_account_id": 20191,
+                "name": "Dinesh Bhor",
+                "email": "bhordinesh07@gmail.com",
+                "username": "dineshbhor"
+            },
+            "date": "2017-01-23 07:21:21.000000000",
+            "message": "Uploaded patch set 1.",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "8c12c39a8a4ea85fe190f25f148c7b26a59936ce",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2017-01-23 08:58:43.000000000",
+            "message": "Patch Set 1: Verified+1\n\nBuild succeeded (check pipeline).\n\n- gate-glance-python35-db-nv http://logs.openstack.org/58/423958/1/check/gate-glance-python35-db-nv/74a7d3d/ : FAILURE in 2m 57s (non-voting)\n- gate-glance-docs-ubuntu-xenial http://docs-draft.openstack.org/58/423958/1/check/gate-glance-docs-ubuntu-xenial/6d0deec//doc/build/html/ : SUCCESS in 7m 42s\n- gate-glance-pep8-ubuntu-xenial http://logs.openstack.org/58/423958/1/check/gate-glance-pep8-ubuntu-xenial/460dc62/ : SUCCESS in 5m 03s\n- gate-glance-python27-db-ubuntu-xenial http://logs.openstack.org/58/423958/1/check/gate-glance-python27-db-ubuntu-xenial/56af1a9/ : SUCCESS in 7m 38s\n- gate-tempest-dsvm-neutron-full-ubuntu-xenial http://logs.openstack.org/58/423958/1/check/gate-tempest-dsvm-neutron-full-ubuntu-xenial/9449e9b/ : SUCCESS in 1h 03m 03s\n- gate-grenade-dsvm-neutron-ubuntu-xenial http://logs.openstack.org/58/423958/1/check/gate-grenade-dsvm-neutron-ubuntu-xenial/a4b55d1/ : SUCCESS in 34m 06s\n- gate-tempest-dsvm-full-devstack-plugin-ceph-ubuntu-xenial http://logs.openstack.org/58/423958/1/check/gate-tempest-dsvm-full-devstack-plugin-ceph-ubuntu-xenial/d836797/ : SUCCESS in 1h 03m 23s (non-voting)\n- gate-tempest-dsvm-neutron-identity-v3-only-full-ubuntu-xenial-nv http://logs.openstack.org/58/423958/1/check/gate-tempest-dsvm-neutron-identity-v3-only-full-ubuntu-xenial-nv/c5810e9/ : SUCCESS in 1h 36m 16s (non-voting)\n- gate-rally-dsvm-glance-ubuntu-xenial-nv http://logs.openstack.org/58/423958/1/check/gate-rally-dsvm-glance-ubuntu-xenial-nv/a0b3ef0/ : SUCCESS in 19m 46s (non-voting)\n- gate-rally-dsvm-py35-glance-nv http://logs.openstack.org/58/423958/1/check/gate-rally-dsvm-py35-glance-nv/6c9f622/ : SUCCESS in 23m 49s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "61a2298d9226905baad065f2f0210a125d5ab7a2",
+            "author": {
+                "_account_id": 12000,
+                "name": "Ian Cordasco",
+                "email": "sigmavirus24@gmail.com",
+                "username": "sigmavirus24"
+            },
+            "real_author": {
+                "_account_id": 12000,
+                "name": "Ian Cordasco",
+                "email": "sigmavirus24@gmail.com",
+                "username": "sigmavirus24"
+            },
+            "date": "2017-01-25 13:52:17.000000000",
+            "message": "Patch Set 1: Code-Review-2\n\nOcata-3 is coming up in the next couple days. After that we will be focusing entirely and solely on bug fixes until RC-1 (next week).\n\nI will lift this -2 (which is solely procedural) next Friday after the stable/ocata branch has been created.",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "8c18fd7af7895037ed62fb041f44cc9593a433a0",
+            "author": {
+                "_account_id": 12000,
+                "name": "Ian Cordasco",
+                "email": "sigmavirus24@gmail.com",
+                "username": "sigmavirus24"
+            },
+            "real_author": {
+                "_account_id": 12000,
+                "name": "Ian Cordasco",
+                "email": "sigmavirus24@gmail.com",
+                "username": "sigmavirus24"
+            },
+            "date": "2017-02-03 13:49:48.000000000",
+            "message": "Patch Set 1: -Code-Review\n\nGlance RC-1 is released, this can proceed.",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "b11f8a28e1e5998feeeb62e5098df90a765b439f",
+            "author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "real_author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "date": "2017-02-03 15:00:19.000000000",
+            "message": "Patch Set 1:\n\nDo we already have a test that would detect a problem with this change? If so, please add something like \"The current test <name> ensures that this change does not cause a regression\" to your commit message.",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "9f53cab2c0c09fcc03bec6991626db091fb76f86",
+            "author": {
+                "_account_id": 12000,
+                "name": "Ian Cordasco",
+                "email": "sigmavirus24@gmail.com",
+                "username": "sigmavirus24"
+            },
+            "real_author": {
+                "_account_id": 12000,
+                "name": "Ian Cordasco",
+                "email": "sigmavirus24@gmail.com",
+                "username": "sigmavirus24"
+            },
+            "date": "2017-02-03 20:42:49.000000000",
+            "message": "Patch Set 1: Code-Review-1\n\nI agree with Brian. This needs some kind of test",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "519b5dfe983703758d26f9f9f6b502aec77ef7f8",
+            "author": {
+                "_account_id": 20191,
+                "name": "Dinesh Bhor",
+                "email": "bhordinesh07@gmail.com",
+                "username": "dineshbhor"
+            },
+            "real_author": {
+                "_account_id": 20191,
+                "name": "Dinesh Bhor",
+                "email": "bhordinesh07@gmail.com",
+                "username": "dineshbhor"
+            },
+            "date": "2017-02-09 08:11:09.000000000",
+            "message": "Patch Set 2: Published edit on patch set 1",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "195f1f7512454963d4c176f48e69bcfd2b6b549c",
+            "author": {
+                "_account_id": 20191,
+                "name": "Dinesh Bhor",
+                "email": "bhordinesh07@gmail.com",
+                "username": "dineshbhor"
+            },
+            "real_author": {
+                "_account_id": 20191,
+                "name": "Dinesh Bhor",
+                "email": "bhordinesh07@gmail.com",
+                "username": "dineshbhor"
+            },
+            "date": "2017-02-09 09:08:11.000000000",
+            "message": "Patch Set 2:\n\nHi Brian, Ian,\n\nThe following test case ensures that this change does not cause a regression:\n\nhttps://github.com/openstack/glance/blob/master/glance/tests/functional/db/base.py#L1975-L1980",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "ef24ff99dcce7788a7d28b703b11d0bb14a612ca",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2017-02-09 09:43:26.000000000",
+            "message": "Patch Set 2: Verified+1\n\nBuild succeeded (check pipeline).\n\n- gate-glance-python35-db-nv http://logs.openstack.org/58/423958/2/check/gate-glance-python35-db-nv/8a43056/ : SUCCESS in 13m 11s (non-voting)\n- gate-glance-docs-ubuntu-xenial http://docs-draft.openstack.org/58/423958/2/check/gate-glance-docs-ubuntu-xenial/e61f3aa//doc/build/html/ : SUCCESS in 5m 10s\n- gate-glance-pep8-ubuntu-xenial http://logs.openstack.org/58/423958/2/check/gate-glance-pep8-ubuntu-xenial/afde1b3/ : SUCCESS in 3m 16s\n- gate-glance-python27-db-ubuntu-xenial http://logs.openstack.org/58/423958/2/check/gate-glance-python27-db-ubuntu-xenial/d785176/ : SUCCESS in 6m 55s\n- gate-tempest-dsvm-neutron-full-ubuntu-xenial http://logs.openstack.org/58/423958/2/check/gate-tempest-dsvm-neutron-full-ubuntu-xenial/4edae07/ : SUCCESS in 1h 05m 14s\n- gate-grenade-dsvm-neutron-ubuntu-xenial http://logs.openstack.org/58/423958/2/check/gate-grenade-dsvm-neutron-ubuntu-xenial/efcb191/ : SUCCESS in 35m 01s\n- gate-tempest-dsvm-full-devstack-plugin-ceph-ubuntu-xenial http://logs.openstack.org/58/423958/2/check/gate-tempest-dsvm-full-devstack-plugin-ceph-ubuntu-xenial/1eff09a/ : FAILURE in 1h 07m 59s (non-voting)\n- gate-tempest-dsvm-neutron-identity-v3-only-full-ubuntu-xenial-nv http://logs.openstack.org/58/423958/2/check/gate-tempest-dsvm-neutron-identity-v3-only-full-ubuntu-xenial-nv/04d49ea/ : SUCCESS in 1h 31m 13s (non-voting)\n- gate-rally-dsvm-glance-ubuntu-xenial-nv http://logs.openstack.org/58/423958/2/check/gate-rally-dsvm-glance-ubuntu-xenial-nv/d189612/ : SUCCESS in 35m 31s (non-voting)\n- gate-rally-dsvm-py35-glance-nv http://logs.openstack.org/58/423958/2/check/gate-rally-dsvm-py35-glance-nv/c8e8d28/ : SUCCESS in 24m 33s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "dc5165c91a5e7b11dd392770a552cd1a7249935d",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2017-04-06 01:12:45.000000000",
+            "message": "Patch Set 2: Verified-1\n\nMerge Failed.\n\nThis change or one of its cross-repo dependencies was unable to be automatically merged with the current state of its repository. Please rebase the change and upload a new patchset.",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "9aeecbef7060a886857767998e67a6cd53664d5a",
+            "author": {
+                "_account_id": 20191,
+                "name": "Dinesh Bhor",
+                "email": "bhordinesh07@gmail.com",
+                "username": "dineshbhor"
+            },
+            "real_author": {
+                "_account_id": 20191,
+                "name": "Dinesh Bhor",
+                "email": "bhordinesh07@gmail.com",
+                "username": "dineshbhor"
+            },
+            "date": "2017-04-06 13:17:11.000000000",
+            "message": "Uploaded patch set 3.",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "54304918a3f9c1f39ef313ecfe07891f95ecc5e0",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2017-04-06 14:32:04.000000000",
+            "message": "Patch Set 3: Verified-1\n\nBuild failed (check pipeline).  For information on how to proceed, see http://docs.openstack.org/infra/manual/developers.html#automated-testing\n\n- gate-glance-python35 http://logs.openstack.org/58/423958/3/check/gate-glance-python35/43e01a3/ : SUCCESS in 15m 07s\n- gate-glance-docs-ubuntu-xenial http://docs-draft.openstack.org/58/423958/3/check/gate-glance-docs-ubuntu-xenial/2043793//doc/build/html/ : SUCCESS in 4m 47s\n- gate-glance-pep8-ubuntu-xenial http://logs.openstack.org/58/423958/3/check/gate-glance-pep8-ubuntu-xenial/871d121/ : SUCCESS in 3m 46s\n- gate-glance-python27-ubuntu-xenial http://logs.openstack.org/58/423958/3/check/gate-glance-python27-ubuntu-xenial/8442d86/ : SUCCESS in 7m 50s\n- gate-tempest-dsvm-neutron-full-ubuntu-xenial http://logs.openstack.org/58/423958/3/check/gate-tempest-dsvm-neutron-full-ubuntu-xenial/ea23db1/ : SUCCESS in 1h 07m 28s\n- gate-grenade-dsvm-neutron-ubuntu-xenial http://logs.openstack.org/58/423958/3/check/gate-grenade-dsvm-neutron-ubuntu-xenial/b6eccda/ : SUCCESS in 50m 00s\n- gate-tempest-dsvm-py35-ubuntu-xenial http://logs.openstack.org/58/423958/3/check/gate-tempest-dsvm-py35-ubuntu-xenial/052fa73/ : FAILURE in 6m 20s\n- gate-tempest-dsvm-full-devstack-plugin-ceph-ubuntu-xenial http://logs.openstack.org/58/423958/3/check/gate-tempest-dsvm-full-devstack-plugin-ceph-ubuntu-xenial/e75aa89/ : FAILURE in 1h 04m 52s (non-voting)\n- gate-tempest-dsvm-neutron-identity-v3-only-full-ubuntu-xenial-nv http://logs.openstack.org/58/423958/3/check/gate-tempest-dsvm-neutron-identity-v3-only-full-ubuntu-xenial-nv/e10aafe/ : SUCCESS in 1h 12m 18s (non-voting)\n- gate-rally-dsvm-glance-ubuntu-xenial-nv http://logs.openstack.org/58/423958/3/check/gate-rally-dsvm-glance-ubuntu-xenial-nv/884f246/ : SUCCESS in 30m 32s (non-voting)\n- gate-rally-dsvm-py35-glance-nv http://logs.openstack.org/58/423958/3/check/gate-rally-dsvm-py35-glance-nv/f05d9a9/ : FAILURE in 8m 48s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "4b0d56ba11e27d55d1e8f04f40150ed4e680fb5e",
+            "author": {
+                "_account_id": 20191,
+                "name": "Dinesh Bhor",
+                "email": "bhordinesh07@gmail.com",
+                "username": "dineshbhor"
+            },
+            "real_author": {
+                "_account_id": 20191,
+                "name": "Dinesh Bhor",
+                "email": "bhordinesh07@gmail.com",
+                "username": "dineshbhor"
+            },
+            "date": "2017-04-06 16:22:43.000000000",
+            "message": "Patch Set 3:\n\nrecheck",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "8c91a8994cb38bfb1f70288ca295c8e8503ddcf0",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2017-04-06 18:34:24.000000000",
+            "message": "Patch Set 3:\n\nBuild failed (check pipeline).  For information on how to proceed, see http://docs.openstack.org/infra/manual/developers.html#automated-testing\n\n- gate-glance-python35 http://logs.openstack.org/58/423958/3/check/gate-glance-python35/79a50a7/ : SUCCESS in 14m 39s\n- gate-glance-docs-ubuntu-xenial http://docs-draft.openstack.org/58/423958/3/check/gate-glance-docs-ubuntu-xenial/f0cd3cc//doc/build/html/ : SUCCESS in 3m 52s\n- gate-glance-pep8-ubuntu-xenial http://logs.openstack.org/58/423958/3/check/gate-glance-pep8-ubuntu-xenial/c7664ea/ : SUCCESS in 4m 57s\n- gate-glance-python27-ubuntu-xenial http://logs.openstack.org/58/423958/3/check/gate-glance-python27-ubuntu-xenial/44fede6/ : SUCCESS in 10m 07s\n- gate-tempest-dsvm-neutron-full-ubuntu-xenial http://logs.openstack.org/58/423958/3/check/gate-tempest-dsvm-neutron-full-ubuntu-xenial/1dea1fc/ : SUCCESS in 1h 27m 18s\n- gate-grenade-dsvm-neutron-ubuntu-xenial http://logs.openstack.org/58/423958/3/check/gate-grenade-dsvm-neutron-ubuntu-xenial/f379f54/ : SUCCESS in 34m 04s\n- gate-tempest-dsvm-py35-ubuntu-xenial http://logs.openstack.org/58/423958/3/check/gate-tempest-dsvm-py35-ubuntu-xenial/30a8f4d/ : FAILURE in 8m 29s\n- gate-tempest-dsvm-full-devstack-plugin-ceph-ubuntu-xenial http://logs.openstack.org/58/423958/3/check/gate-tempest-dsvm-full-devstack-plugin-ceph-ubuntu-xenial/aa78e94/ : FAILURE in 2h 10m 23s (non-voting)\n- gate-tempest-dsvm-neutron-identity-v3-only-full-ubuntu-xenial-nv http://logs.openstack.org/58/423958/3/check/gate-tempest-dsvm-neutron-identity-v3-only-full-ubuntu-xenial-nv/f7b22ad/ : SUCCESS in 1h 10m 45s (non-voting)\n- gate-rally-dsvm-glance-ubuntu-xenial-nv http://logs.openstack.org/58/423958/3/check/gate-rally-dsvm-glance-ubuntu-xenial-nv/6bf8e9e/ : SUCCESS in 32m 06s (non-voting)\n- gate-rally-dsvm-py35-glance-nv http://logs.openstack.org/58/423958/3/check/gate-rally-dsvm-py35-glance-nv/e1c5019/ : FAILURE in 14m 10s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "196721308fbcefb1e33c6f9a3488e8a6e8a9dee9",
+            "author": {
+                "_account_id": 8871,
+                "name": "Elastic Recheck",
+                "username": "elasticrecheck"
+            },
+            "real_author": {
+                "_account_id": 8871,
+                "name": "Elastic Recheck",
+                "username": "elasticrecheck"
+            },
+            "date": "2017-04-06 18:57:15.000000000",
+            "message": "Patch Set 3:\n\nI noticed jenkins failed, I think you hit bug(s):\n\n- gate-tempest-dsvm-py35-ubuntu-xenial: https://bugs.launchpad.net/bugs/1680498\n\nIf you believe we've correctly identified the failure, feel free to leave a 'recheck' comment to run the tests again.\nFor more details on this and other bugs, please see http://status.openstack.org/elastic-recheck/",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "e89ffef1c5538f54bec9dac063caae2f54b762c6",
+            "author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "real_author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "date": "2017-04-06 19:35:54.000000000",
+            "message": "Patch Set 3:\n\nYeah, that's the bug.  I looked on the zuul openstack health page, and it looks like this job is failing intermittently, so we should recheck.",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "fe670469072fc5f764479324d70fe53806198edf",
+            "author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "real_author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "date": "2017-04-06 19:36:03.000000000",
+            "message": "Patch Set 3:\n\nrecheck",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "62a6b786003aec958f56f4708786c4af7f55f576",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2017-04-06 20:57:42.000000000",
+            "message": "Patch Set 3: Verified+1\n\nBuild succeeded (check pipeline).\n\n- gate-glance-python35 http://logs.openstack.org/58/423958/3/check/gate-glance-python35/7ace9d8/ : SUCCESS in 21m 56s\n- gate-glance-docs-ubuntu-xenial http://docs-draft.openstack.org/58/423958/3/check/gate-glance-docs-ubuntu-xenial/c3f7517//doc/build/html/ : SUCCESS in 3m 21s\n- gate-glance-pep8-ubuntu-xenial http://logs.openstack.org/58/423958/3/check/gate-glance-pep8-ubuntu-xenial/99cf4af/ : SUCCESS in 6m 11s\n- gate-glance-python27-ubuntu-xenial http://logs.openstack.org/58/423958/3/check/gate-glance-python27-ubuntu-xenial/6fc3520/ : SUCCESS in 8m 33s\n- gate-tempest-dsvm-neutron-full-ubuntu-xenial http://logs.openstack.org/58/423958/3/check/gate-tempest-dsvm-neutron-full-ubuntu-xenial/9c9108b/ : SUCCESS in 1h 04m 50s\n- gate-grenade-dsvm-neutron-ubuntu-xenial http://logs.openstack.org/58/423958/3/check/gate-grenade-dsvm-neutron-ubuntu-xenial/6e5e233/ : SUCCESS in 37m 38s\n- gate-tempest-dsvm-py35-ubuntu-xenial http://logs.openstack.org/58/423958/3/check/gate-tempest-dsvm-py35-ubuntu-xenial/30be069/ : SUCCESS in 1h 00m 47s\n- gate-tempest-dsvm-full-devstack-plugin-ceph-ubuntu-xenial http://logs.openstack.org/58/423958/3/check/gate-tempest-dsvm-full-devstack-plugin-ceph-ubuntu-xenial/79d55c7/ : FAILURE in 1h 11m 35s (non-voting)\n- gate-tempest-dsvm-neutron-identity-v3-only-full-ubuntu-xenial-nv http://logs.openstack.org/58/423958/3/check/gate-tempest-dsvm-neutron-identity-v3-only-full-ubuntu-xenial-nv/a16b706/ : SUCCESS in 1h 20m 21s (non-voting)\n- gate-rally-dsvm-glance-ubuntu-xenial-nv http://logs.openstack.org/58/423958/3/check/gate-rally-dsvm-glance-ubuntu-xenial-nv/37bd563/ : SUCCESS in 20m 58s (non-voting)\n- gate-rally-dsvm-py35-glance-nv http://logs.openstack.org/58/423958/3/check/gate-rally-dsvm-py35-glance-nv/dced248/ : FAILURE in 25m 39s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "6d32dc8728c4ef43bd3645b30bf34cbcc7614d0a",
+            "author": {
+                "_account_id": 11904,
+                "name": "Sean McGinnis",
+                "email": "sean.mcginnis@gmail.com",
+                "username": "SeanM"
+            },
+            "real_author": {
+                "_account_id": 11904,
+                "name": "Sean McGinnis",
+                "email": "sean.mcginnis@gmail.com",
+                "username": "SeanM"
+            },
+            "date": "2017-06-15 14:57:55.000000000",
+            "message": "Patch Set 3: Code-Review-1\n\n(2 comments)\n\nI agree this should have a test added. The referenced test case states that this does not cause a regression, which is great, but I think there should be a test cases making sure this change is covered.",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "1c5645bc00aed66254c2d5816bde72d503cd3d14",
+            "author": {
+                "_account_id": 20191,
+                "name": "Dinesh Bhor",
+                "email": "bhordinesh07@gmail.com",
+                "username": "dineshbhor"
+            },
+            "real_author": {
+                "_account_id": 20191,
+                "name": "Dinesh Bhor",
+                "email": "bhordinesh07@gmail.com",
+                "username": "dineshbhor"
+            },
+            "date": "2017-07-13 05:23:10.000000000",
+            "message": "Uploaded patch set 4.",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "c9578f25dd7a8ed20b1cba6ebd14404ff607f2cd",
+            "author": {
+                "_account_id": 20191,
+                "name": "Dinesh Bhor",
+                "email": "bhordinesh07@gmail.com",
+                "username": "dineshbhor"
+            },
+            "real_author": {
+                "_account_id": 20191,
+                "name": "Dinesh Bhor",
+                "email": "bhordinesh07@gmail.com",
+                "username": "dineshbhor"
+            },
+            "date": "2017-07-13 05:24:13.000000000",
+            "message": "Patch Set 3:\n\n(2 comments)",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "58925de1b1b179dcfe6b176fa5ba64db999fb3f6",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2017-07-13 07:21:18.000000000",
+            "message": "Patch Set 4: Verified+1\n\nBuild succeeded (check pipeline).\n\n- gate-glance-python35 http://logs.openstack.org/58/423958/4/check/gate-glance-python35/945d4aa/ : SUCCESS in 9m 02s\n- gate-glance-docs-ubuntu-xenial http://docs-draft.openstack.org/58/423958/4/check/gate-glance-docs-ubuntu-xenial/cb1fa74//doc/build/html/ : SUCCESS in 4m 53s\n- gate-glance-pep8-ubuntu-xenial http://logs.openstack.org/58/423958/4/check/gate-glance-pep8-ubuntu-xenial/b33ed90/ : SUCCESS in 6m 01s\n- gate-glance-python27-ubuntu-xenial http://logs.openstack.org/58/423958/4/check/gate-glance-python27-ubuntu-xenial/9ef0c8a/ : SUCCESS in 9m 22s\n- gate-tempest-dsvm-neutron-full-ubuntu-xenial http://logs.openstack.org/58/423958/4/check/gate-tempest-dsvm-neutron-full-ubuntu-xenial/d0c9fd6/ : SUCCESS in 1h 54m 15s\n- gate-grenade-dsvm-neutron-ubuntu-xenial http://logs.openstack.org/58/423958/4/check/gate-grenade-dsvm-neutron-ubuntu-xenial/1c1aaba/ : SUCCESS in 39m 31s\n- gate-tempest-dsvm-py35-ubuntu-xenial http://logs.openstack.org/58/423958/4/check/gate-tempest-dsvm-py35-ubuntu-xenial/bef33a1/ : SUCCESS in 1h 11m 30s\n- gate-tempest-dsvm-full-devstack-plugin-ceph-ubuntu-xenial http://logs.openstack.org/58/423958/4/check/gate-tempest-dsvm-full-devstack-plugin-ceph-ubuntu-xenial/7f691a9/ : SUCCESS in 1h 07m 11s (non-voting)\n- gate-rally-dsvm-glance-ubuntu-xenial-nv http://logs.openstack.org/58/423958/4/check/gate-rally-dsvm-glance-ubuntu-xenial-nv/cf7a7db/ : FAILURE in 17m 36s (non-voting)\n- gate-rally-dsvm-py35-glance-nv http://logs.openstack.org/58/423958/4/check/gate-rally-dsvm-py35-glance-nv/a4f645d/ : FAILURE in 18m 25s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "7d1ddab4d8fa9ae8294bcb0899cae18a955393f9",
+            "author": {
+                "_account_id": 9008,
+                "name": "VMware NSX CI",
+                "username": "vmwareminesweeper",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 9008,
+                "name": "VMware NSX CI",
+                "username": "vmwareminesweeper",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2017-07-13 07:21:47.000000000",
+            "message": "Patch Set 4:\n\nBuild failed (check pipeline).  For information on how to proceed, see http://docs.openstack.org/infra/manual/developers.html#automated-testing\n\n- ext-glance-zuul : NOT_REGISTERED",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "4c04fc8ea01ca99f2a98189892b9862ff89f63b0",
+            "author": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "real_author": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "date": "2017-07-21 10:54:33.000000000",
+            "message": "Patch Set 4: Code-Review+2\n\nExisting functional test mentioned in the commit is enough to ensure regression is not caused. The reason is owner has just optimized the code to sort the tables in order of foreign key dependency where as earlier it was hard coded.",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "973d20dde8767903189f7beaa80349c0139382fa",
+            "author": {
+                "_account_id": 11904,
+                "name": "Sean McGinnis",
+                "email": "sean.mcginnis@gmail.com",
+                "username": "SeanM"
+            },
+            "real_author": {
+                "_account_id": 11904,
+                "name": "Sean McGinnis",
+                "email": "sean.mcginnis@gmail.com",
+                "username": "SeanM"
+            },
+            "date": "2017-07-21 10:57:45.000000000",
+            "message": "Patch Set 4: Code-Review-1\n\n(1 comment)",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "515cd6ebfaf2031ea3a5cac4518bc2c5452d66cf",
+            "author": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "real_author": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "date": "2017-07-21 11:08:42.000000000",
+            "message": "Patch Set 4: -Code-Review\n\nAgree with Sean",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "8b895115f71fb32c8457a9ee89f1be6eefcfdc09",
+            "author": {
+                "_account_id": 20191,
+                "name": "Dinesh Bhor",
+                "email": "bhordinesh07@gmail.com",
+                "username": "dineshbhor"
+            },
+            "real_author": {
+                "_account_id": 20191,
+                "name": "Dinesh Bhor",
+                "email": "bhordinesh07@gmail.com",
+                "username": "dineshbhor"
+            },
+            "date": "2017-07-21 11:27:47.000000000",
+            "message": "Uploaded patch set 5.",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "283984b616a0ee9e02c27fee12889d96858484dc",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2017-07-21 12:50:12.000000000",
+            "message": "Patch Set 5: Verified-1\n\nBuild failed (check pipeline).  For information on how to proceed, see http://docs.openstack.org/infra/manual/developers.html#automated-testing\n\n- gate-glance-python35 http://logs.openstack.org/58/423958/5/check/gate-glance-python35/03373e8/ : SUCCESS in 7m 55s\n- gate-glance-docs-ubuntu-xenial http://logs.openstack.org/58/423958/5/check/gate-glance-docs-ubuntu-xenial/acf3594/ : FAILURE in 4m 22s\n- gate-glance-pep8-ubuntu-xenial http://logs.openstack.org/58/423958/5/check/gate-glance-pep8-ubuntu-xenial/d0958aa/ : SUCCESS in 6m 00s\n- gate-glance-python27-ubuntu-xenial http://logs.openstack.org/58/423958/5/check/gate-glance-python27-ubuntu-xenial/5d286c8/ : SUCCESS in 7m 33s\n- gate-tempest-dsvm-neutron-full-ubuntu-xenial http://logs.openstack.org/58/423958/5/check/gate-tempest-dsvm-neutron-full-ubuntu-xenial/6746a84/ : SUCCESS in 1h 19m 16s\n- gate-grenade-dsvm-neutron-ubuntu-xenial http://logs.openstack.org/58/423958/5/check/gate-grenade-dsvm-neutron-ubuntu-xenial/a56e5d9/ : SUCCESS in 59m 00s\n- gate-tempest-dsvm-py35-ubuntu-xenial http://logs.openstack.org/58/423958/5/check/gate-tempest-dsvm-py35-ubuntu-xenial/60fc793/ : SUCCESS in 1h 09m 17s\n- gate-tempest-dsvm-full-devstack-plugin-ceph-ubuntu-xenial http://logs.openstack.org/58/423958/5/check/gate-tempest-dsvm-full-devstack-plugin-ceph-ubuntu-xenial/595e1cd/ : SUCCESS in 1h 04m 35s (non-voting)\n- gate-rally-dsvm-glance-ubuntu-xenial-nv http://logs.openstack.org/58/423958/5/check/gate-rally-dsvm-glance-ubuntu-xenial-nv/10f8162/ : FAILURE in 30m 35s (non-voting)\n- gate-rally-dsvm-py35-glance-nv http://logs.openstack.org/58/423958/5/check/gate-rally-dsvm-py35-glance-nv/f414ce4/ : FAILURE in 26m 17s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "2b506c924ed85aba0d42845b7f91fcbf8ead8db1",
+            "author": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "real_author": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "date": "2017-07-23 17:59:19.000000000",
+            "message": "Patch Set 5:\n\nrecheck",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "a07fc666757fadf6556cacba3d25bbf0a8524558",
+            "author": {
+                "_account_id": 9008,
+                "name": "VMware NSX CI",
+                "username": "vmwareminesweeper",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 9008,
+                "name": "VMware NSX CI",
+                "username": "vmwareminesweeper",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2017-07-23 18:00:59.000000000",
+            "message": "Patch Set 5:\n\nBuild failed (check pipeline).  For information on how to proceed, see http://docs.openstack.org/infra/manual/developers.html#automated-testing\n\n- dsvm-glance http://207.189.188.190/logs/58/423958/5/check-not-vote/ext-glance-zuul/6402850 : FAILURE in 24s",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "2d92ff0fd94aed7281ca02697d7da4b250d647fc",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2017-07-23 20:11:13.000000000",
+            "message": "Patch Set 5: Verified+1\n\nBuild succeeded (check pipeline).\n\n- gate-glance-python35 http://logs.openstack.org/58/423958/5/check/gate-glance-python35/903f809/ : SUCCESS in 8m 30s\n- gate-glance-docs-ubuntu-xenial http://docs-draft.openstack.org/58/423958/5/check/gate-glance-docs-ubuntu-xenial/eec1c69//doc/build/html/ : SUCCESS in 5m 43s\n- gate-glance-pep8-ubuntu-xenial http://logs.openstack.org/58/423958/5/check/gate-glance-pep8-ubuntu-xenial/7f2237f/ : SUCCESS in 5m 48s\n- gate-glance-python27-ubuntu-xenial http://logs.openstack.org/58/423958/5/check/gate-glance-python27-ubuntu-xenial/9d1fc04/ : SUCCESS in 8m 57s\n- gate-tempest-dsvm-neutron-full-ubuntu-xenial http://logs.openstack.org/58/423958/5/check/gate-tempest-dsvm-neutron-full-ubuntu-xenial/021c5d9/ : SUCCESS in 2h 11m 41s\n- gate-grenade-dsvm-neutron-ubuntu-xenial http://logs.openstack.org/58/423958/5/check/gate-grenade-dsvm-neutron-ubuntu-xenial/24f4f37/ : SUCCESS in 56m 44s\n- gate-tempest-dsvm-py35-ubuntu-xenial http://logs.openstack.org/58/423958/5/check/gate-tempest-dsvm-py35-ubuntu-xenial/b6d5bcd/ : SUCCESS in 1h 13m 32s\n- gate-tempest-dsvm-full-devstack-plugin-ceph-ubuntu-xenial http://logs.openstack.org/58/423958/5/check/gate-tempest-dsvm-full-devstack-plugin-ceph-ubuntu-xenial/ade2660/ : SUCCESS in 1h 05m 15s (non-voting)\n- gate-rally-dsvm-glance-ubuntu-xenial-nv http://logs.openstack.org/58/423958/5/check/gate-rally-dsvm-glance-ubuntu-xenial-nv/bf04b17/ : FAILURE in 27m 17s (non-voting)\n- gate-rally-dsvm-py35-glance-nv http://logs.openstack.org/58/423958/5/check/gate-rally-dsvm-py35-glance-nv/8923daf/ : FAILURE in 16m 14s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "839eefd04737f91a357aa86174bfb8da00a82473",
+            "author": {
+                "_account_id": 9008,
+                "name": "VMware NSX CI",
+                "username": "vmwareminesweeper",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 9008,
+                "name": "VMware NSX CI",
+                "username": "vmwareminesweeper",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2017-07-23 20:12:22.000000000",
+            "message": "Patch Set 5:\n\nBuild failed (check pipeline).  For information on how to proceed, see http://docs.openstack.org/infra/manual/developers.html#automated-testing\n\n- dsvm-glance http://207.189.188.190/logs/58/423958/5/check-not-vote/ext-glance-zuul/3ca5185 : FAILURE in 24s",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "5f86483191a8bd4a1a29853377e9a872c2cddbb3",
+            "author": {
+                "_account_id": 11904,
+                "name": "Sean McGinnis",
+                "email": "sean.mcginnis@gmail.com",
+                "username": "SeanM"
+            },
+            "real_author": {
+                "_account_id": 11904,
+                "name": "Sean McGinnis",
+                "email": "sean.mcginnis@gmail.com",
+                "username": "SeanM"
+            },
+            "date": "2017-12-13 20:11:15.000000000",
+            "message": "Patch Set 5: Code-Review+1",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "733e0ec26f9dc2488451ce59489f701fb4034031",
+            "author": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "real_author": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "date": "2017-12-20 06:11:32.000000000",
+            "message": "Patch Set 5: Code-Review+2\n\nThank you Dinesh!!",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        }
+    ],
+    "requirements": [],
+    "submit_records": [
+        {
+            "rule_name": "gerrit~DefaultSubmitRule",
+            "status": "OK",
+            "labels": [
+                {
+                    "label": "Verified",
+                    "status": "MAY",
+                    "applied_by": {
+                        "_account_id": 3,
+                        "name": "Jenkins",
+                        "username": "jenkins"
+                    }
+                },
+                {
+                    "label": "Code-Review",
+                    "status": "MAY",
+                    "applied_by": {
+                        "_account_id": 11904,
+                        "name": "Sean McGinnis",
+                        "email": "sean.mcginnis@gmail.com",
+                        "username": "SeanM"
+                    }
+                },
+                {
+                    "label": "Workflow",
+                    "status": "MAY"
+                },
+                {
+                    "label": "Review-Priority",
+                    "status": "MAY"
+                }
+            ]
+        }
+    ]
+}

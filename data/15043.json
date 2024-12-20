@@ -1,0 +1,568 @@
+{
+    "id": "openstack%2Fglance~master~Ic6aaaf8fd671a96d72c1fb081f982024610ab334",
+    "project": "openstack/glance",
+    "branch": "master",
+    "topic": "v2-404",
+    "hashtags": [],
+    "change_id": "Ic6aaaf8fd671a96d72c1fb081f982024610ab334",
+    "subject": "DRY up image fetch code in v2 API",
+    "status": "MERGED",
+    "created": "2012-10-30 16:28:25.000000000",
+    "updated": "2012-10-31 22:02:14.000000000",
+    "submitted": "2012-10-31 22:02:14.000000000",
+    "submitter": {
+        "_account_id": 3,
+        "name": "Jenkins",
+        "username": "jenkins"
+    },
+    "insertions": 5,
+    "deletions": 12,
+    "total_comment_count": 0,
+    "unresolved_comment_count": 0,
+    "has_review_started": true,
+    "meta_rev_id": "f44244802bc5b8f7bd9526fe340aa334f04d33b5",
+    "_number": 15043,
+    "owner": {
+        "_account_id": 1132,
+        "name": "Brian Waldon",
+        "email": "brian@waldon.cc",
+        "username": "bcwaldon"
+    },
+    "labels": {
+        "Verified": {
+            "approved": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 1132,
+                    "name": "Brian Waldon",
+                    "email": "brian@waldon.cc",
+                    "username": "bcwaldon"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 177,
+                    "name": "Alex Meade",
+                    "email": "mr.alex.meade@gmail.com",
+                    "username": "alex-meade"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 209,
+                    "name": "Josh Kearney",
+                    "email": "josh@jk0.org",
+                    "username": "jk0"
+                },
+                {
+                    "value": 2,
+                    "date": "2012-10-31 22:02:14.000000000",
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-2": "Fails",
+                "-1": "Doesn't seem to work",
+                " 0": "No score",
+                "+1": "Works for me",
+                "+2": "Verified"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        },
+        "Code-Review": {
+            "approved": {
+                "_account_id": 177,
+                "name": "Alex Meade",
+                "email": "mr.alex.meade@gmail.com",
+                "username": "alex-meade"
+            },
+            "all": [
+                {
+                    "value": 0,
+                    "date": "2012-10-31 18:36:28.000000000",
+                    "permitted_voting_range": {
+                        "min": 0,
+                        "max": 1
+                    },
+                    "_account_id": 1132,
+                    "name": "Brian Waldon",
+                    "email": "brian@waldon.cc",
+                    "username": "bcwaldon"
+                },
+                {
+                    "value": 2,
+                    "date": "2012-10-30 18:07:37.000000000",
+                    "_account_id": 177,
+                    "name": "Alex Meade",
+                    "email": "mr.alex.meade@gmail.com",
+                    "username": "alex-meade"
+                },
+                {
+                    "value": 2,
+                    "date": "2012-10-31 15:19:24.000000000",
+                    "_account_id": 209,
+                    "name": "Josh Kearney",
+                    "email": "josh@jk0.org",
+                    "username": "jk0"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-2": "Do not merge",
+                "-1": "This patch needs further work before it can be merged",
+                " 0": "No score",
+                "+1": "Looks good to me, but someone else must approve",
+                "+2": "Looks good to me (core reviewer)"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        },
+        "Workflow": {
+            "approved": {
+                "_account_id": 209,
+                "name": "Josh Kearney",
+                "email": "josh@jk0.org",
+                "username": "jk0"
+            },
+            "all": [
+                {
+                    "value": 0,
+                    "date": "2012-10-31 18:36:28.000000000",
+                    "_account_id": 1132,
+                    "name": "Brian Waldon",
+                    "email": "brian@waldon.cc",
+                    "username": "bcwaldon"
+                },
+                {
+                    "value": 0,
+                    "date": "2012-10-30 18:07:37.000000000",
+                    "_account_id": 177,
+                    "name": "Alex Meade",
+                    "email": "mr.alex.meade@gmail.com",
+                    "username": "alex-meade"
+                },
+                {
+                    "value": 1,
+                    "date": "2012-10-31 15:19:24.000000000",
+                    "_account_id": 209,
+                    "name": "Josh Kearney",
+                    "email": "josh@jk0.org",
+                    "username": "jk0"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-1": "Work in progress",
+                " 0": "Ready for reviews",
+                "+1": "Approved"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        },
+        "Review-Priority": {
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 1132,
+                    "name": "Brian Waldon",
+                    "email": "brian@waldon.cc",
+                    "username": "bcwaldon"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 177,
+                    "name": "Alex Meade",
+                    "email": "mr.alex.meade@gmail.com",
+                    "username": "alex-meade"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 209,
+                    "name": "Josh Kearney",
+                    "email": "josh@jk0.org",
+                    "username": "jk0"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-1": "Branch Freeze",
+                " 0": "No Priority",
+                "+1": "Important Change",
+                "+2": "Top Priority / Holds Gate"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        }
+    },
+    "removable_reviewers": [],
+    "reviewers": {
+        "REVIEWER": [
+            {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            {
+                "_account_id": 177,
+                "name": "Alex Meade",
+                "email": "mr.alex.meade@gmail.com",
+                "username": "alex-meade"
+            },
+            {
+                "_account_id": 209,
+                "name": "Josh Kearney",
+                "email": "josh@jk0.org",
+                "username": "jk0"
+            },
+            {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            }
+        ]
+    },
+    "pending_reviewers": {},
+    "reviewer_updates": [
+        {
+            "updated": "2012-10-30 18:07:37.000000000",
+            "updated_by": {
+                "_account_id": 177,
+                "name": "Alex Meade",
+                "email": "mr.alex.meade@gmail.com",
+                "username": "alex-meade"
+            },
+            "reviewer": {
+                "_account_id": 177,
+                "name": "Alex Meade",
+                "email": "mr.alex.meade@gmail.com",
+                "username": "alex-meade"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2012-10-31 15:19:24.000000000",
+            "updated_by": {
+                "_account_id": 209,
+                "name": "Josh Kearney",
+                "email": "josh@jk0.org",
+                "username": "jk0"
+            },
+            "reviewer": {
+                "_account_id": 209,
+                "name": "Josh Kearney",
+                "email": "josh@jk0.org",
+                "username": "jk0"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2012-10-31 22:02:14.000000000",
+            "updated_by": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "reviewer": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "state": "REVIEWER"
+        }
+    ],
+    "messages": [
+        {
+            "id": "091187517fce1d69c27917bd07a0eb8e31474867",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2012-10-30 16:54:08.000000000",
+            "message": "Patch Set 1: Works for me\n\nBuild successful\n\n- http://logs.openstack.org/15043/1/check/gate-glance-merge/2689 : SUCCESS\n- http://logs.openstack.org/15043/1/check/gate-glance-docs/862 : SUCCESS\n- http://logs.openstack.org/15043/1/check/gate-glance-pep8/2796 : SUCCESS\n- http://logs.openstack.org/15043/1/check/gate-glance-python26/2300 : SUCCESS\n- http://logs.openstack.org/15043/1/check/gate-glance-python27/2315 : SUCCESS\n- http://logs.openstack.org/15043/1/check/gate-tempest-devstack-vm/16095 : SUCCESS\n",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "27a4a30177cfd45cbec8dfe82e636689dc224833",
+            "author": {
+                "_account_id": 177,
+                "name": "Alex Meade",
+                "email": "mr.alex.meade@gmail.com",
+                "username": "alex-meade"
+            },
+            "real_author": {
+                "_account_id": 177,
+                "name": "Alex Meade",
+                "email": "mr.alex.meade@gmail.com",
+                "username": "alex-meade"
+            },
+            "date": "2012-10-30 18:07:37.000000000",
+            "message": "Patch Set 1: Looks good to me (core reviewer)\n\n",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "c7045e404077d42b7ae33ba966ec8cdced6b9070",
+            "author": {
+                "_account_id": 209,
+                "name": "Josh Kearney",
+                "email": "josh@jk0.org",
+                "username": "jk0"
+            },
+            "real_author": {
+                "_account_id": 209,
+                "name": "Josh Kearney",
+                "email": "josh@jk0.org",
+                "username": "jk0"
+            },
+            "date": "2012-10-31 15:19:24.000000000",
+            "message": "Patch Set 1: Looks good to me (core reviewer); Approved\n\n",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "cecd91635bf2acb2981cbd3bd633ed7fe1a681fb",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2012-10-31 15:20:05.000000000",
+            "message": "Patch Set 1: No score\n\nStarting gate jobs.\nhttps://jenkins.openstack.org/zuul/status",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "9b4b8a57bdb108dbe7c75f47f554c8f741f3a8c7",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2012-10-31 18:04:57.000000000",
+            "message": "Patch Set 1: Fails\n\nBuild failed\n\n- http://logs.openstack.org/15043/1/gate/gate-glance-merge/2710 : SUCCESS\n- http://logs.openstack.org/15043/1/gate/gate-glance-docs/883 : SUCCESS\n- http://logs.openstack.org/15043/1/gate/gate-glance-pep8/2817 : SUCCESS\n- http://logs.openstack.org/15043/1/gate/gate-glance-python26/2321 : FAILURE\n- http://logs.openstack.org/15043/1/gate/gate-glance-python27/2335 : FAILURE\n- http://logs.openstack.org/15043/1/gate/gate-tempest-devstack-vm/16335 : SUCCESS\n",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "cf3d3ed79532dab07530c3fc9783a8029f19f8c7",
+            "author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "real_author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "date": "2012-10-31 18:36:28.000000000",
+            "message": "Patch Set 1:\n\nreverify",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "2b2b09b5f274a6d1d2bb384a122d4e77218bd4a2",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2012-10-31 18:37:00.000000000",
+            "message": "Patch Set 1: No score\n\nStarting gate jobs.\nhttps://jenkins.openstack.org/zuul/status",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "6c4a9e505b49240436da716e15cfa17952846ca4",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2012-10-31 19:23:13.000000000",
+            "message": "Patch Set 1: Fails\n\nBuild failed\n\n- http://logs.openstack.org/15043/1/gate/gate-glance-merge/2713 : SUCCESS\n- http://logs.openstack.org/15043/1/gate/gate-glance-docs/886 : SUCCESS\n- http://logs.openstack.org/15043/1/gate/gate-glance-pep8/2820 : SUCCESS\n- http://logs.openstack.org/15043/1/gate/gate-glance-python26/2324 : SUCCESS\n- http://logs.openstack.org/15043/1/gate/gate-glance-python27/2338 : SUCCESS\n- http://logs.openstack.org/15043/1/gate/gate-tempest-devstack-vm/16358 : FAILURE\n",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "8a2d9b56518ee57e7b39ef28ac974601805927d0",
+            "author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "real_author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "date": "2012-10-31 19:27:59.000000000",
+            "message": "Patch Set 1:\n\nreverify",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "b1f857e06c44f06f03ceecca65ee12e28638718c",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2012-10-31 19:28:00.000000000",
+            "message": "Patch Set 1: No score\n\nStarting gate jobs.\nhttps://jenkins.openstack.org/zuul/status",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "f6a5a195afa2a4b9331b5a9f8b585090bf4ba0eb",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2012-10-31 20:42:30.000000000",
+            "message": "Patch Set 1: Fails\n\nBuild failed\n\n- http://logs.openstack.org/15043/1/gate/gate-glance-merge/2715 : SUCCESS\n- http://logs.openstack.org/15043/1/gate/gate-glance-docs/888 : SUCCESS\n- http://logs.openstack.org/15043/1/gate/gate-glance-pep8/2822 : SUCCESS\n- http://logs.openstack.org/15043/1/gate/gate-glance-python26/2326 : SUCCESS\n- http://logs.openstack.org/15043/1/gate/gate-glance-python27/2340 : FAILURE\n- http://logs.openstack.org/15043/1/gate/gate-tempest-devstack-vm/16379 : SUCCESS\n",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "706d3d1912584edfe614a1904a1ed478dbe34980",
+            "author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "real_author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "date": "2012-10-31 20:56:02.000000000",
+            "message": "Patch Set 1:\n\nreverify",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "397844becc7aef2c52344b20cb4673a36807d7b3",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2012-10-31 20:56:03.000000000",
+            "message": "Patch Set 1: No score\n\nStarting gate jobs.\nhttps://jenkins.openstack.org/zuul/status",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "bab0ef02de63a17feafd75820fe3d4a1144cae1a",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2012-10-31 22:02:14.000000000",
+            "message": "Patch Set 1: Verified\n\nBuild successful\n\n- http://logs.openstack.org/15043/1/gate/gate-glance-merge/2720 : SUCCESS\n- http://logs.openstack.org/15043/1/gate/gate-glance-docs/893 : SUCCESS\n- http://logs.openstack.org/15043/1/gate/gate-glance-pep8/2827 : SUCCESS\n- http://logs.openstack.org/15043/1/gate/gate-glance-python26/2331 : SUCCESS\n- http://logs.openstack.org/15043/1/gate/gate-glance-python27/2345 : SUCCESS\n- http://logs.openstack.org/15043/1/gate/gate-tempest-devstack-vm/16408 : SUCCESS\n",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "6d83a3ddd7e915436292ca9f40339fe1da7a0eff",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2012-10-31 22:02:14.000000000",
+            "message": "Change has been successfully merged into the git repository.",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        }
+    ],
+    "requirements": [],
+    "submit_records": []
+}

@@ -1,0 +1,749 @@
+{
+    "id": "openstack%2Fglance~master~I5d9a7cbc566e1f58afc03390806f76f9d973532b",
+    "project": "openstack/glance",
+    "branch": "master",
+    "topic": "bug/1937901",
+    "hashtags": [],
+    "change_id": "I5d9a7cbc566e1f58afc03390806f76f9d973532b",
+    "subject": "Deploy healthcheck middleware as app instead of filter",
+    "status": "ABANDONED",
+    "created": "2021-07-23 11:54:10.000000000",
+    "updated": "2021-07-24 13:16:45.000000000",
+    "insertions": 235,
+    "deletions": 109,
+    "total_comment_count": 0,
+    "unresolved_comment_count": 0,
+    "has_review_started": true,
+    "meta_rev_id": "6c7c840984c47066f4f31b2886eb7e43615df4c6",
+    "_number": 802014,
+    "owner": {
+        "_account_id": 9816,
+        "name": "Takashi Kajinami",
+        "email": "tkajinam@redhat.com",
+        "username": "kajinamit"
+    },
+    "labels": {
+        "Verified": {
+            "all": [
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -2,
+                        "max": 2
+                    },
+                    "_account_id": 22348,
+                    "name": "Zuul",
+                    "username": "zuul",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "_account_id": 9816,
+                    "name": "Takashi Kajinami",
+                    "email": "tkajinam@redhat.com",
+                    "username": "kajinamit"
+                }
+            ],
+            "values": {
+                "-2": "Fails",
+                "-1": "Doesn't seem to work",
+                " 0": "No score",
+                "+1": "Works for me",
+                "+2": "Verified"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        },
+        "Code-Review": {
+            "all": [
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 22348,
+                    "name": "Zuul",
+                    "username": "zuul",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 9816,
+                    "name": "Takashi Kajinami",
+                    "email": "tkajinam@redhat.com",
+                    "username": "kajinamit"
+                }
+            ],
+            "values": {
+                "-2": "Do not merge",
+                "-1": "This patch needs further work before it can be merged",
+                " 0": "No score",
+                "+1": "Looks good to me, but someone else must approve",
+                "+2": "Looks good to me (core reviewer)"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        },
+        "Workflow": {
+            "all": [
+                {
+                    "_account_id": 22348,
+                    "name": "Zuul",
+                    "username": "zuul",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 0
+                    },
+                    "_account_id": 9816,
+                    "name": "Takashi Kajinami",
+                    "email": "tkajinam@redhat.com",
+                    "username": "kajinamit"
+                }
+            ],
+            "values": {
+                "-1": "Work in progress",
+                " 0": "Ready for reviews",
+                "+1": "Approved"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        },
+        "Review-Priority": {
+            "all": [
+                {
+                    "_account_id": 22348,
+                    "name": "Zuul",
+                    "username": "zuul",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "_account_id": 9816,
+                    "name": "Takashi Kajinami",
+                    "email": "tkajinam@redhat.com",
+                    "username": "kajinamit"
+                }
+            ],
+            "values": {
+                "-1": "Branch Freeze",
+                " 0": "No Priority",
+                "+1": "Important Change",
+                "+2": "Top Priority / Holds Gate"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        }
+    },
+    "removable_reviewers": [],
+    "reviewers": {
+        "CC": [
+            {
+                "_account_id": 9008,
+                "name": "VMware NSX CI",
+                "username": "vmwareminesweeper",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            }
+        ],
+        "REVIEWER": [
+            {
+                "_account_id": 9816,
+                "name": "Takashi Kajinami",
+                "email": "tkajinam@redhat.com",
+                "username": "kajinamit"
+            },
+            {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            }
+        ]
+    },
+    "pending_reviewers": {},
+    "reviewer_updates": [
+        {
+            "updated": "2021-07-23 13:24:57.000000000",
+            "updated_by": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "reviewer": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2021-07-23 18:46:03.000000000",
+            "updated_by": {
+                "_account_id": 9008,
+                "name": "VMware NSX CI",
+                "username": "vmwareminesweeper",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "reviewer": {
+                "_account_id": 9008,
+                "name": "VMware NSX CI",
+                "username": "vmwareminesweeper",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "state": "CC"
+        }
+    ],
+    "messages": [
+        {
+            "id": "89595ab71be572b47d1b88cab7a02a27e794d417",
+            "tag": "autogenerated:gerrit:newPatchSet",
+            "author": {
+                "_account_id": 9816,
+                "name": "Takashi Kajinami",
+                "email": "tkajinam@redhat.com",
+                "username": "kajinamit"
+            },
+            "real_author": {
+                "_account_id": 9816,
+                "name": "Takashi Kajinami",
+                "email": "tkajinam@redhat.com",
+                "username": "kajinamit"
+            },
+            "date": "2021-07-23 11:54:10.000000000",
+            "message": "Uploaded patch set 1.",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "47b8b2c57fff1bde2385d93c3329c6a4c9640112",
+            "tag": "autogenerated:gerrit:newPatchSet",
+            "author": {
+                "_account_id": 9816,
+                "name": "Takashi Kajinami",
+                "email": "tkajinam@redhat.com",
+                "username": "kajinamit"
+            },
+            "real_author": {
+                "_account_id": 9816,
+                "name": "Takashi Kajinami",
+                "email": "tkajinam@redhat.com",
+                "username": "kajinamit"
+            },
+            "date": "2021-07-23 11:58:30.000000000",
+            "message": "Uploaded patch set 2.",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "42dacf1fb633c8ee9cafe8faa85784f458566b33",
+            "tag": "autogenerated:zuul:check",
+            "author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2021-07-23 13:24:57.000000000",
+            "message": "Patch Set 2: Verified-1\n\nBuild failed (check pipeline).  For information on how to proceed, see\nhttps://docs.opendev.org/opendev/infra-manual/latest/developers.html#automated-testing\n\n\n- grenade https://zuul.opendev.org/t/openstack/build/927c546c9d0d43afafa679f50dfc1cee : SUCCESS in 1h 03m 40s\n- tempest-integrated-storage https://zuul.opendev.org/t/openstack/build/9518b0b1d35e48c692875dbbdd23c816 : SUCCESS in 1h 12m 32s\n- openstack-tox-pep8 https://zuul.opendev.org/t/openstack/build/5280cdd0c1ab4254a99adb4a697fc1bc : SUCCESS in 5m 13s\n- openstack-tox-py36 https://zuul.opendev.org/t/openstack/build/2eb94b7e36cb4d998db1d8f6747bb0a2 : SUCCESS in 6m 10s\n- openstack-tox-py38 https://zuul.opendev.org/t/openstack/build/fffc534daf744a4eb3eef6dd5b5868ae : SUCCESS in 6m 16s\n- openstack-tox-py39 https://zuul.opendev.org/t/openstack/build/5a872995c2b248fbb99e3e4ccd936370 : SUCCESS in 7m 11s (non-voting)\n- openstack-tox-docs https://zuul.opendev.org/t/openstack/build/a8ded250c3a445829900f68dfc9289d5 : SUCCESS in 6m 42s\n- openstack-tox-functional-py36 https://zuul.opendev.org/t/openstack/build/e34849370c96438c8e3bf7e8954e655c : TIMED_OUT in 31m 11s\n- openstack-tox-functional-py38 https://zuul.opendev.org/t/openstack/build/84472cdb8e6e4d1e8fc55ed9d898505b : TIMED_OUT in 31m 07s\n- glance-tox-functional-py38-rbac-defaults https://zuul.opendev.org/t/openstack/build/d056e0013729419c8c562d5d8b8bde5e : FAILURE in 30m 36s (non-voting)\n- glance-code-constants-check https://zuul.opendev.org/t/openstack/build/3a9b5e4b8636463f83af308ee42ed738 : SUCCESS in 5m 10s\n- glance-ceph-thin-provisioning https://zuul.opendev.org/t/openstack/build/a72c390c6a5b490dbd7318893cce47e3 : SUCCESS in 1h 15m 37s (non-voting)\n- tempest-integrated-storage-import https://zuul.opendev.org/t/openstack/build/f837511f7ea84a0da25fcb30c97ce337 : SUCCESS in 1h 04m 49s\n- tempest-integrated-storage-import-standalone https://zuul.opendev.org/t/openstack/build/066858f88b624eb8bf42e45d536de05d : SUCCESS in 1h 05m 45s\n- glance-multistore-cinder-import https://zuul.opendev.org/t/openstack/build/cbc2a26fdf5143a7a14a94237a7fb1e9 : SUCCESS in 1h 20m 18s (non-voting)\n- tempest-ipv6-only https://zuul.opendev.org/t/openstack/build/b63d85f0cb08428993f5bb7c0dcc55bb : SUCCESS in 48m 28s\n- nova-ceph-multistore https://zuul.opendev.org/t/openstack/build/f70142fff86c420781907f9dd8cffead : SUCCESS in 1h 12m 39s\n- glance-secure-rbac-protection-functional https://zuul.opendev.org/t/openstack/build/c11bba8bd4e141ee964ff76f305a3025 : SUCCESS in 32m 53s",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "c84db8b18707817c8cb44e2d539c3110627b8947",
+            "tag": "autogenerated:gerrit:newPatchSet",
+            "author": {
+                "_account_id": 9816,
+                "name": "Takashi Kajinami",
+                "email": "tkajinam@redhat.com",
+                "username": "kajinamit"
+            },
+            "real_author": {
+                "_account_id": 9816,
+                "name": "Takashi Kajinami",
+                "email": "tkajinam@redhat.com",
+                "username": "kajinamit"
+            },
+            "date": "2021-07-23 13:28:21.000000000",
+            "message": "Uploaded patch set 3.",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "2d26b66fc5d7bd1b806bcfbf10bac5ddb276c5e7",
+            "tag": "autogenerated:gerrit:newPatchSet",
+            "author": {
+                "_account_id": 9816,
+                "name": "Takashi Kajinami",
+                "email": "tkajinam@redhat.com",
+                "username": "kajinamit"
+            },
+            "real_author": {
+                "_account_id": 9816,
+                "name": "Takashi Kajinami",
+                "email": "tkajinam@redhat.com",
+                "username": "kajinamit"
+            },
+            "date": "2021-07-23 14:16:23.000000000",
+            "message": "Uploaded patch set 4.",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "aa866a141a8c93824845e0f8f0600e5a82555bf6",
+            "tag": "autogenerated:gerrit:newPatchSet",
+            "author": {
+                "_account_id": 9816,
+                "name": "Takashi Kajinami",
+                "email": "tkajinam@redhat.com",
+                "username": "kajinamit"
+            },
+            "real_author": {
+                "_account_id": 9816,
+                "name": "Takashi Kajinami",
+                "email": "tkajinam@redhat.com",
+                "username": "kajinamit"
+            },
+            "date": "2021-07-23 14:17:27.000000000",
+            "message": "Uploaded patch set 5.",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "686efb86a8dd2a7c47be58e5d96acf40ee5e3a5b",
+            "tag": "autogenerated:gerrit:newPatchSet",
+            "author": {
+                "_account_id": 9816,
+                "name": "Takashi Kajinami",
+                "email": "tkajinam@redhat.com",
+                "username": "kajinamit"
+            },
+            "real_author": {
+                "_account_id": 9816,
+                "name": "Takashi Kajinami",
+                "email": "tkajinam@redhat.com",
+                "username": "kajinamit"
+            },
+            "date": "2021-07-23 14:21:10.000000000",
+            "message": "Uploaded patch set 6: Commit message was updated.",
+            "accounts_in_message": [],
+            "_revision_number": 6
+        },
+        {
+            "id": "78d274a92c7f0de2b34a04ebdc25a7e5fd8feb11",
+            "author": {
+                "_account_id": 9816,
+                "name": "Takashi Kajinami",
+                "email": "tkajinam@redhat.com",
+                "username": "kajinamit"
+            },
+            "real_author": {
+                "_account_id": 9816,
+                "name": "Takashi Kajinami",
+                "email": "tkajinam@redhat.com",
+                "username": "kajinamit"
+            },
+            "date": "2021-07-23 14:38:05.000000000",
+            "message": "Patch Set 6: Workflow-1",
+            "accounts_in_message": [],
+            "_revision_number": 6
+        },
+        {
+            "id": "dce9aa705f583e1ce7dde6bed9b65cb7724b16a5",
+            "tag": "autogenerated:zuul:check",
+            "author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2021-07-23 15:49:10.000000000",
+            "message": "Patch Set 6: Verified-1\n\nBuild failed (check pipeline).  For information on how to proceed, see\nhttps://docs.opendev.org/opendev/infra-manual/latest/developers.html#automated-testing\n\n\n- grenade https://zuul.opendev.org/t/openstack/build/f312fa59b8134de99fcd39dc40c03eb7 : SUCCESS in 55m 17s\n- tempest-integrated-storage https://zuul.opendev.org/t/openstack/build/1678c67faaaa48979ed23b1a8a814c03 : SUCCESS in 1h 13m 10s\n- openstack-tox-pep8 https://zuul.opendev.org/t/openstack/build/6836dd109d4c47b194bba61ffb5f01e9 : SUCCESS in 6m 05s\n- openstack-tox-py36 https://zuul.opendev.org/t/openstack/build/0e2dc4b7d73c46d5b161f629db20dfa0 : SUCCESS in 7m 25s\n- openstack-tox-py38 https://zuul.opendev.org/t/openstack/build/bdf760bfa2594a3d8b4403d11cf6baea : SUCCESS in 6m 18s\n- openstack-tox-py39 https://zuul.opendev.org/t/openstack/build/366de5d1eca847b898c043a28797d13a : SUCCESS in 7m 03s (non-voting)\n- openstack-tox-docs https://zuul.opendev.org/t/openstack/build/c25d132b940a44558c0c27c09aa83bd9 : SUCCESS in 7m 56s\n- openstack-tox-functional-py36 https://zuul.opendev.org/t/openstack/build/ee079a6b61854bcc8e396b458da52afc : SUCCESS in 8m 42s\n- openstack-tox-functional-py38 https://zuul.opendev.org/t/openstack/build/85e4a499c8894df79ee81cd38992205d : SUCCESS in 9m 49s\n- glance-tox-functional-py38-rbac-defaults https://zuul.opendev.org/t/openstack/build/75da5cc2d7de4fedbf2270a00d745301 : SUCCESS in 8m 46s (non-voting)\n- glance-code-constants-check https://zuul.opendev.org/t/openstack/build/8f152c48a4b9405f82b8b3c5df20dc3a : SUCCESS in 7m 08s\n- glance-ceph-thin-provisioning https://zuul.opendev.org/t/openstack/build/e926e96cba5f4c99a2136ae79625f303 : SUCCESS in 1h 14m 32s (non-voting)\n- tempest-integrated-storage-import https://zuul.opendev.org/t/openstack/build/ab6a9e8bcb0b4048a0291148d06f33a7 : SUCCESS in 1h 17m 08s\n- tempest-integrated-storage-import-standalone https://zuul.opendev.org/t/openstack/build/a2c17001295542f48b907d926638052b : SUCCESS in 1h 15m 33s\n- glance-multistore-cinder-import https://zuul.opendev.org/t/openstack/build/6c7844457d3b43c391b9d31019a057cb : FAILURE in 1h 02m 24s (non-voting)\n- tempest-ipv6-only https://zuul.opendev.org/t/openstack/build/172bfd6ec2e544339967fbc0207b3756 : SUCCESS in 48m 38s\n- nova-ceph-multistore https://zuul.opendev.org/t/openstack/build/c2a1e249cbdb4d7a86b31820bf2428f7 : FAILURE in 1h 18m 10s\n- glance-secure-rbac-protection-functional https://zuul.opendev.org/t/openstack/build/4f7e00fc56e24e7c806b609d42e119f8 : SUCCESS in 33m 10s",
+            "accounts_in_message": [],
+            "_revision_number": 6
+        },
+        {
+            "id": "bf4bf750e213c7e4f18878447b55f41d0462cc48",
+            "author": {
+                "_account_id": 9008,
+                "name": "VMware NSX CI",
+                "username": "vmwareminesweeper",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 9008,
+                "name": "VMware NSX CI",
+                "username": "vmwareminesweeper",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2021-07-23 18:46:03.000000000",
+            "message": "Patch Set 6:\n\nBuild failed\n\n- dsvm-glance http://207.189.188.190/logs/802014/802014/6/check-not-vote/ext-glance-zuul/834ac6b : FAILURE in 1m 09s",
+            "accounts_in_message": [],
+            "_revision_number": 6
+        },
+        {
+            "id": "418b95cde37d6c2219d78c41fd71cb39bb25eb36",
+            "tag": "autogenerated:gerrit:newPatchSet",
+            "author": {
+                "_account_id": 9816,
+                "name": "Takashi Kajinami",
+                "email": "tkajinam@redhat.com",
+                "username": "kajinamit"
+            },
+            "real_author": {
+                "_account_id": 9816,
+                "name": "Takashi Kajinami",
+                "email": "tkajinam@redhat.com",
+                "username": "kajinamit"
+            },
+            "date": "2021-07-24 02:55:29.000000000",
+            "message": "Uploaded patch set 7.",
+            "accounts_in_message": [],
+            "_revision_number": 7
+        },
+        {
+            "id": "b17eb7ff68d897441628d664fbe41656f269f567",
+            "tag": "autogenerated:gerrit:newPatchSet",
+            "author": {
+                "_account_id": 9816,
+                "name": "Takashi Kajinami",
+                "email": "tkajinam@redhat.com",
+                "username": "kajinamit"
+            },
+            "real_author": {
+                "_account_id": 9816,
+                "name": "Takashi Kajinami",
+                "email": "tkajinam@redhat.com",
+                "username": "kajinamit"
+            },
+            "date": "2021-07-24 02:58:21.000000000",
+            "message": "Uploaded patch set 8.",
+            "accounts_in_message": [],
+            "_revision_number": 8
+        },
+        {
+            "id": "6984ba335715ae72db2b4781450f17d194692ee8",
+            "tag": "autogenerated:gerrit:newPatchSet",
+            "author": {
+                "_account_id": 9816,
+                "name": "Takashi Kajinami",
+                "email": "tkajinam@redhat.com",
+                "username": "kajinamit"
+            },
+            "real_author": {
+                "_account_id": 9816,
+                "name": "Takashi Kajinami",
+                "email": "tkajinam@redhat.com",
+                "username": "kajinamit"
+            },
+            "date": "2021-07-24 03:37:01.000000000",
+            "message": "Uploaded patch set 9.",
+            "accounts_in_message": [],
+            "_revision_number": 9
+        },
+        {
+            "id": "5fa3a562d5be62112c66562dfec7fc24e8144e55",
+            "tag": "autogenerated:gerrit:newPatchSet",
+            "author": {
+                "_account_id": 9816,
+                "name": "Takashi Kajinami",
+                "email": "tkajinam@redhat.com",
+                "username": "kajinamit"
+            },
+            "real_author": {
+                "_account_id": 9816,
+                "name": "Takashi Kajinami",
+                "email": "tkajinam@redhat.com",
+                "username": "kajinamit"
+            },
+            "date": "2021-07-24 04:20:25.000000000",
+            "message": "Uploaded patch set 10.",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "db5424ca9e197c202c52c2f806cda2b0465ed9f9",
+            "tag": "autogenerated:gerrit:newPatchSet",
+            "author": {
+                "_account_id": 9816,
+                "name": "Takashi Kajinami",
+                "email": "tkajinam@redhat.com",
+                "username": "kajinamit"
+            },
+            "real_author": {
+                "_account_id": 9816,
+                "name": "Takashi Kajinami",
+                "email": "tkajinam@redhat.com",
+                "username": "kajinamit"
+            },
+            "date": "2021-07-24 04:44:05.000000000",
+            "message": "Uploaded patch set 11.",
+            "accounts_in_message": [],
+            "_revision_number": 11
+        },
+        {
+            "id": "21d10ecab8b02747fd506fbd7e5408d1b9ef868d",
+            "tag": "autogenerated:gerrit:newPatchSet",
+            "author": {
+                "_account_id": 9816,
+                "name": "Takashi Kajinami",
+                "email": "tkajinam@redhat.com",
+                "username": "kajinamit"
+            },
+            "real_author": {
+                "_account_id": 9816,
+                "name": "Takashi Kajinami",
+                "email": "tkajinam@redhat.com",
+                "username": "kajinamit"
+            },
+            "date": "2021-07-24 04:53:35.000000000",
+            "message": "Uploaded patch set 12: Commit message was updated.",
+            "accounts_in_message": [],
+            "_revision_number": 12
+        },
+        {
+            "id": "2a1639a22753f37c4729e6e8d68c2ecb608be157",
+            "tag": "autogenerated:zuul:check",
+            "author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2021-07-24 05:48:58.000000000",
+            "message": "Patch Set 12: Verified-1\n\nBuild failed (check pipeline).  For information on how to proceed, see\nhttps://docs.opendev.org/opendev/infra-manual/latest/developers.html#automated-testing\n\n\n- grenade https://zuul.opendev.org/t/openstack/build/b9af9527ccae4bf7b336a05612685757 : SUCCESS in 53m 26s\n- tempest-integrated-storage https://zuul.opendev.org/t/openstack/build/3e71a8a08fb046c2be24f1175c415636 : FAILURE in 22m 19s\n- openstack-tox-pep8 https://zuul.opendev.org/t/openstack/build/2da9bcdff37a4921b0c284346e18ebd3 : SUCCESS in 5m 36s\n- openstack-tox-py36 https://zuul.opendev.org/t/openstack/build/0e726884246b488e838072162ff85069 : FAILURE in 6m 38s\n- openstack-tox-py38 https://zuul.opendev.org/t/openstack/build/4d6a334ba2424d74aa19698dbf7abd54 : FAILURE in 6m 13s\n- openstack-tox-py39 https://zuul.opendev.org/t/openstack/build/cd70df6128d64f579ad963e9b2fd2d80 : FAILURE in 6m 32s (non-voting)\n- openstack-tox-docs https://zuul.opendev.org/t/openstack/build/b1493f95b8ef4fd7afff0aa5212663c6 : SUCCESS in 7m 03s\n- openstack-tox-functional-py36 https://zuul.opendev.org/t/openstack/build/b2b5d76822c64979a9abd77c70549ea9 : TIMED_OUT in 31m 15s\n- openstack-tox-functional-py38 https://zuul.opendev.org/t/openstack/build/ddab719d8ce2455d8291cff7a871553e : TIMED_OUT in 31m 11s\n- glance-tox-functional-py38-rbac-defaults https://zuul.opendev.org/t/openstack/build/638e791b9e474327b979fb5e5d579888 : TIMED_OUT in 31m 20s (non-voting)\n- glance-code-constants-check https://zuul.opendev.org/t/openstack/build/324160524d1c494ca1cf14992679c936 : SUCCESS in 4m 59s\n- glance-ceph-thin-provisioning https://zuul.opendev.org/t/openstack/build/d6264be1adeb4eb8b979e4334b9321f9 : FAILURE in 24m 38s (non-voting)\n- tempest-integrated-storage-import https://zuul.opendev.org/t/openstack/build/eec0b30b7a504da4a62449d25eefce05 : POST_FAILURE in 21m 57s\n- tempest-integrated-storage-import-standalone https://zuul.opendev.org/t/openstack/build/a311b42acaf9468a83ca04059a526489 : POST_FAILURE in 22m 06s\n- glance-multistore-cinder-import https://zuul.opendev.org/t/openstack/build/cba17f2aa30c42a3ba7ab8b0b480403a : POST_FAILURE in 24m 42s (non-voting)\n- tempest-ipv6-only https://zuul.opendev.org/t/openstack/build/483af6fbb6e7498a8cb34c93822f7aa9 : FAILURE in 21m 25s\n- nova-ceph-multistore https://zuul.opendev.org/t/openstack/build/6e6f404e10b74d3aba68436d4a215bff : FAILURE in 28m 35s\n- glance-secure-rbac-protection-functional https://zuul.opendev.org/t/openstack/build/a7be36de165f43e3b87fdf968b83e605 : FAILURE in 24m 19s",
+            "accounts_in_message": [],
+            "_revision_number": 12
+        },
+        {
+            "id": "ed0a10394ccba8e4d8dae699e80d412269c71997",
+            "tag": "autogenerated:gerrit:newPatchSet",
+            "author": {
+                "_account_id": 9816,
+                "name": "Takashi Kajinami",
+                "email": "tkajinam@redhat.com",
+                "username": "kajinamit"
+            },
+            "real_author": {
+                "_account_id": 9816,
+                "name": "Takashi Kajinami",
+                "email": "tkajinam@redhat.com",
+                "username": "kajinamit"
+            },
+            "date": "2021-07-24 10:25:29.000000000",
+            "message": "Uploaded patch set 13.",
+            "accounts_in_message": [],
+            "_revision_number": 13
+        },
+        {
+            "id": "c87c7d6c2c5a7affac8a13ed36491e2e98bbd76e",
+            "tag": "autogenerated:gerrit:newPatchSet",
+            "author": {
+                "_account_id": 9816,
+                "name": "Takashi Kajinami",
+                "email": "tkajinam@redhat.com",
+                "username": "kajinamit"
+            },
+            "real_author": {
+                "_account_id": 9816,
+                "name": "Takashi Kajinami",
+                "email": "tkajinam@redhat.com",
+                "username": "kajinamit"
+            },
+            "date": "2021-07-24 10:49:21.000000000",
+            "message": "Uploaded patch set 14.",
+            "accounts_in_message": [],
+            "_revision_number": 14
+        },
+        {
+            "id": "9902e70056bc174ecadac744d560cefa0110bca4",
+            "tag": "autogenerated:zuul:check",
+            "author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2021-07-24 11:59:13.000000000",
+            "message": "Patch Set 14: Verified-1\n\nBuild failed (check pipeline).  For information on how to proceed, see\nhttps://docs.opendev.org/opendev/infra-manual/latest/developers.html#automated-testing\n\n\n- grenade https://zuul.opendev.org/t/openstack/build/dc4c308a32e44f989cd1ecdcb6610058 : SUCCESS in 1h 05m 23s\n- tempest-integrated-storage https://zuul.opendev.org/t/openstack/build/631896a183484831992bed6134c0754d : FAILURE in 29m 32s\n- openstack-tox-pep8 https://zuul.opendev.org/t/openstack/build/b38b775b8bea4e0c86d36d6a1f9d3eb1 : SUCCESS in 5m 12s\n- openstack-tox-py36 https://zuul.opendev.org/t/openstack/build/d5ed351493ad4b0490edccac5ebb2f75 : FAILURE in 6m 13s\n- openstack-tox-py38 https://zuul.opendev.org/t/openstack/build/950ffc413c124630962fdccc210eb0e4 : FAILURE in 5m 55s\n- openstack-tox-py39 https://zuul.opendev.org/t/openstack/build/ac437573bf3c4f22924cb2ea45ec9c41 : FAILURE in 6m 59s (non-voting)\n- openstack-tox-docs https://zuul.opendev.org/t/openstack/build/a29d9fcdf41a4827a9b3695b8c2031bb : SUCCESS in 7m 25s\n- openstack-tox-functional-py36 https://zuul.opendev.org/t/openstack/build/002bedca52b440829734bf7c87c2f9d4 : TIMED_OUT in 30m 57s\n- openstack-tox-functional-py38 https://zuul.opendev.org/t/openstack/build/76e6a0711f9549b086a9ff42c3642659 : FAILURE in 30m 21s\n- glance-tox-functional-py38-rbac-defaults https://zuul.opendev.org/t/openstack/build/6b66391ba2364f3483c1a4f553fc822c : TIMED_OUT in 30m 58s (non-voting)\n- glance-code-constants-check https://zuul.opendev.org/t/openstack/build/863a2e1c3cac444fa69f1981d380d000 : SUCCESS in 5m 10s\n- glance-ceph-thin-provisioning https://zuul.opendev.org/t/openstack/build/af54f7a926ff44cda08a7913de2ff474 : FAILURE in 30m 55s (non-voting)\n- tempest-integrated-storage-import https://zuul.opendev.org/t/openstack/build/160760344f56491885eecdc782c34a5d : POST_FAILURE in 31m 27s\n- tempest-integrated-storage-import-standalone https://zuul.opendev.org/t/openstack/build/5fbbcd71da5045d7a1e3e607c26639cf : POST_FAILURE in 31m 00s\n- glance-multistore-cinder-import https://zuul.opendev.org/t/openstack/build/0d308e14e4514ef990b811ed1bebac7b : POST_FAILURE in 22m 55s (non-voting)\n- tempest-ipv6-only https://zuul.opendev.org/t/openstack/build/703fa1e96fab40f9b02d7921655d187f : FAILURE in 31m 33s\n- nova-ceph-multistore https://zuul.opendev.org/t/openstack/build/3abd62a34281418f843176eb4a7c4c5a : FAILURE in 29m 53s\n- glance-secure-rbac-protection-functional https://zuul.opendev.org/t/openstack/build/1811d558cfe34e3099bd1817f60db04b : FAILURE in 29m 40s",
+            "accounts_in_message": [],
+            "_revision_number": 14
+        },
+        {
+            "id": "32a1dcd93a8ba1cd02fa8bd120d99c998cd52d37",
+            "tag": "autogenerated:gerrit:newPatchSet",
+            "author": {
+                "_account_id": 9816,
+                "name": "Takashi Kajinami",
+                "email": "tkajinam@redhat.com",
+                "username": "kajinamit"
+            },
+            "real_author": {
+                "_account_id": 9816,
+                "name": "Takashi Kajinami",
+                "email": "tkajinam@redhat.com",
+                "username": "kajinamit"
+            },
+            "date": "2021-07-24 13:03:29.000000000",
+            "message": "Uploaded patch set 15.",
+            "accounts_in_message": [],
+            "_revision_number": 15
+        },
+        {
+            "id": "7c835f222b329b13dccbf8805c9394247b2e8ad6",
+            "tag": "autogenerated:gerrit:newPatchSet",
+            "author": {
+                "_account_id": 9816,
+                "name": "Takashi Kajinami",
+                "email": "tkajinam@redhat.com",
+                "username": "kajinamit"
+            },
+            "real_author": {
+                "_account_id": 9816,
+                "name": "Takashi Kajinami",
+                "email": "tkajinam@redhat.com",
+                "username": "kajinamit"
+            },
+            "date": "2021-07-24 13:05:22.000000000",
+            "message": "Uploaded patch set 16.",
+            "accounts_in_message": [],
+            "_revision_number": 16
+        },
+        {
+            "id": "81eccc10ded43a3dd89fbddc8b1f4348e0f93222",
+            "tag": "autogenerated:gerrit:newPatchSet",
+            "author": {
+                "_account_id": 9816,
+                "name": "Takashi Kajinami",
+                "email": "tkajinam@redhat.com",
+                "username": "kajinamit"
+            },
+            "real_author": {
+                "_account_id": 9816,
+                "name": "Takashi Kajinami",
+                "email": "tkajinam@redhat.com",
+                "username": "kajinamit"
+            },
+            "date": "2021-07-24 13:08:44.000000000",
+            "message": "Uploaded patch set 17.",
+            "accounts_in_message": [],
+            "_revision_number": 17
+        },
+        {
+            "id": "7cabb82b7c2f1a99882625f7d895a635ac627497",
+            "tag": "autogenerated:gerrit:abandon",
+            "author": {
+                "_account_id": 9816,
+                "name": "Takashi Kajinami",
+                "email": "tkajinam@redhat.com",
+                "username": "kajinamit"
+            },
+            "real_author": {
+                "_account_id": 9816,
+                "name": "Takashi Kajinami",
+                "email": "tkajinam@redhat.com",
+                "username": "kajinamit"
+            },
+            "date": "2021-07-24 13:16:04.000000000",
+            "message": "Abandoned",
+            "accounts_in_message": [],
+            "_revision_number": 17
+        },
+        {
+            "id": "6c7c840984c47066f4f31b2886eb7e43615df4c6",
+            "author": {
+                "_account_id": 9816,
+                "name": "Takashi Kajinami",
+                "email": "tkajinam@redhat.com",
+                "username": "kajinamit"
+            },
+            "real_author": {
+                "_account_id": 9816,
+                "name": "Takashi Kajinami",
+                "email": "tkajinam@redhat.com",
+                "username": "kajinamit"
+            },
+            "date": "2021-07-24 13:16:45.000000000",
+            "message": "Patch Set 17:\n\nThis is duplicate of https://review.opendev.org/c/openstack/glance/+/802148",
+            "accounts_in_message": [],
+            "_revision_number": 17
+        }
+    ],
+    "requirements": [],
+    "submit_records": []
+}

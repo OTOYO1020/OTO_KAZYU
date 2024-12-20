@@ -1,0 +1,718 @@
+{
+    "id": "openstack%2Fglance~master~Iea19cded1773640fc51274520c1de5d4845c1039",
+    "project": "openstack/glance",
+    "branch": "master",
+    "topic": "bp/cache-prefetcher",
+    "hashtags": [],
+    "change_id": "Iea19cded1773640fc51274520c1de5d4845c1039",
+    "subject": "Move Cache management to API",
+    "status": "ABANDONED",
+    "created": "2019-07-26 06:30:50.000000000",
+    "updated": "2021-07-15 14:52:26.000000000",
+    "insertions": 361,
+    "deletions": 33,
+    "total_comment_count": 3,
+    "unresolved_comment_count": 0,
+    "has_review_started": true,
+    "meta_rev_id": "862df5defb7940112f2fd07a0ea3b4c0eb6277fc",
+    "_number": 672876,
+    "owner": {
+        "_account_id": 9303,
+        "name": "Abhishek Kekane",
+        "email": "akekane@redhat.com",
+        "username": "abhishekkekane"
+    },
+    "labels": {
+        "Verified": {
+            "recommended": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "all": [
+                {
+                    "value": 1,
+                    "date": "2019-08-02 11:40:47.000000000",
+                    "permitted_voting_range": {
+                        "min": -2,
+                        "max": 2
+                    },
+                    "_account_id": 22348,
+                    "name": "Zuul",
+                    "username": "zuul",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "date": "2019-08-07 13:44:15.000000000",
+                    "_account_id": 6926,
+                    "name": "Bogdan Dobrelya",
+                    "email": "bdobreli@redhat.com",
+                    "username": "bogdando"
+                },
+                {
+                    "_account_id": 4393,
+                    "name": "Dan Smith",
+                    "email": "dms@danplanet.com",
+                    "username": "danms"
+                },
+                {
+                    "_account_id": 9303,
+                    "name": "Abhishek Kekane",
+                    "email": "akekane@redhat.com",
+                    "username": "abhishekkekane"
+                },
+                {
+                    "date": "2019-08-02 10:14:08.000000000",
+                    "_account_id": 9008,
+                    "name": "VMware NSX CI",
+                    "username": "vmwareminesweeper",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "_account_id": 5202,
+                    "name": "Erno Kuvaja",
+                    "email": "jokke@usr.fi",
+                    "username": "jokke"
+                }
+            ],
+            "values": {
+                "-2": "Fails",
+                "-1": "Doesn't seem to work",
+                " 0": "No score",
+                "+1": "Works for me",
+                "+2": "Verified"
+            },
+            "description": "",
+            "value": 1,
+            "default_value": 0,
+            "optional": true
+        },
+        "Code-Review": {
+            "disliked": {
+                "_account_id": 4393,
+                "name": "Dan Smith",
+                "email": "dms@danplanet.com",
+                "username": "danms"
+            },
+            "all": [
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 22348,
+                    "name": "Zuul",
+                    "username": "zuul",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 6926,
+                    "name": "Bogdan Dobrelya",
+                    "email": "bdobreli@redhat.com",
+                    "username": "bogdando"
+                },
+                {
+                    "value": -1,
+                    "date": "2020-10-28 14:38:40.000000000",
+                    "permitted_voting_range": {
+                        "min": -2,
+                        "max": 2
+                    },
+                    "_account_id": 4393,
+                    "name": "Dan Smith",
+                    "email": "dms@danplanet.com",
+                    "username": "danms"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -2,
+                        "max": 2
+                    },
+                    "_account_id": 9303,
+                    "name": "Abhishek Kekane",
+                    "email": "akekane@redhat.com",
+                    "username": "abhishekkekane"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 9008,
+                    "name": "VMware NSX CI",
+                    "username": "vmwareminesweeper",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -2,
+                        "max": 2
+                    },
+                    "_account_id": 5202,
+                    "name": "Erno Kuvaja",
+                    "email": "jokke@usr.fi",
+                    "username": "jokke"
+                }
+            ],
+            "values": {
+                "-2": "Do not merge",
+                "-1": "This patch needs further work before it can be merged",
+                " 0": "No score",
+                "+1": "Looks good to me, but someone else must approve",
+                "+2": "Looks good to me (core reviewer)"
+            },
+            "description": "",
+            "value": -1,
+            "default_value": 0,
+            "optional": true
+        },
+        "Workflow": {
+            "rejected": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "all": [
+                {
+                    "_account_id": 22348,
+                    "name": "Zuul",
+                    "username": "zuul",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "_account_id": 6926,
+                    "name": "Bogdan Dobrelya",
+                    "email": "bdobreli@redhat.com",
+                    "username": "bogdando"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 4393,
+                    "name": "Dan Smith",
+                    "email": "dms@danplanet.com",
+                    "username": "danms"
+                },
+                {
+                    "value": -1,
+                    "date": "2021-04-07 05:25:10.000000000",
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 9303,
+                    "name": "Abhishek Kekane",
+                    "email": "akekane@redhat.com",
+                    "username": "abhishekkekane"
+                },
+                {
+                    "_account_id": 9008,
+                    "name": "VMware NSX CI",
+                    "username": "vmwareminesweeper",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 5202,
+                    "name": "Erno Kuvaja",
+                    "email": "jokke@usr.fi",
+                    "username": "jokke"
+                }
+            ],
+            "values": {
+                "-1": "Work in progress",
+                " 0": "Ready for reviews",
+                "+1": "Approved"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        },
+        "Review-Priority": {
+            "all": [
+                {
+                    "_account_id": 22348,
+                    "name": "Zuul",
+                    "username": "zuul",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "_account_id": 6926,
+                    "name": "Bogdan Dobrelya",
+                    "email": "bdobreli@redhat.com",
+                    "username": "bogdando"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 2
+                    },
+                    "_account_id": 4393,
+                    "name": "Dan Smith",
+                    "email": "dms@danplanet.com",
+                    "username": "danms"
+                },
+                {
+                    "value": 0,
+                    "date": "2021-04-07 05:25:10.000000000",
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 2
+                    },
+                    "_account_id": 9303,
+                    "name": "Abhishek Kekane",
+                    "email": "akekane@redhat.com",
+                    "username": "abhishekkekane"
+                },
+                {
+                    "_account_id": 9008,
+                    "name": "VMware NSX CI",
+                    "username": "vmwareminesweeper",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 2
+                    },
+                    "_account_id": 5202,
+                    "name": "Erno Kuvaja",
+                    "email": "jokke@usr.fi",
+                    "username": "jokke"
+                }
+            ],
+            "values": {
+                "-1": "Branch Freeze",
+                " 0": "No Priority",
+                "+1": "Important Change",
+                "+2": "Top Priority / Holds Gate"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        }
+    },
+    "removable_reviewers": [],
+    "reviewers": {
+        "REVIEWER": [
+            {
+                "_account_id": 4393,
+                "name": "Dan Smith",
+                "email": "dms@danplanet.com",
+                "username": "danms"
+            },
+            {
+                "_account_id": 5202,
+                "name": "Erno Kuvaja",
+                "email": "jokke@usr.fi",
+                "username": "jokke"
+            },
+            {
+                "_account_id": 6926,
+                "name": "Bogdan Dobrelya",
+                "email": "bdobreli@redhat.com",
+                "username": "bogdando"
+            },
+            {
+                "_account_id": 9008,
+                "name": "VMware NSX CI",
+                "username": "vmwareminesweeper",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            }
+        ]
+    },
+    "pending_reviewers": {},
+    "reviewer_updates": [
+        {
+            "updated": "2019-07-26 06:31:14.000000000",
+            "updated_by": {
+                "_account_id": 5202,
+                "name": "Erno Kuvaja",
+                "email": "jokke@usr.fi",
+                "username": "jokke"
+            },
+            "reviewer": {
+                "_account_id": 5202,
+                "name": "Erno Kuvaja",
+                "email": "jokke@usr.fi",
+                "username": "jokke"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2019-08-02 10:14:08.000000000",
+            "updated_by": {
+                "_account_id": 9008,
+                "name": "VMware NSX CI",
+                "username": "vmwareminesweeper",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "reviewer": {
+                "_account_id": 9008,
+                "name": "VMware NSX CI",
+                "username": "vmwareminesweeper",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2019-08-02 11:40:47.000000000",
+            "updated_by": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "reviewer": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2019-08-07 13:44:15.000000000",
+            "updated_by": {
+                "_account_id": 6926,
+                "name": "Bogdan Dobrelya",
+                "email": "bdobreli@redhat.com",
+                "username": "bogdando"
+            },
+            "reviewer": {
+                "_account_id": 6926,
+                "name": "Bogdan Dobrelya",
+                "email": "bdobreli@redhat.com",
+                "username": "bogdando"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2020-10-28 14:38:40.000000000",
+            "updated_by": {
+                "_account_id": 4393,
+                "name": "Dan Smith",
+                "email": "dms@danplanet.com",
+                "username": "danms"
+            },
+            "reviewer": {
+                "_account_id": 4393,
+                "name": "Dan Smith",
+                "email": "dms@danplanet.com",
+                "username": "danms"
+            },
+            "state": "REVIEWER"
+        }
+    ],
+    "messages": [
+        {
+            "id": "0176171b6f4bedbf2d45f0d0c3796557683a9827",
+            "author": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "real_author": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "date": "2019-07-26 06:30:50.000000000",
+            "message": "Uploaded patch set 1.",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "ccf630dc98e27e909473e33df1931acc500e063b",
+            "author": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "real_author": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "date": "2019-07-26 06:31:23.000000000",
+            "message": "Patch Set 1: Workflow-1",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "b0a4357a835ceb91dfb82d25f83d35082da6a941",
+            "author": {
+                "_account_id": 9008,
+                "name": "VMware NSX CI",
+                "username": "vmwareminesweeper",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 9008,
+                "name": "VMware NSX CI",
+                "username": "vmwareminesweeper",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2019-07-26 08:03:14.000000000",
+            "message": "Patch Set 1:\n\nBuild succeeded\n\n- dsvm-glance http://207.189.188.190/logs/76/672876/1/check-not-vote/ext-glance-zuul/d700560 : SUCCESS in 40m 30s",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "fe5f4ba7f63baec31b779be4c98894a4c5f1c11b",
+            "author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2019-07-26 09:13:49.000000000",
+            "message": "Patch Set 1: Verified+1\n\nBuild succeeded (check pipeline).\n\n- tempest-full http://logs.openstack.org/76/672876/1/check/tempest-full/028228b/ : SUCCESS in 1h 37m 45s\n- neutron-grenade http://logs.openstack.org/76/672876/1/check/neutron-grenade/628b3bc/ : SUCCESS in 59m 20s\n- grenade-py3 http://logs.openstack.org/76/672876/1/check/grenade-py3/a7e03f1/ : SUCCESS in 1h 02m 18s\n- tempest-full-py3 http://logs.openstack.org/76/672876/1/check/tempest-full-py3/89a6e0b/ : SUCCESS in 1h 23m 32s\n- openstack-tox-lower-constraints http://logs.openstack.org/76/672876/1/check/openstack-tox-lower-constraints/a6476fc/ : SUCCESS in 5m 29s\n- openstack-tox-pep8 http://logs.openstack.org/76/672876/1/check/openstack-tox-pep8/f66c9ed/ : SUCCESS in 5m 33s\n- openstack-tox-py27 http://logs.openstack.org/76/672876/1/check/openstack-tox-py27/da04eaa/ : SUCCESS in 5m 29s\n- openstack-tox-py35 http://logs.openstack.org/76/672876/1/check/openstack-tox-py35/d04e001/ : SUCCESS in 5m 19s\n- openstack-tox-py36 http://logs.openstack.org/76/672876/1/check/openstack-tox-py36/f140f9b/ : SUCCESS in 4m 54s\n- openstack-tox-py37 http://logs.openstack.org/76/672876/1/check/openstack-tox-py37/162e0ee/ : SUCCESS in 6m 45s\n- openstack-tox-docs http://logs.openstack.org/76/672876/1/check/openstack-tox-docs/2199f3d/html/ : SUCCESS in 6m 00s\n- openstack-tox-functional http://logs.openstack.org/76/672876/1/check/openstack-tox-functional/dadd12f/ : SUCCESS in 9m 17s\n- openstack-tox-functional-py35 http://logs.openstack.org/76/672876/1/check/openstack-tox-functional-py35/900690e/ : SUCCESS in 12m 16s\n- glance-eventlet-ssl-handshake-broken-py3 http://logs.openstack.org/76/672876/1/check/glance-eventlet-ssl-handshake-broken-py3/53abb7a/ : FAILURE in 5m 59s (non-voting)\n- glance-code-constants-check http://logs.openstack.org/76/672876/1/check/glance-code-constants-check/2da7deb/ : SUCCESS in 4m 13s\n- devstack-plugin-ceph-tempest http://logs.openstack.org/76/672876/1/check/devstack-plugin-ceph-tempest/3499dc1/ : SUCCESS in 1h 27m 06s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "562283f82b087c2d6f0278da39de71d0ddea5322",
+            "author": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "real_author": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "date": "2019-08-02 09:29:59.000000000",
+            "message": "Uploaded patch set 2.",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "2b77e8b49533f262bba5b555796a1454437bfbb3",
+            "author": {
+                "_account_id": 9008,
+                "name": "VMware NSX CI",
+                "username": "vmwareminesweeper",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 9008,
+                "name": "VMware NSX CI",
+                "username": "vmwareminesweeper",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2019-08-02 10:14:08.000000000",
+            "message": "Patch Set 2:\n\nBuild failed\n\n- dsvm-glance http://207.189.188.190/logs/76/672876/2/check-not-vote/ext-glance-zuul/2afa705 : FAILURE in 43m 45s",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "60bc092392a68f705a95bc2a03f61c8a9ac6d590",
+            "author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2019-08-02 11:40:47.000000000",
+            "message": "Patch Set 2: Verified+1\n\nBuild succeeded (check pipeline).\n\n- build-openstack-api-ref https://logs.opendev.org/76/672876/2/check/build-openstack-api-ref/fdfd4b7/html/ : SUCCESS in 4m 04s\n- tempest-full https://logs.opendev.org/76/672876/2/check/tempest-full/adbf0c5/ : SUCCESS in 1h 28m 36s\n- neutron-grenade https://logs.opendev.org/76/672876/2/check/neutron-grenade/b6c46f3/ : SUCCESS in 1h 02m 06s\n- grenade-py3 https://logs.opendev.org/76/672876/2/check/grenade-py3/884aa03/ : SUCCESS in 1h 09m 21s\n- tempest-full-py3 https://logs.opendev.org/76/672876/2/check/tempest-full-py3/6fa6135/ : SUCCESS in 1h 39m 09s\n- openstack-tox-lower-constraints https://logs.opendev.org/76/672876/2/check/openstack-tox-lower-constraints/d335709/ : SUCCESS in 4m 06s\n- openstack-tox-pep8 https://logs.opendev.org/76/672876/2/check/openstack-tox-pep8/019328a/ : SUCCESS in 5m 02s\n- openstack-tox-py27 https://logs.opendev.org/76/672876/2/check/openstack-tox-py27/1bb0783/ : SUCCESS in 5m 25s\n- openstack-tox-py35 https://logs.opendev.org/76/672876/2/check/openstack-tox-py35/5135659/ : SUCCESS in 5m 12s\n- openstack-tox-py36 https://logs.opendev.org/76/672876/2/check/openstack-tox-py36/11b2831/ : SUCCESS in 4m 48s\n- openstack-tox-py37 https://logs.opendev.org/76/672876/2/check/openstack-tox-py37/b797bce/ : SUCCESS in 6m 20s\n- openstack-tox-docs https://logs.opendev.org/76/672876/2/check/openstack-tox-docs/133070c/html/ : SUCCESS in 4m 53s\n- openstack-tox-functional https://logs.opendev.org/76/672876/2/check/openstack-tox-functional/2420328/ : SUCCESS in 8m 38s\n- openstack-tox-functional-py35 https://logs.opendev.org/76/672876/2/check/openstack-tox-functional-py35/bd0bc93/ : SUCCESS in 9m 03s\n- glance-eventlet-ssl-handshake-broken-py3 https://logs.opendev.org/76/672876/2/check/glance-eventlet-ssl-handshake-broken-py3/b7f6080/ : FAILURE in 5m 15s (non-voting)\n- glance-code-constants-check https://logs.opendev.org/76/672876/2/check/glance-code-constants-check/5d56d11/ : SUCCESS in 7m 25s\n- devstack-plugin-ceph-tempest https://logs.opendev.org/76/672876/2/check/devstack-plugin-ceph-tempest/29f2a55/ : FAILURE in 1h 24m 04s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "66f587a61de4ef15ac913c469a2d33172fa2e03d",
+            "author": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "real_author": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "date": "2019-08-06 08:26:01.000000000",
+            "message": "Patch Set 2: Review-Priority+1",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "c3f837a6add9049787d7328411113ea12f78ac5c",
+            "author": {
+                "_account_id": 6926,
+                "name": "Bogdan Dobrelya",
+                "email": "bdobreli@redhat.com",
+                "username": "bogdando"
+            },
+            "real_author": {
+                "_account_id": 6926,
+                "name": "Bogdan Dobrelya",
+                "email": "bdobreli@redhat.com",
+                "username": "bogdando"
+            },
+            "date": "2019-08-07 13:44:15.000000000",
+            "message": "Patch Set 2:\n\n(1 comment)",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "1aa3608ca9e0288214f9b4b2c3a65c0e8b6387de",
+            "author": {
+                "_account_id": 4393,
+                "name": "Dan Smith",
+                "email": "dms@danplanet.com",
+                "username": "danms"
+            },
+            "real_author": {
+                "_account_id": 4393,
+                "name": "Dan Smith",
+                "email": "dms@danplanet.com",
+                "username": "danms"
+            },
+            "date": "2020-10-28 14:38:40.000000000",
+            "message": "Patch Set 2: Code-Review-1\n\n(2 comments)",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "66647027afde2f23a3ba2cad306c52139f24718c",
+            "author": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "real_author": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "date": "2021-04-07 05:25:10.000000000",
+            "message": "Patch Set 2: Workflow-1 -Review-Priority\n\nwill work on it during Xena cycle",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "862df5defb7940112f2fd07a0ea3b4c0eb6277fc",
+            "tag": "autogenerated:gerrit:abandon",
+            "author": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "real_author": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "date": "2021-07-15 14:52:26.000000000",
+            "message": "Abandoned\n\nChange of direction!",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        }
+    ],
+    "requirements": [],
+    "submit_records": []
+}

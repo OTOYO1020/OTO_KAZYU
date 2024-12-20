@@ -1,0 +1,1303 @@
+{
+    "id": "openstack%2Fglance~master~Iabfc2ded45a576a18bdb30a6c3ada8b9799a3196",
+    "project": "openstack/glance",
+    "branch": "master",
+    "topic": "bug/1726213",
+    "hashtags": [],
+    "change_id": "Iabfc2ded45a576a18bdb30a6c3ada8b9799a3196",
+    "subject": "Refactor exception handling in cmd.api",
+    "status": "MERGED",
+    "created": "2017-10-23 03:26:57.000000000",
+    "updated": "2018-06-07 09:52:46.000000000",
+    "submitted": "2018-06-07 09:52:45.000000000",
+    "submitter": {
+        "_account_id": 22348,
+        "name": "Zuul",
+        "username": "zuul",
+        "tags": [
+            "SERVICE_USER"
+        ]
+    },
+    "insertions": 68,
+    "deletions": 7,
+    "total_comment_count": 1,
+    "unresolved_comment_count": 0,
+    "has_review_started": true,
+    "submission_id": "514114-1528365166090-2988e340",
+    "meta_rev_id": "dd0f24dab76d1fa12b1dca988e78f384401b9f81",
+    "_number": 514114,
+    "owner": {
+        "_account_id": 22037,
+        "name": "\u848b\u9e4f\u7a0b",
+        "email": "jiangpengcheng@navercorp.com",
+        "username": "jiangpch"
+    },
+    "labels": {
+        "Verified": {
+            "approved": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "all": [
+                {
+                    "value": 2,
+                    "date": "2018-06-07 09:52:45.000000000",
+                    "permitted_voting_range": {
+                        "min": 2,
+                        "max": 2
+                    },
+                    "_account_id": 22348,
+                    "name": "Zuul",
+                    "username": "zuul",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 0,
+                    "_account_id": 26734,
+                    "name": "Scott McClymont",
+                    "email": "scott.mcclymont@verizonwireless.com",
+                    "username": "smcclymont"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 27336,
+                    "name": "XiaojueGuan",
+                    "email": "xiaojueguan@gmail.com",
+                    "username": "XiaojueGuan"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 26458,
+                    "name": "Brin Zhang",
+                    "email": "zhangbailin@inspur.com",
+                    "username": "zhangbailin"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 9303,
+                    "name": "Abhishek Kekane",
+                    "email": "akekane@redhat.com",
+                    "username": "abhishekkekane"
+                },
+                {
+                    "value": 0,
+                    "date": "2018-06-07 07:00:27.000000000",
+                    "_account_id": 9008,
+                    "name": "VMware NSX CI",
+                    "username": "vmwareminesweeper",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 0,
+                    "_account_id": 11904,
+                    "name": "Sean McGinnis",
+                    "email": "sean.mcginnis@gmail.com",
+                    "username": "SeanM"
+                },
+                {
+                    "value": 0,
+                    "date": "2018-05-21 00:48:15.000000000",
+                    "_account_id": 5314,
+                    "name": "Brian Rosmaita",
+                    "email": "rosmaita.fossdev@gmail.com",
+                    "username": "brian-rosmaita"
+                }
+            ],
+            "values": {
+                "-2": "Fails",
+                "-1": "Doesn't seem to work",
+                " 0": "No score",
+                "+1": "Works for me",
+                "+2": "Verified"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        },
+        "Code-Review": {
+            "approved": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "recommended": {
+                "_account_id": 26458,
+                "name": "Brin Zhang",
+                "email": "zhangbailin@inspur.com",
+                "username": "zhangbailin"
+            },
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 22348,
+                    "name": "Zuul",
+                    "username": "zuul",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 0,
+                    "_account_id": 26734,
+                    "name": "Scott McClymont",
+                    "email": "scott.mcclymont@verizonwireless.com",
+                    "username": "smcclymont"
+                },
+                {
+                    "value": 1,
+                    "date": "2018-05-25 07:12:32.000000000",
+                    "permitted_voting_range": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "_account_id": 27336,
+                    "name": "XiaojueGuan",
+                    "email": "xiaojueguan@gmail.com",
+                    "username": "XiaojueGuan"
+                },
+                {
+                    "value": 1,
+                    "date": "2018-06-07 08:13:20.000000000",
+                    "permitted_voting_range": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "_account_id": 26458,
+                    "name": "Brin Zhang",
+                    "email": "zhangbailin@inspur.com",
+                    "username": "zhangbailin"
+                },
+                {
+                    "value": 2,
+                    "date": "2018-06-07 02:53:00.000000000",
+                    "permitted_voting_range": {
+                        "min": 2,
+                        "max": 2
+                    },
+                    "_account_id": 9303,
+                    "name": "Abhishek Kekane",
+                    "email": "akekane@redhat.com",
+                    "username": "abhishekkekane"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 9008,
+                    "name": "VMware NSX CI",
+                    "username": "vmwareminesweeper",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 2,
+                    "date": "2018-05-31 17:18:09.000000000",
+                    "permitted_voting_range": {
+                        "min": 2,
+                        "max": 2
+                    },
+                    "_account_id": 11904,
+                    "name": "Sean McGinnis",
+                    "email": "sean.mcginnis@gmail.com",
+                    "username": "SeanM"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 5314,
+                    "name": "Brian Rosmaita",
+                    "email": "rosmaita.fossdev@gmail.com",
+                    "username": "brian-rosmaita"
+                }
+            ],
+            "values": {
+                "-2": "Do not merge",
+                "-1": "This patch needs further work before it can be merged",
+                " 0": "No score",
+                "+1": "Looks good to me, but someone else must approve",
+                "+2": "Looks good to me (core reviewer)"
+            },
+            "description": "",
+            "value": 1,
+            "default_value": 0,
+            "optional": true
+        },
+        "Workflow": {
+            "approved": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 22348,
+                    "name": "Zuul",
+                    "username": "zuul",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 0,
+                    "_account_id": 26734,
+                    "name": "Scott McClymont",
+                    "email": "scott.mcclymont@verizonwireless.com",
+                    "username": "smcclymont"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 27336,
+                    "name": "XiaojueGuan",
+                    "email": "xiaojueguan@gmail.com",
+                    "username": "XiaojueGuan"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 26458,
+                    "name": "Brin Zhang",
+                    "email": "zhangbailin@inspur.com",
+                    "username": "zhangbailin"
+                },
+                {
+                    "value": 1,
+                    "date": "2018-06-07 02:53:00.000000000",
+                    "permitted_voting_range": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "_account_id": 9303,
+                    "name": "Abhishek Kekane",
+                    "email": "akekane@redhat.com",
+                    "username": "abhishekkekane"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 9008,
+                    "name": "VMware NSX CI",
+                    "username": "vmwareminesweeper",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 0,
+                    "_account_id": 11904,
+                    "name": "Sean McGinnis",
+                    "email": "sean.mcginnis@gmail.com",
+                    "username": "SeanM"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 5314,
+                    "name": "Brian Rosmaita",
+                    "email": "rosmaita.fossdev@gmail.com",
+                    "username": "brian-rosmaita"
+                }
+            ],
+            "values": {
+                "-1": "Work in progress",
+                " 0": "Ready for reviews",
+                "+1": "Approved"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        },
+        "Review-Priority": {
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 22348,
+                    "name": "Zuul",
+                    "username": "zuul",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 0,
+                    "_account_id": 26734,
+                    "name": "Scott McClymont",
+                    "email": "scott.mcclymont@verizonwireless.com",
+                    "username": "smcclymont"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 27336,
+                    "name": "XiaojueGuan",
+                    "email": "xiaojueguan@gmail.com",
+                    "username": "XiaojueGuan"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 26458,
+                    "name": "Brin Zhang",
+                    "email": "zhangbailin@inspur.com",
+                    "username": "zhangbailin"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 9303,
+                    "name": "Abhishek Kekane",
+                    "email": "akekane@redhat.com",
+                    "username": "abhishekkekane"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 9008,
+                    "name": "VMware NSX CI",
+                    "username": "vmwareminesweeper",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 0,
+                    "_account_id": 11904,
+                    "name": "Sean McGinnis",
+                    "email": "sean.mcginnis@gmail.com",
+                    "username": "SeanM"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 5314,
+                    "name": "Brian Rosmaita",
+                    "email": "rosmaita.fossdev@gmail.com",
+                    "username": "brian-rosmaita"
+                }
+            ],
+            "values": {
+                "-1": "Branch Freeze",
+                " 0": "No Priority",
+                "+1": "Important Change",
+                "+2": "Top Priority / Holds Gate"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        }
+    },
+    "removable_reviewers": [],
+    "reviewers": {
+        "REVIEWER": [
+            {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            {
+                "_account_id": 9008,
+                "name": "VMware NSX CI",
+                "username": "vmwareminesweeper",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            {
+                "_account_id": 11904,
+                "name": "Sean McGinnis",
+                "email": "sean.mcginnis@gmail.com",
+                "username": "SeanM"
+            },
+            {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            {
+                "_account_id": 26458,
+                "name": "Brin Zhang",
+                "email": "zhangbailin@inspur.com",
+                "username": "zhangbailin"
+            },
+            {
+                "_account_id": 26734,
+                "name": "Scott McClymont",
+                "email": "scott.mcclymont@verizonwireless.com",
+                "username": "smcclymont"
+            },
+            {
+                "_account_id": 27336,
+                "name": "XiaojueGuan",
+                "email": "xiaojueguan@gmail.com",
+                "username": "XiaojueGuan"
+            }
+        ]
+    },
+    "pending_reviewers": {},
+    "reviewer_updates": [
+        {
+            "updated": "2017-10-27 20:50:35.000000000",
+            "updated_by": {
+                "_account_id": 26734,
+                "name": "Scott McClymont",
+                "email": "scott.mcclymont@verizonwireless.com",
+                "username": "smcclymont"
+            },
+            "reviewer": {
+                "_account_id": 26734,
+                "name": "Scott McClymont",
+                "email": "scott.mcclymont@verizonwireless.com",
+                "username": "smcclymont"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2018-05-21 00:48:15.000000000",
+            "updated_by": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "reviewer": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2018-05-25 07:12:32.000000000",
+            "updated_by": {
+                "_account_id": 27336,
+                "name": "XiaojueGuan",
+                "email": "xiaojueguan@gmail.com",
+                "username": "XiaojueGuan"
+            },
+            "reviewer": {
+                "_account_id": 27336,
+                "name": "XiaojueGuan",
+                "email": "xiaojueguan@gmail.com",
+                "username": "XiaojueGuan"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2018-05-31 17:18:09.000000000",
+            "updated_by": {
+                "_account_id": 11904,
+                "name": "Sean McGinnis",
+                "email": "sean.mcginnis@gmail.com",
+                "username": "SeanM"
+            },
+            "reviewer": {
+                "_account_id": 11904,
+                "name": "Sean McGinnis",
+                "email": "sean.mcginnis@gmail.com",
+                "username": "SeanM"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2018-06-07 02:53:00.000000000",
+            "updated_by": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "reviewer": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2018-06-07 07:00:27.000000000",
+            "updated_by": {
+                "_account_id": 9008,
+                "name": "VMware NSX CI",
+                "username": "vmwareminesweeper",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "reviewer": {
+                "_account_id": 9008,
+                "name": "VMware NSX CI",
+                "username": "vmwareminesweeper",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2018-06-07 08:13:20.000000000",
+            "updated_by": {
+                "_account_id": 26458,
+                "name": "Brin Zhang",
+                "email": "zhangbailin@inspur.com",
+                "username": "zhangbailin"
+            },
+            "reviewer": {
+                "_account_id": 26458,
+                "name": "Brin Zhang",
+                "email": "zhangbailin@inspur.com",
+                "username": "zhangbailin"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2018-06-07 09:52:45.000000000",
+            "updated_by": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "reviewer": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "state": "REVIEWER"
+        }
+    ],
+    "messages": [
+        {
+            "id": "764663406bfdcb81339947cee961420fd926b429",
+            "author": {
+                "_account_id": 22037,
+                "name": "\u848b\u9e4f\u7a0b",
+                "email": "jiangpengcheng@navercorp.com",
+                "username": "jiangpch"
+            },
+            "real_author": {
+                "_account_id": 22037,
+                "name": "\u848b\u9e4f\u7a0b",
+                "email": "jiangpengcheng@navercorp.com",
+                "username": "jiangpch"
+            },
+            "date": "2017-10-23 03:26:57.000000000",
+            "message": "Uploaded patch set 1.",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "271443572ce3e609ea790d00fe0d5a09e8b214b1",
+            "author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2017-10-23 05:00:08.000000000",
+            "message": "Patch Set 1: Verified+1\n\nBuild succeeded.\n\n- openstack-tox-py35 http://logs.openstack.org/14/514114/1/check/openstack-tox-py35/2403766/ : SUCCESS in 7m 12s\n- openstack-tox-pep8 http://logs.openstack.org/14/514114/1/check/openstack-tox-pep8/53bce2c/ : SUCCESS in 3m 36s\n- openstack-tox-py27 http://logs.openstack.org/14/514114/1/check/openstack-tox-py27/9a1ace8/ : SUCCESS in 7m 26s\n- build-openstack-sphinx-docs http://logs.openstack.org/14/514114/1/check/build-openstack-sphinx-docs/6df791f/html/ : SUCCESS in 5m 40s\n- legacy-tempest-dsvm-py35 http://logs.openstack.org/14/514114/1/check/legacy-tempest-dsvm-py35/a2d6827/ : SUCCESS in 1h 12m 01s\n- legacy-tempest-dsvm-full-devstack-plugin-ceph http://logs.openstack.org/14/514114/1/check/legacy-tempest-dsvm-full-devstack-plugin-ceph/8c5ed93/ : FAILURE in 1h 05m 50s (non-voting)\n- legacy-rally-dsvm-glance http://logs.openstack.org/14/514114/1/check/legacy-rally-dsvm-glance/742b0ff/ : SUCCESS in 1h 22m 18s (non-voting)\n- legacy-rally-dsvm-py35-glance http://logs.openstack.org/14/514114/1/check/legacy-rally-dsvm-py35-glance/cf374c9/ : FAILURE in 9m 47s (non-voting)\n- legacy-tempest-dsvm-neutron-full http://logs.openstack.org/14/514114/1/check/legacy-tempest-dsvm-neutron-full/b9e3059/ : SUCCESS in 1h 28m 00s\n- legacy-grenade-dsvm-neutron http://logs.openstack.org/14/514114/1/check/legacy-grenade-dsvm-neutron/2648f45/ : SUCCESS in 51m 25s",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "3e6b7a91631434a904e3c5ace262b2b25874d988",
+            "author": {
+                "_account_id": 26734,
+                "name": "Scott McClymont",
+                "email": "scott.mcclymont@verizonwireless.com",
+                "username": "smcclymont"
+            },
+            "real_author": {
+                "_account_id": 26734,
+                "name": "Scott McClymont",
+                "email": "scott.mcclymont@verizonwireless.com",
+                "username": "smcclymont"
+            },
+            "date": "2017-10-27 20:50:35.000000000",
+            "message": "Patch Set 1: Code-Review-1\n\nI think we should 1. add a test case here to test the exception added and 2. catch general exceptions as well within this block of code. There is no reason to not add both of those here, thanks for the work so far!",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "22493e5c88c3dca4d6bb50903b386832c645e0a7",
+            "author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "real_author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "date": "2017-10-27 22:50:25.000000000",
+            "message": "Patch Set 1: Code-Review-1\n\n(1 comment)\n\nComment inline.",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "71c0f0f11e4381878de49a0d045fd24817b558ac",
+            "author": {
+                "_account_id": 22037,
+                "name": "\u848b\u9e4f\u7a0b",
+                "email": "jiangpengcheng@navercorp.com",
+                "username": "jiangpch"
+            },
+            "real_author": {
+                "_account_id": 22037,
+                "name": "\u848b\u9e4f\u7a0b",
+                "email": "jiangpengcheng@navercorp.com",
+                "username": "jiangpch"
+            },
+            "date": "2017-11-14 00:35:15.000000000",
+            "message": "Abandoned",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "b041274830011c91774cd15fab7742db535bf1d9",
+            "author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "real_author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "date": "2018-04-05 21:28:14.000000000",
+            "message": "Restored\n\nNeed to address this.",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "288b3ba1f13dc9ea75761b8ad8f6f4b99e8082f2",
+            "author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "real_author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "date": "2018-04-05 21:28:29.000000000",
+            "message": "Uploaded patch set 2.",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "42ff540aa1537d19913914955f67915f7e056fa8",
+            "author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "real_author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "date": "2018-04-05 22:10:07.000000000",
+            "message": "Uploaded patch set 3.",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "ce30e72496dc4eab649be42527c6b07d6ad47b5a",
+            "author": {
+                "_account_id": 9008,
+                "name": "VMware NSX CI",
+                "username": "vmwareminesweeper",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 9008,
+                "name": "VMware NSX CI",
+                "username": "vmwareminesweeper",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2018-04-05 23:00:58.000000000",
+            "message": "Patch Set 3:\n\nBuild succeeded\n\n- dsvm-glance http://207.189.188.190/logs/14/514114/3/check-not-vote/ext-glance-zuul/5d92e71 : SUCCESS in 30m 48s",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "c60684bda167f87d06e34027d09ac0502ab3c90c",
+            "author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2018-04-05 23:44:47.000000000",
+            "message": "Patch Set 3: Verified+1\n\nBuild succeeded (check pipeline).\n\n- openstack-tox-py35 http://logs.openstack.org/14/514114/3/check/openstack-tox-py35/6d741ec/ : SUCCESS in 4m 39s\n- openstack-tox-pep8 http://logs.openstack.org/14/514114/3/check/openstack-tox-pep8/d9b0f3f/ : SUCCESS in 4m 21s\n- openstack-tox-py27 http://logs.openstack.org/14/514114/3/check/openstack-tox-py27/eaf9a2f/ : SUCCESS in 4m 26s\n- build-openstack-sphinx-docs http://logs.openstack.org/14/514114/3/check/build-openstack-sphinx-docs/af96a09/html/ : SUCCESS in 5m 02s\n- tempest-full http://logs.openstack.org/14/514114/3/check/tempest-full/67e1f6e/ : SUCCESS in 1h 29m 30s\n- neutron-grenade http://logs.openstack.org/14/514114/3/check/neutron-grenade/0d62fd5/ : SUCCESS in 44m 32s\n- tempest-full-py3 http://logs.openstack.org/14/514114/3/check/tempest-full-py3/70584d2/ : SUCCESS in 1h 11m 07s\n- legacy-tempest-dsvm-full-devstack-plugin-ceph http://logs.openstack.org/14/514114/3/check/legacy-tempest-dsvm-full-devstack-plugin-ceph/4bad729/ : SUCCESS in 1h 15m 54s (non-voting)\n- openstack-tox-functional http://logs.openstack.org/14/514114/3/check/openstack-tox-functional/4a39590/ : SUCCESS in 7m 09s\n- openstack-tox-functional-py35 http://logs.openstack.org/14/514114/3/check/openstack-tox-functional-py35/51f5e23/ : SUCCESS in 7m 04s",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "047a7bb979e69b2bddaf67ab5a7f083804c9fae9",
+            "author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "real_author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "date": "2018-05-20 14:28:04.000000000",
+            "message": "Patch Set 4: Patch Set 3 was rebased",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "bdf0067a13280d06cc363002efa40670e0048bed",
+            "author": {
+                "_account_id": 9008,
+                "name": "VMware NSX CI",
+                "username": "vmwareminesweeper",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 9008,
+                "name": "VMware NSX CI",
+                "username": "vmwareminesweeper",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2018-05-20 14:56:06.000000000",
+            "message": "Patch Set 4:\n\nBuild succeeded\n\n- dsvm-glance http://207.189.188.190/logs/14/514114/4/check-not-vote/ext-glance-zuul/e126fee : SUCCESS in 27m 39s",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "6123d5b07b20df8466a3bb569aad3a7e00f06da4",
+            "author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "real_author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "date": "2018-05-20 15:57:21.000000000",
+            "message": "Uploaded patch set 5.",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "b48fef24f47777bc7819ec6f11dc69f3b936111c",
+            "author": {
+                "_account_id": 9008,
+                "name": "VMware NSX CI",
+                "username": "vmwareminesweeper",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 9008,
+                "name": "VMware NSX CI",
+                "username": "vmwareminesweeper",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2018-05-20 16:24:44.000000000",
+            "message": "Patch Set 5:\n\nBuild succeeded\n\n- dsvm-glance http://207.189.188.190/logs/14/514114/5/check-not-vote/ext-glance-zuul/2106ce8 : SUCCESS in 27m 03s",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "c467d97d18a04f202b749d35177f0e1fbb8a89e7",
+            "author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2018-05-20 17:36:17.000000000",
+            "message": "Patch Set 5: Verified-1\n\nBuild failed (check pipeline).  For information on how to proceed, see\nhttp://docs.openstack.org/infra/manual/developers.html#automated-testing\n\n\n- openstack-tox-py35 http://logs.openstack.org/14/514114/5/check/openstack-tox-py35/6706176/ : SUCCESS in 3m 36s\n- openstack-tox-pep8 http://logs.openstack.org/14/514114/5/check/openstack-tox-pep8/c053749/ : SUCCESS in 4m 34s\n- openstack-tox-py27 http://logs.openstack.org/14/514114/5/check/openstack-tox-py27/5b26232/ : SUCCESS in 3m 43s\n- build-openstack-sphinx-docs http://logs.openstack.org/14/514114/5/check/build-openstack-sphinx-docs/a985dcb/html/ : SUCCESS in 4m 36s\n- tempest-full http://logs.openstack.org/14/514114/5/check/tempest-full/5ca5e64/ : SUCCESS in 1h 36m 18s\n- neutron-grenade http://logs.openstack.org/14/514114/5/check/neutron-grenade/1ea4a58/ : SUCCESS in 48m 02s\n- tempest-full-py3 http://logs.openstack.org/14/514114/5/check/tempest-full-py3/c19f142/ : SUCCESS in 1h 37m 12s\n- legacy-tempest-dsvm-full-devstack-plugin-ceph http://logs.openstack.org/14/514114/5/check/legacy-tempest-dsvm-full-devstack-plugin-ceph/64c3ec5/ : SUCCESS in 1h 32m 48s (non-voting)\n- openstack-tox-functional http://logs.openstack.org/14/514114/5/check/openstack-tox-functional/10c1a42/ : SUCCESS in 9m 59s\n- openstack-tox-functional-py35 http://logs.openstack.org/14/514114/5/check/openstack-tox-functional-py35/aebf777/ : FAILURE in 8m 02s\n- openstack-tox-lower-constraints http://logs.openstack.org/14/514114/5/check/openstack-tox-lower-constraints/0796eb4/ : SUCCESS in 3m 12s",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "d013acf6afdb5b78043751a06ae06371822efaef",
+            "author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "real_author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "date": "2018-05-21 00:48:15.000000000",
+            "message": "Patch Set 5:\n\nrecheck",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "cafd74a6ac013e2eb64848ddd66011cf0da850f0",
+            "author": {
+                "_account_id": 9008,
+                "name": "VMware NSX CI",
+                "username": "vmwareminesweeper",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 9008,
+                "name": "VMware NSX CI",
+                "username": "vmwareminesweeper",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2018-05-21 01:22:07.000000000",
+            "message": "Patch Set 5:\n\nBuild succeeded\n\n- dsvm-glance http://207.189.188.190/logs/14/514114/5/check-not-vote/ext-glance-zuul/da43600 : SUCCESS in 33m 32s",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "e74d57322235ed273101b0517e8753e6f834f8d0",
+            "author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2018-05-21 02:20:10.000000000",
+            "message": "Patch Set 5: Verified+1\n\nBuild succeeded (check pipeline).\n\n- openstack-tox-py35 http://logs.openstack.org/14/514114/5/check/openstack-tox-py35/fe006ea/ : SUCCESS in 4m 36s\n- openstack-tox-pep8 http://logs.openstack.org/14/514114/5/check/openstack-tox-pep8/c16b648/ : SUCCESS in 4m 47s\n- openstack-tox-py27 http://logs.openstack.org/14/514114/5/check/openstack-tox-py27/fb6321a/ : SUCCESS in 4m 24s\n- build-openstack-sphinx-docs http://logs.openstack.org/14/514114/5/check/build-openstack-sphinx-docs/55d2575/html/ : SUCCESS in 5m 04s\n- tempest-full http://logs.openstack.org/14/514114/5/check/tempest-full/6cc62e5/ : SUCCESS in 1h 30m 10s\n- neutron-grenade http://logs.openstack.org/14/514114/5/check/neutron-grenade/469c2b8/ : SUCCESS in 51m 00s\n- tempest-full-py3 http://logs.openstack.org/14/514114/5/check/tempest-full-py3/5bbe15e/ : SUCCESS in 1h 18m 58s\n- legacy-tempest-dsvm-full-devstack-plugin-ceph http://logs.openstack.org/14/514114/5/check/legacy-tempest-dsvm-full-devstack-plugin-ceph/3cf2655/ : SUCCESS in 1h 04m 52s (non-voting)\n- openstack-tox-functional http://logs.openstack.org/14/514114/5/check/openstack-tox-functional/9ca37ce/ : SUCCESS in 9m 18s\n- openstack-tox-functional-py35 http://logs.openstack.org/14/514114/5/check/openstack-tox-functional-py35/c88668b/ : SUCCESS in 8m 39s\n- openstack-tox-lower-constraints http://logs.openstack.org/14/514114/5/check/openstack-tox-lower-constraints/ac1028d/ : SUCCESS in 3m 09s",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "a7bed54eb6e841ce49996e00368bcdb547a0c3b9",
+            "author": {
+                "_account_id": 27336,
+                "name": "XiaojueGuan",
+                "email": "xiaojueguan@gmail.com",
+                "username": "XiaojueGuan"
+            },
+            "real_author": {
+                "_account_id": 27336,
+                "name": "XiaojueGuan",
+                "email": "xiaojueguan@gmail.com",
+                "username": "XiaojueGuan"
+            },
+            "date": "2018-05-25 07:12:32.000000000",
+            "message": "Patch Set 5: Code-Review+1",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "765496cc832bdea84225be3131e864aaecccd0b1",
+            "author": {
+                "_account_id": 11904,
+                "name": "Sean McGinnis",
+                "email": "sean.mcginnis@gmail.com",
+                "username": "SeanM"
+            },
+            "real_author": {
+                "_account_id": 11904,
+                "name": "Sean McGinnis",
+                "email": "sean.mcginnis@gmail.com",
+                "username": "SeanM"
+            },
+            "date": "2018-05-31 17:18:09.000000000",
+            "message": "Patch Set 5: Code-Review+2\n\nLooks good, thanks for adding the tests.",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "27dac8229b18290e8d664acb7ac6cbbeaaf540d3",
+            "author": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "real_author": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "date": "2018-06-07 02:53:00.000000000",
+            "message": "Patch Set 5: Code-Review+2 Workflow+1",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "8b39ba47fd68094ad78c2a7f488680d4f1c54952",
+            "author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2018-06-07 02:53:22.000000000",
+            "message": "Patch Set 5: -Verified\n\nStarting gate jobs.",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "af50974493695f21c316f03f696f208545b11c82",
+            "author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2018-06-07 04:35:02.000000000",
+            "message": "Patch Set 5: Verified-2\n\nBuild failed (gate pipeline).  For information on how to proceed, see\nhttp://docs.openstack.org/infra/manual/developers.html#automated-testing\n\n\n- openstack-tox-py35 http://logs.openstack.org/14/514114/5/gate/openstack-tox-py35/ae17c27/ : SUCCESS in 4m 28s\n- openstack-tox-pep8 http://logs.openstack.org/14/514114/5/gate/openstack-tox-pep8/f099f05/ : SUCCESS in 4m 50s\n- openstack-tox-py27 http://logs.openstack.org/14/514114/5/gate/openstack-tox-py27/b64ba6c/ : SUCCESS in 4m 12s\n- build-openstack-sphinx-docs http://logs.openstack.org/14/514114/5/gate/build-openstack-sphinx-docs/0bfc117/html/ : SUCCESS in 5m 53s\n- tempest-full http://logs.openstack.org/14/514114/5/gate/tempest-full/c0e3ca6/ : SUCCESS in 1h 35m 46s\n- neutron-grenade http://logs.openstack.org/14/514114/5/gate/neutron-grenade/8bc407c/ : SUCCESS in 52m 54s\n- tempest-full-py3 http://logs.openstack.org/14/514114/5/gate/tempest-full-py3/019bb3b/ : SUCCESS in 1h 16m 58s\n- openstack-tox-functional http://logs.openstack.org/14/514114/5/gate/openstack-tox-functional/e9514d4/ : SUCCESS in 9m 59s\n- openstack-tox-functional-py35 http://logs.openstack.org/14/514114/5/gate/openstack-tox-functional-py35/0b31adf/ : TIMED_OUT in 30m 35s\n- openstack-tox-lower-constraints http://logs.openstack.org/14/514114/5/gate/openstack-tox-lower-constraints/f6d1385/ : SUCCESS in 4m 00s",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "d76dd44eb4121d7f80115b2aa7fa945250b88c34",
+            "author": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "real_author": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "date": "2018-06-07 04:46:28.000000000",
+            "message": "Patch Set 5:\n\nrecheck",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "6beed340373d4459f3c0178384519e3305f85de3",
+            "author": {
+                "_account_id": 9008,
+                "name": "VMware NSX CI",
+                "username": "vmwareminesweeper",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 9008,
+                "name": "VMware NSX CI",
+                "username": "vmwareminesweeper",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2018-06-07 05:19:15.000000000",
+            "message": "Patch Set 5:\n\nBuild failed\n\n- dsvm-glance http://207.189.188.190/logs/14/514114/5/check-not-vote/ext-glance-zuul/205fe45 : FAILURE in 32m 26s",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "2f007896cc4938339ade1a0df2ca3096f84ae8f7",
+            "author": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "real_author": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "date": "2018-06-07 06:23:42.000000000",
+            "message": "Patch Set 5:\n\nrecheck",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "5e80dfcacec951c7502b5998e14bd0b150203915",
+            "author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2018-06-07 06:39:39.000000000",
+            "message": "Patch Set 5: Verified-1\n\nBuild failed (check pipeline).  For information on how to proceed, see\nhttp://docs.openstack.org/infra/manual/developers.html#automated-testing\n\n\n- openstack-tox-py35 http://logs.openstack.org/14/514114/5/check/openstack-tox-py35/9e99661/ : SUCCESS in 4m 11s\n- openstack-tox-pep8 http://logs.openstack.org/14/514114/5/check/openstack-tox-pep8/318e50d/ : SUCCESS in 4m 07s\n- openstack-tox-py27 http://logs.openstack.org/14/514114/5/check/openstack-tox-py27/66f411a/ : SUCCESS in 3m 29s\n- build-openstack-sphinx-docs http://logs.openstack.org/14/514114/5/check/build-openstack-sphinx-docs/ed78436/html/ : SUCCESS in 4m 30s\n- tempest-full http://logs.openstack.org/14/514114/5/check/tempest-full/a14b4aa/ : SUCCESS in 1h 47m 30s\n- neutron-grenade http://logs.openstack.org/14/514114/5/check/neutron-grenade/768a5e2/ : SUCCESS in 46m 02s\n- tempest-full-py3 http://logs.openstack.org/14/514114/5/check/tempest-full-py3/c9dd531/ : SUCCESS in 1h 19m 35s\n- legacy-tempest-dsvm-full-devstack-plugin-ceph http://logs.openstack.org/14/514114/5/check/legacy-tempest-dsvm-full-devstack-plugin-ceph/5f9eb4e/ : SUCCESS in 1h 08m 27s (non-voting)\n- openstack-tox-functional http://logs.openstack.org/14/514114/5/check/openstack-tox-functional/ee7616a/ : SUCCESS in 7m 54s\n- openstack-tox-functional-py35 http://logs.openstack.org/14/514114/5/check/openstack-tox-functional-py35/74a0ccf/ : FAILURE in 8m 21s\n- openstack-tox-lower-constraints http://logs.openstack.org/14/514114/5/check/openstack-tox-lower-constraints/cfb3869/ : SUCCESS in 3m 33s\n- glance-eventlet-ssl-handshake-broken-py35 http://logs.openstack.org/14/514114/5/check/glance-eventlet-ssl-handshake-broken-py35/c6fb8c8/ : FAILURE in 3m 37s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "7a52a68e9dfaffe6beaf30e886f14dfa702c15e6",
+            "author": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "real_author": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "date": "2018-06-07 06:41:04.000000000",
+            "message": "Patch Set 5:\n\nrecheck",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "b592ddd6b3f5877868b1932e209baca3333b9767",
+            "author": {
+                "_account_id": 9008,
+                "name": "VMware NSX CI",
+                "username": "vmwareminesweeper",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 9008,
+                "name": "VMware NSX CI",
+                "username": "vmwareminesweeper",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2018-06-07 07:00:27.000000000",
+            "message": "Patch Set 5:\n\nBuild failed\n\n- dsvm-glance http://207.189.188.190/logs/14/514114/5/check-not-vote/ext-glance-zuul/0582f7f : FAILURE in 36m 24s",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "902ead17c85e99e5302d015790c69017d50510bb",
+            "author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2018-06-07 08:09:32.000000000",
+            "message": "Patch Set 5: Verified+1\n\nBuild succeeded (check pipeline).\n\n- openstack-tox-py35 http://logs.openstack.org/14/514114/5/check/openstack-tox-py35/d38f36d/ : SUCCESS in 4m 11s\n- openstack-tox-pep8 http://logs.openstack.org/14/514114/5/check/openstack-tox-pep8/538ccf1/ : SUCCESS in 4m 08s\n- openstack-tox-py27 http://logs.openstack.org/14/514114/5/check/openstack-tox-py27/5a6d772/ : SUCCESS in 3m 52s\n- build-openstack-sphinx-docs http://logs.openstack.org/14/514114/5/check/build-openstack-sphinx-docs/25aaa9c/html/ : SUCCESS in 3m 49s\n- tempest-full http://logs.openstack.org/14/514114/5/check/tempest-full/6402bca/ : SUCCESS in 1h 27m 14s\n- neutron-grenade http://logs.openstack.org/14/514114/5/check/neutron-grenade/074f704/ : SUCCESS in 48m 07s\n- tempest-full-py3 http://logs.openstack.org/14/514114/5/check/tempest-full-py3/0adc036/ : SUCCESS in 1h 17m 28s\n- legacy-tempest-dsvm-full-devstack-plugin-ceph http://logs.openstack.org/14/514114/5/check/legacy-tempest-dsvm-full-devstack-plugin-ceph/ee50a68/ : SUCCESS in 1h 08m 35s (non-voting)\n- openstack-tox-functional http://logs.openstack.org/14/514114/5/check/openstack-tox-functional/9c7f1db/ : SUCCESS in 8m 25s\n- openstack-tox-functional-py35 http://logs.openstack.org/14/514114/5/check/openstack-tox-functional-py35/9d49f3f/ : SUCCESS in 8m 41s\n- openstack-tox-lower-constraints http://logs.openstack.org/14/514114/5/check/openstack-tox-lower-constraints/ae75ebe/ : SUCCESS in 3m 11s\n- glance-eventlet-ssl-handshake-broken-py35 http://logs.openstack.org/14/514114/5/check/glance-eventlet-ssl-handshake-broken-py35/70a4a50/ : FAILURE in 4m 34s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "a1421c869c1f7987533ebb83282c0e323efe7812",
+            "author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2018-06-07 08:09:47.000000000",
+            "message": "Patch Set 5: -Verified\n\nStarting gate jobs.",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "85b4de5aaf02ebabe91b7925a9aea08f2531bce8",
+            "author": {
+                "_account_id": 26458,
+                "name": "Brin Zhang",
+                "email": "zhangbailin@inspur.com",
+                "username": "zhangbailin"
+            },
+            "real_author": {
+                "_account_id": 26458,
+                "name": "Brin Zhang",
+                "email": "zhangbailin@inspur.com",
+                "username": "zhangbailin"
+            },
+            "date": "2018-06-07 08:13:20.000000000",
+            "message": "Patch Set 5: Code-Review+1",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "697460f548066fea7b6ff2b588e752f13a5f1dd1",
+            "author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2018-06-07 09:52:45.000000000",
+            "message": "Patch Set 5: Verified+2\n\nBuild succeeded (gate pipeline).\n\n- openstack-tox-py35 http://logs.openstack.org/14/514114/5/gate/openstack-tox-py35/0bcd70e/ : SUCCESS in 4m 14s\n- openstack-tox-pep8 http://logs.openstack.org/14/514114/5/gate/openstack-tox-pep8/a0690fe/ : SUCCESS in 4m 16s\n- openstack-tox-py27 http://logs.openstack.org/14/514114/5/gate/openstack-tox-py27/23d4ef0/ : SUCCESS in 3m 53s\n- build-openstack-sphinx-docs http://logs.openstack.org/14/514114/5/gate/build-openstack-sphinx-docs/337183e/html/ : SUCCESS in 4m 47s\n- tempest-full http://logs.openstack.org/14/514114/5/gate/tempest-full/94c3eed/ : SUCCESS in 1h 35m 53s\n- neutron-grenade http://logs.openstack.org/14/514114/5/gate/neutron-grenade/bab6947/ : SUCCESS in 52m 26s\n- tempest-full-py3 http://logs.openstack.org/14/514114/5/gate/tempest-full-py3/6c4f06c/ : SUCCESS in 1h 23m 56s\n- openstack-tox-functional http://logs.openstack.org/14/514114/5/gate/openstack-tox-functional/29e725e/ : SUCCESS in 8m 34s\n- openstack-tox-functional-py35 http://logs.openstack.org/14/514114/5/gate/openstack-tox-functional-py35/a0bdc79/ : SUCCESS in 8m 51s\n- openstack-tox-lower-constraints http://logs.openstack.org/14/514114/5/gate/openstack-tox-lower-constraints/bcea3c2/ : SUCCESS in 3m 08s",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "e69fb2230146ac32e9e9be5636d63442347a8967",
+            "author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2018-06-07 09:52:46.000000000",
+            "message": "Change has been successfully merged by Zuul",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        }
+    ],
+    "requirements": [],
+    "submit_records": []
+}

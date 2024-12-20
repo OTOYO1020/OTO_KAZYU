@@ -1,0 +1,1376 @@
+{
+    "id": "openstack%2Fglance~master~I8fa8c4f36892b96d406216cb3c64854a94ca9df7",
+    "project": "openstack/glance",
+    "branch": "master",
+    "topic": "bug/1229042",
+    "hashtags": [],
+    "change_id": "I8fa8c4f36892b96d406216cb3c64854a94ca9df7",
+    "subject": "Fixing glance-api hangs in the qpid notifier",
+    "status": "MERGED",
+    "created": "2013-09-23 06:52:45.000000000",
+    "updated": "2013-10-01 09:44:16.000000000",
+    "submitted": "2013-10-01 09:44:15.000000000",
+    "submitter": {
+        "_account_id": 3,
+        "name": "Jenkins",
+        "username": "jenkins"
+    },
+    "insertions": 44,
+    "deletions": 32,
+    "total_comment_count": 12,
+    "unresolved_comment_count": 0,
+    "has_review_started": true,
+    "meta_rev_id": "799f8b51add533e6947ba92e0ca9fc0a9382dae3",
+    "_number": 47786,
+    "owner": {
+        "_account_id": 5803,
+        "name": "Attila Fazekas",
+        "email": "afazekas@redhat.com",
+        "username": "afazekas"
+    },
+    "labels": {
+        "Verified": {
+            "approved": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "recommended": {
+                "_account_id": 2166,
+                "name": "SmokeStack CI",
+                "username": "smokestack",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 6159,
+                    "name": "Flavio Percoco",
+                    "display_name": "flaper87",
+                    "email": "fpercoco@redhat.com",
+                    "username": "flaper87"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 4463,
+                    "name": "iccha-sethi",
+                    "email": "iccha.sethi@rackspace.com",
+                    "username": "iccha-sethi"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 616,
+                    "name": "Mark Washenberger",
+                    "email": "mark.washenberger@markwash.net",
+                    "username": "markwash"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 5803,
+                    "name": "Attila Fazekas",
+                    "email": "afazekas@redhat.com",
+                    "username": "afazekas"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 6484,
+                    "name": "Feilong Wang",
+                    "email": "hustemb@gmail.com",
+                    "username": "flwang"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 6549,
+                    "name": "Zhi Yan Liu",
+                    "email": "lzy.dev@gmail.com",
+                    "username": "lzy-dev"
+                },
+                {
+                    "value": 1,
+                    "date": "2013-09-26 15:52:15.000000000",
+                    "_account_id": 2166,
+                    "name": "SmokeStack CI",
+                    "username": "smokestack",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 2,
+                    "date": "2013-10-01 09:44:15.000000000",
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 5347,
+                    "name": "Eddie Sheffield",
+                    "email": "eddie.sheffield@rackspace.com",
+                    "username": "eddie-sheffield"
+                }
+            ],
+            "values": {
+                "-2": "Fails",
+                "-1": "Doesn't seem to work",
+                " 0": "No score",
+                "+1": "Works for me",
+                "+2": "Verified"
+            },
+            "description": "",
+            "value": 1,
+            "default_value": 0,
+            "optional": true
+        },
+        "Code-Review": {
+            "approved": {
+                "_account_id": 4463,
+                "name": "iccha-sethi",
+                "email": "iccha.sethi@rackspace.com",
+                "username": "iccha-sethi"
+            },
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 6159,
+                    "name": "Flavio Percoco",
+                    "display_name": "flaper87",
+                    "email": "fpercoco@redhat.com",
+                    "username": "flaper87"
+                },
+                {
+                    "value": 2,
+                    "date": "2013-09-30 21:40:10.000000000",
+                    "_account_id": 4463,
+                    "name": "iccha-sethi",
+                    "email": "iccha.sethi@rackspace.com",
+                    "username": "iccha-sethi"
+                },
+                {
+                    "value": 2,
+                    "date": "2013-09-26 22:11:13.000000000",
+                    "_account_id": 616,
+                    "name": "Mark Washenberger",
+                    "email": "mark.washenberger@markwash.net",
+                    "username": "markwash"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 5803,
+                    "name": "Attila Fazekas",
+                    "email": "afazekas@redhat.com",
+                    "username": "afazekas"
+                },
+                {
+                    "value": 1,
+                    "date": "2013-09-27 03:16:30.000000000",
+                    "permitted_voting_range": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "_account_id": 6484,
+                    "name": "Feilong Wang",
+                    "email": "hustemb@gmail.com",
+                    "username": "flwang"
+                },
+                {
+                    "value": 1,
+                    "date": "2013-09-26 23:22:17.000000000",
+                    "permitted_voting_range": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "_account_id": 6549,
+                    "name": "Zhi Yan Liu",
+                    "email": "lzy.dev@gmail.com",
+                    "username": "lzy-dev"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 2166,
+                    "name": "SmokeStack CI",
+                    "username": "smokestack",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 0,
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                },
+                {
+                    "value": 1,
+                    "date": "2013-09-26 18:05:15.000000000",
+                    "permitted_voting_range": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "_account_id": 5347,
+                    "name": "Eddie Sheffield",
+                    "email": "eddie.sheffield@rackspace.com",
+                    "username": "eddie-sheffield"
+                }
+            ],
+            "values": {
+                "-2": "Do not merge",
+                "-1": "This patch needs further work before it can be merged",
+                " 0": "No score",
+                "+1": "Looks good to me, but someone else must approve",
+                "+2": "Looks good to me (core reviewer)"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        },
+        "Workflow": {
+            "approved": {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 6159,
+                    "name": "Flavio Percoco",
+                    "display_name": "flaper87",
+                    "email": "fpercoco@redhat.com",
+                    "username": "flaper87"
+                },
+                {
+                    "value": 0,
+                    "date": "2013-09-30 21:40:10.000000000",
+                    "_account_id": 4463,
+                    "name": "iccha-sethi",
+                    "email": "iccha.sethi@rackspace.com",
+                    "username": "iccha-sethi"
+                },
+                {
+                    "value": 1,
+                    "date": "2013-09-30 21:41:08.000000000",
+                    "_account_id": 616,
+                    "name": "Mark Washenberger",
+                    "email": "mark.washenberger@markwash.net",
+                    "username": "markwash"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 5803,
+                    "name": "Attila Fazekas",
+                    "email": "afazekas@redhat.com",
+                    "username": "afazekas"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 6484,
+                    "name": "Feilong Wang",
+                    "email": "hustemb@gmail.com",
+                    "username": "flwang"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 6549,
+                    "name": "Zhi Yan Liu",
+                    "email": "lzy.dev@gmail.com",
+                    "username": "lzy-dev"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 2166,
+                    "name": "SmokeStack CI",
+                    "username": "smokestack",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 0,
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 5347,
+                    "name": "Eddie Sheffield",
+                    "email": "eddie.sheffield@rackspace.com",
+                    "username": "eddie-sheffield"
+                }
+            ],
+            "values": {
+                "-1": "Work in progress",
+                " 0": "Ready for reviews",
+                "+1": "Approved"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        },
+        "Review-Priority": {
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 6159,
+                    "name": "Flavio Percoco",
+                    "display_name": "flaper87",
+                    "email": "fpercoco@redhat.com",
+                    "username": "flaper87"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 4463,
+                    "name": "iccha-sethi",
+                    "email": "iccha.sethi@rackspace.com",
+                    "username": "iccha-sethi"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 616,
+                    "name": "Mark Washenberger",
+                    "email": "mark.washenberger@markwash.net",
+                    "username": "markwash"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 5803,
+                    "name": "Attila Fazekas",
+                    "email": "afazekas@redhat.com",
+                    "username": "afazekas"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 6484,
+                    "name": "Feilong Wang",
+                    "email": "hustemb@gmail.com",
+                    "username": "flwang"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 6549,
+                    "name": "Zhi Yan Liu",
+                    "email": "lzy.dev@gmail.com",
+                    "username": "lzy-dev"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 2166,
+                    "name": "SmokeStack CI",
+                    "username": "smokestack",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 0,
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 5347,
+                    "name": "Eddie Sheffield",
+                    "email": "eddie.sheffield@rackspace.com",
+                    "username": "eddie-sheffield"
+                }
+            ],
+            "values": {
+                "-1": "Branch Freeze",
+                " 0": "No Priority",
+                "+1": "Important Change",
+                "+2": "Top Priority / Holds Gate"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        }
+    },
+    "removable_reviewers": [],
+    "reviewers": {
+        "REVIEWER": [
+            {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            {
+                "_account_id": 2166,
+                "name": "SmokeStack CI",
+                "username": "smokestack",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            {
+                "_account_id": 4463,
+                "name": "iccha-sethi",
+                "email": "iccha.sethi@rackspace.com",
+                "username": "iccha-sethi"
+            },
+            {
+                "_account_id": 5347,
+                "name": "Eddie Sheffield",
+                "email": "eddie.sheffield@rackspace.com",
+                "username": "eddie-sheffield"
+            },
+            {
+                "_account_id": 5803,
+                "name": "Attila Fazekas",
+                "email": "afazekas@redhat.com",
+                "username": "afazekas"
+            },
+            {
+                "_account_id": 6159,
+                "name": "Flavio Percoco",
+                "display_name": "flaper87",
+                "email": "fpercoco@redhat.com",
+                "username": "flaper87"
+            },
+            {
+                "_account_id": 6484,
+                "name": "Feilong Wang",
+                "email": "hustemb@gmail.com",
+                "username": "flwang"
+            },
+            {
+                "_account_id": 6549,
+                "name": "Zhi Yan Liu",
+                "email": "lzy.dev@gmail.com",
+                "username": "lzy-dev"
+            }
+        ]
+    },
+    "pending_reviewers": {},
+    "reviewer_updates": [
+        {
+            "updated": "2013-09-23 11:06:46.000000000",
+            "updated_by": {
+                "_account_id": 6159,
+                "name": "Flavio Percoco",
+                "display_name": "flaper87",
+                "email": "fpercoco@redhat.com",
+                "username": "flaper87"
+            },
+            "reviewer": {
+                "_account_id": 6159,
+                "name": "Flavio Percoco",
+                "display_name": "flaper87",
+                "email": "fpercoco@redhat.com",
+                "username": "flaper87"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2013-09-26 15:52:15.000000000",
+            "updated_by": {
+                "_account_id": 2166,
+                "name": "SmokeStack CI",
+                "username": "smokestack",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "reviewer": {
+                "_account_id": 2166,
+                "name": "SmokeStack CI",
+                "username": "smokestack",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2013-09-26 18:05:15.000000000",
+            "updated_by": {
+                "_account_id": 5347,
+                "name": "Eddie Sheffield",
+                "email": "eddie.sheffield@rackspace.com",
+                "username": "eddie-sheffield"
+            },
+            "reviewer": {
+                "_account_id": 5347,
+                "name": "Eddie Sheffield",
+                "email": "eddie.sheffield@rackspace.com",
+                "username": "eddie-sheffield"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2013-09-26 23:22:17.000000000",
+            "updated_by": {
+                "_account_id": 6549,
+                "name": "Zhi Yan Liu",
+                "email": "lzy.dev@gmail.com",
+                "username": "lzy-dev"
+            },
+            "reviewer": {
+                "_account_id": 6549,
+                "name": "Zhi Yan Liu",
+                "email": "lzy.dev@gmail.com",
+                "username": "lzy-dev"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2013-09-27 03:16:30.000000000",
+            "updated_by": {
+                "_account_id": 6484,
+                "name": "Feilong Wang",
+                "email": "hustemb@gmail.com",
+                "username": "flwang"
+            },
+            "reviewer": {
+                "_account_id": 6484,
+                "name": "Feilong Wang",
+                "email": "hustemb@gmail.com",
+                "username": "flwang"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2013-09-30 21:40:10.000000000",
+            "updated_by": {
+                "_account_id": 4463,
+                "name": "iccha-sethi",
+                "email": "iccha.sethi@rackspace.com",
+                "username": "iccha-sethi"
+            },
+            "reviewer": {
+                "_account_id": 4463,
+                "name": "iccha-sethi",
+                "email": "iccha.sethi@rackspace.com",
+                "username": "iccha-sethi"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2013-09-30 21:41:08.000000000",
+            "updated_by": {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            "reviewer": {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2013-10-01 09:44:15.000000000",
+            "updated_by": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "reviewer": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "state": "REVIEWER"
+        }
+    ],
+    "messages": [
+        {
+            "id": "4eb6177feae123cba86c2400dfb5e61bc09410af",
+            "author": {
+                "_account_id": 2166,
+                "name": "SmokeStack CI",
+                "username": "smokestack",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 2166,
+                "name": "SmokeStack CI",
+                "username": "smokestack",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2013-09-23 07:11:25.000000000",
+            "message": "Patch Set 1: Works for me\n\nSmokeStack Results (patch set 1):\n- Libvirt (Fedora 19) https://smokestack.openstack.org/?go=/jobs/135889 : SUCCESS \n- Libvirt (Centos 6.4) https://smokestack.openstack.org/?go=/jobs/135888 : SUCCESS \n",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "47f1f05985d49f04283dfb4e2f688f766d750564",
+            "author": {
+                "_account_id": 6549,
+                "name": "Zhi Yan Liu",
+                "email": "lzy.dev@gmail.com",
+                "username": "lzy-dev"
+            },
+            "real_author": {
+                "_account_id": 6549,
+                "name": "Zhi Yan Liu",
+                "email": "lzy.dev@gmail.com",
+                "username": "lzy-dev"
+            },
+            "date": "2013-09-23 07:18:30.000000000",
+            "message": "Patch Set 1: (1 inline comment)\n\nI have an inline question.",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "31d94b712bbf00c70d2d8480c601f3de8021744a",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2013-09-23 07:20:56.000000000",
+            "message": "Patch Set 1: Doesn't seem to work\n\nBuild failed.  For information on how to proceed, see https://wiki.openstack.org/wiki/GerritJenkinsGit#Test_Failures\n\n- gate-glance-pep8 http://logs.openstack.org/86/47786/1/check/gate-glance-pep8/891e9a6 : SUCCESS in 1m 36s\n- gate-glance-docs http://docs-draft.openstack.org/86/47786/1/check/gate-glance-docs/dd151ff/doc/build/html/ : SUCCESS in 1m 40s\n- gate-glance-python26 http://logs.openstack.org/86/47786/1/check/gate-glance-python26/79298c2 : FAILURE in 9m 47s\n- gate-glance-python27 http://logs.openstack.org/86/47786/1/check/gate-glance-python27/b29443a : FAILURE in 9m 59s\n- gate-tempest-devstack-vm-full http://logs.openstack.org/86/47786/1/check/gate-tempest-devstack-vm-full/4910b60 : SUCCESS in 26m 59s\n- gate-tempest-devstack-vm-postgres-full http://logs.openstack.org/86/47786/1/check/gate-tempest-devstack-vm-postgres-full/bde360a : SUCCESS in 28m 07s\n- gate-tempest-devstack-vm-neutron http://logs.openstack.org/86/47786/1/check/gate-tempest-devstack-vm-neutron/a2fbb44 : SUCCESS in 15m 53s\n- gate-tempest-devstack-vm-large-ops http://logs.openstack.org/86/47786/1/check/gate-tempest-devstack-vm-large-ops/df3a84c : SUCCESS in 10m 31s (non-voting)\n- gate-grenade-devstack-vm http://logs.openstack.org/86/47786/1/check/gate-grenade-devstack-vm/62be2df : SUCCESS in 24m 12s\n",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "3724d96ac427afc702340ff9ea52f03190420d26",
+            "author": {
+                "_account_id": 5803,
+                "name": "Attila Fazekas",
+                "email": "afazekas@redhat.com",
+                "username": "afazekas"
+            },
+            "real_author": {
+                "_account_id": 5803,
+                "name": "Attila Fazekas",
+                "email": "afazekas@redhat.com",
+                "username": "afazekas"
+            },
+            "date": "2013-09-23 07:38:05.000000000",
+            "message": "Patch Set 1: (1 inline comment)\n\nIf I remove all the options the default is patching everything.",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "b07a703abd31c70662d3346493d840db3809095a",
+            "author": {
+                "_account_id": 6549,
+                "name": "Zhi Yan Liu",
+                "email": "lzy.dev@gmail.com",
+                "username": "lzy-dev"
+            },
+            "real_author": {
+                "_account_id": 6549,
+                "name": "Zhi Yan Liu",
+                "email": "lzy.dev@gmail.com",
+                "username": "lzy-dev"
+            },
+            "date": "2013-09-23 08:02:42.000000000",
+            "message": "Patch Set 1: (1 inline comment)\n\n",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "3b799462e49d439f5249df77f0689d128b77375b",
+            "author": {
+                "_account_id": 5803,
+                "name": "Attila Fazekas",
+                "email": "afazekas@redhat.com",
+                "username": "afazekas"
+            },
+            "real_author": {
+                "_account_id": 5803,
+                "name": "Attila Fazekas",
+                "email": "afazekas@redhat.com",
+                "username": "afazekas"
+            },
+            "date": "2013-09-23 08:15:22.000000000",
+            "message": "Patch Set 1: (1 inline comment)\n\n",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "5d2f5eb5df4714bcb54f50f7207d7be4a8f8e289",
+            "author": {
+                "_account_id": 6549,
+                "name": "Zhi Yan Liu",
+                "email": "lzy.dev@gmail.com",
+                "username": "lzy-dev"
+            },
+            "real_author": {
+                "_account_id": 6549,
+                "name": "Zhi Yan Liu",
+                "email": "lzy.dev@gmail.com",
+                "username": "lzy-dev"
+            },
+            "date": "2013-09-23 09:20:18.000000000",
+            "message": "Patch Set 1: (1 inline comment)\n\n",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "ce6794a224d97dd16db72e34152bae2496fcd017",
+            "author": {
+                "_account_id": 5803,
+                "name": "Attila Fazekas",
+                "email": "afazekas@redhat.com",
+                "username": "afazekas"
+            },
+            "real_author": {
+                "_account_id": 5803,
+                "name": "Attila Fazekas",
+                "email": "afazekas@redhat.com",
+                "username": "afazekas"
+            },
+            "date": "2013-09-23 10:32:27.000000000",
+            "message": "Uploaded patch set 2.",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "9d1154fbef381184dcfe75cbd6087ffe974c9654",
+            "author": {
+                "_account_id": 2166,
+                "name": "SmokeStack CI",
+                "username": "smokestack",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 2166,
+                "name": "SmokeStack CI",
+                "username": "smokestack",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2013-09-23 10:50:34.000000000",
+            "message": "Patch Set 2: Works for me\n\nSmokeStack Results (patch set 2):\n- Libvirt (Fedora 19) https://smokestack.openstack.org/?go=/jobs/135944 : SUCCESS \n- Libvirt (Centos 6.4) https://smokestack.openstack.org/?go=/jobs/135943 : SUCCESS \n",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "7dc108170f5f869ee4f110cee10816313b8335b5",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2013-09-23 11:01:56.000000000",
+            "message": "Patch Set 2: Works for me\n\nBuild succeeded.\n\n- gate-glance-pep8 http://logs.openstack.org/86/47786/2/check/gate-glance-pep8/a07c23f : SUCCESS in 2m 29s\n- gate-glance-docs http://docs-draft.openstack.org/86/47786/2/check/gate-glance-docs/3dd58ac/doc/build/html/ : SUCCESS in 1m 50s\n- gate-glance-python26 http://logs.openstack.org/86/47786/2/check/gate-glance-python26/457a0a5 : SUCCESS in 10m 16s\n- gate-glance-python27 http://logs.openstack.org/86/47786/2/check/gate-glance-python27/478c43b : SUCCESS in 11m 43s\n- gate-tempest-devstack-vm-full http://logs.openstack.org/86/47786/2/check/gate-tempest-devstack-vm-full/7a97b2e : SUCCESS in 29m 25s\n- gate-tempest-devstack-vm-postgres-full http://logs.openstack.org/86/47786/2/check/gate-tempest-devstack-vm-postgres-full/ac8bc44 : SUCCESS in 28m 51s\n- gate-tempest-devstack-vm-neutron http://logs.openstack.org/86/47786/2/check/gate-tempest-devstack-vm-neutron/9979668 : SUCCESS in 19m 41s\n- gate-tempest-devstack-vm-large-ops http://logs.openstack.org/86/47786/2/check/gate-tempest-devstack-vm-large-ops/9f24662 : SUCCESS in 10m 33s (non-voting)\n- gate-grenade-devstack-vm http://logs.openstack.org/86/47786/2/check/gate-grenade-devstack-vm/f62255c : SUCCESS in 24m 19s\n",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "9a32c11e6418874c315f06329b5c7873b90cf089",
+            "author": {
+                "_account_id": 6159,
+                "name": "Flavio Percoco",
+                "display_name": "flaper87",
+                "email": "fpercoco@redhat.com",
+                "username": "flaper87"
+            },
+            "real_author": {
+                "_account_id": 6159,
+                "name": "Flavio Percoco",
+                "display_name": "flaper87",
+                "email": "fpercoco@redhat.com",
+                "username": "flaper87"
+            },
+            "date": "2013-09-23 11:06:46.000000000",
+            "message": "Patch Set 2: I would prefer that you didn't merge this\n\n(1 inline comment)\n\n",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "c63dac9307f5267b1f0b776af4c79020ef0684e9",
+            "author": {
+                "_account_id": 5803,
+                "name": "Attila Fazekas",
+                "email": "afazekas@redhat.com",
+                "username": "afazekas"
+            },
+            "real_author": {
+                "_account_id": 5803,
+                "name": "Attila Fazekas",
+                "email": "afazekas@redhat.com",
+                "username": "afazekas"
+            },
+            "date": "2013-09-23 13:55:19.000000000",
+            "message": "Uploaded patch set 3.",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "7dcbd5b18dd70bfd04d71efa06fe0297c52af485",
+            "author": {
+                "_account_id": 6484,
+                "name": "Feilong Wang",
+                "email": "hustemb@gmail.com",
+                "username": "flwang"
+            },
+            "real_author": {
+                "_account_id": 6484,
+                "name": "Feilong Wang",
+                "email": "hustemb@gmail.com",
+                "username": "flwang"
+            },
+            "date": "2013-09-23 13:58:37.000000000",
+            "message": "Patch Set 3:\n\n@afazekas, can you share the reproduced steps? I'm interested in that. Thanks for working on this.",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "8f70fb62605a060996cda6551c24658a55a37dc1",
+            "author": {
+                "_account_id": 6549,
+                "name": "Zhi Yan Liu",
+                "email": "lzy.dev@gmail.com",
+                "username": "lzy-dev"
+            },
+            "real_author": {
+                "_account_id": 6549,
+                "name": "Zhi Yan Liu",
+                "email": "lzy.dev@gmail.com",
+                "username": "lzy-dev"
+            },
+            "date": "2013-09-23 14:12:27.000000000",
+            "message": "Patch Set 3: I would prefer that you didn't merge this\n\nTBH I have little concern for the performance, under current implementation all notification message be sent by one qpid connection and I agree this could cause some race issue under heavy concurrent situation without necessary lock protection. But after your change, glance-api need connect to qpid every time when upper layer code emit each message, generally the connection establishment is an expensive operation for whole stack (Operation System+Lib+PID), it involved a lot of resource allocation and process handling, so I consider it will be better if we just use OS's lock mechanism to prevent this dead lock issue.\n\nI agree you using select and thread module of eventlet to make improvement on low level of cause, it make sense to me.",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "d80a03a22bba451543c153c5380554db56d20d40",
+            "author": {
+                "_account_id": 2166,
+                "name": "SmokeStack CI",
+                "username": "smokestack",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 2166,
+                "name": "SmokeStack CI",
+                "username": "smokestack",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2013-09-23 14:15:04.000000000",
+            "message": "Patch Set 3: Works for me\n\nSmokeStack Results (patch set 3):\n- Libvirt (Fedora 19) https://smokestack.openstack.org/?go=/jobs/135981 : SUCCESS \n- Libvirt (Centos 6.4) https://smokestack.openstack.org/?go=/jobs/135980 : SUCCESS \n",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "8f3bbf5d7648c66ab40988f5a4a4529eac1bea79",
+            "author": {
+                "_account_id": 6549,
+                "name": "Zhi Yan Liu",
+                "email": "lzy.dev@gmail.com",
+                "username": "lzy-dev"
+            },
+            "real_author": {
+                "_account_id": 6549,
+                "name": "Zhi Yan Liu",
+                "email": "lzy.dev@gmail.com",
+                "username": "lzy-dev"
+            },
+            "date": "2013-09-23 14:21:33.000000000",
+            "message": "Patch Set 3:\n\nbtw, could you verify the locking protection for the connection reusing approach I mentioned above in your environment if you think it make sense? you know it's hard to reproduce and verify without environment which you can catch it. So I can not verify it in my local environment. Thanks.",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "88897989fef29a8aa6e3e6440031aef50439d05b",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2013-09-23 14:24:04.000000000",
+            "message": "Patch Set 3: Works for me\n\nBuild succeeded.\n\n- gate-glance-pep8 http://logs.openstack.org/86/47786/3/check/gate-glance-pep8/c4fe05f : SUCCESS in 1m 59s\n- gate-glance-docs http://docs-draft.openstack.org/86/47786/3/check/gate-glance-docs/25b8691/doc/build/html/ : SUCCESS in 2m 59s\n- gate-glance-python26 http://logs.openstack.org/86/47786/3/check/gate-glance-python26/94dc642 : SUCCESS in 9m 52s\n- gate-glance-python27 http://logs.openstack.org/86/47786/3/check/gate-glance-python27/cfd632b : SUCCESS in 8m 42s\n- gate-tempest-devstack-vm-full http://logs.openstack.org/86/47786/3/check/gate-tempest-devstack-vm-full/3afdca8 : SUCCESS in 28m 40s\n- gate-tempest-devstack-vm-postgres-full http://logs.openstack.org/86/47786/3/check/gate-tempest-devstack-vm-postgres-full/16d08b8 : SUCCESS in 28m 20s\n- gate-tempest-devstack-vm-neutron http://logs.openstack.org/86/47786/3/check/gate-tempest-devstack-vm-neutron/262d16b : SUCCESS in 17m 10s\n- gate-tempest-devstack-vm-large-ops http://logs.openstack.org/86/47786/3/check/gate-tempest-devstack-vm-large-ops/be07b53 : SUCCESS in 10m 41s (non-voting)\n- gate-grenade-devstack-vm http://logs.openstack.org/86/47786/3/check/gate-grenade-devstack-vm/d9349f8 : SUCCESS in 23m 19s\n",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "7cb670c270ab68059f46c971bcf26ebff0fdbd2e",
+            "author": {
+                "_account_id": 5803,
+                "name": "Attila Fazekas",
+                "email": "afazekas@redhat.com",
+                "username": "afazekas"
+            },
+            "real_author": {
+                "_account_id": 5803,
+                "name": "Attila Fazekas",
+                "email": "afazekas@redhat.com",
+                "username": "afazekas"
+            },
+            "date": "2013-09-23 14:29:22.000000000",
+            "message": "Patch Set 3:\n\nhttps://github.com/openstack/glance/commit/60be7133544afa5e63c0b742d31b9998688530b6\n\nThe re-connection NOT added by this change. I just made it thread safe.\n\nI agree a connection reuse would be a better solution, but the original code did not reused the connection.\n\nProbably a proper fix would be using the oslo rpc, but it is much bigger change (including config options), and I do not think it is fits into this cycle.\n\nAs you can see without additional patching  the connection reuse is not working.\nhttps://bugs.launchpad.net/glance/+bug/1100317",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "e95210acd514cbea9afb77e228f653c0d1b232de",
+            "author": {
+                "_account_id": 5803,
+                "name": "Attila Fazekas",
+                "email": "afazekas@redhat.com",
+                "username": "afazekas"
+            },
+            "real_author": {
+                "_account_id": 5803,
+                "name": "Attila Fazekas",
+                "email": "afazekas@redhat.com",
+                "username": "afazekas"
+            },
+            "date": "2013-09-23 15:39:49.000000000",
+            "message": "Patch Set 3:\n\n16 times higher focused load survived than originally in total.",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "658afd5fd2861de3e6bc91e730a341e85c160981",
+            "author": {
+                "_account_id": 6549,
+                "name": "Zhi Yan Liu",
+                "email": "lzy.dev@gmail.com",
+                "username": "lzy-dev"
+            },
+            "real_author": {
+                "_account_id": 6549,
+                "name": "Zhi Yan Liu",
+                "email": "lzy.dev@gmail.com",
+                "username": "lzy-dev"
+            },
+            "date": "2013-09-23 15:46:18.000000000",
+            "message": "Patch Set 3: No score\n\n1. I agree with you to make this thread safe and enable select module patch as this patch did is needed. But I still consider connection reuse mechanism will be better.\n\n2. Since we will landing oslo.messaging asap when it ready in Icehouse cycle, so if we want to land this change down we'd better do it in H (mark this as a rc bug). I prefer it go this way.",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "20d91fca728f93e9d3bf807379104a4f1d72a04c",
+            "author": {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            "real_author": {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            "date": "2013-09-25 17:16:22.000000000",
+            "message": "Patch Set 3: (2 inline comments)\n\nThe commit message looks like it needs a thorough cleaning. Please see https://wiki.openstack.org/wiki/GitCommitMessages. Feel free to take the advice with a grain of salt, but I think this message could definitely benefit from incorporating some of the advice in that wiki page.\n\nIn general, the substance of this change looks good and I would be inclined to +2 it after these minor nit-picks are handled.\n\nThanks!",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "89208a3532a069cf7544e251aedfedc111a7956a",
+            "author": {
+                "_account_id": 5803,
+                "name": "Attila Fazekas",
+                "email": "afazekas@redhat.com",
+                "username": "afazekas"
+            },
+            "real_author": {
+                "_account_id": 5803,
+                "name": "Attila Fazekas",
+                "email": "afazekas@redhat.com",
+                "username": "afazekas"
+            },
+            "date": "2013-09-26 12:03:56.000000000",
+            "message": "Uploaded patch set 4.",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "f5c55fb433f4dea19dac2f23f0bb52c234e1e917",
+            "author": {
+                "_account_id": 2166,
+                "name": "SmokeStack CI",
+                "username": "smokestack",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 2166,
+                "name": "SmokeStack CI",
+                "username": "smokestack",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2013-09-26 12:21:09.000000000",
+            "message": "Patch Set 4: Works for me\n\nSmokeStack Results (patch set 4):\n- Libvirt (Fedora 19) https://smokestack.openstack.org/?go=/jobs/137486 : SUCCESS \n- Libvirt (Centos 6.4) https://smokestack.openstack.org/?go=/jobs/137485 : SUCCESS \n",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "72161346f2cf48b326f8bfe24bd877fc5fcaa296",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2013-09-26 12:30:48.000000000",
+            "message": "Patch Set 4: Doesn't seem to work\n\nBuild failed.  For information on how to proceed, see https://wiki.openstack.org/wiki/GerritJenkinsGit#Test_Failures\n\n- gate-glance-pep8 http://logs.openstack.org/86/47786/4/check/gate-glance-pep8/51c37c2 : SUCCESS in 1m 24s\n- gate-glance-docs http://docs-draft.openstack.org/86/47786/4/check/gate-glance-docs/d50a8f8/doc/build/html/ : SUCCESS in 2m 19s\n- gate-glance-python26 http://logs.openstack.org/86/47786/4/check/gate-glance-python26/920e00f : SUCCESS in 9m 56s\n- gate-glance-python27 http://logs.openstack.org/86/47786/4/check/gate-glance-python27/26d5dd3 : SUCCESS in 12m 00s\n- gate-tempest-devstack-vm-full http://logs.openstack.org/86/47786/4/check/gate-tempest-devstack-vm-full/0c439bf : FAILURE in 26m 48s\n- gate-tempest-devstack-vm-postgres-full http://logs.openstack.org/86/47786/4/check/gate-tempest-devstack-vm-postgres-full/8436eaa : SUCCESS in 26m 42s\n- gate-tempest-devstack-vm-neutron http://logs.openstack.org/86/47786/4/check/gate-tempest-devstack-vm-neutron/4b101ed : FAILURE in 26m 00s\n- gate-tempest-devstack-vm-large-ops http://logs.openstack.org/86/47786/4/check/gate-tempest-devstack-vm-large-ops/e002c29 : SUCCESS in 12m 05s (non-voting)\n- gate-grenade-devstack-vm http://logs.openstack.org/86/47786/4/check/gate-grenade-devstack-vm/a15f2b6 : SUCCESS in 23m 44s\n",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "e853ca1639b469b07ae3e5c7ac60965cfeeb618f",
+            "author": {
+                "_account_id": 6549,
+                "name": "Zhi Yan Liu",
+                "email": "lzy.dev@gmail.com",
+                "username": "lzy-dev"
+            },
+            "real_author": {
+                "_account_id": 6549,
+                "name": "Zhi Yan Liu",
+                "email": "lzy.dev@gmail.com",
+                "username": "lzy-dev"
+            },
+            "date": "2013-09-26 13:59:30.000000000",
+            "message": "Patch Set 4: I would prefer that you didn't merge this\n\n(3 inline comments)\n\nHello afazekas, I have three minor inline comments.",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "f5912683c6d79b51ed12fe24b05b598aea39fbbc",
+            "author": {
+                "_account_id": 6549,
+                "name": "Zhi Yan Liu",
+                "email": "lzy.dev@gmail.com",
+                "username": "lzy-dev"
+            },
+            "real_author": {
+                "_account_id": 6549,
+                "name": "Zhi Yan Liu",
+                "email": "lzy.dev@gmail.com",
+                "username": "lzy-dev"
+            },
+            "date": "2013-09-26 13:59:47.000000000",
+            "message": "Patch Set 4:\n\nrecheck bug 1229042",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "3d765993f8ab8b10bf2daab4d4cf79e8bc595b8b",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2013-09-26 14:34:51.000000000",
+            "message": "Patch Set 4: Works for me\n\nBuild succeeded.\n\n- gate-glance-pep8 http://logs.openstack.org/86/47786/4/check/gate-glance-pep8/699543b : SUCCESS in 1m 53s\n- gate-glance-docs http://docs-draft.openstack.org/86/47786/4/check/gate-glance-docs/33095c8/doc/build/html/ : SUCCESS in 2m 24s\n- gate-glance-python26 http://logs.openstack.org/86/47786/4/check/gate-glance-python26/ac34f19 : SUCCESS in 10m 32s\n- gate-glance-python27 http://logs.openstack.org/86/47786/4/check/gate-glance-python27/2ab585a : SUCCESS in 18m 18s\n- gate-tempest-devstack-vm-full http://logs.openstack.org/86/47786/4/check/gate-tempest-devstack-vm-full/e97a07d : SUCCESS in 33m 09s\n- gate-tempest-devstack-vm-postgres-full http://logs.openstack.org/86/47786/4/check/gate-tempest-devstack-vm-postgres-full/8bf144d : SUCCESS in 28m 00s\n- gate-tempest-devstack-vm-neutron http://logs.openstack.org/86/47786/4/check/gate-tempest-devstack-vm-neutron/67726dc : SUCCESS in 22m 13s\n- gate-tempest-devstack-vm-large-ops http://logs.openstack.org/86/47786/4/check/gate-tempest-devstack-vm-large-ops/33f165c : SUCCESS in 14m 25s (non-voting)\n- gate-grenade-devstack-vm http://logs.openstack.org/86/47786/4/check/gate-grenade-devstack-vm/4367fc3 : SUCCESS in 28m 37s\n",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "e2c5cd829bf36aba6ba33e85cdf49de21ce86662",
+            "author": {
+                "_account_id": 5803,
+                "name": "Attila Fazekas",
+                "email": "afazekas@redhat.com",
+                "username": "afazekas"
+            },
+            "real_author": {
+                "_account_id": 5803,
+                "name": "Attila Fazekas",
+                "email": "afazekas@redhat.com",
+                "username": "afazekas"
+            },
+            "date": "2013-09-26 15:34:30.000000000",
+            "message": "Uploaded patch set 5.",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "d73ac65f580dc49f8a458fe6c06d10be1ac6823a",
+            "author": {
+                "_account_id": 2166,
+                "name": "SmokeStack CI",
+                "username": "smokestack",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 2166,
+                "name": "SmokeStack CI",
+                "username": "smokestack",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2013-09-26 15:52:15.000000000",
+            "message": "Patch Set 5: Works for me\n\nSmokeStack Results (patch set 5):\n- Libvirt (Fedora 19) https://smokestack.openstack.org/?go=/jobs/137576 : SUCCESS \n- Libvirt (Centos 6.4) https://smokestack.openstack.org/?go=/jobs/137575 : SUCCESS \n",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "2e1df6f75f454b3b753ad73fd698c458fa50135a",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2013-09-26 16:25:21.000000000",
+            "message": "Patch Set 5: Works for me\n\nBuild succeeded.\n\n- gate-glance-pep8 http://logs.openstack.org/86/47786/5/check/gate-glance-pep8/58d14e3 : SUCCESS in 1m 57s\n- gate-glance-docs http://docs-draft.openstack.org/86/47786/5/check/gate-glance-docs/96b09f2/doc/build/html/ : SUCCESS in 2m 59s\n- gate-glance-python26 http://logs.openstack.org/86/47786/5/check/gate-glance-python26/d11d797 : SUCCESS in 9m 56s\n- gate-glance-python27 http://logs.openstack.org/86/47786/5/check/gate-glance-python27/076b67c : SUCCESS in 10m 41s\n- gate-tempest-devstack-vm-full http://logs.openstack.org/86/47786/5/check/gate-tempest-devstack-vm-full/21d5e23 : SUCCESS in 29m 29s\n- gate-tempest-devstack-vm-postgres-full http://logs.openstack.org/86/47786/5/check/gate-tempest-devstack-vm-postgres-full/7e73c5b : SUCCESS in 31m 15s\n- gate-tempest-devstack-vm-neutron http://logs.openstack.org/86/47786/5/check/gate-tempest-devstack-vm-neutron/eef7e35 : SUCCESS in 19m 49s\n- gate-tempest-devstack-vm-large-ops http://logs.openstack.org/86/47786/5/check/gate-tempest-devstack-vm-large-ops/0efa877 : SUCCESS in 13m 20s (non-voting)\n- gate-grenade-devstack-vm http://logs.openstack.org/86/47786/5/check/gate-grenade-devstack-vm/dc505b8 : SUCCESS in 26m 14s\n",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "aaa1c626fb38be8499e8c950f275f3f394a2a143",
+            "author": {
+                "_account_id": 6549,
+                "name": "Zhi Yan Liu",
+                "email": "lzy.dev@gmail.com",
+                "username": "lzy-dev"
+            },
+            "real_author": {
+                "_account_id": 6549,
+                "name": "Zhi Yan Liu",
+                "email": "lzy.dev@gmail.com",
+                "username": "lzy-dev"
+            },
+            "date": "2013-09-26 17:32:04.000000000",
+            "message": "Patch Set 5:\n\nThe change of function part is OK to me. I just have a little concern on ut part, not sure it's enough for the change. I'd like to see others comments.\n\n+0.5 :)",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "49451361b8d596ff1c76b67c41aa18447565b215",
+            "author": {
+                "_account_id": 5347,
+                "name": "Eddie Sheffield",
+                "email": "eddie.sheffield@rackspace.com",
+                "username": "eddie-sheffield"
+            },
+            "real_author": {
+                "_account_id": 5347,
+                "name": "Eddie Sheffield",
+                "email": "eddie.sheffield@rackspace.com",
+                "username": "eddie-sheffield"
+            },
+            "date": "2013-09-26 18:05:15.000000000",
+            "message": "Patch Set 5: Looks good to me, but someone else must approve\n\n(1 inline comment)\n\nLooks good! One minor comment that I don't think should hold things up.",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "37395313bf1440189a7737cf1dc33262135111cb",
+            "author": {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            "real_author": {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            "date": "2013-09-26 22:11:13.000000000",
+            "message": "Patch Set 5: Looks good to me (core reviewer)\n\nThanks!",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "a9e95e236ca6719e09d8c877c269e96ce742f2ac",
+            "author": {
+                "_account_id": 6549,
+                "name": "Zhi Yan Liu",
+                "email": "lzy.dev@gmail.com",
+                "username": "lzy-dev"
+            },
+            "real_author": {
+                "_account_id": 6549,
+                "name": "Zhi Yan Liu",
+                "email": "lzy.dev@gmail.com",
+                "username": "lzy-dev"
+            },
+            "date": "2013-09-26 23:22:17.000000000",
+            "message": "Patch Set 5: Looks good to me, but someone else must approve\n\nGood work.",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "f9227198c302c6d064fb31d69dd4b34788290a52",
+            "author": {
+                "_account_id": 6484,
+                "name": "Feilong Wang",
+                "email": "hustemb@gmail.com",
+                "username": "flwang"
+            },
+            "real_author": {
+                "_account_id": 6484,
+                "name": "Feilong Wang",
+                "email": "hustemb@gmail.com",
+                "username": "flwang"
+            },
+            "date": "2013-09-27 03:16:30.000000000",
+            "message": "Patch Set 5: Looks good to me, but someone else must approve\n\nThe code looks good for me. But as zhiyan said, I also have a little bit concern about if the UT code can verify the qpid hang issue. Thanks.",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "8d1d2979afcf55385ef31ecb172c348c8cca267e",
+            "author": {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            "real_author": {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            "date": "2013-09-30 17:08:10.000000000",
+            "message": "Patch Set 5:\n\nUnfortunately I don't think there is a great way to enforce performance/correctness under load in unit tests. So I'm still +2 on this even with the concerns that have been voiced, which seem valid to me.",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "53715eaf3b2cce3e4dbb25473c31be229bdc44e9",
+            "author": {
+                "_account_id": 4463,
+                "name": "iccha-sethi",
+                "email": "iccha.sethi@rackspace.com",
+                "username": "iccha-sethi"
+            },
+            "real_author": {
+                "_account_id": 4463,
+                "name": "iccha-sethi",
+                "email": "iccha.sethi@rackspace.com",
+                "username": "iccha-sethi"
+            },
+            "date": "2013-09-30 21:40:10.000000000",
+            "message": "Patch Set 5: Looks good to me (core reviewer)\n\nTook me some time to wrap my head around the test and its connection with the patch. I do see the code helping with green programming.",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "0734d00c87182125ad26605b0821562b4dfca98c",
+            "author": {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            "real_author": {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            "date": "2013-09-30 21:41:08.000000000",
+            "message": "Patch Set 5: Approved\n\n",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "6db291be8cbab33690f23f1e72f32ce147d81f89",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2013-09-30 21:43:31.000000000",
+            "message": "Patch Set 5: No score\n\nStarting gate jobs.\nhttp://status.openstack.org/zuul/",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "1cf0cec85158556866c79c39c5474125b4bdda49",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2013-10-01 09:44:15.000000000",
+            "message": "Patch Set 5: Verified\n\nBuild succeeded.\n\n- gate-glance-docs http://docs-draft.openstack.org/86/47786/5/gate/gate-glance-docs/3bc6699/doc/build/html/ : SUCCESS in 2m 26s\n- gate-glance-pep8 http://logs.openstack.org/86/47786/5/gate/gate-glance-pep8/dcf17ed : SUCCESS in 1m 29s\n- gate-glance-python26 http://logs.openstack.org/86/47786/5/gate/gate-glance-python26/eafa6ba : SUCCESS in 9m 55s\n- gate-glance-python27 http://logs.openstack.org/86/47786/5/gate/gate-glance-python27/e2cdd4d : SUCCESS in 8m 58s\n- gate-tempest-devstack-vm-full http://logs.openstack.org/86/47786/5/gate/gate-tempest-devstack-vm-full/3e58740 : SUCCESS in 30m 20s\n- gate-tempest-devstack-vm-postgres-full http://logs.openstack.org/86/47786/5/gate/gate-tempest-devstack-vm-postgres-full/cb189ed : SUCCESS in 31m 07s\n- gate-tempest-devstack-vm-neutron http://logs.openstack.org/86/47786/5/gate/gate-tempest-devstack-vm-neutron/9c91248 : SUCCESS in 22m 00s\n- gate-tempest-devstack-vm-large-ops http://logs.openstack.org/86/47786/5/gate/gate-tempest-devstack-vm-large-ops/b7e0d87 : SUCCESS in 11m 08s\n- gate-grenade-devstack-vm http://logs.openstack.org/86/47786/5/gate/gate-grenade-devstack-vm/4a3e547 : SUCCESS in 25m 14s\n",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "0525588afc0ff89185c1b81a047b4ea2bdbba620",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2013-10-01 09:44:16.000000000",
+            "message": "Change has been successfully merged into the git repository.",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        }
+    ],
+    "requirements": [],
+    "submit_records": []
+}

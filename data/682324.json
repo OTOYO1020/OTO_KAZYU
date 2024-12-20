@@ -1,0 +1,839 @@
+{
+    "id": "openstack%2Fglance~master~Ida08bcdad3bcff73c0bd81c8e0cbe344e2036f32",
+    "project": "openstack/glance",
+    "branch": "master",
+    "topic": "bp/rethinking-filesystem-access",
+    "hashtags": [],
+    "change_id": "Ida08bcdad3bcff73c0bd81c8e0cbe344e2036f32",
+    "subject": "Avoid duplication of registering reserved_store options",
+    "status": "ABANDONED",
+    "created": "2019-09-16 09:41:51.000000000",
+    "updated": "2019-09-19 15:12:37.000000000",
+    "insertions": 0,
+    "deletions": 4,
+    "total_comment_count": 0,
+    "unresolved_comment_count": 0,
+    "has_review_started": true,
+    "meta_rev_id": "765f875a9d1d8e4382d9c56ee784b0bdaa6055df",
+    "_number": 682324,
+    "owner": {
+        "_account_id": 9303,
+        "name": "Abhishek Kekane",
+        "email": "akekane@redhat.com",
+        "username": "abhishekkekane"
+    },
+    "labels": {
+        "Verified": {
+            "rejected": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "all": [
+                {
+                    "value": -2,
+                    "date": "2019-09-19 13:12:45.000000000",
+                    "permitted_voting_range": {
+                        "min": -2,
+                        "max": 2
+                    },
+                    "_account_id": 22348,
+                    "name": "Zuul",
+                    "username": "zuul",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "_account_id": 9303,
+                    "name": "Abhishek Kekane",
+                    "email": "akekane@redhat.com",
+                    "username": "abhishekkekane"
+                },
+                {
+                    "date": "2019-09-16 11:20:26.000000000",
+                    "_account_id": 9008,
+                    "name": "VMware NSX CI",
+                    "username": "vmwareminesweeper",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "_account_id": 11904,
+                    "name": "Sean McGinnis",
+                    "email": "sean.mcginnis@gmail.com",
+                    "username": "SeanM"
+                },
+                {
+                    "_account_id": 5202,
+                    "name": "Erno Kuvaja",
+                    "email": "jokke@usr.fi",
+                    "username": "jokke"
+                },
+                {
+                    "_account_id": 5314,
+                    "name": "Brian Rosmaita",
+                    "email": "rosmaita.fossdev@gmail.com",
+                    "username": "brian-rosmaita"
+                }
+            ],
+            "values": {
+                "-2": "Fails",
+                "-1": "Doesn't seem to work",
+                " 0": "No score",
+                "+1": "Works for me",
+                "+2": "Verified"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        },
+        "Code-Review": {
+            "approved": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "all": [
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 22348,
+                    "name": "Zuul",
+                    "username": "zuul",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -2,
+                        "max": 2
+                    },
+                    "_account_id": 9303,
+                    "name": "Abhishek Kekane",
+                    "email": "akekane@redhat.com",
+                    "username": "abhishekkekane"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 9008,
+                    "name": "VMware NSX CI",
+                    "username": "vmwareminesweeper",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -2,
+                        "max": 2
+                    },
+                    "_account_id": 11904,
+                    "name": "Sean McGinnis",
+                    "email": "sean.mcginnis@gmail.com",
+                    "username": "SeanM"
+                },
+                {
+                    "value": -2,
+                    "date": "2019-09-19 11:26:01.000000000",
+                    "permitted_voting_range": {
+                        "min": -2,
+                        "max": 2
+                    },
+                    "_account_id": 5202,
+                    "name": "Erno Kuvaja",
+                    "email": "jokke@usr.fi",
+                    "username": "jokke"
+                },
+                {
+                    "value": 2,
+                    "date": "2019-09-17 01:46:37.000000000",
+                    "permitted_voting_range": {
+                        "min": -2,
+                        "max": 2
+                    },
+                    "_account_id": 5314,
+                    "name": "Brian Rosmaita",
+                    "email": "rosmaita.fossdev@gmail.com",
+                    "username": "brian-rosmaita"
+                }
+            ],
+            "values": {
+                "-2": "Do not merge",
+                "-1": "This patch needs further work before it can be merged",
+                " 0": "No score",
+                "+1": "Looks good to me, but someone else must approve",
+                "+2": "Looks good to me (core reviewer)"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        },
+        "Workflow": {
+            "rejected": {
+                "_account_id": 5202,
+                "name": "Erno Kuvaja",
+                "email": "jokke@usr.fi",
+                "username": "jokke"
+            },
+            "all": [
+                {
+                    "_account_id": 22348,
+                    "name": "Zuul",
+                    "username": "zuul",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 9303,
+                    "name": "Abhishek Kekane",
+                    "email": "akekane@redhat.com",
+                    "username": "abhishekkekane"
+                },
+                {
+                    "_account_id": 9008,
+                    "name": "VMware NSX CI",
+                    "username": "vmwareminesweeper",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 11904,
+                    "name": "Sean McGinnis",
+                    "email": "sean.mcginnis@gmail.com",
+                    "username": "SeanM"
+                },
+                {
+                    "value": -1,
+                    "date": "2019-09-19 09:50:07.000000000",
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 5202,
+                    "name": "Erno Kuvaja",
+                    "email": "jokke@usr.fi",
+                    "username": "jokke"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 5314,
+                    "name": "Brian Rosmaita",
+                    "email": "rosmaita.fossdev@gmail.com",
+                    "username": "brian-rosmaita"
+                }
+            ],
+            "values": {
+                "-1": "Work in progress",
+                " 0": "Ready for reviews",
+                "+1": "Approved"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        },
+        "Review-Priority": {
+            "approved": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "recommended": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "all": [
+                {
+                    "_account_id": 22348,
+                    "name": "Zuul",
+                    "username": "zuul",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 1,
+                    "date": "2019-09-16 09:42:39.000000000",
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 2
+                    },
+                    "_account_id": 9303,
+                    "name": "Abhishek Kekane",
+                    "email": "akekane@redhat.com",
+                    "username": "abhishekkekane"
+                },
+                {
+                    "_account_id": 9008,
+                    "name": "VMware NSX CI",
+                    "username": "vmwareminesweeper",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 0,
+                    "date": "2019-09-16 09:43:07.000000000",
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 2
+                    },
+                    "_account_id": 11904,
+                    "name": "Sean McGinnis",
+                    "email": "sean.mcginnis@gmail.com",
+                    "username": "SeanM"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 2
+                    },
+                    "_account_id": 5202,
+                    "name": "Erno Kuvaja",
+                    "email": "jokke@usr.fi",
+                    "username": "jokke"
+                },
+                {
+                    "value": 2,
+                    "date": "2019-09-17 01:46:37.000000000",
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 2
+                    },
+                    "_account_id": 5314,
+                    "name": "Brian Rosmaita",
+                    "email": "rosmaita.fossdev@gmail.com",
+                    "username": "brian-rosmaita"
+                }
+            ],
+            "values": {
+                "-1": "Branch Freeze",
+                " 0": "No Priority",
+                "+1": "Important Change",
+                "+2": "Top Priority / Holds Gate"
+            },
+            "description": "",
+            "value": 1,
+            "default_value": 0,
+            "optional": true
+        }
+    },
+    "removable_reviewers": [],
+    "reviewers": {
+        "REVIEWER": [
+            {
+                "_account_id": 5202,
+                "name": "Erno Kuvaja",
+                "email": "jokke@usr.fi",
+                "username": "jokke"
+            },
+            {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            {
+                "_account_id": 9008,
+                "name": "VMware NSX CI",
+                "username": "vmwareminesweeper",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            {
+                "_account_id": 11904,
+                "name": "Sean McGinnis",
+                "email": "sean.mcginnis@gmail.com",
+                "username": "SeanM"
+            },
+            {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            }
+        ]
+    },
+    "pending_reviewers": {},
+    "reviewer_updates": [
+        {
+            "updated": "2019-09-16 09:43:07.000000000",
+            "updated_by": {
+                "_account_id": 11904,
+                "name": "Sean McGinnis",
+                "email": "sean.mcginnis@gmail.com",
+                "username": "SeanM"
+            },
+            "reviewer": {
+                "_account_id": 11904,
+                "name": "Sean McGinnis",
+                "email": "sean.mcginnis@gmail.com",
+                "username": "SeanM"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2019-09-16 11:20:26.000000000",
+            "updated_by": {
+                "_account_id": 9008,
+                "name": "VMware NSX CI",
+                "username": "vmwareminesweeper",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "reviewer": {
+                "_account_id": 9008,
+                "name": "VMware NSX CI",
+                "username": "vmwareminesweeper",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2019-09-17 01:46:37.000000000",
+            "updated_by": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "reviewer": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2019-09-19 09:50:07.000000000",
+            "updated_by": {
+                "_account_id": 5202,
+                "name": "Erno Kuvaja",
+                "email": "jokke@usr.fi",
+                "username": "jokke"
+            },
+            "reviewer": {
+                "_account_id": 5202,
+                "name": "Erno Kuvaja",
+                "email": "jokke@usr.fi",
+                "username": "jokke"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2019-09-19 13:12:45.000000000",
+            "updated_by": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "reviewer": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "state": "REVIEWER"
+        }
+    ],
+    "messages": [
+        {
+            "id": "a3be335a3643507c6ad36bcf141125ab41ffd3f8",
+            "author": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "real_author": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "date": "2019-09-16 09:41:51.000000000",
+            "message": "Uploaded patch set 1.",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "cee107522249e45047bccc538f7ed8ee99970cb0",
+            "author": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "real_author": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "date": "2019-09-16 09:42:39.000000000",
+            "message": "Patch Set 1: Review-Priority+1",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "26c16d61a846f42d7b3ed3c20422e0add66ac851",
+            "author": {
+                "_account_id": 9008,
+                "name": "VMware NSX CI",
+                "username": "vmwareminesweeper",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 9008,
+                "name": "VMware NSX CI",
+                "username": "vmwareminesweeper",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2019-09-16 11:20:26.000000000",
+            "message": "Patch Set 1:\n\nBuild succeeded\n\n- dsvm-glance http://207.189.188.190/logs/24/682324/1/check-not-vote/ext-glance-zuul/0306a24 : SUCCESS in 38m 46s",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "6d7b84ca672ec54f6207d270c150b93a24975f1d",
+            "author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2019-09-16 12:54:12.000000000",
+            "message": "Patch Set 1: Verified-1\n\nBuild failed (check pipeline).  For information on how to proceed, see\nhttp://docs.openstack.org/infra/manual/developers.html#automated-testing\n\n\n- tempest-full https://zuul.opendev.org/t/openstack/build/46ce937fe99440e89acec856b06af0a3 : SUCCESS in 1h 55m 30s\n- neutron-grenade https://zuul.opendev.org/t/openstack/build/843959610bdd4d348ed718bf2caf41b2 : SUCCESS in 1h 13m 36s\n- grenade-py3 https://zuul.opendev.org/t/openstack/build/977c0d2d8eb3464c874000cb85b34523 : SUCCESS in 58m 09s\n- tempest-full-py3 https://zuul.opendev.org/t/openstack/build/bef7e052db3343538236cad5b4618d1b : SUCCESS in 1h 27m 25s\n- openstack-tox-lower-constraints https://zuul.opendev.org/t/openstack/build/ee95e682a9574ddba4edbede28a2f338 : SUCCESS in 6m 25s\n- openstack-tox-pep8 https://zuul.opendev.org/t/openstack/build/87c47a6bd0cf457b869c1608cc8575e4 : SUCCESS in 4m 49s\n- openstack-tox-py27 https://zuul.opendev.org/t/openstack/build/30e445de93484d368b255e67dfcfbffa : SUCCESS in 6m 36s\n- openstack-tox-py36 https://zuul.opendev.org/t/openstack/build/dfa21d6de0aa4b15aa8ab03dead916a4 : SUCCESS in 4m 21s\n- openstack-tox-py37 https://zuul.opendev.org/t/openstack/build/3c8a7658fcdf469cb6b32f7b1ab7d406 : FAILURE in 7m 12s\n- openstack-tox-docs https://zuul.opendev.org/t/openstack/build/1d5c6b3f10764e6b8efd3ea26b810ef6 : SUCCESS in 6m 05s\n- openstack-tox-functional https://zuul.opendev.org/t/openstack/build/4b90f389bf90403285b588cfffd7aeaa : SUCCESS in 9m 19s\n- openstack-tox-functional-py37 https://zuul.opendev.org/t/openstack/build/8356b62aa6ba40fcad0e07b0e4a469b1 : SUCCESS in 10m 21s\n- glance-eventlet-ssl-handshake-broken-py3 https://zuul.opendev.org/t/openstack/build/36e65dff78bc438c870592815feeaa96 : FAILURE in 6m 33s (non-voting)\n- glance-code-constants-check https://zuul.opendev.org/t/openstack/build/7c6993271ec643ab82c36332377c514d : SUCCESS in 6m 03s\n- devstack-plugin-ceph-tempest https://zuul.opendev.org/t/openstack/build/98d411413bf047afb75d4e946b4b85ef : SUCCESS in 1h 14m 09s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "e06f57e3cd6ea285a8e62749d6e91f989fffbd42",
+            "author": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "real_author": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "date": "2019-09-16 13:02:37.000000000",
+            "message": "Patch Set 1:\n\nrecheck",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "1f21ada6df63466cf0d24494209c325c607688ae",
+            "author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "real_author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "date": "2019-09-16 13:03:15.000000000",
+            "message": "Patch Set 1:\n\nrecheck",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "453dde72a10506a9e015cc79584275c184826486",
+            "author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2019-09-16 19:06:43.000000000",
+            "message": "Patch Set 1: Verified+1\n\nBuild succeeded (check pipeline).\n\n- tempest-full https://zuul.opendev.org/t/openstack/build/47bf822e9b6a400e86858915904f10b3 : SUCCESS in 1h 38m 16s\n- neutron-grenade https://zuul.opendev.org/t/openstack/build/8428fb3177b04b96b01f18c71392a185 : SUCCESS in 1h 05m 28s\n- grenade-py3 https://zuul.opendev.org/t/openstack/build/2d8e67715b1644c9a5374e32c741cb90 : SUCCESS in 58m 34s\n- tempest-full-py3 https://zuul.opendev.org/t/openstack/build/3a5f18fe13914e4bbf83eaa0fcfea8eb : SUCCESS in 1h 32m 55s\n- openstack-tox-lower-constraints https://zuul.opendev.org/t/openstack/build/cc26c9ce47224615a5467b9ea760a43f : SUCCESS in 4m 20s\n- openstack-tox-pep8 https://zuul.opendev.org/t/openstack/build/2d9d9b1861654060b402baff6dc8e952 : SUCCESS in 4m 10s\n- openstack-tox-py27 https://zuul.opendev.org/t/openstack/build/edc11090c611479a9b9aec4557df4d11 : SUCCESS in 4m 23s\n- openstack-tox-py36 https://zuul.opendev.org/t/openstack/build/ca9a0dbdf3bd45ea8df421fd820743a6 : SUCCESS in 4m 15s\n- openstack-tox-py37 https://zuul.opendev.org/t/openstack/build/e57665acc0e142b6a6babb6129015817 : SUCCESS in 7m 07s\n- openstack-tox-docs https://zuul.opendev.org/t/openstack/build/99b9482449ce44d78b6ba9fa13f87f20 : SUCCESS in 7m 14s\n- openstack-tox-functional https://zuul.opendev.org/t/openstack/build/4acda971488d4af9919aa694e139d978 : SUCCESS in 9m 17s\n- openstack-tox-functional-py37 https://zuul.opendev.org/t/openstack/build/0427714b3d6f46f0a0d212c39cf5f606 : SUCCESS in 8m 52s\n- glance-eventlet-ssl-handshake-broken-py3 https://zuul.opendev.org/t/openstack/build/ac634d0e0e9a4d06833dba4ea3c461f9 : FAILURE in 4m 28s (non-voting)\n- glance-code-constants-check https://zuul.opendev.org/t/openstack/build/a9ae3a1e944a4a76bdfd23ffa5c09dd5 : SUCCESS in 4m 37s\n- devstack-plugin-ceph-tempest https://zuul.opendev.org/t/openstack/build/3ff5fdcc9c164d3ca1bf3c8c1182d537 : SUCCESS in 1h 37m 41s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "a2f1c419608689cd5ed05a28ad8a2caa47c5af61",
+            "author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "real_author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "date": "2019-09-17 01:46:37.000000000",
+            "message": "Patch Set 1: Code-Review+2 Review-Priority+2\n\nGlad you caught this, Abhishek!",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "1e3c75e4891af5cdc4d9338cecc850d0589cbf5f",
+            "author": {
+                "_account_id": 5202,
+                "name": "Erno Kuvaja",
+                "email": "jokke@usr.fi",
+                "username": "jokke"
+            },
+            "real_author": {
+                "_account_id": 5202,
+                "name": "Erno Kuvaja",
+                "email": "jokke@usr.fi",
+                "username": "jokke"
+            },
+            "date": "2019-09-17 12:18:25.000000000",
+            "message": "Patch Set 1: Code-Review-1\n\nBased on the \"independent\" library status of glance_store I'm wondering if we should remove the registering of those stores from there rather than from glance. It's really glance, not glance_store that needs them.",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "627718e345a858055c5a2e3be8df5b811820d921",
+            "author": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "real_author": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "date": "2019-09-17 13:17:16.000000000",
+            "message": "Patch Set 1:\n\nErno we cannot register these options here as we need these stores in global map defined by glance_store. The store object is stored in global map while initialising the store options.",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "51c5761697cbbd5cda5e738b23acd013a68856dd",
+            "author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "real_author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "date": "2019-09-17 13:51:12.000000000",
+            "message": "Patch Set 1:\n\nAlso, Abhishek introduced the concept of \"reserved\" stores into glance_store.  So the library is actually handling the general case by finding the reserved stores in the config, registering their options, and creating them.  In other words, a glance_store consumer other than glance can do the same thing if it requires reserved stores.  So basically, the library consumer declares what stores it needs and what they should look like in its configuration file; glance_store reads that file and does the work.\n\nIn case that paragraph got too long, I think everything is happening in the appropriate place.  I shouldn't have registered the options on the glance side in my patch creating the sample config for the reserved stores.",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "7586088e0a966222343dc34dc677cbd89f7a4c6e",
+            "author": {
+                "_account_id": 5202,
+                "name": "Erno Kuvaja",
+                "email": "jokke@usr.fi",
+                "username": "jokke"
+            },
+            "real_author": {
+                "_account_id": 5202,
+                "name": "Erno Kuvaja",
+                "email": "jokke@usr.fi",
+                "username": "jokke"
+            },
+            "date": "2019-09-19 09:48:34.000000000",
+            "message": "Patch Set 1: Code-Review+2 Workflow+1\n\nDiscussed about this with Abhishek. Looking at the code this makes sense now and indeed this double registration was missed during the original review.",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "44a9ea7d11aaed569a35991759b1b7a453bb0a40",
+            "author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2019-09-19 09:49:01.000000000",
+            "message": "Patch Set 1: -Verified\n\nStarting gate jobs.",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "26d91b7e0ddebec6d3f317c801fad8c6c5211bca",
+            "author": {
+                "_account_id": 5202,
+                "name": "Erno Kuvaja",
+                "email": "jokke@usr.fi",
+                "username": "jokke"
+            },
+            "real_author": {
+                "_account_id": 5202,
+                "name": "Erno Kuvaja",
+                "email": "jokke@usr.fi",
+                "username": "jokke"
+            },
+            "date": "2019-09-19 09:50:07.000000000",
+            "message": "Patch Set 1: Workflow-1\n\nwoops. Lets check this once more to make sure we do it right.",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "101bfdf5295e3bffdd433826798ff6d63945f3f0",
+            "author": {
+                "_account_id": 5202,
+                "name": "Erno Kuvaja",
+                "email": "jokke@usr.fi",
+                "username": "jokke"
+            },
+            "real_author": {
+                "_account_id": 5202,
+                "name": "Erno Kuvaja",
+                "email": "jokke@usr.fi",
+                "username": "jokke"
+            },
+            "date": "2019-09-19 11:26:01.000000000",
+            "message": "Patch Set 1: Code-Review-2\n\nLets revert the original patch and do this right.",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "edd2d79e55307289742d81d090582899b3e58d31",
+            "author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2019-09-19 13:12:45.000000000",
+            "message": "Patch Set 1: Verified-2\n\nBuild failed (gate pipeline).  For information on how to proceed, see\nhttp://docs.openstack.org/infra/manual/developers.html#automated-testing\n\n\n- tempest-full https://zuul.opendev.org/t/openstack/build/67dcfcbf15984107b3ff8f60cb232917 : SUCCESS in 1h 47m 52s\n- neutron-grenade https://zuul.opendev.org/t/openstack/build/449da215f8cc498b8aeefcd8b0bb8871 : SUCCESS in 1h 00m 48s\n- grenade-py3 https://zuul.opendev.org/t/openstack/build/8aa320d3bc27423aa20c4d96f20d0ac2 : FAILURE in 44m 16s\n- tempest-full-py3 https://zuul.opendev.org/t/openstack/build/477144f5d4cf4cde9678a0bcb82ae9b0 : SUCCESS in 1h 25m 53s\n- openstack-tox-lower-constraints https://zuul.opendev.org/t/openstack/build/433bf6861ddf4415b158e4f164298dbf : SUCCESS in 9m 57s\n- openstack-tox-pep8 https://zuul.opendev.org/t/openstack/build/6b3833812ebe461fb8bf758fa13604b9 : SUCCESS in 4m 40s\n- openstack-tox-py27 https://zuul.opendev.org/t/openstack/build/5f0c18ae60c04903817becb721577406 : SUCCESS in 4m 40s\n- openstack-tox-py36 https://zuul.opendev.org/t/openstack/build/a4a7daa8d007455aa5f187d9f8b0f4b2 : SUCCESS in 4m 43s\n- openstack-tox-py37 https://zuul.opendev.org/t/openstack/build/837804e4bc0648d886a61f340c9c27fc : SUCCESS in 5m 03s\n- openstack-tox-docs https://zuul.opendev.org/t/openstack/build/70d11b40f3624a5d940ed0e7a16e6faf : SUCCESS in 6m 54s\n- openstack-tox-functional https://zuul.opendev.org/t/openstack/build/2bd74e043e19418fbff5ec9445f3b41a : SUCCESS in 8m 39s\n- openstack-tox-functional-py37 https://zuul.opendev.org/t/openstack/build/58a7a76d60d643999122bfa58045bda3 : SUCCESS in 10m 01s",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "6e7bd29e92dcf32f98c928f80e0f4bd4dc0216c7",
+            "author": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "real_author": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "date": "2019-09-19 15:12:37.000000000",
+            "message": "Abandoned\n\nWe are reverting the base patches which is causing this issue and going to fix it in the glance_store itself.",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        }
+    ],
+    "requirements": [],
+    "submit_records": []
+}

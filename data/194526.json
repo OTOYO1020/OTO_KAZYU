@@ -1,0 +1,611 @@
+{
+    "id": "openstack%2Fglance~master~Ia6025695eeb014bad29ab1f2dd1fc12f717ece2f",
+    "project": "openstack/glance",
+    "branch": "master",
+    "topic": "refactor_import_flow",
+    "hashtags": [],
+    "change_id": "Ia6025695eeb014bad29ab1f2dd1fc12f717ece2f",
+    "subject": "Refactor Import Tasks and its plugin dependency",
+    "status": "ABANDONED",
+    "created": "2015-06-23 07:32:53.000000000",
+    "updated": "2015-10-20 07:07:48.000000000",
+    "insertions": 144,
+    "deletions": 81,
+    "total_comment_count": 0,
+    "unresolved_comment_count": 0,
+    "has_review_started": true,
+    "meta_rev_id": "95e59741ce6f8d0aef80d645854f17a240c4b200",
+    "_number": 194526,
+    "owner": {
+        "_account_id": 7575,
+        "name": "Sabari",
+        "email": "smurugesan@vmware.com",
+        "username": "sabari"
+    },
+    "labels": {
+        "Verified": {
+            "disliked": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "all": [
+                {
+                    "_account_id": 6159,
+                    "name": "Flavio Percoco",
+                    "display_name": "flaper87",
+                    "email": "fpercoco@redhat.com",
+                    "username": "flaper87"
+                },
+                {
+                    "_account_id": 18791,
+                    "name": "Glance Bot",
+                    "email": "glancebot@mailinator.com",
+                    "username": "glancebot",
+                    "inactive": true
+                },
+                {
+                    "_account_id": 7575,
+                    "name": "Sabari",
+                    "email": "smurugesan@vmware.com",
+                    "username": "sabari"
+                },
+                {
+                    "value": -1,
+                    "date": "2015-08-14 01:20:48.000000000",
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-2": "Fails",
+                "-1": "Doesn't seem to work",
+                " 0": "No score",
+                "+1": "Works for me",
+                "+2": "Verified"
+            },
+            "description": "",
+            "value": -1,
+            "default_value": 0,
+            "optional": true
+        },
+        "Code-Review": {
+            "disliked": {
+                "_account_id": 18791,
+                "name": "Glance Bot",
+                "email": "glancebot@mailinator.com",
+                "username": "glancebot",
+                "inactive": true
+            },
+            "all": [
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 6159,
+                    "name": "Flavio Percoco",
+                    "display_name": "flaper87",
+                    "email": "fpercoco@redhat.com",
+                    "username": "flaper87"
+                },
+                {
+                    "value": -1,
+                    "date": "2015-10-13 11:25:04.000000000",
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 18791,
+                    "name": "Glance Bot",
+                    "email": "glancebot@mailinator.com",
+                    "username": "glancebot",
+                    "inactive": true
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 7575,
+                    "name": "Sabari",
+                    "email": "smurugesan@vmware.com",
+                    "username": "sabari"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-2": "Do not merge",
+                "-1": "This patch needs further work before it can be merged",
+                " 0": "No score",
+                "+1": "Looks good to me, but someone else must approve",
+                "+2": "Looks good to me (core reviewer)"
+            },
+            "description": "",
+            "value": -1,
+            "default_value": 0,
+            "optional": true
+        },
+        "Workflow": {
+            "all": [
+                {
+                    "_account_id": 6159,
+                    "name": "Flavio Percoco",
+                    "display_name": "flaper87",
+                    "email": "fpercoco@redhat.com",
+                    "username": "flaper87"
+                },
+                {
+                    "_account_id": 18791,
+                    "name": "Glance Bot",
+                    "email": "glancebot@mailinator.com",
+                    "username": "glancebot",
+                    "inactive": true
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 0
+                    },
+                    "_account_id": 7575,
+                    "name": "Sabari",
+                    "email": "smurugesan@vmware.com",
+                    "username": "sabari"
+                },
+                {
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-1": "Work in progress",
+                " 0": "Ready for reviews",
+                "+1": "Approved"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        },
+        "Review-Priority": {
+            "all": [
+                {
+                    "_account_id": 6159,
+                    "name": "Flavio Percoco",
+                    "display_name": "flaper87",
+                    "email": "fpercoco@redhat.com",
+                    "username": "flaper87"
+                },
+                {
+                    "_account_id": 18791,
+                    "name": "Glance Bot",
+                    "email": "glancebot@mailinator.com",
+                    "username": "glancebot",
+                    "inactive": true
+                },
+                {
+                    "_account_id": 7575,
+                    "name": "Sabari",
+                    "email": "smurugesan@vmware.com",
+                    "username": "sabari"
+                },
+                {
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-1": "Branch Freeze",
+                " 0": "No Priority",
+                "+1": "Important Change",
+                "+2": "Top Priority / Holds Gate"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        }
+    },
+    "removable_reviewers": [],
+    "reviewers": {
+        "REVIEWER": [
+            {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            {
+                "_account_id": 6159,
+                "name": "Flavio Percoco",
+                "display_name": "flaper87",
+                "email": "fpercoco@redhat.com",
+                "username": "flaper87"
+            },
+            {
+                "_account_id": 7575,
+                "name": "Sabari",
+                "email": "smurugesan@vmware.com",
+                "username": "sabari"
+            },
+            {
+                "_account_id": 18791,
+                "name": "Glance Bot",
+                "email": "glancebot@mailinator.com",
+                "username": "glancebot",
+                "inactive": true
+            }
+        ]
+    },
+    "pending_reviewers": {},
+    "reviewer_updates": [
+        {
+            "updated": "2015-06-23 12:00:10.000000000",
+            "updated_by": {
+                "_account_id": 6159,
+                "name": "Flavio Percoco",
+                "display_name": "flaper87",
+                "email": "fpercoco@redhat.com",
+                "username": "flaper87"
+            },
+            "reviewer": {
+                "_account_id": 6159,
+                "name": "Flavio Percoco",
+                "display_name": "flaper87",
+                "email": "fpercoco@redhat.com",
+                "username": "flaper87"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2015-08-14 01:20:48.000000000",
+            "updated_by": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "reviewer": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2015-10-13 11:25:04.000000000",
+            "updated_by": {
+                "_account_id": 18791,
+                "name": "Glance Bot",
+                "email": "glancebot@mailinator.com",
+                "username": "glancebot",
+                "inactive": true
+            },
+            "reviewer": {
+                "_account_id": 18791,
+                "name": "Glance Bot",
+                "email": "glancebot@mailinator.com",
+                "username": "glancebot",
+                "inactive": true
+            },
+            "state": "REVIEWER"
+        }
+    ],
+    "messages": [
+        {
+            "id": "83e4a0abffa75a04f29ff2dfac74f827624c12de",
+            "author": {
+                "_account_id": 7575,
+                "name": "Sabari",
+                "email": "smurugesan@vmware.com",
+                "username": "sabari"
+            },
+            "real_author": {
+                "_account_id": 7575,
+                "name": "Sabari",
+                "email": "smurugesan@vmware.com",
+                "username": "sabari"
+            },
+            "date": "2015-06-23 07:32:53.000000000",
+            "message": "Uploaded patch set 1.",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "04aecdaaadbd998044f7f61569f67795c3f7d5c1",
+            "author": {
+                "_account_id": 7575,
+                "name": "Sabari",
+                "email": "smurugesan@vmware.com",
+                "username": "sabari"
+            },
+            "real_author": {
+                "_account_id": 7575,
+                "name": "Sabari",
+                "email": "smurugesan@vmware.com",
+                "username": "sabari"
+            },
+            "date": "2015-06-23 07:35:00.000000000",
+            "message": "Uploaded patch set 2.",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "b103206b9667b67c29486023d9602c62f9ca3489",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2015-06-23 08:28:22.000000000",
+            "message": "Patch Set 2: Verified+1\n\nBuild succeeded (check pipeline).\n\n- gate-glance-pep8 http://logs.openstack.org/26/194526/2/check/gate-glance-pep8/2edc17e/ : SUCCESS in 2m 00s\n- gate-glance-docs http://docs-draft.openstack.org/26/194526/2/check/gate-glance-docs/71f190b//doc/build/html/ : SUCCESS in 2m 25s\n- gate-glance-python27 http://logs.openstack.org/26/194526/2/check/gate-glance-python27/c4035ac/ : SUCCESS in 10m 00s\n- check-tempest-dsvm-full http://logs.openstack.org/26/194526/2/check/check-tempest-dsvm-full/6c8423e/ : SUCCESS in 39m 28s\n- check-tempest-dsvm-postgres-full http://logs.openstack.org/26/194526/2/check/check-tempest-dsvm-postgres-full/c8271e4/ : SUCCESS in 35m 14s\n- check-tempest-dsvm-neutron-full http://logs.openstack.org/26/194526/2/check/check-tempest-dsvm-neutron-full/e9d21c6/ : SUCCESS in 51m 29s\n- check-grenade-dsvm http://logs.openstack.org/26/194526/2/check/check-grenade-dsvm/b536666/ : SUCCESS in 41m 01s\n- gate-tempest-dsvm-large-ops http://logs.openstack.org/26/194526/2/check/gate-tempest-dsvm-large-ops/b3c1ce9/ : SUCCESS in 22m 05s\n- gate-tempest-dsvm-neutron-large-ops http://logs.openstack.org/26/194526/2/check/gate-tempest-dsvm-neutron-large-ops/6e44885/ : SUCCESS in 22m 00s\n- check-devstack-dsvm-cells http://logs.openstack.org/26/194526/2/check/check-devstack-dsvm-cells/4a5c1fe/ : SUCCESS in 18m 25s\n- check-tempest-dsvm-full-ceph http://logs.openstack.org/26/194526/2/check/check-tempest-dsvm-full-ceph/231cb59/ : SUCCESS in 37m 27s\n- gate-glance-python34 http://logs.openstack.org/26/194526/2/check/gate-glance-python34/e6b8ecc/ : SUCCESS in 3m 20s (non-voting)\n- gate-rally-dsvm-glance http://logs.openstack.org/26/194526/2/check/gate-rally-dsvm-glance/9c78633/ : SUCCESS in 29m 36s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "cfa2c2ded9e2f179973aa987090091b808f5bf23",
+            "author": {
+                "_account_id": 6159,
+                "name": "Flavio Percoco",
+                "display_name": "flaper87",
+                "email": "fpercoco@redhat.com",
+                "username": "flaper87"
+            },
+            "real_author": {
+                "_account_id": 6159,
+                "name": "Flavio Percoco",
+                "display_name": "flaper87",
+                "email": "fpercoco@redhat.com",
+                "username": "flaper87"
+            },
+            "date": "2015-06-23 12:00:10.000000000",
+            "message": "Patch Set 2: Workflow-1\n\naccording to the commit message (mind adding WIP: to the title?)",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "bfd3cadb3f47964a00f8c10d3b9fb4c4c077eee0",
+            "author": {
+                "_account_id": 7575,
+                "name": "Sabari",
+                "email": "smurugesan@vmware.com",
+                "username": "sabari"
+            },
+            "real_author": {
+                "_account_id": 7575,
+                "name": "Sabari",
+                "email": "smurugesan@vmware.com",
+                "username": "sabari"
+            },
+            "date": "2015-06-23 16:24:03.000000000",
+            "message": "Patch Set 3: Commit message was updated",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "42f6a62e9916a3d66990c6f1ec9c79ff56c0e3e8",
+            "author": {
+                "_account_id": 7575,
+                "name": "Sabari",
+                "email": "smurugesan@vmware.com",
+                "username": "sabari"
+            },
+            "real_author": {
+                "_account_id": 7575,
+                "name": "Sabari",
+                "email": "smurugesan@vmware.com",
+                "username": "sabari"
+            },
+            "date": "2015-06-23 16:25:48.000000000",
+            "message": "Patch Set 3: Workflow-1\n\nThanks Flavio. Yeah, I should have -1'd.",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "69ed348b4f3a066bf2720e619fadac82c1deb507",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2015-06-23 17:28:46.000000000",
+            "message": "Patch Set 3: Verified+1\n\nBuild succeeded (check pipeline).\n\n- gate-glance-pep8 http://logs.openstack.org/26/194526/3/check/gate-glance-pep8/1cd4b55/ : SUCCESS in 2m 07s\n- gate-glance-docs http://docs-draft.openstack.org/26/194526/3/check/gate-glance-docs/fda6da2//doc/build/html/ : SUCCESS in 2m 25s\n- gate-glance-python27 http://logs.openstack.org/26/194526/3/check/gate-glance-python27/dd8f937/ : SUCCESS in 6m 38s\n- check-tempest-dsvm-full http://logs.openstack.org/26/194526/3/check/check-tempest-dsvm-full/048dc82/ : SUCCESS in 48m 18s\n- check-tempest-dsvm-postgres-full http://logs.openstack.org/26/194526/3/check/check-tempest-dsvm-postgres-full/cd43f85/ : SUCCESS in 44m 58s\n- check-tempest-dsvm-neutron-full http://logs.openstack.org/26/194526/3/check/check-tempest-dsvm-neutron-full/9cb3875/ : SUCCESS in 1h 02m 31s\n- check-grenade-dsvm http://logs.openstack.org/26/194526/3/check/check-grenade-dsvm/72b91e5/ : SUCCESS in 37m 33s\n- gate-tempest-dsvm-large-ops http://logs.openstack.org/26/194526/3/check/gate-tempest-dsvm-large-ops/79938cf/ : SUCCESS in 19m 50s\n- gate-tempest-dsvm-neutron-large-ops http://logs.openstack.org/26/194526/3/check/gate-tempest-dsvm-neutron-large-ops/a13d645/ : SUCCESS in 18m 50s\n- check-devstack-dsvm-cells http://logs.openstack.org/26/194526/3/check/check-devstack-dsvm-cells/b8d624e/ : SUCCESS in 17m 52s\n- check-tempest-dsvm-full-ceph http://logs.openstack.org/26/194526/3/check/check-tempest-dsvm-full-ceph/62d2239/ : SUCCESS in 36m 44s\n- gate-glance-python34 http://logs.openstack.org/26/194526/3/check/gate-glance-python34/35b3efe/ : SUCCESS in 4m 24s (non-voting)\n- gate-rally-dsvm-glance http://logs.openstack.org/26/194526/3/check/gate-rally-dsvm-glance/0069052/ : SUCCESS in 25m 49s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "50f32086bef97cab643302d4015dbf0c39de6e1d",
+            "author": {
+                "_account_id": 7575,
+                "name": "Sabari",
+                "email": "smurugesan@vmware.com",
+                "username": "sabari"
+            },
+            "real_author": {
+                "_account_id": 7575,
+                "name": "Sabari",
+                "email": "smurugesan@vmware.com",
+                "username": "sabari"
+            },
+            "date": "2015-06-24 00:57:40.000000000",
+            "message": "Uploaded patch set 4.",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "e7aa700a0f9458ea23b2b27f72543639c0edb3de",
+            "author": {
+                "_account_id": 7575,
+                "name": "Sabari",
+                "email": "smurugesan@vmware.com",
+                "username": "sabari"
+            },
+            "real_author": {
+                "_account_id": 7575,
+                "name": "Sabari",
+                "email": "smurugesan@vmware.com",
+                "username": "sabari"
+            },
+            "date": "2015-06-24 00:59:55.000000000",
+            "message": "Patch Set 4: Workflow-1",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "a6d24ee4301c7bdc1bf3d6ea4f6e126400e71264",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2015-06-24 01:46:11.000000000",
+            "message": "Patch Set 4: Verified+1\n\nBuild succeeded (check pipeline).\n\n- gate-glance-pep8 http://logs.openstack.org/26/194526/4/check/gate-glance-pep8/883f837/ : SUCCESS in 2m 22s\n- gate-glance-docs http://docs-draft.openstack.org/26/194526/4/check/gate-glance-docs/085be42//doc/build/html/ : SUCCESS in 2m 46s\n- gate-glance-python27 http://logs.openstack.org/26/194526/4/check/gate-glance-python27/673cb24/ : SUCCESS in 8m 26s\n- check-tempest-dsvm-full http://logs.openstack.org/26/194526/4/check/check-tempest-dsvm-full/8b7729b/ : SUCCESS in 33m 11s\n- check-tempest-dsvm-postgres-full http://logs.openstack.org/26/194526/4/check/check-tempest-dsvm-postgres-full/5ac715b/ : SUCCESS in 38m 21s\n- check-tempest-dsvm-neutron-full http://logs.openstack.org/26/194526/4/check/check-tempest-dsvm-neutron-full/4987309/ : SUCCESS in 48m 23s\n- check-grenade-dsvm http://logs.openstack.org/26/194526/4/check/check-grenade-dsvm/5c67116/ : SUCCESS in 39m 31s\n- gate-tempest-dsvm-large-ops http://logs.openstack.org/26/194526/4/check/gate-tempest-dsvm-large-ops/221c759/ : SUCCESS in 21m 08s\n- gate-tempest-dsvm-neutron-large-ops http://logs.openstack.org/26/194526/4/check/gate-tempest-dsvm-neutron-large-ops/ebdb6cc/ : SUCCESS in 23m 29s\n- check-devstack-dsvm-cells http://logs.openstack.org/26/194526/4/check/check-devstack-dsvm-cells/3323f90/ : SUCCESS in 16m 55s\n- check-tempest-dsvm-full-ceph http://logs.openstack.org/26/194526/4/check/check-tempest-dsvm-full-ceph/17d8fa1/ : SUCCESS in 42m 31s\n- gate-glance-python34 http://logs.openstack.org/26/194526/4/check/gate-glance-python34/f1022e9/ : SUCCESS in 4m 00s (non-voting)\n- gate-rally-dsvm-glance http://logs.openstack.org/26/194526/4/check/gate-rally-dsvm-glance/f0a88db/ : SUCCESS in 29m 37s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "7070304e6cbb3481d441d0cd5d7690df1fd37d64",
+            "author": {
+                "_account_id": 7575,
+                "name": "Sabari",
+                "email": "smurugesan@vmware.com",
+                "username": "sabari"
+            },
+            "real_author": {
+                "_account_id": 7575,
+                "name": "Sabari",
+                "email": "smurugesan@vmware.com",
+                "username": "sabari"
+            },
+            "date": "2015-07-29 17:35:45.000000000",
+            "message": "Uploaded patch set 5.",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "7536168a6daddd8df3178f5ca377b5c3e30dd172",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2015-07-29 21:17:50.000000000",
+            "message": "Patch Set 5: Verified+1\n\nBuild succeeded (check pipeline).\n\n- gate-glance-python34 http://logs.openstack.org/26/194526/5/check/gate-glance-python34/f441505/ : SUCCESS in 4m 33s\n- gate-glance-pep8 http://logs.openstack.org/26/194526/5/check/gate-glance-pep8/f8da639/ : SUCCESS in 2m 40s\n- gate-glance-docs http://docs-draft.openstack.org/26/194526/5/check/gate-glance-docs/185b99b//doc/build/html/ : SUCCESS in 3m 05s\n- gate-glance-python27 http://logs.openstack.org/26/194526/5/check/gate-glance-python27/2e505c0/ : SUCCESS in 7m 22s\n- gate-tempest-dsvm-full http://logs.openstack.org/26/194526/5/check/gate-tempest-dsvm-full/cb85954/ : SUCCESS in 53m 53s\n- gate-tempest-dsvm-postgres-full http://logs.openstack.org/26/194526/5/check/gate-tempest-dsvm-postgres-full/914f67c/ : SUCCESS in 51m 39s\n- gate-tempest-dsvm-neutron-full http://logs.openstack.org/26/194526/5/check/gate-tempest-dsvm-neutron-full/39072ea/ : SUCCESS in 1h 04m 16s\n- gate-grenade-dsvm http://logs.openstack.org/26/194526/5/check/gate-grenade-dsvm/25d9343/ : SUCCESS in 49m 25s\n- gate-tempest-dsvm-large-ops http://logs.openstack.org/26/194526/5/check/gate-tempest-dsvm-large-ops/faeb082/ : SUCCESS in 45m 02s\n- gate-tempest-dsvm-neutron-large-ops http://logs.openstack.org/26/194526/5/check/gate-tempest-dsvm-neutron-large-ops/8da3008/ : SUCCESS in 35m 19s\n- gate-devstack-dsvm-cells http://logs.openstack.org/26/194526/5/check/gate-devstack-dsvm-cells/1709f8f/ : SUCCESS in 30m 15s\n- gate-tempest-dsvm-full-ceph http://logs.openstack.org/26/194526/5/check/gate-tempest-dsvm-full-ceph/b76fce9/ : SUCCESS in 1h 01m 56s\n- gate-rally-dsvm-glance http://logs.openstack.org/26/194526/5/check/gate-rally-dsvm-glance/802fa5f/ : SUCCESS in 30m 21s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "14f9c7bcc7c1555a221632b92dd66d7a1dd439c3",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2015-08-14 01:20:48.000000000",
+            "message": "Patch Set 5: Verified-1\n\nMerge Failed.\n\nThis change or one of its cross-repo dependencies was unable to be automatically merged with the current state of its repository. Please rebase the change and upload a new patchset.",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "c2b57ddc336a32c0d1636e7a2b9fa20854997a1f",
+            "author": {
+                "_account_id": 18791,
+                "name": "Glance Bot",
+                "email": "glancebot@mailinator.com",
+                "username": "glancebot",
+                "inactive": true
+            },
+            "real_author": {
+                "_account_id": 18791,
+                "name": "Glance Bot",
+                "email": "glancebot@mailinator.com",
+                "username": "glancebot",
+                "inactive": true
+            },
+            "date": "2015-10-13 11:25:04.000000000",
+            "message": "Patch Set 5: Code-Review-1\n\nThis patch has been -1ed because it has not been updated in\n>=2months. The patch also has either a -1/-2 from a core reviewer or a\n-1 from Jenkins.\n\nPlease, update/rebase the patch if the lack of updates was actually a\nlack of reviews or if you think the patch is still relevant.\n\n**NOTE: This will be abandoned if no update is done in 1 week.**\n\nIf this action does not seem accurate, please, ping me on IRC\n(flaper87) and I will gladly revert it. Sorry for the inconvenience and\nwe look forward to have more contributions from you.",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "dfc509ea661008f4a032807641d5d141ca013bd9",
+            "author": {
+                "_account_id": 18791,
+                "name": "Glance Bot",
+                "email": "glancebot@mailinator.com",
+                "username": "glancebot",
+                "inactive": true
+            },
+            "real_author": {
+                "_account_id": 18791,
+                "name": "Glance Bot",
+                "email": "glancebot@mailinator.com",
+                "username": "glancebot",
+                "inactive": true
+            },
+            "date": "2015-10-20 07:02:50.000000000",
+            "message": "Patch Set 5:\n\nThis patch was marked to be abanadoned >=7days ago.\n\nIt is now being abandoned because there was no update, feedback nor rebase in the aforementioned period. If this is a mistake, please, contact members of the glance team[0] and they'll promptly correct the error.\n\nThanks for your contribution. The Glance team looks forward to new contributions from you.",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "7b3c014248909ff9a54d5f54ce11754aa0fbf102",
+            "author": {
+                "_account_id": 18791,
+                "name": "Glance Bot",
+                "email": "glancebot@mailinator.com",
+                "username": "glancebot",
+                "inactive": true
+            },
+            "real_author": {
+                "_account_id": 18791,
+                "name": "Glance Bot",
+                "email": "glancebot@mailinator.com",
+                "username": "glancebot",
+                "inactive": true
+            },
+            "date": "2015-10-20 07:07:48.000000000",
+            "message": "Abandoned",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        }
+    ],
+    "requirements": [],
+    "submit_records": []
+}

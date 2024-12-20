@@ -1,0 +1,918 @@
+{
+    "id": "openstack%2Fglance~master~Ibc35f51d7f80986639c7a62b6325762e6a2b7bfb",
+    "project": "openstack/glance",
+    "branch": "master",
+    "topic": "bug/1044127",
+    "hashtags": [],
+    "change_id": "Ibc35f51d7f80986639c7a62b6325762e6a2b7bfb",
+    "subject": "Filter out deleted image properties in v2 api",
+    "status": "MERGED",
+    "created": "2012-08-30 23:51:43.000000000",
+    "updated": "2012-08-31 19:38:34.000000000",
+    "submitted": "2012-08-31 19:38:33.000000000",
+    "submitter": {
+        "_account_id": 3,
+        "name": "Jenkins",
+        "username": "jenkins"
+    },
+    "insertions": 58,
+    "deletions": 11,
+    "total_comment_count": 6,
+    "unresolved_comment_count": 0,
+    "has_review_started": true,
+    "meta_rev_id": "85e906da54ff394ab317fb6897f333952a4b7460",
+    "_number": 12229,
+    "owner": {
+        "_account_id": 616,
+        "name": "Mark Washenberger",
+        "email": "mark.washenberger@markwash.net",
+        "username": "markwash"
+    },
+    "labels": {
+        "Verified": {
+            "approved": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "recommended": {
+                "_account_id": 2166,
+                "name": "SmokeStack CI",
+                "username": "smokestack",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 1132,
+                    "name": "Brian Waldon",
+                    "email": "brian@waldon.cc",
+                    "username": "bcwaldon"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 4463,
+                    "name": "iccha-sethi",
+                    "email": "iccha.sethi@rackspace.com",
+                    "username": "iccha-sethi"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 616,
+                    "name": "Mark Washenberger",
+                    "email": "mark.washenberger@markwash.net",
+                    "username": "markwash"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 2537,
+                    "name": "Nikhil Komawar",
+                    "email": "nik.komawar@gmail.com",
+                    "username": "nikhil-komawar"
+                },
+                {
+                    "value": 1,
+                    "date": "2012-08-31 18:22:38.000000000",
+                    "_account_id": 2166,
+                    "name": "SmokeStack CI",
+                    "username": "smokestack",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 0,
+                    "_account_id": 177,
+                    "name": "Alex Meade",
+                    "email": "mr.alex.meade@gmail.com",
+                    "username": "alex-meade"
+                },
+                {
+                    "value": 0,
+                    "date": "2012-08-31 19:22:10.000000000",
+                    "_account_id": 1,
+                    "name": "James E. Blair",
+                    "email": "jim@acmegating.com",
+                    "username": "corvus"
+                },
+                {
+                    "value": 2,
+                    "date": "2012-08-31 19:38:33.000000000",
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-2": "Fails",
+                "-1": "Doesn't seem to work",
+                " 0": "No score",
+                "+1": "Works for me",
+                "+2": "Verified"
+            },
+            "description": "",
+            "value": 1,
+            "default_value": 0,
+            "optional": true
+        },
+        "Code-Review": {
+            "approved": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "all": [
+                {
+                    "value": 2,
+                    "date": "2012-08-31 18:15:08.000000000",
+                    "_account_id": 1132,
+                    "name": "Brian Waldon",
+                    "email": "brian@waldon.cc",
+                    "username": "bcwaldon"
+                },
+                {
+                    "value": 1,
+                    "date": "2012-08-31 18:17:57.000000000",
+                    "permitted_voting_range": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "_account_id": 4463,
+                    "name": "iccha-sethi",
+                    "email": "iccha.sethi@rackspace.com",
+                    "username": "iccha-sethi"
+                },
+                {
+                    "value": 0,
+                    "date": "2012-08-31 18:04:48.000000000",
+                    "permitted_voting_range": {
+                        "min": 0,
+                        "max": 1
+                    },
+                    "_account_id": 616,
+                    "name": "Mark Washenberger",
+                    "email": "mark.washenberger@markwash.net",
+                    "username": "markwash"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 2537,
+                    "name": "Nikhil Komawar",
+                    "email": "nik.komawar@gmail.com",
+                    "username": "nikhil-komawar"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 2166,
+                    "name": "SmokeStack CI",
+                    "username": "smokestack",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 1,
+                    "date": "2012-08-31 18:16:27.000000000",
+                    "permitted_voting_range": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "_account_id": 177,
+                    "name": "Alex Meade",
+                    "email": "mr.alex.meade@gmail.com",
+                    "username": "alex-meade"
+                },
+                {
+                    "value": 0,
+                    "date": "2012-08-31 19:22:10.000000000",
+                    "permitted_voting_range": {
+                        "min": 0,
+                        "max": 1
+                    },
+                    "_account_id": 1,
+                    "name": "James E. Blair",
+                    "email": "jim@acmegating.com",
+                    "username": "corvus"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-2": "Do not merge",
+                "-1": "This patch needs further work before it can be merged",
+                " 0": "No score",
+                "+1": "Looks good to me, but someone else must approve",
+                "+2": "Looks good to me (core reviewer)"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        },
+        "Workflow": {
+            "approved": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "all": [
+                {
+                    "value": 1,
+                    "date": "2012-08-31 19:03:02.000000000",
+                    "_account_id": 1132,
+                    "name": "Brian Waldon",
+                    "email": "brian@waldon.cc",
+                    "username": "bcwaldon"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 4463,
+                    "name": "iccha-sethi",
+                    "email": "iccha.sethi@rackspace.com",
+                    "username": "iccha-sethi"
+                },
+                {
+                    "value": 0,
+                    "date": "2012-08-31 18:04:48.000000000",
+                    "_account_id": 616,
+                    "name": "Mark Washenberger",
+                    "email": "mark.washenberger@markwash.net",
+                    "username": "markwash"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 2537,
+                    "name": "Nikhil Komawar",
+                    "email": "nik.komawar@gmail.com",
+                    "username": "nikhil-komawar"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 2166,
+                    "name": "SmokeStack CI",
+                    "username": "smokestack",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 0,
+                    "_account_id": 177,
+                    "name": "Alex Meade",
+                    "email": "mr.alex.meade@gmail.com",
+                    "username": "alex-meade"
+                },
+                {
+                    "value": 0,
+                    "date": "2012-08-31 19:22:10.000000000",
+                    "_account_id": 1,
+                    "name": "James E. Blair",
+                    "email": "jim@acmegating.com",
+                    "username": "corvus"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-1": "Work in progress",
+                " 0": "Ready for reviews",
+                "+1": "Approved"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        },
+        "Review-Priority": {
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 1132,
+                    "name": "Brian Waldon",
+                    "email": "brian@waldon.cc",
+                    "username": "bcwaldon"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 4463,
+                    "name": "iccha-sethi",
+                    "email": "iccha.sethi@rackspace.com",
+                    "username": "iccha-sethi"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 616,
+                    "name": "Mark Washenberger",
+                    "email": "mark.washenberger@markwash.net",
+                    "username": "markwash"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 2537,
+                    "name": "Nikhil Komawar",
+                    "email": "nik.komawar@gmail.com",
+                    "username": "nikhil-komawar"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 2166,
+                    "name": "SmokeStack CI",
+                    "username": "smokestack",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 0,
+                    "_account_id": 177,
+                    "name": "Alex Meade",
+                    "email": "mr.alex.meade@gmail.com",
+                    "username": "alex-meade"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 1,
+                    "name": "James E. Blair",
+                    "email": "jim@acmegating.com",
+                    "username": "corvus"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-1": "Branch Freeze",
+                " 0": "No Priority",
+                "+1": "Important Change",
+                "+2": "Top Priority / Holds Gate"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        }
+    },
+    "removable_reviewers": [],
+    "reviewers": {
+        "REVIEWER": [
+            {
+                "_account_id": 1,
+                "name": "James E. Blair",
+                "email": "jim@acmegating.com",
+                "username": "corvus"
+            },
+            {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            {
+                "_account_id": 177,
+                "name": "Alex Meade",
+                "email": "mr.alex.meade@gmail.com",
+                "username": "alex-meade"
+            },
+            {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            {
+                "_account_id": 2166,
+                "name": "SmokeStack CI",
+                "username": "smokestack",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            {
+                "_account_id": 4463,
+                "name": "iccha-sethi",
+                "email": "iccha.sethi@rackspace.com",
+                "username": "iccha-sethi"
+            }
+        ]
+    },
+    "pending_reviewers": {},
+    "reviewer_updates": [
+        {
+            "updated": "2012-08-31 17:01:34.000000000",
+            "updated_by": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "reviewer": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2012-08-31 18:16:27.000000000",
+            "updated_by": {
+                "_account_id": 177,
+                "name": "Alex Meade",
+                "email": "mr.alex.meade@gmail.com",
+                "username": "alex-meade"
+            },
+            "reviewer": {
+                "_account_id": 177,
+                "name": "Alex Meade",
+                "email": "mr.alex.meade@gmail.com",
+                "username": "alex-meade"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2012-08-31 18:17:57.000000000",
+            "updated_by": {
+                "_account_id": 4463,
+                "name": "iccha-sethi",
+                "email": "iccha.sethi@rackspace.com",
+                "username": "iccha-sethi"
+            },
+            "reviewer": {
+                "_account_id": 4463,
+                "name": "iccha-sethi",
+                "email": "iccha.sethi@rackspace.com",
+                "username": "iccha-sethi"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2012-08-31 18:22:38.000000000",
+            "updated_by": {
+                "_account_id": 2166,
+                "name": "SmokeStack CI",
+                "username": "smokestack",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "reviewer": {
+                "_account_id": 2166,
+                "name": "SmokeStack CI",
+                "username": "smokestack",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2012-08-31 19:03:02.000000000",
+            "updated_by": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "reviewer": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2012-08-31 19:22:10.000000000",
+            "updated_by": {
+                "_account_id": 1,
+                "name": "James E. Blair",
+                "email": "jim@acmegating.com",
+                "username": "corvus"
+            },
+            "reviewer": {
+                "_account_id": 1,
+                "name": "James E. Blair",
+                "email": "jim@acmegating.com",
+                "username": "corvus"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2012-08-31 19:38:33.000000000",
+            "updated_by": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "reviewer": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "state": "REVIEWER"
+        }
+    ],
+    "messages": [
+        {
+            "id": "24f8bfb515a72e626d063c9a7b8e28556f672715",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2012-08-31 00:07:12.000000000",
+            "message": "Patch Set 1: Works for me\n\nBuild successful\n\n- http://logs.openstack.org/12229/1/check/gate-glance-merge/2030 : SUCCESS\n- http://logs.openstack.org/12229/1/check/gate-glance-docs/208 : SUCCESS\n- http://logs.openstack.org/12229/1/check/gate-glance-pep8/2142 : SUCCESS\n- http://logs.openstack.org/12229/1/check/gate-glance-python26/1649 : SUCCESS\n- http://logs.openstack.org/12229/1/check/gate-glance-python27/1661 : SUCCESS\n- http://logs.openstack.org/12229/1/check/gate-tempest-devstack-vm/9893 : SUCCESS\n",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "8fe32dacdc21f84d049141545d7d55a334a12394",
+            "author": {
+                "_account_id": 2166,
+                "name": "SmokeStack CI",
+                "username": "smokestack",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 2166,
+                "name": "SmokeStack CI",
+                "username": "smokestack",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2012-08-31 00:09:02.000000000",
+            "message": "Patch Set 1: Works for me\n\nSmokeStack Results (patch set 1):\n\tUnit Success: http://smokestack.openstack.org/?go=/jobs/32485\n\tLibvirt (Fedora 17) Success: http://smokestack.openstack.org/?go=/jobs/32483\n\tXenServer 5.6 (F17 domU) Success: http://smokestack.openstack.org/?go=/jobs/32484\n",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "e8d6a2916f0d942fd8308368d4638029af000886",
+            "author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "real_author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "date": "2012-08-31 00:15:35.000000000",
+            "message": "Patch Set 1: Looks good to me (core reviewer)\n\n:/",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "196b420a78575b8597869088ddc53e7eda0d8389",
+            "author": {
+                "_account_id": 4463,
+                "name": "iccha-sethi",
+                "email": "iccha.sethi@rackspace.com",
+                "username": "iccha-sethi"
+            },
+            "real_author": {
+                "_account_id": 4463,
+                "name": "iccha-sethi",
+                "email": "iccha.sethi@rackspace.com",
+                "username": "iccha-sethi"
+            },
+            "date": "2012-08-31 16:28:15.000000000",
+            "message": "Patch Set 1: Looks good to me, but someone else must approve\n\n",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "3bb8cba2fbc7a2d1282078d5fd8ea11774fa79e4",
+            "author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "real_author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "date": "2012-08-31 17:01:34.000000000",
+            "message": "Patch Set 1: (2 inline comments)\n\n",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "a77c18450b678cc9057c8e32805375b098f52a1c",
+            "author": {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            "real_author": {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            "date": "2012-08-31 17:25:16.000000000",
+            "message": "Patch Set 1: (2 inline comments)\n\n",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "e696f825575025ba42f3ab468e036db605fc0ba6",
+            "author": {
+                "_account_id": 177,
+                "name": "Alex Meade",
+                "email": "mr.alex.meade@gmail.com",
+                "username": "alex-meade"
+            },
+            "real_author": {
+                "_account_id": 177,
+                "name": "Alex Meade",
+                "email": "mr.alex.meade@gmail.com",
+                "username": "alex-meade"
+            },
+            "date": "2012-08-31 17:32:07.000000000",
+            "message": "Patch Set 1: I would prefer that you didn't merge this\n\n(2 inline comments)\n\nGood work, always glad you include good tests :)\n\njust a few nitpicks inline",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "e80a3ae636292c5dee21a443d4e12857f4dcd902",
+            "author": {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            "real_author": {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            "date": "2012-08-31 18:03:20.000000000",
+            "message": "Uploaded patch set 2.",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "542606f5adda30e2b037d9dcf2c086af04858815",
+            "author": {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            "real_author": {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            "date": "2012-08-31 18:04:48.000000000",
+            "message": "Patch Set 2:\n\nI hope I've addressed the commenting concerns.\n\nI just want to clarify, I think it is a bug that the db api returns deleted properties. But the bug feels so fundamental that I think it is better for now to just adapt the v2 api to deal with this behavior, as well as documenting the odd behavior in the db functional tests.",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "aa94cc13781b986edc8d219174e6bf23f4241eb9",
+            "author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "real_author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "date": "2012-08-31 18:15:08.000000000",
+            "message": "Patch Set 2: Looks good to me (core reviewer)\n\n",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "1647cbb4b2d5dc3fb386cf8eb665b7665c0d1529",
+            "author": {
+                "_account_id": 177,
+                "name": "Alex Meade",
+                "email": "mr.alex.meade@gmail.com",
+                "username": "alex-meade"
+            },
+            "real_author": {
+                "_account_id": 177,
+                "name": "Alex Meade",
+                "email": "mr.alex.meade@gmail.com",
+                "username": "alex-meade"
+            },
+            "date": "2012-08-31 18:16:27.000000000",
+            "message": "Patch Set 2: Looks good to me, but someone else must approve\n\n+2 but I guess gerrit doesn't know I'm core yet!",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "953207943f546dad8d2af473bea23ae1ab1476a0",
+            "author": {
+                "_account_id": 4463,
+                "name": "iccha-sethi",
+                "email": "iccha.sethi@rackspace.com",
+                "username": "iccha-sethi"
+            },
+            "real_author": {
+                "_account_id": 4463,
+                "name": "iccha-sethi",
+                "email": "iccha.sethi@rackspace.com",
+                "username": "iccha-sethi"
+            },
+            "date": "2012-08-31 18:17:57.000000000",
+            "message": "Patch Set 2: Looks good to me, but someone else must approve\n\nsame here :)",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "c7ee35f5c4642ebc7a14fc03ed91e971247040a9",
+            "author": {
+                "_account_id": 2166,
+                "name": "SmokeStack CI",
+                "username": "smokestack",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 2166,
+                "name": "SmokeStack CI",
+                "username": "smokestack",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2012-08-31 18:22:38.000000000",
+            "message": "Patch Set 2: Works for me\n\nSmokeStack Results (patch set 2):\n\tUnit Success: http://smokestack.openstack.org/?go=/jobs/32632\n\tLibvirt (Fedora 17) Success: http://smokestack.openstack.org/?go=/jobs/32630\n\tXenServer 5.6 (F17 domU) Success: http://smokestack.openstack.org/?go=/jobs/32631\n",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "71c354286515eed28e5befc63931886a81852558",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2012-08-31 18:36:15.000000000",
+            "message": "Patch Set 2: Works for me\n\nBuild successful\n\n- http://logs.openstack.org/12229/2/check/gate-glance-merge/2035 : SUCCESS\n- http://logs.openstack.org/12229/2/check/gate-glance-docs/213 : SUCCESS\n- http://logs.openstack.org/12229/2/check/gate-glance-pep8/2147 : SUCCESS\n- http://logs.openstack.org/12229/2/check/gate-glance-python26/1654 : SUCCESS\n- http://logs.openstack.org/12229/2/check/gate-glance-python27/1666 : SUCCESS\n- http://logs.openstack.org/12229/2/check/gate-tempest-devstack-vm/10003 : SUCCESS\n",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "cd5f8e5e1a91aec2097a8e106a1a3e1e41943fbb",
+            "author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "real_author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "date": "2012-08-31 19:03:02.000000000",
+            "message": "Patch Set 2: Approved\n\n",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "48b726b0646eb9d07c35cb15f89781c2cfea7903",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2012-08-31 19:09:30.000000000",
+            "message": "Patch Set 2: No score\n\nStarting gate jobs.",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "fad782b74e8f084790a284bdb49b14dbeef61097",
+            "author": {
+                "_account_id": 1,
+                "name": "James E. Blair",
+                "email": "jim@acmegating.com",
+                "username": "corvus"
+            },
+            "real_author": {
+                "_account_id": 1,
+                "name": "James E. Blair",
+                "email": "jim@acmegating.com",
+                "username": "corvus"
+            },
+            "date": "2012-08-31 19:22:10.000000000",
+            "message": "Patch Set 2:\n\nreverify",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "9b9adb13ee45ca62139e92e992ceb35b3c44c5c0",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2012-08-31 19:22:11.000000000",
+            "message": "Patch Set 2:\n\nStarting gate jobs.",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "a70ccc1388b52eedf9efd247a045339f11bf7d03",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2012-08-31 19:38:33.000000000",
+            "message": "Patch Set 2: Verified\n\nBuild successful\n\n- http://logs.openstack.org/12229/2/gate/gate-glance-merge/2040 : SUCCESS\n- http://logs.openstack.org/12229/2/gate/gate-glance-docs/218 : SUCCESS\n- http://logs.openstack.org/12229/2/gate/gate-glance-pep8/2152 : SUCCESS\n- http://logs.openstack.org/12229/2/gate/gate-glance-python26/1659 : SUCCESS\n- http://logs.openstack.org/12229/2/gate/gate-glance-python27/1671 : SUCCESS\n- http://logs.openstack.org/12229/2/gate/gate-tempest-devstack-vm/10015 : SUCCESS\n",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "42fbed4b089cead6bba5ebcb5486817da6d3b5d5",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2012-08-31 19:38:34.000000000",
+            "message": "Change has been successfully merged into the git repository.",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        }
+    ],
+    "requirements": [],
+    "submit_records": []
+}

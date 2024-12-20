@@ -1,0 +1,1081 @@
+{
+    "id": "openstack%2Fglance~master~I7108179e0d96e09638ff783b029a8216f0938c3b",
+    "project": "openstack/glance",
+    "branch": "master",
+    "topic": "bug/1768077",
+    "hashtags": [],
+    "change_id": "I7108179e0d96e09638ff783b029a8216f0938c3b",
+    "subject": "Refactor wait_for_scrubber_shutdown function",
+    "status": "MERGED",
+    "created": "2018-05-08 17:03:48.000000000",
+    "updated": "2018-06-19 04:18:40.000000000",
+    "submitted": "2018-06-19 04:18:40.000000000",
+    "submitter": {
+        "_account_id": 22348,
+        "name": "Zuul",
+        "username": "zuul",
+        "tags": [
+            "SERVICE_USER"
+        ]
+    },
+    "insertions": 28,
+    "deletions": 21,
+    "total_comment_count": 2,
+    "unresolved_comment_count": 0,
+    "has_review_started": true,
+    "submission_id": "566947-1529381920082-31707b30",
+    "meta_rev_id": "23e896048d42f5a7524d771a330661130835ece4",
+    "_number": 566947,
+    "owner": {
+        "_account_id": 5314,
+        "name": "Brian Rosmaita",
+        "email": "rosmaita.fossdev@gmail.com",
+        "username": "brian-rosmaita"
+    },
+    "labels": {
+        "Verified": {
+            "approved": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "all": [
+                {
+                    "value": 2,
+                    "date": "2018-06-19 04:18:39.000000000",
+                    "permitted_voting_range": {
+                        "min": 2,
+                        "max": 2
+                    },
+                    "_account_id": 22348,
+                    "name": "Zuul",
+                    "username": "zuul",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 0,
+                    "_account_id": 15054,
+                    "name": "wangxiyuan",
+                    "email": "wangxiyuan1007@gmail.com",
+                    "username": "wangxiyuan"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 27336,
+                    "name": "XiaojueGuan",
+                    "email": "xiaojueguan@gmail.com",
+                    "username": "XiaojueGuan"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 9303,
+                    "name": "Abhishek Kekane",
+                    "email": "akekane@redhat.com",
+                    "username": "abhishekkekane"
+                },
+                {
+                    "value": 0,
+                    "date": "2018-05-08 22:07:17.000000000",
+                    "_account_id": 9008,
+                    "name": "VMware NSX CI",
+                    "username": "vmwareminesweeper",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 0,
+                    "_account_id": 11904,
+                    "name": "Sean McGinnis",
+                    "email": "sean.mcginnis@gmail.com",
+                    "username": "SeanM"
+                },
+                {
+                    "value": 0,
+                    "date": "2018-05-14 02:33:18.000000000",
+                    "_account_id": 5314,
+                    "name": "Brian Rosmaita",
+                    "email": "rosmaita.fossdev@gmail.com",
+                    "username": "brian-rosmaita"
+                }
+            ],
+            "values": {
+                "-2": "Fails",
+                "-1": "Doesn't seem to work",
+                " 0": "No score",
+                "+1": "Works for me",
+                "+2": "Verified"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        },
+        "Code-Review": {
+            "approved": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "recommended": {
+                "_account_id": 15054,
+                "name": "wangxiyuan",
+                "email": "wangxiyuan1007@gmail.com",
+                "username": "wangxiyuan"
+            },
+            "disliked": {
+                "_account_id": 27336,
+                "name": "XiaojueGuan",
+                "email": "xiaojueguan@gmail.com",
+                "username": "XiaojueGuan"
+            },
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 22348,
+                    "name": "Zuul",
+                    "username": "zuul",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 1,
+                    "date": "2018-05-10 01:33:38.000000000",
+                    "permitted_voting_range": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "_account_id": 15054,
+                    "name": "wangxiyuan",
+                    "email": "wangxiyuan1007@gmail.com",
+                    "username": "wangxiyuan"
+                },
+                {
+                    "value": -1,
+                    "date": "2018-05-12 14:40:44.000000000",
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 27336,
+                    "name": "XiaojueGuan",
+                    "email": "xiaojueguan@gmail.com",
+                    "username": "XiaojueGuan"
+                },
+                {
+                    "value": 2,
+                    "date": "2018-05-09 09:36:14.000000000",
+                    "permitted_voting_range": {
+                        "min": 2,
+                        "max": 2
+                    },
+                    "_account_id": 9303,
+                    "name": "Abhishek Kekane",
+                    "email": "akekane@redhat.com",
+                    "username": "abhishekkekane"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 9008,
+                    "name": "VMware NSX CI",
+                    "username": "vmwareminesweeper",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 2,
+                    "date": "2018-06-19 02:38:19.000000000",
+                    "permitted_voting_range": {
+                        "min": 2,
+                        "max": 2
+                    },
+                    "_account_id": 11904,
+                    "name": "Sean McGinnis",
+                    "email": "sean.mcginnis@gmail.com",
+                    "username": "SeanM"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 5314,
+                    "name": "Brian Rosmaita",
+                    "email": "rosmaita.fossdev@gmail.com",
+                    "username": "brian-rosmaita"
+                }
+            ],
+            "values": {
+                "-2": "Do not merge",
+                "-1": "This patch needs further work before it can be merged",
+                " 0": "No score",
+                "+1": "Looks good to me, but someone else must approve",
+                "+2": "Looks good to me (core reviewer)"
+            },
+            "description": "",
+            "value": -1,
+            "default_value": 0,
+            "optional": true
+        },
+        "Workflow": {
+            "approved": {
+                "_account_id": 11904,
+                "name": "Sean McGinnis",
+                "email": "sean.mcginnis@gmail.com",
+                "username": "SeanM"
+            },
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 22348,
+                    "name": "Zuul",
+                    "username": "zuul",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 0,
+                    "_account_id": 15054,
+                    "name": "wangxiyuan",
+                    "email": "wangxiyuan1007@gmail.com",
+                    "username": "wangxiyuan"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 27336,
+                    "name": "XiaojueGuan",
+                    "email": "xiaojueguan@gmail.com",
+                    "username": "XiaojueGuan"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 9303,
+                    "name": "Abhishek Kekane",
+                    "email": "akekane@redhat.com",
+                    "username": "abhishekkekane"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 9008,
+                    "name": "VMware NSX CI",
+                    "username": "vmwareminesweeper",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 1,
+                    "date": "2018-06-19 02:38:19.000000000",
+                    "permitted_voting_range": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "_account_id": 11904,
+                    "name": "Sean McGinnis",
+                    "email": "sean.mcginnis@gmail.com",
+                    "username": "SeanM"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 5314,
+                    "name": "Brian Rosmaita",
+                    "email": "rosmaita.fossdev@gmail.com",
+                    "username": "brian-rosmaita"
+                }
+            ],
+            "values": {
+                "-1": "Work in progress",
+                " 0": "Ready for reviews",
+                "+1": "Approved"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        },
+        "Review-Priority": {
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 22348,
+                    "name": "Zuul",
+                    "username": "zuul",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 0,
+                    "_account_id": 15054,
+                    "name": "wangxiyuan",
+                    "email": "wangxiyuan1007@gmail.com",
+                    "username": "wangxiyuan"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 27336,
+                    "name": "XiaojueGuan",
+                    "email": "xiaojueguan@gmail.com",
+                    "username": "XiaojueGuan"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 9303,
+                    "name": "Abhishek Kekane",
+                    "email": "akekane@redhat.com",
+                    "username": "abhishekkekane"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 9008,
+                    "name": "VMware NSX CI",
+                    "username": "vmwareminesweeper",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 0,
+                    "_account_id": 11904,
+                    "name": "Sean McGinnis",
+                    "email": "sean.mcginnis@gmail.com",
+                    "username": "SeanM"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 5314,
+                    "name": "Brian Rosmaita",
+                    "email": "rosmaita.fossdev@gmail.com",
+                    "username": "brian-rosmaita"
+                }
+            ],
+            "values": {
+                "-1": "Branch Freeze",
+                " 0": "No Priority",
+                "+1": "Important Change",
+                "+2": "Top Priority / Holds Gate"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        }
+    },
+    "removable_reviewers": [],
+    "reviewers": {
+        "REVIEWER": [
+            {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            {
+                "_account_id": 9008,
+                "name": "VMware NSX CI",
+                "username": "vmwareminesweeper",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            {
+                "_account_id": 11904,
+                "name": "Sean McGinnis",
+                "email": "sean.mcginnis@gmail.com",
+                "username": "SeanM"
+            },
+            {
+                "_account_id": 15054,
+                "name": "wangxiyuan",
+                "email": "wangxiyuan1007@gmail.com",
+                "username": "wangxiyuan"
+            },
+            {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            {
+                "_account_id": 27336,
+                "name": "XiaojueGuan",
+                "email": "xiaojueguan@gmail.com",
+                "username": "XiaojueGuan"
+            }
+        ]
+    },
+    "pending_reviewers": {},
+    "reviewer_updates": [
+        {
+            "updated": "2018-05-08 22:07:17.000000000",
+            "updated_by": {
+                "_account_id": 9008,
+                "name": "VMware NSX CI",
+                "username": "vmwareminesweeper",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "reviewer": {
+                "_account_id": 9008,
+                "name": "VMware NSX CI",
+                "username": "vmwareminesweeper",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2018-05-09 09:36:14.000000000",
+            "updated_by": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "reviewer": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2018-05-10 01:33:38.000000000",
+            "updated_by": {
+                "_account_id": 15054,
+                "name": "wangxiyuan",
+                "email": "wangxiyuan1007@gmail.com",
+                "username": "wangxiyuan"
+            },
+            "reviewer": {
+                "_account_id": 15054,
+                "name": "wangxiyuan",
+                "email": "wangxiyuan1007@gmail.com",
+                "username": "wangxiyuan"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2018-05-12 14:40:44.000000000",
+            "updated_by": {
+                "_account_id": 27336,
+                "name": "XiaojueGuan",
+                "email": "xiaojueguan@gmail.com",
+                "username": "XiaojueGuan"
+            },
+            "reviewer": {
+                "_account_id": 27336,
+                "name": "XiaojueGuan",
+                "email": "xiaojueguan@gmail.com",
+                "username": "XiaojueGuan"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2018-06-19 02:38:19.000000000",
+            "updated_by": {
+                "_account_id": 11904,
+                "name": "Sean McGinnis",
+                "email": "sean.mcginnis@gmail.com",
+                "username": "SeanM"
+            },
+            "reviewer": {
+                "_account_id": 11904,
+                "name": "Sean McGinnis",
+                "email": "sean.mcginnis@gmail.com",
+                "username": "SeanM"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2018-06-19 04:18:39.000000000",
+            "updated_by": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "reviewer": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "state": "REVIEWER"
+        }
+    ],
+    "messages": [
+        {
+            "id": "0694d238c65343c7b491e30689981668a04af55f",
+            "author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "real_author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "date": "2018-05-08 17:03:48.000000000",
+            "message": "Uploaded patch set 1.",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "6eb310790abf51feddef9834d0922fbf5c857b36",
+            "author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "real_author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "date": "2018-05-08 17:05:04.000000000",
+            "message": "Uploaded patch set 2: Commit message was updated.",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "3f8dc39cbea1e1449abc3156e544a1c8b7df1244",
+            "author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "real_author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "date": "2018-05-08 19:02:38.000000000",
+            "message": "Patch Set 2:\n\nBoth functional tests passed.",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "f35cefa780eaaceff9964e103229d5037e5a0571",
+            "author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "real_author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "date": "2018-05-08 19:03:03.000000000",
+            "message": "Patch Set 3: Published edit on patch set 2.",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "af1e0442072a4f3bb605d9b22d32de948ebbc5bf",
+            "author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "real_author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "date": "2018-05-08 19:21:22.000000000",
+            "message": "Patch Set 3:\n\nBoth functional tests passed.",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "eb00e86c397062529dac61cdec6a8ede5bc8b040",
+            "author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "real_author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "date": "2018-05-08 19:22:20.000000000",
+            "message": "Patch Set 4: Published edit on patch set 3.",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "b13877b0f861d83202617282a61197784e0734d6",
+            "author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "real_author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "date": "2018-05-08 19:37:03.000000000",
+            "message": "Patch Set 4:\n\nBoth functional tests passed.",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "d7ea3d2130f19a1ce78464f5b6d4db1fb1f5644a",
+            "author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "real_author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "date": "2018-05-08 19:37:30.000000000",
+            "message": "Patch Set 5: Published edit on patch set 4.",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "6a74fe9047bad83e1891eef7367dec265136f67f",
+            "author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "real_author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "date": "2018-05-08 20:00:52.000000000",
+            "message": "Patch Set 5:\n\nBoth functional tests passed.",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "7adec188c90db2158762fc43df49d786537b6648",
+            "author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "real_author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "date": "2018-05-08 20:01:43.000000000",
+            "message": "Patch Set 6: Published edit on patch set 5.",
+            "accounts_in_message": [],
+            "_revision_number": 6
+        },
+        {
+            "id": "9232aaebbbb08fbc8bd355bf5be557e2d517c257",
+            "author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "real_author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "date": "2018-05-08 20:16:53.000000000",
+            "message": "Patch Set 6:\n\nBoth functional tests passed.",
+            "accounts_in_message": [],
+            "_revision_number": 6
+        },
+        {
+            "id": "c813c6aa44211a0535a5e0356ef2c903ed66f9e6",
+            "author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "real_author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "date": "2018-05-08 20:17:22.000000000",
+            "message": "Patch Set 7: Published edit on patch set 6.",
+            "accounts_in_message": [],
+            "_revision_number": 7
+        },
+        {
+            "id": "2e3975ffe3fda817323ecb94ee5fe2a2c60ba06f",
+            "author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "real_author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "date": "2018-05-08 20:42:33.000000000",
+            "message": "Patch Set 7:\n\nBoth functional tests passed.",
+            "accounts_in_message": [],
+            "_revision_number": 7
+        },
+        {
+            "id": "3a3088346132b3e44fde030417879289b59f7083",
+            "author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "real_author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "date": "2018-05-08 20:43:15.000000000",
+            "message": "Patch Set 8: Published edit on patch set 7.",
+            "accounts_in_message": [],
+            "_revision_number": 8
+        },
+        {
+            "id": "d22463e3f7f926f87da44d95bbe6383153c1b88b",
+            "author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "real_author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "date": "2018-05-08 21:00:13.000000000",
+            "message": "Patch Set 8:\n\nBoth functional tests passed.",
+            "accounts_in_message": [],
+            "_revision_number": 8
+        },
+        {
+            "id": "3a5e500b586ed2b5f1497e7d0350436518fffeef",
+            "author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "real_author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "date": "2018-05-08 21:00:44.000000000",
+            "message": "Patch Set 9: Published edit on patch set 8.",
+            "accounts_in_message": [],
+            "_revision_number": 9
+        },
+        {
+            "id": "653c9df4669665d44af500d1fd5120573d898a3b",
+            "author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "real_author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "date": "2018-05-08 21:16:32.000000000",
+            "message": "Patch Set 9:\n\nBoth functional tests passed.",
+            "accounts_in_message": [],
+            "_revision_number": 9
+        },
+        {
+            "id": "7ab1914e9d630842e143057ccae697845780b5a2",
+            "author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "real_author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "date": "2018-05-08 21:18:53.000000000",
+            "message": "Patch Set 10: Published edit on patch set 9.",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "4fe16b9c57dd88f096b61a23766b7c1dfd43ea31",
+            "author": {
+                "_account_id": 9008,
+                "name": "VMware NSX CI",
+                "username": "vmwareminesweeper",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 9008,
+                "name": "VMware NSX CI",
+                "username": "vmwareminesweeper",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2018-05-08 22:07:17.000000000",
+            "message": "Patch Set 10:\n\nBuild succeeded\n\n- dsvm-glance http://207.189.188.190/logs/47/566947/10/check-not-vote/ext-glance-zuul/c2839c9 : SUCCESS in 30m 27s",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "aef9f19e7afb74fbed6b6f640bb57a789b06a521",
+            "author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2018-05-08 22:45:58.000000000",
+            "message": "Patch Set 10: Verified+1\n\nBuild succeeded (check pipeline).\n\n- openstack-tox-py35 http://logs.openstack.org/47/566947/10/check/openstack-tox-py35/a230b67/ : SUCCESS in 5m 04s\n- openstack-tox-pep8 http://logs.openstack.org/47/566947/10/check/openstack-tox-pep8/1d389da/ : SUCCESS in 4m 25s\n- openstack-tox-py27 http://logs.openstack.org/47/566947/10/check/openstack-tox-py27/39b87fa/ : SUCCESS in 4m 13s\n- build-openstack-sphinx-docs http://logs.openstack.org/47/566947/10/check/build-openstack-sphinx-docs/05cd6af/html/ : SUCCESS in 4m 32s\n- tempest-full http://logs.openstack.org/47/566947/10/check/tempest-full/f6041a6/ : SUCCESS in 1h 25m 20s\n- neutron-grenade http://logs.openstack.org/47/566947/10/check/neutron-grenade/df1a888/ : SUCCESS in 51m 33s\n- tempest-full-py3 http://logs.openstack.org/47/566947/10/check/tempest-full-py3/d9ff2be/ : SUCCESS in 1h 13m 26s\n- legacy-tempest-dsvm-full-devstack-plugin-ceph http://logs.openstack.org/47/566947/10/check/legacy-tempest-dsvm-full-devstack-plugin-ceph/9686639/ : SUCCESS in 1h 07m 31s (non-voting)\n- openstack-tox-functional http://logs.openstack.org/47/566947/10/check/openstack-tox-functional/e5d9e8f/ : SUCCESS in 10m 41s\n- openstack-tox-functional-py35 http://logs.openstack.org/47/566947/10/check/openstack-tox-functional-py35/827bd53/ : SUCCESS in 7m 49s\n- openstack-tox-lower-constraints http://logs.openstack.org/47/566947/10/check/openstack-tox-lower-constraints/b4ac8f7/ : SUCCESS in 3m 38s",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "675a08cadd41e2455d61800c0afaef92a68c531f",
+            "author": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "real_author": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "date": "2018-05-09 09:36:14.000000000",
+            "message": "Patch Set 10: Code-Review+2",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "cfba033c78c079831bedc4cb00e1487a3ae655b5",
+            "author": {
+                "_account_id": 15054,
+                "name": "wangxiyuan",
+                "email": "wangxiyuan1007@gmail.com",
+                "username": "wangxiyuan"
+            },
+            "real_author": {
+                "_account_id": 15054,
+                "name": "wangxiyuan",
+                "email": "wangxiyuan1007@gmail.com",
+                "username": "wangxiyuan"
+            },
+            "date": "2018-05-10 01:33:38.000000000",
+            "message": "Patch Set 10: Code-Review+1",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "d9ecb598e398bfab7a3a7f1d075c67d9b9819988",
+            "author": {
+                "_account_id": 27336,
+                "name": "XiaojueGuan",
+                "email": "xiaojueguan@gmail.com",
+                "username": "XiaojueGuan"
+            },
+            "real_author": {
+                "_account_id": 27336,
+                "name": "XiaojueGuan",
+                "email": "xiaojueguan@gmail.com",
+                "username": "XiaojueGuan"
+            },
+            "date": "2018-05-12 14:40:44.000000000",
+            "message": "Patch Set 10: Code-Review-1\n\n(1 comment)",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "465ba1cd8b2fafb1164291f8684a59418e773989",
+            "author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "real_author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "date": "2018-05-14 02:33:18.000000000",
+            "message": "Patch Set 10:\n\n(1 comment)",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "e5855724eb5ddd48601e2acf503fc51fbb1c7b44",
+            "author": {
+                "_account_id": 11904,
+                "name": "Sean McGinnis",
+                "email": "sean.mcginnis@gmail.com",
+                "username": "SeanM"
+            },
+            "real_author": {
+                "_account_id": 11904,
+                "name": "Sean McGinnis",
+                "email": "sean.mcginnis@gmail.com",
+                "username": "SeanM"
+            },
+            "date": "2018-06-19 02:38:19.000000000",
+            "message": "Patch Set 10: Code-Review+2 Workflow+1\n\nQuestions on the code should not be with a -1 unless you also see a problem with the code. Not understanding is different than something being wrong that needs to be changed.\n\nBy all means, ask for clarification to learn, but use a vote of 0 to do so.\n\nThis looks good to me.",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "d961c0ec5a1672cef5d127d3f79dba1730f623ea",
+            "author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2018-06-19 02:41:06.000000000",
+            "message": "Patch Set 10: -Verified\n\nStarting gate jobs.",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "7bcc1777dc069a3046175d2666ad0c07fe499f36",
+            "author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2018-06-19 04:18:39.000000000",
+            "message": "Patch Set 10: Verified+2\n\nBuild succeeded (gate pipeline).\n\n- openstack-tox-py35 http://logs.openstack.org/47/566947/10/gate/openstack-tox-py35/5b9798e/ : SUCCESS in 5m 08s\n- openstack-tox-pep8 http://logs.openstack.org/47/566947/10/gate/openstack-tox-pep8/b6ddfdf/ : SUCCESS in 5m 15s\n- openstack-tox-py27 http://logs.openstack.org/47/566947/10/gate/openstack-tox-py27/3f231fa/ : SUCCESS in 5m 19s\n- build-openstack-sphinx-docs http://logs.openstack.org/47/566947/10/gate/build-openstack-sphinx-docs/a0f331a/html/ : SUCCESS in 5m 25s\n- tempest-full http://logs.openstack.org/47/566947/10/gate/tempest-full/f577eb9/ : SUCCESS in 1h 34m 54s\n- neutron-grenade http://logs.openstack.org/47/566947/10/gate/neutron-grenade/aff7cb5/ : SUCCESS in 48m 54s\n- tempest-full-py3 http://logs.openstack.org/47/566947/10/gate/tempest-full-py3/9e11c3f/ : SUCCESS in 1h 20m 09s\n- openstack-tox-functional http://logs.openstack.org/47/566947/10/gate/openstack-tox-functional/0cbe292/ : SUCCESS in 8m 55s\n- openstack-tox-functional-py35 http://logs.openstack.org/47/566947/10/gate/openstack-tox-functional-py35/4551c03/ : SUCCESS in 8m 40s\n- openstack-tox-lower-constraints http://logs.openstack.org/47/566947/10/gate/openstack-tox-lower-constraints/6330bde/ : SUCCESS in 4m 29s",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "f96db657ebb617389ff003b139d23eba57d74eb3",
+            "author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2018-06-19 04:18:40.000000000",
+            "message": "Change has been successfully merged by Zuul",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        }
+    ],
+    "requirements": [],
+    "submit_records": []
+}
