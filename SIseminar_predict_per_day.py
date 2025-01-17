@@ -157,6 +157,7 @@ def deletions_num(rev_load):
 ### コミット数（リビジョン数）
 def commit_number(message_list, current_date):
     revision = 1
+    rev = 0
     for msg in message_list:
         date = pd.to_datetime(msg['date']).normalize()
         if(date <= current_date):
