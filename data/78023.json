@@ -1,0 +1,1358 @@
+{
+    "id": "openstack%2Fglance~master~I16811ba8f0bfaa15199a648748bbc7d7a6a500bc",
+    "project": "openstack/glance",
+    "branch": "master",
+    "topic": "bug/1281453",
+    "hashtags": [],
+    "change_id": "I16811ba8f0bfaa15199a648748bbc7d7a6a500bc",
+    "subject": "When re-raising exceptions, use save_and_reraise",
+    "status": "MERGED",
+    "created": "2014-03-04 21:59:51.000000000",
+    "updated": "2014-04-03 04:30:31.000000000",
+    "submitted": "2014-04-03 04:30:31.000000000",
+    "submitter": {
+        "_account_id": 3,
+        "name": "Jenkins",
+        "username": "jenkins"
+    },
+    "insertions": 77,
+    "deletions": 65,
+    "total_comment_count": 6,
+    "unresolved_comment_count": 0,
+    "has_review_started": true,
+    "meta_rev_id": "22e314b6d063a93d859e77b55e8255dffb924724",
+    "_number": 78023,
+    "owner": {
+        "_account_id": 10646,
+        "name": "Samuel Stavinoha",
+        "email": "samuel.stavinoha@rackspace.com",
+        "username": "samstav"
+    },
+    "labels": {
+        "Verified": {
+            "approved": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 10725,
+                    "name": "Sergey Gotliv",
+                    "email": "sgotliv@redhat.com",
+                    "username": "sgotliv"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 6549,
+                    "name": "Zhi Yan Liu",
+                    "email": "lzy.dev@gmail.com",
+                    "username": "lzy-dev"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 10646,
+                    "name": "Samuel Stavinoha",
+                    "email": "samuel.stavinoha@rackspace.com",
+                    "username": "samstav"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 8247,
+                    "name": "Thang Pham",
+                    "email": "thang.g.pham@gmail.com",
+                    "username": "thang.pham"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 8759,
+                    "name": "Arnaud Legendre",
+                    "email": "arnaudleg@gmail.com",
+                    "username": "arnaud"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 177,
+                    "name": "Alex Meade",
+                    "email": "mr.alex.meade@gmail.com",
+                    "username": "alex-meade"
+                },
+                {
+                    "value": 2,
+                    "date": "2014-04-03 04:30:31.000000000",
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-2": "Fails",
+                "-1": "Doesn't seem to work",
+                " 0": "No score",
+                "+1": "Works for me",
+                "+2": "Verified"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        },
+        "Code-Review": {
+            "approved": {
+                "_account_id": 6549,
+                "name": "Zhi Yan Liu",
+                "email": "lzy.dev@gmail.com",
+                "username": "lzy-dev"
+            },
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 10725,
+                    "name": "Sergey Gotliv",
+                    "email": "sgotliv@redhat.com",
+                    "username": "sgotliv"
+                },
+                {
+                    "value": 2,
+                    "date": "2014-03-27 05:58:42.000000000",
+                    "_account_id": 6549,
+                    "name": "Zhi Yan Liu",
+                    "email": "lzy.dev@gmail.com",
+                    "username": "lzy-dev"
+                },
+                {
+                    "value": 0,
+                    "date": "2014-03-26 18:26:49.000000000",
+                    "permitted_voting_range": {
+                        "min": 0,
+                        "max": 1
+                    },
+                    "_account_id": 10646,
+                    "name": "Samuel Stavinoha",
+                    "email": "samuel.stavinoha@rackspace.com",
+                    "username": "samstav"
+                },
+                {
+                    "value": 1,
+                    "date": "2014-03-27 18:33:54.000000000",
+                    "permitted_voting_range": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "_account_id": 8247,
+                    "name": "Thang Pham",
+                    "email": "thang.g.pham@gmail.com",
+                    "username": "thang.pham"
+                },
+                {
+                    "value": 1,
+                    "date": "2014-03-26 23:33:42.000000000",
+                    "permitted_voting_range": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "_account_id": 8759,
+                    "name": "Arnaud Legendre",
+                    "email": "arnaudleg@gmail.com",
+                    "username": "arnaud"
+                },
+                {
+                    "value": 2,
+                    "date": "2014-03-26 18:48:36.000000000",
+                    "_account_id": 177,
+                    "name": "Alex Meade",
+                    "email": "mr.alex.meade@gmail.com",
+                    "username": "alex-meade"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-2": "Do not merge",
+                "-1": "This patch needs further work before it can be merged",
+                " 0": "No score",
+                "+1": "Looks good to me, but someone else must approve",
+                "+2": "Looks good to me (core reviewer)"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        },
+        "Workflow": {
+            "approved": {
+                "_account_id": 6549,
+                "name": "Zhi Yan Liu",
+                "email": "lzy.dev@gmail.com",
+                "username": "lzy-dev"
+            },
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 10725,
+                    "name": "Sergey Gotliv",
+                    "email": "sgotliv@redhat.com",
+                    "username": "sgotliv"
+                },
+                {
+                    "value": 1,
+                    "date": "2014-04-03 02:23:34.000000000",
+                    "_account_id": 6549,
+                    "name": "Zhi Yan Liu",
+                    "email": "lzy.dev@gmail.com",
+                    "username": "lzy-dev"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 10646,
+                    "name": "Samuel Stavinoha",
+                    "email": "samuel.stavinoha@rackspace.com",
+                    "username": "samstav"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 8247,
+                    "name": "Thang Pham",
+                    "email": "thang.g.pham@gmail.com",
+                    "username": "thang.pham"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 8759,
+                    "name": "Arnaud Legendre",
+                    "email": "arnaudleg@gmail.com",
+                    "username": "arnaud"
+                },
+                {
+                    "value": 0,
+                    "date": "2014-03-26 18:48:36.000000000",
+                    "_account_id": 177,
+                    "name": "Alex Meade",
+                    "email": "mr.alex.meade@gmail.com",
+                    "username": "alex-meade"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-1": "Work in progress",
+                " 0": "Ready for reviews",
+                "+1": "Approved"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        },
+        "Review-Priority": {
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 10725,
+                    "name": "Sergey Gotliv",
+                    "email": "sgotliv@redhat.com",
+                    "username": "sgotliv"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 6549,
+                    "name": "Zhi Yan Liu",
+                    "email": "lzy.dev@gmail.com",
+                    "username": "lzy-dev"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 10646,
+                    "name": "Samuel Stavinoha",
+                    "email": "samuel.stavinoha@rackspace.com",
+                    "username": "samstav"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 8247,
+                    "name": "Thang Pham",
+                    "email": "thang.g.pham@gmail.com",
+                    "username": "thang.pham"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 8759,
+                    "name": "Arnaud Legendre",
+                    "email": "arnaudleg@gmail.com",
+                    "username": "arnaud"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 177,
+                    "name": "Alex Meade",
+                    "email": "mr.alex.meade@gmail.com",
+                    "username": "alex-meade"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-1": "Branch Freeze",
+                " 0": "No Priority",
+                "+1": "Important Change",
+                "+2": "Top Priority / Holds Gate"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        }
+    },
+    "removable_reviewers": [],
+    "reviewers": {
+        "REVIEWER": [
+            {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            {
+                "_account_id": 177,
+                "name": "Alex Meade",
+                "email": "mr.alex.meade@gmail.com",
+                "username": "alex-meade"
+            },
+            {
+                "_account_id": 6549,
+                "name": "Zhi Yan Liu",
+                "email": "lzy.dev@gmail.com",
+                "username": "lzy-dev"
+            },
+            {
+                "_account_id": 8247,
+                "name": "Thang Pham",
+                "email": "thang.g.pham@gmail.com",
+                "username": "thang.pham"
+            },
+            {
+                "_account_id": 8759,
+                "name": "Arnaud Legendre",
+                "email": "arnaudleg@gmail.com",
+                "username": "arnaud"
+            },
+            {
+                "_account_id": 10646,
+                "name": "Samuel Stavinoha",
+                "email": "samuel.stavinoha@rackspace.com",
+                "username": "samstav"
+            },
+            {
+                "_account_id": 10725,
+                "name": "Sergey Gotliv",
+                "email": "sgotliv@redhat.com",
+                "username": "sgotliv"
+            }
+        ]
+    },
+    "pending_reviewers": {},
+    "reviewer_updates": [
+        {
+            "updated": "2014-03-25 23:28:01.000000000",
+            "updated_by": {
+                "_account_id": 10725,
+                "name": "Sergey Gotliv",
+                "email": "sgotliv@redhat.com",
+                "username": "sgotliv"
+            },
+            "reviewer": {
+                "_account_id": 10725,
+                "name": "Sergey Gotliv",
+                "email": "sgotliv@redhat.com",
+                "username": "sgotliv"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2014-03-26 18:48:36.000000000",
+            "updated_by": {
+                "_account_id": 177,
+                "name": "Alex Meade",
+                "email": "mr.alex.meade@gmail.com",
+                "username": "alex-meade"
+            },
+            "reviewer": {
+                "_account_id": 177,
+                "name": "Alex Meade",
+                "email": "mr.alex.meade@gmail.com",
+                "username": "alex-meade"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2014-03-26 23:33:42.000000000",
+            "updated_by": {
+                "_account_id": 8759,
+                "name": "Arnaud Legendre",
+                "email": "arnaudleg@gmail.com",
+                "username": "arnaud"
+            },
+            "reviewer": {
+                "_account_id": 8759,
+                "name": "Arnaud Legendre",
+                "email": "arnaudleg@gmail.com",
+                "username": "arnaud"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2014-03-27 18:33:54.000000000",
+            "updated_by": {
+                "_account_id": 8247,
+                "name": "Thang Pham",
+                "email": "thang.g.pham@gmail.com",
+                "username": "thang.pham"
+            },
+            "reviewer": {
+                "_account_id": 8247,
+                "name": "Thang Pham",
+                "email": "thang.g.pham@gmail.com",
+                "username": "thang.pham"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2014-04-03 02:23:34.000000000",
+            "updated_by": {
+                "_account_id": 6549,
+                "name": "Zhi Yan Liu",
+                "email": "lzy.dev@gmail.com",
+                "username": "lzy-dev"
+            },
+            "reviewer": {
+                "_account_id": 6549,
+                "name": "Zhi Yan Liu",
+                "email": "lzy.dev@gmail.com",
+                "username": "lzy-dev"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2014-04-03 04:30:31.000000000",
+            "updated_by": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "reviewer": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "state": "REVIEWER"
+        }
+    ],
+    "messages": [
+        {
+            "id": "e2363c2367aef540d9a6bf557cf430d1af11446a",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2014-03-04 21:59:52.000000000",
+            "message": "Patch Set 1:\n\nStarting check jobs.\nhttp://status.openstack.org/zuul/",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "335f2fbdb63955bc26d9f7722b1f625ad7deb0ce",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2014-03-05 00:35:17.000000000",
+            "message": "Patch Set 1: Doesn't seem to work\n\nBuild failed.  For information on how to proceed, see https://wiki.openstack.org/wiki/GerritJenkinsGit#Test_Failures\n\n- gate-glance-pep8 http://logs.openstack.org/23/78023/1/check/gate-glance-pep8/7a51974 : FAILURE in 3m 10s\n- gate-glance-docs http://docs-draft.openstack.org/23/78023/1/check/gate-glance-docs/318ba37/doc/build/html/ : SUCCESS in 2m 15s\n- gate-glance-python26 http://logs.openstack.org/23/78023/1/check/gate-glance-python26/d629418 : SUCCESS in 12m 56s\n- gate-glance-python27 http://logs.openstack.org/23/78023/1/check/gate-glance-python27/b55f4fa : SUCCESS in 11m 43s\n- check-devstack-dsvm-cells http://logs.openstack.org/23/78023/1/check/check-devstack-dsvm-cells/d7d48a2 : SUCCESS in 10m 42s\n- check-tempest-dsvm-full http://logs.openstack.org/23/78023/1/check/check-tempest-dsvm-full/548100b : SUCCESS in 1h 07m 35s\n- check-tempest-dsvm-postgres-full http://logs.openstack.org/23/78023/1/check/check-tempest-dsvm-postgres-full/647b7dc : SUCCESS in 1h 00m 16s\n- check-tempest-dsvm-neutron http://logs.openstack.org/23/78023/1/check/check-tempest-dsvm-neutron/1ba28a1 : SUCCESS in 33m 14s\n- check-tempest-dsvm-neutron-full http://logs.openstack.org/23/78023/1/check/check-tempest-dsvm-neutron-full/038f714 : SUCCESS in 53m 00s (non-voting)\n- gate-tempest-dsvm-large-ops http://logs.openstack.org/23/78023/1/check/gate-tempest-dsvm-large-ops/bebfe6a : SUCCESS in 15m 29s\n- gate-tempest-dsvm-neutron-large-ops http://logs.openstack.org/23/78023/1/check/gate-tempest-dsvm-neutron-large-ops/3f64ffd : SUCCESS in 14m 56s\n- check-grenade-dsvm http://logs.openstack.org/23/78023/1/check/check-grenade-dsvm/a42135f : FAILURE in 25m 54s\n",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "fe0f4a94549a2889ac1d53ee5e0b5487c586c864",
+            "author": {
+                "_account_id": 9,
+                "name": "LaunchpadSync",
+                "username": "launchpadsync"
+            },
+            "real_author": {
+                "_account_id": 9,
+                "name": "LaunchpadSync",
+                "username": "launchpadsync"
+            },
+            "date": "2014-03-12 06:03:11.000000000",
+            "message": "Patch Set 1:\n\ncode review expired after 1 week of no activity after a negative review, it can be restored using the `Restore Change` button under the Patch Set on the web interface",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "0eadfbc2e03827e220867ff4ffb22845a18bc6dd",
+            "author": {
+                "_account_id": 9,
+                "name": "LaunchpadSync",
+                "username": "launchpadsync"
+            },
+            "real_author": {
+                "_account_id": 9,
+                "name": "LaunchpadSync",
+                "username": "launchpadsync"
+            },
+            "date": "2014-03-12 06:03:11.000000000",
+            "message": "Patch Set 1: Abandoned\n\ncode review expired after 1 week of no activity after a negative review, it can be restored using the `Restore Change` button under the Patch Set on the web interface",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "4716ba827fa10e591d67fa10dead43a712eb677b",
+            "author": {
+                "_account_id": 10646,
+                "name": "Samuel Stavinoha",
+                "email": "samuel.stavinoha@rackspace.com",
+                "username": "samstav"
+            },
+            "real_author": {
+                "_account_id": 10646,
+                "name": "Samuel Stavinoha",
+                "email": "samuel.stavinoha@rackspace.com",
+                "username": "samstav"
+            },
+            "date": "2014-03-14 19:06:59.000000000",
+            "message": "Patch Set 1: Restored",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "445a3f01e1fb13d1c765601270aa8d2a2f08459f",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2014-03-14 19:07:01.000000000",
+            "message": "Patch Set 1: No score\n\nStarting check jobs.\nhttp://status.openstack.org/zuul/",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "91f903fab730b6b6f5b6a0acb58de70f21b7a392",
+            "author": {
+                "_account_id": 10646,
+                "name": "Samuel Stavinoha",
+                "email": "samuel.stavinoha@rackspace.com",
+                "username": "samstav"
+            },
+            "real_author": {
+                "_account_id": 10646,
+                "name": "Samuel Stavinoha",
+                "email": "samuel.stavinoha@rackspace.com",
+                "username": "samstav"
+            },
+            "date": "2014-03-14 19:32:48.000000000",
+            "message": "Uploaded patch set 2.",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "3dfc6ddf584232de692f90b74be2ef00c9d7a866",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2014-03-14 19:32:52.000000000",
+            "message": "Patch Set 2:\n\nStarting check jobs.\nhttp://status.openstack.org/zuul/",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "1f9864bf4d4d380403519f264baa132b676a97b7",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2014-03-14 20:48:32.000000000",
+            "message": "Patch Set 2: Doesn't seem to work\n\nBuild failed.  For information on how to proceed, see https://wiki.openstack.org/wiki/GerritJenkinsGit#Test_Failures\n\n- gate-glance-pep8 http://logs.openstack.org/23/78023/2/check/gate-glance-pep8/7d8c4c0 : FAILURE in 3m 02s\n- gate-glance-docs http://docs-draft.openstack.org/23/78023/2/check/gate-glance-docs/54cc4bd/doc/build/html/ : SUCCESS in 2m 59s\n- gate-glance-python26 http://logs.openstack.org/23/78023/2/check/gate-glance-python26/582e120 : SUCCESS in 13m 42s\n- gate-glance-python27 http://logs.openstack.org/23/78023/2/check/gate-glance-python27/e5aa74f : SUCCESS in 17m 59s\n- check-grenade-dsvm http://logs.openstack.org/23/78023/2/check/check-grenade-dsvm/369fbdb : SUCCESS in 28m 50s\n- check-tempest-dsvm-full http://logs.openstack.org/23/78023/2/check/check-tempest-dsvm-full/948a521 : SUCCESS in 55m 29s\n- check-tempest-dsvm-neutron http://logs.openstack.org/23/78023/2/check/check-tempest-dsvm-neutron/257ae88 : SUCCESS in 37m 03s\n- check-tempest-dsvm-neutron-heat-slow http://logs.openstack.org/23/78023/2/check/check-tempest-dsvm-neutron-heat-slow/3f00e9f : SUCCESS in 23m 03s\n- check-devstack-dsvm-cells http://logs.openstack.org/23/78023/2/check/check-devstack-dsvm-cells/340b5f1 : SUCCESS in 12m 08s\n- check-tempest-dsvm-postgres-full http://logs.openstack.org/23/78023/2/check/check-tempest-dsvm-postgres-full/c29daf6 : SUCCESS in 57m 51s\n- gate-tempest-dsvm-large-ops http://logs.openstack.org/23/78023/2/check/gate-tempest-dsvm-large-ops/4cce536 : SUCCESS in 15m 01s\n- gate-tempest-dsvm-neutron-large-ops http://logs.openstack.org/23/78023/2/check/gate-tempest-dsvm-neutron-large-ops/b807374 : SUCCESS in 14m 30s\n",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "0657a6e2f88362f573f5c3a42a15afd91fa0bdbb",
+            "author": {
+                "_account_id": 10646,
+                "name": "Samuel Stavinoha",
+                "email": "samuel.stavinoha@rackspace.com",
+                "username": "samstav"
+            },
+            "real_author": {
+                "_account_id": 10646,
+                "name": "Samuel Stavinoha",
+                "email": "samuel.stavinoha@rackspace.com",
+                "username": "samstav"
+            },
+            "date": "2014-03-14 21:23:49.000000000",
+            "message": "Uploaded patch set 3.",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "4c9950d84bffa3bf8af3b6ce70e189c49ba529cf",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2014-03-14 21:24:08.000000000",
+            "message": "Patch Set 3:\n\nStarting check jobs.\nhttp://status.openstack.org/zuul/",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "bd44b9cf54b14545e4e41a635da9e2b3f7fbe6c4",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2014-03-14 22:30:56.000000000",
+            "message": "Patch Set 3: Works for me\n\nBuild succeeded.\n\n- gate-glance-pep8 http://logs.openstack.org/23/78023/3/check/gate-glance-pep8/6fd53b3 : SUCCESS in 3m 10s\n- gate-glance-docs http://docs-draft.openstack.org/23/78023/3/check/gate-glance-docs/9c30ce9/doc/build/html/ : SUCCESS in 3m 32s\n- gate-glance-python26 http://logs.openstack.org/23/78023/3/check/gate-glance-python26/f9dcc6f : SUCCESS in 14m 28s\n- gate-glance-python27 http://logs.openstack.org/23/78023/3/check/gate-glance-python27/be6e697 : SUCCESS in 12m 07s\n- check-grenade-dsvm http://logs.openstack.org/23/78023/3/check/check-grenade-dsvm/031fa42 : SUCCESS in 34m 41s\n- check-tempest-dsvm-full http://logs.openstack.org/23/78023/3/check/check-tempest-dsvm-full/138b524 : SUCCESS in 1h 03m 38s\n- check-tempest-dsvm-neutron http://logs.openstack.org/23/78023/3/check/check-tempest-dsvm-neutron/76d4acc : SUCCESS in 38m 29s\n- check-tempest-dsvm-neutron-heat-slow http://logs.openstack.org/23/78023/3/check/check-tempest-dsvm-neutron-heat-slow/7f7849b : SUCCESS in 22m 51s\n- check-devstack-dsvm-cells http://logs.openstack.org/23/78023/3/check/check-devstack-dsvm-cells/2d3b01e : SUCCESS in 12m 05s\n- check-tempest-dsvm-postgres-full http://logs.openstack.org/23/78023/3/check/check-tempest-dsvm-postgres-full/2a17a41 : SUCCESS in 1h 02m 26s\n- gate-tempest-dsvm-large-ops http://logs.openstack.org/23/78023/3/check/gate-tempest-dsvm-large-ops/4dea86d : SUCCESS in 18m 29s\n- gate-tempest-dsvm-neutron-large-ops http://logs.openstack.org/23/78023/3/check/gate-tempest-dsvm-neutron-large-ops/a516c45 : SUCCESS in 15m 39s\n",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "ed416f4617c9516ea2f501a408c010f3e65d060e",
+            "author": {
+                "_account_id": 177,
+                "name": "Alex Meade",
+                "email": "mr.alex.meade@gmail.com",
+                "username": "alex-meade"
+            },
+            "real_author": {
+                "_account_id": 177,
+                "name": "Alex Meade",
+                "email": "mr.alex.meade@gmail.com",
+                "username": "alex-meade"
+            },
+            "date": "2014-03-25 14:44:03.000000000",
+            "message": "Patch Set 3: I would prefer that you didn't merge this\n\n(1 inline comment)\n\nLooks good, one very tiny thing inline",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "55227c61f98cc3b87836fe65a57fb516ba2dd32e",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2014-03-25 14:44:04.000000000",
+            "message": "Patch Set 3: No score\n\nStarting check jobs.\nhttp://status.openstack.org/zuul/",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "4be4af14bbcf55aa38d513febcda1920f14b2abd",
+            "author": {
+                "_account_id": 10646,
+                "name": "Samuel Stavinoha",
+                "email": "samuel.stavinoha@rackspace.com",
+                "username": "samstav"
+            },
+            "real_author": {
+                "_account_id": 10646,
+                "name": "Samuel Stavinoha",
+                "email": "samuel.stavinoha@rackspace.com",
+                "username": "samstav"
+            },
+            "date": "2014-03-25 15:23:09.000000000",
+            "message": "Uploaded patch set 4.",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "073786af2fc02ec57ffc52b56e5feec70a51d10d",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2014-03-25 15:23:11.000000000",
+            "message": "Patch Set 4:\n\nStarting check jobs.\nhttp://status.openstack.org/zuul/",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "151e529c61c65334f3fb418a6e19453e2b2bee3e",
+            "author": {
+                "_account_id": 10646,
+                "name": "Samuel Stavinoha",
+                "email": "samuel.stavinoha@rackspace.com",
+                "username": "samstav"
+            },
+            "real_author": {
+                "_account_id": 10646,
+                "name": "Samuel Stavinoha",
+                "email": "samuel.stavinoha@rackspace.com",
+                "username": "samstav"
+            },
+            "date": "2014-03-25 15:23:34.000000000",
+            "message": "Patch Set 3: (1 inline comment)\n\n",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "ebc75cb9322d24a744342678c8e9194483786b07",
+            "author": {
+                "_account_id": 10725,
+                "name": "Sergey Gotliv",
+                "email": "sgotliv@redhat.com",
+                "username": "sgotliv"
+            },
+            "real_author": {
+                "_account_id": 10725,
+                "name": "Sergey Gotliv",
+                "email": "sgotliv@redhat.com",
+                "username": "sgotliv"
+            },
+            "date": "2014-03-25 16:03:38.000000000",
+            "message": "Patch Set 4: Looks good to me, but someone else must approve\n\nThe code looks good. Please, consider to improve commit message. The current one describes what you did, I would like to know why you did it.",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "cbc2a721d3118b4b6ed34816ded799a6a7a44878",
+            "author": {
+                "_account_id": 8247,
+                "name": "Thang Pham",
+                "email": "thang.g.pham@gmail.com",
+                "username": "thang.pham"
+            },
+            "real_author": {
+                "_account_id": 8247,
+                "name": "Thang Pham",
+                "email": "thang.g.pham@gmail.com",
+                "username": "thang.pham"
+            },
+            "date": "2014-03-25 16:22:00.000000000",
+            "message": "Patch Set 4: Looks good to me, but someone else must approve\n\n",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "3478906f58ee4d5fc677d4c814209fe68105d26d",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2014-03-25 16:23:37.000000000",
+            "message": "Patch Set 4: Works for me\n\nBuild succeeded.\n\n- gate-glance-pep8 http://logs.openstack.org/23/78023/4/check/gate-glance-pep8/5f613cc : SUCCESS in 3m 28s\n- gate-glance-docs http://docs-draft.openstack.org/23/78023/4/check/gate-glance-docs/701578f/doc/build/html/ : SUCCESS in 4m 02s\n- gate-glance-python26 http://logs.openstack.org/23/78023/4/check/gate-glance-python26/62e1e96 : SUCCESS in 12m 34s\n- gate-glance-python27 http://logs.openstack.org/23/78023/4/check/gate-glance-python27/13d08f0 : SUCCESS in 12m 57s\n- check-grenade-dsvm http://logs.openstack.org/23/78023/4/check/check-grenade-dsvm/86e5198 : SUCCESS in 31m 29s\n- check-tempest-dsvm-full http://logs.openstack.org/23/78023/4/check/check-tempest-dsvm-full/b639a9c : SUCCESS in 51m 24s\n- check-tempest-dsvm-neutron http://logs.openstack.org/23/78023/4/check/check-tempest-dsvm-neutron/06f835b : SUCCESS in 47m 09s\n- check-tempest-dsvm-neutron-heat-slow http://logs.openstack.org/23/78023/4/check/check-tempest-dsvm-neutron-heat-slow/b90206f : SUCCESS in 26m 20s\n- check-devstack-dsvm-cells http://logs.openstack.org/23/78023/4/check/check-devstack-dsvm-cells/4487e1a : SUCCESS in 13m 18s\n- check-tempest-dsvm-postgres-full http://logs.openstack.org/23/78023/4/check/check-tempest-dsvm-postgres-full/397a78f : SUCCESS in 53m 59s\n- gate-tempest-dsvm-large-ops http://logs.openstack.org/23/78023/4/check/gate-tempest-dsvm-large-ops/519cc71 : SUCCESS in 16m 59s\n- gate-tempest-dsvm-neutron-large-ops http://logs.openstack.org/23/78023/4/check/gate-tempest-dsvm-neutron-large-ops/66cc9db : SUCCESS in 14m 56s\n\n",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "cb0452748265e49814195d647e44efea358d9062",
+            "author": {
+                "_account_id": 10646,
+                "name": "Samuel Stavinoha",
+                "email": "samuel.stavinoha@rackspace.com",
+                "username": "samstav"
+            },
+            "real_author": {
+                "_account_id": 10646,
+                "name": "Samuel Stavinoha",
+                "email": "samuel.stavinoha@rackspace.com",
+                "username": "samstav"
+            },
+            "date": "2014-03-25 19:13:30.000000000",
+            "message": "Uploaded patch set 5.",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "de9a17eebbc92261c8996358cb28476715ee279d",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2014-03-25 19:13:31.000000000",
+            "message": "Patch Set 5:\n\nStarting check jobs.\nhttp://status.openstack.org/zuul/",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "48f4c0fa215ba4cc0bfe96f19c095247350d4737",
+            "author": {
+                "_account_id": 5494,
+                "name": "Trivial Rebase",
+                "email": "trivial-rebase@review.openstack.org",
+                "username": "trivial-rebase"
+            },
+            "real_author": {
+                "_account_id": 5494,
+                "name": "Trivial Rebase",
+                "email": "trivial-rebase@review.openstack.org",
+                "username": "trivial-rebase"
+            },
+            "date": "2014-03-25 19:13:41.000000000",
+            "message": "Patch Set 5:\n\nNew patchset patch-id matches previous patchset, but commit message has changed.",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "1446538ee29f6a651a891b6ae538844104222e8d",
+            "author": {
+                "_account_id": 10725,
+                "name": "Sergey Gotliv",
+                "email": "sgotliv@redhat.com",
+                "username": "sgotliv"
+            },
+            "real_author": {
+                "_account_id": 10725,
+                "name": "Sergey Gotliv",
+                "email": "sgotliv@redhat.com",
+                "username": "sgotliv"
+            },
+            "date": "2014-03-25 19:41:49.000000000",
+            "message": "Patch Set 5: Looks good to me, but someone else must approve\n\n",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "b5e7baa66984f17012e9df251f5874c347c725e6",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2014-03-25 20:06:17.000000000",
+            "message": "Patch Set 5: Doesn't seem to work\n\nBuild failed.  For information on how to proceed, see https://wiki.openstack.org/wiki/GerritJenkinsGit#Test_Failures\n\n- gate-glance-pep8 http://logs.openstack.org/23/78023/5/check/gate-glance-pep8/990f092 : SUCCESS in 3m 23s\n- gate-glance-docs http://docs-draft.openstack.org/23/78023/5/check/gate-glance-docs/dd51480/doc/build/html/ : SUCCESS in 2m 53s\n- gate-glance-python26 http://logs.openstack.org/23/78023/5/check/gate-glance-python26/82c2066 : SUCCESS in 15m 06s\n- gate-glance-python27 http://logs.openstack.org/23/78023/5/check/gate-glance-python27/9e58821 : FAILURE in 12m 44s\n- check-grenade-dsvm http://logs.openstack.org/23/78023/5/check/check-grenade-dsvm/ffede14 : SUCCESS in 35m 34s\n- check-tempest-dsvm-full http://logs.openstack.org/23/78023/5/check/check-tempest-dsvm-full/e0c2c36 : SUCCESS in 52m 43s\n- check-tempest-dsvm-neutron http://logs.openstack.org/23/78023/5/check/check-tempest-dsvm-neutron/050cdf5 : SUCCESS in 51m 07s\n- check-tempest-dsvm-neutron-heat-slow http://logs.openstack.org/23/78023/5/check/check-tempest-dsvm-neutron-heat-slow/dde8a68 : SUCCESS in 20m 29s\n- check-devstack-dsvm-cells http://logs.openstack.org/23/78023/5/check/check-devstack-dsvm-cells/662a115 : SUCCESS in 13m 06s\n- check-tempest-dsvm-postgres-full http://logs.openstack.org/23/78023/5/check/check-tempest-dsvm-postgres-full/b3f0131 : SUCCESS in 43m 21s\n- gate-tempest-dsvm-large-ops http://logs.openstack.org/23/78023/5/check/gate-tempest-dsvm-large-ops/e262633 : SUCCESS in 15m 59s\n- gate-tempest-dsvm-neutron-large-ops http://logs.openstack.org/23/78023/5/check/gate-tempest-dsvm-neutron-large-ops/aa8005c : SUCCESS in 16m 42s\n\n",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "977b52829817a42845995383074c402a411b257e",
+            "author": {
+                "_account_id": 10646,
+                "name": "Samuel Stavinoha",
+                "email": "samuel.stavinoha@rackspace.com",
+                "username": "samstav"
+            },
+            "real_author": {
+                "_account_id": 10646,
+                "name": "Samuel Stavinoha",
+                "email": "samuel.stavinoha@rackspace.com",
+                "username": "samstav"
+            },
+            "date": "2014-03-25 22:02:54.000000000",
+            "message": "Patch Set 5:\n\nrecheck no bug",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "0b0a735828f8fb354c2bbd3e0e98e2efd317e00b",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2014-03-25 22:02:55.000000000",
+            "message": "Patch Set 5: No score\n\nStarting check jobs.\nhttp://status.openstack.org/zuul/",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "68f6d1f0a559768a6c8584c00d5889ae436100fa",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2014-03-25 23:10:50.000000000",
+            "message": "Patch Set 5: Doesn't seem to work\n\nBuild failed.  For information on how to proceed, see https://wiki.openstack.org/wiki/GerritJenkinsGit#Test_Failures\n\n- gate-glance-pep8 http://logs.openstack.org/23/78023/5/check/gate-glance-pep8/dd422a1 : SUCCESS in 3m 19s\n- gate-glance-docs http://docs-draft.openstack.org/23/78023/5/check/gate-glance-docs/90b46b9/doc/build/html/ : SUCCESS in 3m 30s\n- gate-glance-python26 http://logs.openstack.org/23/78023/5/check/gate-glance-python26/f5899ef : SUCCESS in 12m 57s\n- gate-glance-python27 http://logs.openstack.org/23/78023/5/check/gate-glance-python27/2e14bc2 : FAILURE in 15m 33s\n- check-grenade-dsvm http://logs.openstack.org/23/78023/5/check/check-grenade-dsvm/f2148ef : SUCCESS in 30m 53s\n- check-tempest-dsvm-full http://logs.openstack.org/23/78023/5/check/check-tempest-dsvm-full/9d547be : SUCCESS in 47m 02s\n- check-tempest-dsvm-neutron http://logs.openstack.org/23/78023/5/check/check-tempest-dsvm-neutron/a54634d : SUCCESS in 47m 46s\n- check-tempest-dsvm-neutron-heat-slow http://logs.openstack.org/23/78023/5/check/check-tempest-dsvm-neutron-heat-slow/fc5e9e9 : SUCCESS in 22m 21s\n- check-devstack-dsvm-cells http://logs.openstack.org/23/78023/5/check/check-devstack-dsvm-cells/73024c2 : SUCCESS in 12m 23s\n- check-tempest-dsvm-postgres-full http://logs.openstack.org/23/78023/5/check/check-tempest-dsvm-postgres-full/d7ab88c : SUCCESS in 46m 17s\n- gate-tempest-dsvm-large-ops http://logs.openstack.org/23/78023/5/check/gate-tempest-dsvm-large-ops/3a231d0 : SUCCESS in 16m 48s\n- gate-tempest-dsvm-neutron-large-ops http://logs.openstack.org/23/78023/5/check/gate-tempest-dsvm-neutron-large-ops/6090fa8 : SUCCESS in 16m 02s\n\n",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "4bca36995f6416de29bc83ffee6780f3a655591c",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2014-03-25 23:27:50.000000000",
+            "message": "Patch Set 6:\n\nStarting check jobs.\nhttp://status.openstack.org/zuul/",
+            "accounts_in_message": [],
+            "_revision_number": 6
+        },
+        {
+            "id": "9680943df82a9e06e9a30d895ca858ec4f1a3ce5",
+            "author": {
+                "_account_id": 10646,
+                "name": "Samuel Stavinoha",
+                "email": "samuel.stavinoha@rackspace.com",
+                "username": "samstav"
+            },
+            "real_author": {
+                "_account_id": 10646,
+                "name": "Samuel Stavinoha",
+                "email": "samuel.stavinoha@rackspace.com",
+                "username": "samstav"
+            },
+            "date": "2014-03-25 23:27:50.000000000",
+            "message": "Uploaded patch set 6.",
+            "accounts_in_message": [],
+            "_revision_number": 6
+        },
+        {
+            "id": "871bfbb7d3159aa02f351dd5b716fa519db12d45",
+            "author": {
+                "_account_id": 10725,
+                "name": "Sergey Gotliv",
+                "email": "sgotliv@redhat.com",
+                "username": "sgotliv"
+            },
+            "real_author": {
+                "_account_id": 10725,
+                "name": "Sergey Gotliv",
+                "email": "sgotliv@redhat.com",
+                "username": "sgotliv"
+            },
+            "date": "2014-03-25 23:28:01.000000000",
+            "message": "Patch Set 6: Looks good to me, but someone else must approve\n\nAutomatically re-added by Gerrit trivial rebase detection script.",
+            "accounts_in_message": [],
+            "_revision_number": 6
+        },
+        {
+            "id": "5e6485da6ad8c7eb1598a4b1c2378cde5a6a91a7",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2014-03-26 00:51:28.000000000",
+            "message": "Patch Set 6: Works for me\n\nBuild succeeded.\n\n- gate-glance-pep8 http://logs.openstack.org/23/78023/6/check/gate-glance-pep8/2ce56b9 : SUCCESS in 2m 18s\n- gate-glance-docs http://docs-draft.openstack.org/23/78023/6/check/gate-glance-docs/f282ba4/doc/build/html/ : SUCCESS in 2m 07s\n- gate-glance-python26 http://logs.openstack.org/23/78023/6/check/gate-glance-python26/af7f3f8 : SUCCESS in 13m 10s\n- gate-glance-python27 http://logs.openstack.org/23/78023/6/check/gate-glance-python27/6852a89 : SUCCESS in 12m 22s\n- check-grenade-dsvm http://logs.openstack.org/23/78023/6/check/check-grenade-dsvm/e45f956 : SUCCESS in 32m 31s\n- check-tempest-dsvm-full http://logs.openstack.org/23/78023/6/check/check-tempest-dsvm-full/1779927 : SUCCESS in 51m 29s\n- check-tempest-dsvm-neutron http://logs.openstack.org/23/78023/6/check/check-tempest-dsvm-neutron/6690a28 : SUCCESS in 51m 04s\n- check-tempest-dsvm-neutron-heat-slow http://logs.openstack.org/23/78023/6/check/check-tempest-dsvm-neutron-heat-slow/9d37e8c : SUCCESS in 24m 17s\n- check-devstack-dsvm-cells http://logs.openstack.org/23/78023/6/check/check-devstack-dsvm-cells/32e6932 : SUCCESS in 13m 02s\n- check-tempest-dsvm-postgres-full http://logs.openstack.org/23/78023/6/check/check-tempest-dsvm-postgres-full/8bbe63d : SUCCESS in 53m 15s\n- gate-tempest-dsvm-large-ops http://logs.openstack.org/23/78023/6/check/gate-tempest-dsvm-large-ops/6a9309e : SUCCESS in 16m 02s\n- gate-tempest-dsvm-neutron-large-ops http://logs.openstack.org/23/78023/6/check/gate-tempest-dsvm-neutron-large-ops/c97b256 : SUCCESS in 16m 14s\n\n",
+            "accounts_in_message": [],
+            "_revision_number": 6
+        },
+        {
+            "id": "d17b8abc8ff68b7789f9ed2ecc944c5c54f5ab48",
+            "author": {
+                "_account_id": 6549,
+                "name": "Zhi Yan Liu",
+                "email": "lzy.dev@gmail.com",
+                "username": "lzy-dev"
+            },
+            "real_author": {
+                "_account_id": 6549,
+                "name": "Zhi Yan Liu",
+                "email": "lzy.dev@gmail.com",
+                "username": "lzy-dev"
+            },
+            "date": "2014-03-26 05:32:37.000000000",
+            "message": "Patch Set 6: Looks good to me (core reviewer)\n\n(2 inline comments)\n\n",
+            "accounts_in_message": [],
+            "_revision_number": 6
+        },
+        {
+            "id": "597551362bc099c63e8eea03772b370fe8f18d32",
+            "author": {
+                "_account_id": 10646,
+                "name": "Samuel Stavinoha",
+                "email": "samuel.stavinoha@rackspace.com",
+                "username": "samstav"
+            },
+            "real_author": {
+                "_account_id": 10646,
+                "name": "Samuel Stavinoha",
+                "email": "samuel.stavinoha@rackspace.com",
+                "username": "samstav"
+            },
+            "date": "2014-03-26 17:00:42.000000000",
+            "message": "Uploaded patch set 7.",
+            "accounts_in_message": [],
+            "_revision_number": 7
+        },
+        {
+            "id": "076ad659465701ff135d700f1e3b0d46edca5f6e",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2014-03-26 17:00:43.000000000",
+            "message": "Patch Set 7:\n\nStarting check jobs.\nhttp://status.openstack.org/zuul/",
+            "accounts_in_message": [],
+            "_revision_number": 7
+        },
+        {
+            "id": "c40fe7734f052ca09be19db16222e507aa48d2a5",
+            "author": {
+                "_account_id": 10646,
+                "name": "Samuel Stavinoha",
+                "email": "samuel.stavinoha@rackspace.com",
+                "username": "samstav"
+            },
+            "real_author": {
+                "_account_id": 10646,
+                "name": "Samuel Stavinoha",
+                "email": "samuel.stavinoha@rackspace.com",
+                "username": "samstav"
+            },
+            "date": "2014-03-26 17:02:43.000000000",
+            "message": "Patch Set 6: (2 inline comments)\n\n",
+            "accounts_in_message": [],
+            "_revision_number": 6
+        },
+        {
+            "id": "686da7e2ff88cba29b649595e580522429d35e9d",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2014-03-26 18:12:14.000000000",
+            "message": "Patch Set 7: Doesn't seem to work\n\nBuild failed.  For information on how to proceed, see https://wiki.openstack.org/wiki/GerritJenkinsGit#Test_Failures\n\n- gate-glance-pep8 http://logs.openstack.org/23/78023/7/check/gate-glance-pep8/3bc7c8a : SUCCESS in 3m 24s\n- gate-glance-docs http://docs-draft.openstack.org/23/78023/7/check/gate-glance-docs/3ecc2a2/doc/build/html/ : SUCCESS in 2m 54s\n- gate-glance-python26 http://logs.openstack.org/23/78023/7/check/gate-glance-python26/b7c12c1 : FAILURE in 1h 10m 15s\n- gate-glance-python27 http://logs.openstack.org/23/78023/7/check/gate-glance-python27/7144cb7 : SUCCESS in 12m 55s\n- check-grenade-dsvm http://logs.openstack.org/23/78023/7/check/check-grenade-dsvm/9483aba : SUCCESS in 33m 33s\n- check-tempest-dsvm-full http://logs.openstack.org/23/78023/7/check/check-tempest-dsvm-full/70889a9 : SUCCESS in 54m 08s\n- check-tempest-dsvm-neutron http://logs.openstack.org/23/78023/7/check/check-tempest-dsvm-neutron/734861a : SUCCESS in 57m 17s\n- check-tempest-dsvm-neutron-heat-slow http://logs.openstack.org/23/78023/7/check/check-tempest-dsvm-neutron-heat-slow/8d66ea5 : SUCCESS in 25m 36s\n- check-devstack-dsvm-cells http://logs.openstack.org/23/78023/7/check/check-devstack-dsvm-cells/bf22187 : SUCCESS in 14m 55s\n- check-tempest-dsvm-postgres-full http://logs.openstack.org/23/78023/7/check/check-tempest-dsvm-postgres-full/b001200 : SUCCESS in 51m 29s\n- gate-tempest-dsvm-large-ops http://logs.openstack.org/23/78023/7/check/gate-tempest-dsvm-large-ops/eda267c : SUCCESS in 14m 58s\n- gate-tempest-dsvm-neutron-large-ops http://logs.openstack.org/23/78023/7/check/gate-tempest-dsvm-neutron-large-ops/72697a1 : SUCCESS in 17m 13s\n\n",
+            "accounts_in_message": [],
+            "_revision_number": 7
+        },
+        {
+            "id": "e850d7ec013ef637eb5af0d8dd068dd12c376261",
+            "author": {
+                "_account_id": 10646,
+                "name": "Samuel Stavinoha",
+                "email": "samuel.stavinoha@rackspace.com",
+                "username": "samstav"
+            },
+            "real_author": {
+                "_account_id": 10646,
+                "name": "Samuel Stavinoha",
+                "email": "samuel.stavinoha@rackspace.com",
+                "username": "samstav"
+            },
+            "date": "2014-03-26 18:26:49.000000000",
+            "message": "Patch Set 7:\n\nrecheck no bug",
+            "accounts_in_message": [],
+            "_revision_number": 7
+        },
+        {
+            "id": "90f797cca5362975ae5733880468f2c8d474d678",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2014-03-26 18:27:05.000000000",
+            "message": "Patch Set 7: No score\n\nStarting check jobs.\nhttp://status.openstack.org/zuul/",
+            "accounts_in_message": [],
+            "_revision_number": 7
+        },
+        {
+            "id": "95eb57ee9fa035c2cd12a045654d6bcd17f72d70",
+            "author": {
+                "_account_id": 177,
+                "name": "Alex Meade",
+                "email": "mr.alex.meade@gmail.com",
+                "username": "alex-meade"
+            },
+            "real_author": {
+                "_account_id": 177,
+                "name": "Alex Meade",
+                "email": "mr.alex.meade@gmail.com",
+                "username": "alex-meade"
+            },
+            "date": "2014-03-26 18:48:36.000000000",
+            "message": "Patch Set 7: Looks good to me (core reviewer)\n\n",
+            "accounts_in_message": [],
+            "_revision_number": 7
+        },
+        {
+            "id": "a8ef450e9b390b54efe9c4bb68f20ed668dbd720",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2014-03-26 19:34:25.000000000",
+            "message": "Patch Set 7: Works for me\n\nBuild succeeded.\n\n- gate-glance-pep8 http://logs.openstack.org/23/78023/7/check/gate-glance-pep8/8369cd1 : SUCCESS in 2m 11s\n- gate-glance-docs http://docs-draft.openstack.org/23/78023/7/check/gate-glance-docs/bb827a7/doc/build/html/ : SUCCESS in 3m 50s\n- gate-glance-python26 http://logs.openstack.org/23/78023/7/check/gate-glance-python26/b9984ad : SUCCESS in 13m 09s\n- gate-glance-python27 http://logs.openstack.org/23/78023/7/check/gate-glance-python27/243f40a : SUCCESS in 13m 17s\n- check-grenade-dsvm http://logs.openstack.org/23/78023/7/check/check-grenade-dsvm/34f63ee : SUCCESS in 35m 59s\n- check-tempest-dsvm-full http://logs.openstack.org/23/78023/7/check/check-tempest-dsvm-full/8e7ba42 : SUCCESS in 1h 06m 13s\n- check-tempest-dsvm-neutron http://logs.openstack.org/23/78023/7/check/check-tempest-dsvm-neutron/d4dd6d4 : SUCCESS in 51m 14s\n- check-tempest-dsvm-neutron-heat-slow http://logs.openstack.org/23/78023/7/check/check-tempest-dsvm-neutron-heat-slow/d45f987 : SUCCESS in 26m 15s\n- check-devstack-dsvm-cells http://logs.openstack.org/23/78023/7/check/check-devstack-dsvm-cells/7f27de1 : SUCCESS in 12m 04s\n- check-tempest-dsvm-postgres-full http://logs.openstack.org/23/78023/7/check/check-tempest-dsvm-postgres-full/9320d84 : SUCCESS in 59m 25s\n- gate-tempest-dsvm-large-ops http://logs.openstack.org/23/78023/7/check/gate-tempest-dsvm-large-ops/6e772e7 : SUCCESS in 16m 38s\n- gate-tempest-dsvm-neutron-large-ops http://logs.openstack.org/23/78023/7/check/gate-tempest-dsvm-neutron-large-ops/d27f458 : SUCCESS in 18m 46s\n\n",
+            "accounts_in_message": [],
+            "_revision_number": 7
+        },
+        {
+            "id": "dd22c8db6b041bc25ee515e84b47902375679375",
+            "author": {
+                "_account_id": 8759,
+                "name": "Arnaud Legendre",
+                "email": "arnaudleg@gmail.com",
+                "username": "arnaud"
+            },
+            "real_author": {
+                "_account_id": 8759,
+                "name": "Arnaud Legendre",
+                "email": "arnaudleg@gmail.com",
+                "username": "arnaud"
+            },
+            "date": "2014-03-26 23:33:42.000000000",
+            "message": "Patch Set 7: Looks good to me, but someone else must approve\n\nThank you",
+            "accounts_in_message": [],
+            "_revision_number": 7
+        },
+        {
+            "id": "383268986516acbb46ffdf45659fc0224a8580c0",
+            "author": {
+                "_account_id": 6549,
+                "name": "Zhi Yan Liu",
+                "email": "lzy.dev@gmail.com",
+                "username": "lzy-dev"
+            },
+            "real_author": {
+                "_account_id": 6549,
+                "name": "Zhi Yan Liu",
+                "email": "lzy.dev@gmail.com",
+                "username": "lzy-dev"
+            },
+            "date": "2014-03-27 05:58:42.000000000",
+            "message": "Patch Set 7: Looks good to me (core reviewer)\n\n",
+            "accounts_in_message": [],
+            "_revision_number": 7
+        },
+        {
+            "id": "ac6ee27e735ec8cdb2e2d1a9fd7c3413b36d4d83",
+            "author": {
+                "_account_id": 8247,
+                "name": "Thang Pham",
+                "email": "thang.g.pham@gmail.com",
+                "username": "thang.pham"
+            },
+            "real_author": {
+                "_account_id": 8247,
+                "name": "Thang Pham",
+                "email": "thang.g.pham@gmail.com",
+                "username": "thang.pham"
+            },
+            "date": "2014-03-27 18:33:54.000000000",
+            "message": "Patch Set 7: Looks good to me, but someone else must approve\n\n",
+            "accounts_in_message": [],
+            "_revision_number": 7
+        },
+        {
+            "id": "f931e30a9b4f40e9b6b18239700df01c24ba40bc",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2014-04-03 02:23:34.000000000",
+            "message": "Patch Set 7: No score\n\nStarting check jobs.\nhttp://status.openstack.org/zuul/",
+            "accounts_in_message": [],
+            "_revision_number": 7
+        },
+        {
+            "id": "cc4d8f868e919d1a36016c8c3acef05eaa046b67",
+            "author": {
+                "_account_id": 6549,
+                "name": "Zhi Yan Liu",
+                "email": "lzy.dev@gmail.com",
+                "username": "lzy-dev"
+            },
+            "real_author": {
+                "_account_id": 6549,
+                "name": "Zhi Yan Liu",
+                "email": "lzy.dev@gmail.com",
+                "username": "lzy-dev"
+            },
+            "date": "2014-04-03 02:23:34.000000000",
+            "message": "Patch Set 7: Approved\n\n",
+            "accounts_in_message": [],
+            "_revision_number": 7
+        },
+        {
+            "id": "96d6eb3d5fe6dfdbd52d73327543988f781ab916",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2014-04-03 03:14:40.000000000",
+            "message": "Patch Set 7: Works for me\n\nBuild succeeded.\n\n- gate-glance-pep8 http://logs.openstack.org/23/78023/7/check/gate-glance-pep8/3f2ade6 : SUCCESS in 2m 45s\n- gate-glance-docs http://docs-draft.openstack.org/23/78023/7/check/gate-glance-docs/d8e96a7/doc/build/html/ : SUCCESS in 2m 57s\n- gate-glance-python26 http://logs.openstack.org/23/78023/7/check/gate-glance-python26/91056d3 : SUCCESS in 14m 52s\n- gate-glance-python27 http://logs.openstack.org/23/78023/7/check/gate-glance-python27/5c6cea0 : SUCCESS in 14m 27s\n- check-grenade-dsvm http://logs.openstack.org/23/78023/7/check/check-grenade-dsvm/a5cfd4c : SUCCESS in 41m 07s\n- check-tempest-dsvm-full http://logs.openstack.org/23/78023/7/check/check-tempest-dsvm-full/b6a3915 : SUCCESS in 50m 05s\n- check-tempest-dsvm-neutron http://logs.openstack.org/23/78023/7/check/check-tempest-dsvm-neutron/e015f3d : SUCCESS in 51m 02s\n- check-tempest-dsvm-neutron-heat-slow http://logs.openstack.org/23/78023/7/check/check-tempest-dsvm-neutron-heat-slow/5eb2c85 : SUCCESS in 23m 19s\n- check-devstack-dsvm-cells http://logs.openstack.org/23/78023/7/check/check-devstack-dsvm-cells/47d2e82 : SUCCESS in 11m 01s\n- check-tempest-dsvm-postgres-full http://logs.openstack.org/23/78023/7/check/check-tempest-dsvm-postgres-full/a4dc34a : SUCCESS in 50m 18s\n- gate-tempest-dsvm-large-ops http://logs.openstack.org/23/78023/7/check/gate-tempest-dsvm-large-ops/7587a26 : SUCCESS in 15m 19s\n- gate-tempest-dsvm-neutron-large-ops http://logs.openstack.org/23/78023/7/check/gate-tempest-dsvm-neutron-large-ops/b43139f : SUCCESS in 15m 18s\n\n",
+            "accounts_in_message": [],
+            "_revision_number": 7
+        },
+        {
+            "id": "aa836e07b44341d1451784f19a036707cd620ca6",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2014-04-03 03:14:41.000000000",
+            "message": "Patch Set 7: No score\n\nStarting gate jobs.\nhttp://status.openstack.org/zuul/",
+            "accounts_in_message": [],
+            "_revision_number": 7
+        },
+        {
+            "id": "77fcfd5b5f320c538c55a5d0cfb281d6264815c6",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2014-04-03 04:30:31.000000000",
+            "message": "Change has been successfully merged into the git repository.",
+            "accounts_in_message": [],
+            "_revision_number": 7
+        },
+        {
+            "id": "4521587b2b26e375c4af3781dffe74a1d1c5d92a",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2014-04-03 04:30:31.000000000",
+            "message": "Patch Set 7: Verified\n\nBuild succeeded.\n\n- gate-glance-docs http://docs-draft.openstack.org/23/78023/7/gate/gate-glance-docs/6b2c44b/doc/build/html/ : SUCCESS in 3m 05s\n- gate-glance-pep8 http://logs.openstack.org/23/78023/7/gate/gate-glance-pep8/4b7f474 : SUCCESS in 3m 12s\n- gate-glance-python26 http://logs.openstack.org/23/78023/7/gate/gate-glance-python26/927db1e : SUCCESS in 14m 36s\n- gate-glance-python27 http://logs.openstack.org/23/78023/7/gate/gate-glance-python27/534df99 : SUCCESS in 14m 25s\n- gate-grenade-dsvm http://logs.openstack.org/23/78023/7/gate/gate-grenade-dsvm/3e997e4 : SUCCESS in 38m 01s\n- gate-tempest-dsvm-full http://logs.openstack.org/23/78023/7/gate/gate-tempest-dsvm-full/b60f3f1 : SUCCESS in 51m 15s\n- gate-tempest-dsvm-neutron http://logs.openstack.org/23/78023/7/gate/gate-tempest-dsvm-neutron/2d19e7b : SUCCESS in 46m 51s\n- gate-tempest-dsvm-neutron-heat-slow http://logs.openstack.org/23/78023/7/gate/gate-tempest-dsvm-neutron-heat-slow/45849fb : SUCCESS in 23m 52s\n- gate-devstack-dsvm-cells http://logs.openstack.org/23/78023/7/gate/gate-devstack-dsvm-cells/35acabe : SUCCESS in 11m 02s\n- gate-tempest-dsvm-postgres-full http://logs.openstack.org/23/78023/7/gate/gate-tempest-dsvm-postgres-full/151f2f1 : SUCCESS in 49m 46s\n- gate-tempest-dsvm-large-ops http://logs.openstack.org/23/78023/7/gate/gate-tempest-dsvm-large-ops/4cbf120 : SUCCESS in 15m 55s\n- gate-tempest-dsvm-neutron-large-ops http://logs.openstack.org/23/78023/7/gate/gate-tempest-dsvm-neutron-large-ops/16a9858 : SUCCESS in 17m 49s\n\n",
+            "accounts_in_message": [],
+            "_revision_number": 7
+        }
+    ],
+    "requirements": [],
+    "submit_records": []
+}

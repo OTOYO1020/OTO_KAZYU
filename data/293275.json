@@ -1,0 +1,966 @@
+{
+    "id": "openstack%2Fglance~master~I4e976fde2a78fd901c233966adc350a0ded41841",
+    "project": "openstack/glance",
+    "branch": "master",
+    "topic": "bug/1543937",
+    "hashtags": [],
+    "change_id": "I4e976fde2a78fd901c233966adc350a0ded41841",
+    "subject": "Fix db purge type validation",
+    "status": "MERGED",
+    "created": "2016-03-16 06:39:32.000000000",
+    "updated": "2016-04-06 08:46:51.000000000",
+    "submitted": "2016-04-06 08:46:51.000000000",
+    "submitter": {
+        "_account_id": 3,
+        "name": "Jenkins",
+        "username": "jenkins"
+    },
+    "insertions": 27,
+    "deletions": 18,
+    "total_comment_count": 8,
+    "unresolved_comment_count": 0,
+    "has_review_started": true,
+    "meta_rev_id": "a4ce729a7620f574a840a66f3acd3778ce74c5ff",
+    "_number": 293275,
+    "owner": {
+        "_account_id": 20191,
+        "name": "Dinesh Bhor",
+        "email": "bhordinesh07@gmail.com",
+        "username": "dineshbhor"
+    },
+    "labels": {
+        "Verified": {
+            "approved": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 17116,
+                    "name": "Niall Bunting",
+                    "email": "niall.bunting@hpe.com",
+                    "username": "NiallBunting"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 8158,
+                    "name": "Hemanth Makkapati",
+                    "email": "makstacker+osgerrit@gmail.com",
+                    "username": "hemanth.makkapati"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 6159,
+                    "name": "Flavio Percoco",
+                    "display_name": "flaper87",
+                    "email": "fpercoco@redhat.com",
+                    "username": "flaper87"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 20191,
+                    "name": "Dinesh Bhor",
+                    "email": "bhordinesh07@gmail.com",
+                    "username": "dineshbhor"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 21067,
+                    "name": "lige",
+                    "email": "eros.lige@gmail.com",
+                    "username": "lige"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 14676,
+                    "name": "Kairat Kushaev",
+                    "email": "kkushaev@mirantis.com",
+                    "username": "kairat_kushaev"
+                },
+                {
+                    "value": 2,
+                    "date": "2016-04-06 08:46:51.000000000",
+                    "post_submit": true,
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-2": "Fails",
+                "-1": "Doesn't seem to work",
+                " 0": "No score",
+                "+1": "Works for me",
+                "+2": "Verified"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        },
+        "Code-Review": {
+            "approved": {
+                "_account_id": 6159,
+                "name": "Flavio Percoco",
+                "display_name": "flaper87",
+                "email": "fpercoco@redhat.com",
+                "username": "flaper87"
+            },
+            "recommended": {
+                "_account_id": 8158,
+                "name": "Hemanth Makkapati",
+                "email": "makstacker+osgerrit@gmail.com",
+                "username": "hemanth.makkapati"
+            },
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 17116,
+                    "name": "Niall Bunting",
+                    "email": "niall.bunting@hpe.com",
+                    "username": "NiallBunting"
+                },
+                {
+                    "value": 1,
+                    "date": "2016-03-28 19:28:04.000000000",
+                    "permitted_voting_range": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "_account_id": 8158,
+                    "name": "Hemanth Makkapati",
+                    "email": "makstacker+osgerrit@gmail.com",
+                    "username": "hemanth.makkapati"
+                },
+                {
+                    "value": 2,
+                    "date": "2016-04-04 20:49:13.000000000",
+                    "_account_id": 6159,
+                    "name": "Flavio Percoco",
+                    "display_name": "flaper87",
+                    "email": "fpercoco@redhat.com",
+                    "username": "flaper87"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 20191,
+                    "name": "Dinesh Bhor",
+                    "email": "bhordinesh07@gmail.com",
+                    "username": "dineshbhor"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 21067,
+                    "name": "lige",
+                    "email": "eros.lige@gmail.com",
+                    "username": "lige"
+                },
+                {
+                    "value": 2,
+                    "date": "2016-03-28 14:40:20.000000000",
+                    "_account_id": 14676,
+                    "name": "Kairat Kushaev",
+                    "email": "kkushaev@mirantis.com",
+                    "username": "kairat_kushaev"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-2": "Do not merge",
+                "-1": "This patch needs further work before it can be merged",
+                " 0": "No score",
+                "+1": "Looks good to me, but someone else must approve",
+                "+2": "Looks good to me (core reviewer)"
+            },
+            "description": "",
+            "value": 1,
+            "default_value": 0,
+            "optional": true
+        },
+        "Workflow": {
+            "approved": {
+                "_account_id": 6159,
+                "name": "Flavio Percoco",
+                "display_name": "flaper87",
+                "email": "fpercoco@redhat.com",
+                "username": "flaper87"
+            },
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 17116,
+                    "name": "Niall Bunting",
+                    "email": "niall.bunting@hpe.com",
+                    "username": "NiallBunting"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 8158,
+                    "name": "Hemanth Makkapati",
+                    "email": "makstacker+osgerrit@gmail.com",
+                    "username": "hemanth.makkapati"
+                },
+                {
+                    "value": 1,
+                    "date": "2016-04-04 20:49:13.000000000",
+                    "_account_id": 6159,
+                    "name": "Flavio Percoco",
+                    "display_name": "flaper87",
+                    "email": "fpercoco@redhat.com",
+                    "username": "flaper87"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 20191,
+                    "name": "Dinesh Bhor",
+                    "email": "bhordinesh07@gmail.com",
+                    "username": "dineshbhor"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 21067,
+                    "name": "lige",
+                    "email": "eros.lige@gmail.com",
+                    "username": "lige"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 14676,
+                    "name": "Kairat Kushaev",
+                    "email": "kkushaev@mirantis.com",
+                    "username": "kairat_kushaev"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-1": "Work in progress",
+                " 0": "Ready for reviews",
+                "+1": "Approved"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        },
+        "Review-Priority": {
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 17116,
+                    "name": "Niall Bunting",
+                    "email": "niall.bunting@hpe.com",
+                    "username": "NiallBunting"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 8158,
+                    "name": "Hemanth Makkapati",
+                    "email": "makstacker+osgerrit@gmail.com",
+                    "username": "hemanth.makkapati"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 6159,
+                    "name": "Flavio Percoco",
+                    "display_name": "flaper87",
+                    "email": "fpercoco@redhat.com",
+                    "username": "flaper87"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 20191,
+                    "name": "Dinesh Bhor",
+                    "email": "bhordinesh07@gmail.com",
+                    "username": "dineshbhor"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 21067,
+                    "name": "lige",
+                    "email": "eros.lige@gmail.com",
+                    "username": "lige"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 14676,
+                    "name": "Kairat Kushaev",
+                    "email": "kkushaev@mirantis.com",
+                    "username": "kairat_kushaev"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-1": "Branch Freeze",
+                " 0": "No Priority",
+                "+1": "Important Change",
+                "+2": "Top Priority / Holds Gate"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        }
+    },
+    "removable_reviewers": [],
+    "reviewers": {
+        "REVIEWER": [
+            {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            {
+                "_account_id": 6159,
+                "name": "Flavio Percoco",
+                "display_name": "flaper87",
+                "email": "fpercoco@redhat.com",
+                "username": "flaper87"
+            },
+            {
+                "_account_id": 8158,
+                "name": "Hemanth Makkapati",
+                "email": "makstacker+osgerrit@gmail.com",
+                "username": "hemanth.makkapati"
+            },
+            {
+                "_account_id": 14676,
+                "name": "Kairat Kushaev",
+                "email": "kkushaev@mirantis.com",
+                "username": "kairat_kushaev"
+            },
+            {
+                "_account_id": 17116,
+                "name": "Niall Bunting",
+                "email": "niall.bunting@hpe.com",
+                "username": "NiallBunting"
+            },
+            {
+                "_account_id": 20191,
+                "name": "Dinesh Bhor",
+                "email": "bhordinesh07@gmail.com",
+                "username": "dineshbhor"
+            },
+            {
+                "_account_id": 21067,
+                "name": "lige",
+                "email": "eros.lige@gmail.com",
+                "username": "lige"
+            }
+        ]
+    },
+    "pending_reviewers": {},
+    "reviewer_updates": [
+        {
+            "updated": "2016-03-18 08:53:41.000000000",
+            "updated_by": {
+                "_account_id": 21067,
+                "name": "lige",
+                "email": "eros.lige@gmail.com",
+                "username": "lige"
+            },
+            "reviewer": {
+                "_account_id": 21067,
+                "name": "lige",
+                "email": "eros.lige@gmail.com",
+                "username": "lige"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2016-03-23 11:43:06.000000000",
+            "updated_by": {
+                "_account_id": 17116,
+                "name": "Niall Bunting",
+                "email": "niall.bunting@hpe.com",
+                "username": "NiallBunting"
+            },
+            "reviewer": {
+                "_account_id": 17116,
+                "name": "Niall Bunting",
+                "email": "niall.bunting@hpe.com",
+                "username": "NiallBunting"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2016-03-28 14:40:20.000000000",
+            "updated_by": {
+                "_account_id": 14676,
+                "name": "Kairat Kushaev",
+                "email": "kkushaev@mirantis.com",
+                "username": "kairat_kushaev"
+            },
+            "reviewer": {
+                "_account_id": 14676,
+                "name": "Kairat Kushaev",
+                "email": "kkushaev@mirantis.com",
+                "username": "kairat_kushaev"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2016-03-28 19:28:04.000000000",
+            "updated_by": {
+                "_account_id": 8158,
+                "name": "Hemanth Makkapati",
+                "email": "makstacker+osgerrit@gmail.com",
+                "username": "hemanth.makkapati"
+            },
+            "reviewer": {
+                "_account_id": 8158,
+                "name": "Hemanth Makkapati",
+                "email": "makstacker+osgerrit@gmail.com",
+                "username": "hemanth.makkapati"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2016-04-04 20:49:13.000000000",
+            "updated_by": {
+                "_account_id": 6159,
+                "name": "Flavio Percoco",
+                "display_name": "flaper87",
+                "email": "fpercoco@redhat.com",
+                "username": "flaper87"
+            },
+            "reviewer": {
+                "_account_id": 6159,
+                "name": "Flavio Percoco",
+                "display_name": "flaper87",
+                "email": "fpercoco@redhat.com",
+                "username": "flaper87"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2016-04-06 08:46:51.000000000",
+            "updated_by": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "reviewer": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "state": "REVIEWER"
+        }
+    ],
+    "messages": [
+        {
+            "id": "1a1e522ce374e2844f2bca67f9a9c137aec20407",
+            "author": {
+                "_account_id": 20191,
+                "name": "Dinesh Bhor",
+                "email": "bhordinesh07@gmail.com",
+                "username": "dineshbhor"
+            },
+            "real_author": {
+                "_account_id": 20191,
+                "name": "Dinesh Bhor",
+                "email": "bhordinesh07@gmail.com",
+                "username": "dineshbhor"
+            },
+            "date": "2016-03-16 06:39:32.000000000",
+            "message": "Uploaded patch set 1.",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "cc83da9a5e264c8dab41bb6313a6b6b603ec190a",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2016-03-16 07:36:59.000000000",
+            "message": "Patch Set 1: Verified+1\n\nBuild succeeded (check pipeline).\n\n- gate-glance-python34 http://logs.openstack.org/75/293275/1/check/gate-glance-python34/5ca2808/ : SUCCESS in 4m 01s\n- gate-glance-pep8 http://logs.openstack.org/75/293275/1/check/gate-glance-pep8/a8cca00/ : SUCCESS in 3m 10s\n- gate-glance-docs http://docs-draft.openstack.org/75/293275/1/check/gate-glance-docs/4ba9bd2//doc/build/html/ : SUCCESS in 7m 34s\n- gate-glance-python27 http://logs.openstack.org/75/293275/1/check/gate-glance-python27/9efb8d0/ : SUCCESS in 7m 30s\n- gate-tempest-dsvm-full http://logs.openstack.org/75/293275/1/check/gate-tempest-dsvm-full/93ecd75/ : SUCCESS in 41m 01s\n- gate-tempest-dsvm-postgres-full http://logs.openstack.org/75/293275/1/check/gate-tempest-dsvm-postgres-full/9078160/ : SUCCESS in 35m 40s\n- gate-tempest-dsvm-neutron-full http://logs.openstack.org/75/293275/1/check/gate-tempest-dsvm-neutron-full/690df07/ : SUCCESS in 57m 16s\n- gate-grenade-dsvm http://logs.openstack.org/75/293275/1/check/gate-grenade-dsvm/7acd4a3/ : SUCCESS in 37m 44s\n- gate-tempest-dsvm-full-ceph http://logs.openstack.org/75/293275/1/check/gate-tempest-dsvm-full-ceph/c224795/ : SUCCESS in 27m 17s (non-voting)\n- gate-tempest-dsvm-full-devstack-plugin-ceph-nv http://logs.openstack.org/75/293275/1/check/gate-tempest-dsvm-full-devstack-plugin-ceph-nv/ee64af5/ : SUCCESS in 44m 27s (non-voting)\n- gate-rally-dsvm-glance http://logs.openstack.org/75/293275/1/check/gate-rally-dsvm-glance/d10f497/ : SUCCESS in 39m 38s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "dbb891aebf949f3ffa03194cafac67730c59420d",
+            "author": {
+                "_account_id": 14676,
+                "name": "Kairat Kushaev",
+                "email": "kkushaev@mirantis.com",
+                "username": "kairat_kushaev"
+            },
+            "real_author": {
+                "_account_id": 14676,
+                "name": "Kairat Kushaev",
+                "email": "kkushaev@mirantis.com",
+                "username": "kairat_kushaev"
+            },
+            "date": "2016-03-17 09:10:38.000000000",
+            "message": "Patch Set 1: Code-Review-1\n\n(2 comments)",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "5d6e5eb9dee66e49f5344dd0f299e2a69e71e3c9",
+            "author": {
+                "_account_id": 20191,
+                "name": "Dinesh Bhor",
+                "email": "bhordinesh07@gmail.com",
+                "username": "dineshbhor"
+            },
+            "real_author": {
+                "_account_id": 20191,
+                "name": "Dinesh Bhor",
+                "email": "bhordinesh07@gmail.com",
+                "username": "dineshbhor"
+            },
+            "date": "2016-03-17 09:40:26.000000000",
+            "message": "Patch Set 1:\n\n(1 comment)",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "c797d04616c9f132d741059c10bc8398f08f6b8f",
+            "author": {
+                "_account_id": 14676,
+                "name": "Kairat Kushaev",
+                "email": "kkushaev@mirantis.com",
+                "username": "kairat_kushaev"
+            },
+            "real_author": {
+                "_account_id": 14676,
+                "name": "Kairat Kushaev",
+                "email": "kkushaev@mirantis.com",
+                "username": "kairat_kushaev"
+            },
+            "date": "2016-03-18 06:58:29.000000000",
+            "message": "Patch Set 1: -Code-Review\n\nOh, that's not good. So we can pass list of values to each command and it will pass without validation. We also don't have good help message here. Need to think how to prevent this in long term",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "51f5567a096239de32de35cfe3e9360dde70b27b",
+            "author": {
+                "_account_id": 17116,
+                "name": "Niall Bunting",
+                "email": "niall.bunting@hpe.com",
+                "username": "NiallBunting"
+            },
+            "real_author": {
+                "_account_id": 17116,
+                "name": "Niall Bunting",
+                "email": "niall.bunting@hpe.com",
+                "username": "NiallBunting"
+            },
+            "date": "2016-03-23 11:43:06.000000000",
+            "message": "Patch Set 1:\n\n(2 comments)",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "0fc5e2827207ce7483c2d0cd7bce44324523391e",
+            "author": {
+                "_account_id": 20191,
+                "name": "Dinesh Bhor",
+                "email": "bhordinesh07@gmail.com",
+                "username": "dineshbhor"
+            },
+            "real_author": {
+                "_account_id": 20191,
+                "name": "Dinesh Bhor",
+                "email": "bhordinesh07@gmail.com",
+                "username": "dineshbhor"
+            },
+            "date": "2016-03-28 05:56:04.000000000",
+            "message": "Uploaded patch set 2.",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "ec0dd67bbb8913496b1473ec63cd410bc53ea8ae",
+            "author": {
+                "_account_id": 20191,
+                "name": "Dinesh Bhor",
+                "email": "bhordinesh07@gmail.com",
+                "username": "dineshbhor"
+            },
+            "real_author": {
+                "_account_id": 20191,
+                "name": "Dinesh Bhor",
+                "email": "bhordinesh07@gmail.com",
+                "username": "dineshbhor"
+            },
+            "date": "2016-03-28 05:57:47.000000000",
+            "message": "Patch Set 1:\n\n(2 comments)",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "0bdc435a6531c5f79be915321cb2039c36eb9431",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2016-03-28 06:50:21.000000000",
+            "message": "Patch Set 2: Verified-1\n\nBuild failed (check pipeline).  For information on how to proceed, see http://docs.openstack.org/infra/manual/developers.html#automated-testing\n\n- gate-glance-python34-db http://logs.openstack.org/75/293275/2/check/gate-glance-python34-db/b2ccf33/ : SUCCESS in 6m 14s\n- gate-glance-docs http://docs-draft.openstack.org/75/293275/2/check/gate-glance-docs/3da1cdb//doc/build/html/ : SUCCESS in 8m 56s\n- gate-glance-pep8 http://logs.openstack.org/75/293275/2/check/gate-glance-pep8/bfce9c8/ : FAILURE in 13m 04s\n- gate-glance-python27-db http://logs.openstack.org/75/293275/2/check/gate-glance-python27-db/aaf2932/ : SUCCESS in 8m 11s\n- gate-tempest-dsvm-full http://logs.openstack.org/75/293275/2/check/gate-tempest-dsvm-full/3ee7c10/ : SUCCESS in 37m 01s\n- gate-tempest-dsvm-postgres-full http://logs.openstack.org/75/293275/2/check/gate-tempest-dsvm-postgres-full/8d3759e/ : SUCCESS in 46m 12s\n- gate-tempest-dsvm-neutron-full http://logs.openstack.org/75/293275/2/check/gate-tempest-dsvm-neutron-full/f167335/ : SUCCESS in 45m 47s\n- gate-grenade-dsvm http://logs.openstack.org/75/293275/2/check/gate-grenade-dsvm/72e1c28/ : SUCCESS in 27m 28s\n- gate-tempest-dsvm-full-devstack-plugin-ceph-nv http://logs.openstack.org/75/293275/2/check/gate-tempest-dsvm-full-devstack-plugin-ceph-nv/c505896/ : SUCCESS in 50m 24s (non-voting)\n- gate-rally-dsvm-glance http://logs.openstack.org/75/293275/2/check/gate-rally-dsvm-glance/3f058ee/ : SUCCESS in 36m 16s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "9bf8e12133af39b162464757569f64abfaf6ce73",
+            "author": {
+                "_account_id": 20191,
+                "name": "Dinesh Bhor",
+                "email": "bhordinesh07@gmail.com",
+                "username": "dineshbhor"
+            },
+            "real_author": {
+                "_account_id": 20191,
+                "name": "Dinesh Bhor",
+                "email": "bhordinesh07@gmail.com",
+                "username": "dineshbhor"
+            },
+            "date": "2016-03-28 06:54:20.000000000",
+            "message": "Patch Set 2:\n\nrecheck",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "16698a5acbf81c1140164e6d06323c2d674d9241",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2016-03-28 07:59:00.000000000",
+            "message": "Patch Set 2:\n\nBuild failed (check pipeline).  For information on how to proceed, see http://docs.openstack.org/infra/manual/developers.html#automated-testing\n\n- gate-glance-python34-db http://logs.openstack.org/75/293275/2/check/gate-glance-python34-db/8137f54/ : SUCCESS in 6m 17s\n- gate-glance-docs http://docs-draft.openstack.org/75/293275/2/check/gate-glance-docs/f0a400c//doc/build/html/ : SUCCESS in 11m 22s\n- gate-glance-pep8 http://logs.openstack.org/75/293275/2/check/gate-glance-pep8/c7bcd56/ : SUCCESS in 2m 46s\n- gate-glance-python27-db http://logs.openstack.org/75/293275/2/check/gate-glance-python27-db/a4684b1/ : SUCCESS in 9m 51s\n- gate-tempest-dsvm-full http://logs.openstack.org/75/293275/2/check/gate-tempest-dsvm-full/0dde15b/ : FAILURE in 30m 19s\n- gate-tempest-dsvm-postgres-full http://logs.openstack.org/75/293275/2/check/gate-tempest-dsvm-postgres-full/8e8d7dc/ : SUCCESS in 45m 56s\n- gate-tempest-dsvm-neutron-full http://logs.openstack.org/75/293275/2/check/gate-tempest-dsvm-neutron-full/e4898c6/ : FAILURE in 20m 59s\n- gate-grenade-dsvm http://logs.openstack.org/75/293275/2/check/gate-grenade-dsvm/7051e51/ : SUCCESS in 47m 40s\n- gate-tempest-dsvm-full-devstack-plugin-ceph-nv http://logs.openstack.org/75/293275/2/check/gate-tempest-dsvm-full-devstack-plugin-ceph-nv/075eb2b/ : SUCCESS in 1h 02m 10s (non-voting)\n- gate-rally-dsvm-glance http://logs.openstack.org/75/293275/2/check/gate-rally-dsvm-glance/f670e94/ : SUCCESS in 31m 08s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "24f33d184cb34e2de3a9d46051c9f9096c5f10ca",
+            "author": {
+                "_account_id": 8871,
+                "name": "Elastic Recheck",
+                "username": "elasticrecheck"
+            },
+            "real_author": {
+                "_account_id": 8871,
+                "name": "Elastic Recheck",
+                "username": "elasticrecheck"
+            },
+            "date": "2016-03-28 07:59:14.000000000",
+            "message": "Patch Set 2:\n\nI noticed jenkins failed, I think you hit bug(s):\n\n- gate-tempest-dsvm-full: https://bugs.launchpad.net/bugs/1298006 https://bugs.launchpad.net/bugs/1282876\n- gate-tempest-dsvm-neutron-full: unrecognized error\n\nSome of the tests failed in a way that we did not understand. Please help us classify these issues so that they can be part of Elastic Recheck http://status.openstack.org/elastic-recheck/\nFor more details on this and other bugs, please see http://status.openstack.org/elastic-recheck/",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "ea20e682c8cc54887292149d29d664b5f4bbdb2f",
+            "author": {
+                "_account_id": 20191,
+                "name": "Dinesh Bhor",
+                "email": "bhordinesh07@gmail.com",
+                "username": "dineshbhor"
+            },
+            "real_author": {
+                "_account_id": 20191,
+                "name": "Dinesh Bhor",
+                "email": "bhordinesh07@gmail.com",
+                "username": "dineshbhor"
+            },
+            "date": "2016-03-28 08:29:47.000000000",
+            "message": "Patch Set 2:\n\nrecheck bug 1298006",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "8c2466547394d1abfc19b6437db54f282cbf38d3",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2016-03-28 09:39:13.000000000",
+            "message": "Patch Set 2:\n\nBuild failed (check pipeline).  For information on how to proceed, see http://docs.openstack.org/infra/manual/developers.html#automated-testing\n\n- gate-glance-python34-db http://logs.openstack.org/75/293275/2/check/gate-glance-python34-db/a562102/ : SUCCESS in 7m 24s\n- gate-glance-docs http://docs-draft.openstack.org/75/293275/2/check/gate-glance-docs/9d22372//doc/build/html/ : SUCCESS in 7m 11s\n- gate-glance-pep8 http://logs.openstack.org/75/293275/2/check/gate-glance-pep8/95c7c22/ : SUCCESS in 3m 31s\n- gate-glance-python27-db http://logs.openstack.org/75/293275/2/check/gate-glance-python27-db/94419ac/ : SUCCESS in 7m 13s\n- gate-tempest-dsvm-full http://logs.openstack.org/75/293275/2/check/gate-tempest-dsvm-full/b572c69/ : SUCCESS in 44m 20s\n- gate-tempest-dsvm-postgres-full http://logs.openstack.org/75/293275/2/check/gate-tempest-dsvm-postgres-full/3ea3cb9/ : FAILURE in 1h 05m 54s\n- gate-tempest-dsvm-neutron-full http://logs.openstack.org/75/293275/2/check/gate-tempest-dsvm-neutron-full/113df45/ : SUCCESS in 1h 04m 55s\n- gate-grenade-dsvm http://logs.openstack.org/75/293275/2/check/gate-grenade-dsvm/f604772/ : SUCCESS in 42m 37s\n- gate-tempest-dsvm-full-devstack-plugin-ceph-nv http://logs.openstack.org/75/293275/2/check/gate-tempest-dsvm-full-devstack-plugin-ceph-nv/4c0d4bb/ : SUCCESS in 43m 29s (non-voting)\n- gate-rally-dsvm-glance http://logs.openstack.org/75/293275/2/check/gate-rally-dsvm-glance/7065b8e/ : FAILURE in 2m 11s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "af9274f323367a6a1373c62aa9efe1738e4cb1ad",
+            "author": {
+                "_account_id": 8871,
+                "name": "Elastic Recheck",
+                "username": "elasticrecheck"
+            },
+            "real_author": {
+                "_account_id": 8871,
+                "name": "Elastic Recheck",
+                "username": "elasticrecheck"
+            },
+            "date": "2016-03-28 09:40:46.000000000",
+            "message": "Patch Set 2:\n\nI noticed jenkins failed, I think you hit bug(s):\n\n- gate-tempest-dsvm-postgres-full: https://bugs.launchpad.net/bugs/1298006\n\nIf you believe we've correctly identified the failure, feel free to leave a 'recheck' comment to run the tests again.\nFor more details on this and other bugs, please see http://status.openstack.org/elastic-recheck/",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "2df5364dca2c24917e072c8b6b2503c6e9709880",
+            "author": {
+                "_account_id": 20191,
+                "name": "Dinesh Bhor",
+                "email": "bhordinesh07@gmail.com",
+                "username": "dineshbhor"
+            },
+            "real_author": {
+                "_account_id": 20191,
+                "name": "Dinesh Bhor",
+                "email": "bhordinesh07@gmail.com",
+                "username": "dineshbhor"
+            },
+            "date": "2016-03-28 09:41:25.000000000",
+            "message": "Patch Set 2:\n\nrecheck bug 1282876",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "707513028312d6c41001f9c82ad31d4381fd2fe3",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2016-03-28 11:02:38.000000000",
+            "message": "Patch Set 2: Verified+1\n\nBuild succeeded (check pipeline).\n\n- gate-glance-python34-db http://logs.openstack.org/75/293275/2/check/gate-glance-python34-db/97a2ab9/ : SUCCESS in 7m 35s\n- gate-glance-docs http://docs-draft.openstack.org/75/293275/2/check/gate-glance-docs/29cd5a0//doc/build/html/ : SUCCESS in 6m 56s\n- gate-glance-pep8 http://logs.openstack.org/75/293275/2/check/gate-glance-pep8/8a3a29c/ : SUCCESS in 4m 41s\n- gate-glance-python27-db http://logs.openstack.org/75/293275/2/check/gate-glance-python27-db/99e2fd5/ : SUCCESS in 6m 45s\n- gate-tempest-dsvm-full http://logs.openstack.org/75/293275/2/check/gate-tempest-dsvm-full/6756e18/ : SUCCESS in 46m 49s\n- gate-tempest-dsvm-postgres-full http://logs.openstack.org/75/293275/2/check/gate-tempest-dsvm-postgres-full/1bf4ddb/ : SUCCESS in 1h 06m 13s\n- gate-tempest-dsvm-neutron-full http://logs.openstack.org/75/293275/2/check/gate-tempest-dsvm-neutron-full/2d64232/ : SUCCESS in 1h 13m 58s\n- gate-grenade-dsvm http://logs.openstack.org/75/293275/2/check/gate-grenade-dsvm/6a5cd4b/ : SUCCESS in 47m 44s\n- gate-tempest-dsvm-full-devstack-plugin-ceph-nv http://logs.openstack.org/75/293275/2/check/gate-tempest-dsvm-full-devstack-plugin-ceph-nv/aca38f0/ : SUCCESS in 55m 44s (non-voting)\n- gate-rally-dsvm-glance http://logs.openstack.org/75/293275/2/check/gate-rally-dsvm-glance/b442be6/ : SUCCESS in 37m 47s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "128cdb837d3e0fed8ae75bbe6f1c12e11fbce5f2",
+            "author": {
+                "_account_id": 14676,
+                "name": "Kairat Kushaev",
+                "email": "kkushaev@mirantis.com",
+                "username": "kairat_kushaev"
+            },
+            "real_author": {
+                "_account_id": 14676,
+                "name": "Kairat Kushaev",
+                "email": "kkushaev@mirantis.com",
+                "username": "kairat_kushaev"
+            },
+            "date": "2016-03-28 14:40:20.000000000",
+            "message": "Patch Set 2: Code-Review+2\n\nThanks, I think it is reasonable to have.",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "0a3879217657751d0917f8771c911f7ec2d45cc4",
+            "author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "real_author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "date": "2016-03-28 18:43:43.000000000",
+            "message": "Patch Set 2:\n\n(1 comment)\n\nOne nit inline, otherwise this looks like a good change.  (And it certainly wasn't obvious ... thanks for finding it!)",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "1327255807fce7c803ef5b2cec01c51216197fad",
+            "author": {
+                "_account_id": 8158,
+                "name": "Hemanth Makkapati",
+                "email": "makstacker+osgerrit@gmail.com",
+                "username": "hemanth.makkapati"
+            },
+            "real_author": {
+                "_account_id": 8158,
+                "name": "Hemanth Makkapati",
+                "email": "makstacker+osgerrit@gmail.com",
+                "username": "hemanth.makkapati"
+            },
+            "date": "2016-03-28 19:28:04.000000000",
+            "message": "Patch Set 2: Code-Review+1",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "ba66fcc82c68f47e402cfb115885b06bfa82fd5d",
+            "author": {
+                "_account_id": 6159,
+                "name": "Flavio Percoco",
+                "display_name": "flaper87",
+                "email": "fpercoco@redhat.com",
+                "username": "flaper87"
+            },
+            "real_author": {
+                "_account_id": 6159,
+                "name": "Flavio Percoco",
+                "display_name": "flaper87",
+                "email": "fpercoco@redhat.com",
+                "username": "flaper87"
+            },
+            "date": "2016-04-04 20:49:13.000000000",
+            "message": "Patch Set 2: Code-Review+2 Workflow+1",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "ab499ca4e092fb66e49422b50f759028590c3c28",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2016-04-04 20:49:18.000000000",
+            "message": "Patch Set 2: -Verified\n\nStarting gate jobs.\nhttp://status.openstack.org/zuul/",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "752ee2bd25a1c17889681876d7a4ea302214c017",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2016-04-04 22:51:15.000000000",
+            "message": "Patch Set 2: Verified-2\n\nBuild failed (gate pipeline).  For information on how to proceed, see http://docs.openstack.org/infra/manual/developers.html#automated-testing\n\n- gate-glance-python34-db http://logs.openstack.org/75/293275/2/gate/gate-glance-python34-db/df84b64/ : SUCCESS in 4m 02s\n- gate-glance-docs http://docs-draft.openstack.org/75/293275/2/gate/gate-glance-docs/ad92b85//doc/build/html/ : SUCCESS in 8m 26s\n- gate-glance-pep8 http://logs.openstack.org/75/293275/2/gate/gate-glance-pep8/cfe71a5/ : SUCCESS in 2m 25s\n- gate-glance-python27-db http://logs.openstack.org/75/293275/2/gate/gate-glance-python27-db/800c53d/ : FAILURE in 7m 23s\n- gate-tempest-dsvm-full http://logs.openstack.org/75/293275/2/gate/gate-tempest-dsvm-full/0107a5e/ : SUCCESS in 33m 45s\n- gate-tempest-dsvm-postgres-full http://logs.openstack.org/75/293275/2/gate/gate-tempest-dsvm-postgres-full/1bed718/ : SUCCESS in 35m 58s\n- gate-tempest-dsvm-neutron-full http://logs.openstack.org/75/293275/2/gate/gate-tempest-dsvm-neutron-full/6db5c70/ : SUCCESS in 52m 56s\n- gate-grenade-dsvm http://logs.openstack.org/75/293275/2/gate/gate-grenade-dsvm/2c9dc19/ : SUCCESS in 27m 49s",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "01ab0b52b478ca74b3023af2213289fe25908fcf",
+            "author": {
+                "_account_id": 20191,
+                "name": "Dinesh Bhor",
+                "email": "bhordinesh07@gmail.com",
+                "username": "dineshbhor"
+            },
+            "real_author": {
+                "_account_id": 20191,
+                "name": "Dinesh Bhor",
+                "email": "bhordinesh07@gmail.com",
+                "username": "dineshbhor"
+            },
+            "date": "2016-04-06 06:26:50.000000000",
+            "message": "Patch Set 2:\n\nrecheck no bug",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "386a57b20eafed00e1597aed64b9a0011937ac63",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2016-04-06 07:34:11.000000000",
+            "message": "Patch Set 2: Verified+1\n\nBuild succeeded (check pipeline).\n\n- gate-glance-python34-db http://logs.openstack.org/75/293275/2/check/gate-glance-python34-db/06b77b9/ : SUCCESS in 4m 07s\n- gate-glance-docs http://docs-draft.openstack.org/75/293275/2/check/gate-glance-docs/4cc25b2//doc/build/html/ : SUCCESS in 4m 10s\n- gate-glance-pep8 http://logs.openstack.org/75/293275/2/check/gate-glance-pep8/7a90a27/ : SUCCESS in 2m 41s\n- gate-glance-python27-db http://logs.openstack.org/75/293275/2/check/gate-glance-python27-db/7c8ca48/ : SUCCESS in 7m 31s\n- gate-tempest-dsvm-full http://logs.openstack.org/75/293275/2/check/gate-tempest-dsvm-full/a6212c1/ : SUCCESS in 49m 37s\n- gate-tempest-dsvm-postgres-full http://logs.openstack.org/75/293275/2/check/gate-tempest-dsvm-postgres-full/f2917d9/ : SUCCESS in 52m 18s\n- gate-tempest-dsvm-neutron-full http://logs.openstack.org/75/293275/2/check/gate-tempest-dsvm-neutron-full/8e9a01e/ : SUCCESS in 57m 20s\n- gate-grenade-dsvm http://logs.openstack.org/75/293275/2/check/gate-grenade-dsvm/343b316/ : SUCCESS in 43m 30s\n- gate-tempest-dsvm-full-devstack-plugin-ceph-nv http://logs.openstack.org/75/293275/2/check/gate-tempest-dsvm-full-devstack-plugin-ceph-nv/878915f/ : SUCCESS in 51m 28s (non-voting)\n- gate-tempest-dsvm-neutron-identity-v3-only-full-nv http://logs.openstack.org/75/293275/2/check/gate-tempest-dsvm-neutron-identity-v3-only-full-nv/fa6fe3b/ : SUCCESS in 1h 05m 30s (non-voting)\n- gate-rally-dsvm-glance http://logs.openstack.org/75/293275/2/check/gate-rally-dsvm-glance/9d798c9/ : SUCCESS in 34m 30s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "d91f90b3f93ac3e7347cf165665898e112ea910f",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2016-04-06 07:34:17.000000000",
+            "message": "Patch Set 2: -Verified\n\nStarting gate jobs.\nhttp://status.openstack.org/zuul/",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "ebc36e14032377914cb5b6e89ebc7b254258ea5c",
+            "date": "2016-04-06 08:46:51.000000000",
+            "message": "Change has been successfully merged into the git repository by Jenkins",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "7b2f4a0ef247a4274d12d884217f7423e9d9643e",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2016-04-06 08:46:51.000000000",
+            "message": "Patch Set 2: Verified+2\n\nBuild succeeded (gate pipeline).\n\n- gate-glance-python34-db http://logs.openstack.org/75/293275/2/gate/gate-glance-python34-db/b8cb5c6/ : SUCCESS in 3m 53s\n- gate-glance-docs http://docs-draft.openstack.org/75/293275/2/gate/gate-glance-docs/c508d55//doc/build/html/ : SUCCESS in 6m 30s\n- gate-glance-pep8 http://logs.openstack.org/75/293275/2/gate/gate-glance-pep8/df31ccd/ : SUCCESS in 3m 11s\n- gate-glance-python27-db http://logs.openstack.org/75/293275/2/gate/gate-glance-python27-db/49dafef/ : SUCCESS in 7m 35s\n- gate-tempest-dsvm-full http://logs.openstack.org/75/293275/2/gate/gate-tempest-dsvm-full/371c068/ : SUCCESS in 36m 02s\n- gate-tempest-dsvm-postgres-full http://logs.openstack.org/75/293275/2/gate/gate-tempest-dsvm-postgres-full/e9044ee/ : SUCCESS in 46m 11s\n- gate-tempest-dsvm-neutron-full http://logs.openstack.org/75/293275/2/gate/gate-tempest-dsvm-neutron-full/ac16124/ : SUCCESS in 1h 04m 31s\n- gate-grenade-dsvm http://logs.openstack.org/75/293275/2/gate/gate-grenade-dsvm/4c3e457/ : SUCCESS in 26m 49s",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        }
+    ],
+    "requirements": [],
+    "submit_records": []
+}

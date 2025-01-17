@@ -1,0 +1,874 @@
+{
+    "id": "openstack%2Fglance~master~I303710479ebb617495cd834777963d8dfcc01f54",
+    "project": "openstack/glance",
+    "branch": "master",
+    "topic": "db-migration-cleanup",
+    "hashtags": [],
+    "change_id": "I303710479ebb617495cd834777963d8dfcc01f54",
+    "subject": "Remove from_migration_import() and use autoload=True instead",
+    "status": "ABANDONED",
+    "created": "2013-08-19 15:34:19.000000000",
+    "updated": "2013-10-23 06:03:05.000000000",
+    "insertions": 33,
+    "deletions": 423,
+    "total_comment_count": 0,
+    "unresolved_comment_count": 0,
+    "has_review_started": true,
+    "meta_rev_id": "ab0a793824cc124c0593a5176e29671713664a8a",
+    "_number": 42671,
+    "owner": {
+        "_account_id": 100,
+        "name": "Johannes Erdfelt",
+        "email": "johannes@erdfelt.com",
+        "username": "johannes.erdfelt"
+    },
+    "labels": {
+        "Verified": {
+            "recommended": {
+                "_account_id": 2166,
+                "name": "SmokeStack CI",
+                "username": "smokestack",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "all": [
+                {
+                    "_account_id": 6493,
+                    "name": "John Bresnahan",
+                    "email": "john@bresnahan.me",
+                    "username": "jbresnah"
+                },
+                {
+                    "_account_id": 4463,
+                    "name": "iccha-sethi",
+                    "email": "iccha.sethi@rackspace.com",
+                    "username": "iccha-sethi"
+                },
+                {
+                    "_account_id": 616,
+                    "name": "Mark Washenberger",
+                    "email": "mark.washenberger@markwash.net",
+                    "username": "markwash"
+                },
+                {
+                    "_account_id": 100,
+                    "name": "Johannes Erdfelt",
+                    "email": "johannes@erdfelt.com",
+                    "username": "johannes.erdfelt"
+                },
+                {
+                    "value": 1,
+                    "date": "2013-08-19 22:00:27.000000000",
+                    "_account_id": 2166,
+                    "name": "SmokeStack CI",
+                    "username": "smokestack",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "_account_id": 7703,
+                    "name": "Venkatesh Sampath",
+                    "email": "venkatesh.sampath@outlook.com",
+                    "username": "venkateshsampath"
+                },
+                {
+                    "_account_id": 7491,
+                    "name": "Viktor Serhieiev",
+                    "email": "viktor.sergeyev@gmail.com",
+                    "username": "vsergeyev"
+                },
+                {
+                    "value": 1,
+                    "date": "2013-08-20 01:40:46.000000000",
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-2": "Fails",
+                "-1": "Doesn't seem to work",
+                " 0": "No score",
+                "+1": "Works for me",
+                "+2": "Verified"
+            },
+            "description": "",
+            "value": 1,
+            "default_value": 0,
+            "optional": true
+        },
+        "Code-Review": {
+            "approved": {
+                "_account_id": 6493,
+                "name": "John Bresnahan",
+                "email": "john@bresnahan.me",
+                "username": "jbresnah"
+            },
+            "recommended": {
+                "_account_id": 7703,
+                "name": "Venkatesh Sampath",
+                "email": "venkatesh.sampath@outlook.com",
+                "username": "venkateshsampath"
+            },
+            "disliked": {
+                "_account_id": 4463,
+                "name": "iccha-sethi",
+                "email": "iccha.sethi@rackspace.com",
+                "username": "iccha-sethi"
+            },
+            "all": [
+                {
+                    "value": 2,
+                    "date": "2013-09-01 19:57:01.000000000",
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 6493,
+                    "name": "John Bresnahan",
+                    "email": "john@bresnahan.me",
+                    "username": "jbresnah"
+                },
+                {
+                    "value": -1,
+                    "date": "2013-10-15 20:01:30.000000000",
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 4463,
+                    "name": "iccha-sethi",
+                    "email": "iccha.sethi@rackspace.com",
+                    "username": "iccha-sethi"
+                },
+                {
+                    "value": -1,
+                    "date": "2013-09-05 19:57:33.000000000",
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 616,
+                    "name": "Mark Washenberger",
+                    "email": "mark.washenberger@markwash.net",
+                    "username": "markwash"
+                },
+                {
+                    "value": 0,
+                    "date": "2013-08-19 22:32:42.000000000",
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 100,
+                    "name": "Johannes Erdfelt",
+                    "email": "johannes@erdfelt.com",
+                    "username": "johannes.erdfelt"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 2166,
+                    "name": "SmokeStack CI",
+                    "username": "smokestack",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 1,
+                    "date": "2013-10-08 14:25:25.000000000",
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 7703,
+                    "name": "Venkatesh Sampath",
+                    "email": "venkatesh.sampath@outlook.com",
+                    "username": "venkateshsampath"
+                },
+                {
+                    "value": 1,
+                    "date": "2013-10-08 07:47:01.000000000",
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 7491,
+                    "name": "Viktor Serhieiev",
+                    "email": "viktor.sergeyev@gmail.com",
+                    "username": "vsergeyev"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-2": "Do not merge",
+                "-1": "This patch needs further work before it can be merged",
+                " 0": "No score",
+                "+1": "Looks good to me, but someone else must approve",
+                "+2": "Looks good to me (core reviewer)"
+            },
+            "description": "",
+            "value": -1,
+            "default_value": 0,
+            "optional": true
+        },
+        "Workflow": {
+            "all": [
+                {
+                    "date": "2013-09-01 19:57:01.000000000",
+                    "_account_id": 6493,
+                    "name": "John Bresnahan",
+                    "email": "john@bresnahan.me",
+                    "username": "jbresnah"
+                },
+                {
+                    "date": "2013-10-15 20:01:30.000000000",
+                    "_account_id": 4463,
+                    "name": "iccha-sethi",
+                    "email": "iccha.sethi@rackspace.com",
+                    "username": "iccha-sethi"
+                },
+                {
+                    "date": "2013-09-05 19:57:33.000000000",
+                    "_account_id": 616,
+                    "name": "Mark Washenberger",
+                    "email": "mark.washenberger@markwash.net",
+                    "username": "markwash"
+                },
+                {
+                    "value": 0,
+                    "date": "2013-08-19 20:48:41.000000000",
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 0
+                    },
+                    "_account_id": 100,
+                    "name": "Johannes Erdfelt",
+                    "email": "johannes@erdfelt.com",
+                    "username": "johannes.erdfelt"
+                },
+                {
+                    "_account_id": 2166,
+                    "name": "SmokeStack CI",
+                    "username": "smokestack",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "_account_id": 7703,
+                    "name": "Venkatesh Sampath",
+                    "email": "venkatesh.sampath@outlook.com",
+                    "username": "venkateshsampath"
+                },
+                {
+                    "_account_id": 7491,
+                    "name": "Viktor Serhieiev",
+                    "email": "viktor.sergeyev@gmail.com",
+                    "username": "vsergeyev"
+                },
+                {
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-1": "Work in progress",
+                " 0": "Ready for reviews",
+                "+1": "Approved"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        },
+        "Review-Priority": {
+            "all": [
+                {
+                    "_account_id": 6493,
+                    "name": "John Bresnahan",
+                    "email": "john@bresnahan.me",
+                    "username": "jbresnah"
+                },
+                {
+                    "_account_id": 4463,
+                    "name": "iccha-sethi",
+                    "email": "iccha.sethi@rackspace.com",
+                    "username": "iccha-sethi"
+                },
+                {
+                    "_account_id": 616,
+                    "name": "Mark Washenberger",
+                    "email": "mark.washenberger@markwash.net",
+                    "username": "markwash"
+                },
+                {
+                    "_account_id": 100,
+                    "name": "Johannes Erdfelt",
+                    "email": "johannes@erdfelt.com",
+                    "username": "johannes.erdfelt"
+                },
+                {
+                    "_account_id": 2166,
+                    "name": "SmokeStack CI",
+                    "username": "smokestack",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "_account_id": 7703,
+                    "name": "Venkatesh Sampath",
+                    "email": "venkatesh.sampath@outlook.com",
+                    "username": "venkateshsampath"
+                },
+                {
+                    "_account_id": 7491,
+                    "name": "Viktor Serhieiev",
+                    "email": "viktor.sergeyev@gmail.com",
+                    "username": "vsergeyev"
+                },
+                {
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-1": "Branch Freeze",
+                " 0": "No Priority",
+                "+1": "Important Change",
+                "+2": "Top Priority / Holds Gate"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        }
+    },
+    "removable_reviewers": [],
+    "reviewers": {
+        "REVIEWER": [
+            {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            {
+                "_account_id": 100,
+                "name": "Johannes Erdfelt",
+                "email": "johannes@erdfelt.com",
+                "username": "johannes.erdfelt"
+            },
+            {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            {
+                "_account_id": 2166,
+                "name": "SmokeStack CI",
+                "username": "smokestack",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            {
+                "_account_id": 4463,
+                "name": "iccha-sethi",
+                "email": "iccha.sethi@rackspace.com",
+                "username": "iccha-sethi"
+            },
+            {
+                "_account_id": 6493,
+                "name": "John Bresnahan",
+                "email": "john@bresnahan.me",
+                "username": "jbresnah"
+            },
+            {
+                "_account_id": 7491,
+                "name": "Viktor Serhieiev",
+                "email": "viktor.sergeyev@gmail.com",
+                "username": "vsergeyev"
+            },
+            {
+                "_account_id": 7703,
+                "name": "Venkatesh Sampath",
+                "email": "venkatesh.sampath@outlook.com",
+                "username": "venkateshsampath"
+            }
+        ]
+    },
+    "pending_reviewers": {},
+    "reviewer_updates": [
+        {
+            "updated": "2013-08-19 22:00:27.000000000",
+            "updated_by": {
+                "_account_id": 2166,
+                "name": "SmokeStack CI",
+                "username": "smokestack",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "reviewer": {
+                "_account_id": 2166,
+                "name": "SmokeStack CI",
+                "username": "smokestack",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2013-08-20 01:40:46.000000000",
+            "updated_by": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "reviewer": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2013-09-01 19:57:01.000000000",
+            "updated_by": {
+                "_account_id": 6493,
+                "name": "John Bresnahan",
+                "email": "john@bresnahan.me",
+                "username": "jbresnah"
+            },
+            "reviewer": {
+                "_account_id": 6493,
+                "name": "John Bresnahan",
+                "email": "john@bresnahan.me",
+                "username": "jbresnah"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2013-09-05 19:57:33.000000000",
+            "updated_by": {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            "reviewer": {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2013-10-08 07:47:01.000000000",
+            "updated_by": {
+                "_account_id": 7491,
+                "name": "Viktor Serhieiev",
+                "email": "viktor.sergeyev@gmail.com",
+                "username": "vsergeyev"
+            },
+            "reviewer": {
+                "_account_id": 7491,
+                "name": "Viktor Serhieiev",
+                "email": "viktor.sergeyev@gmail.com",
+                "username": "vsergeyev"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2013-10-08 14:25:25.000000000",
+            "updated_by": {
+                "_account_id": 7703,
+                "name": "Venkatesh Sampath",
+                "email": "venkatesh.sampath@outlook.com",
+                "username": "venkateshsampath"
+            },
+            "reviewer": {
+                "_account_id": 7703,
+                "name": "Venkatesh Sampath",
+                "email": "venkatesh.sampath@outlook.com",
+                "username": "venkateshsampath"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2013-10-15 20:01:30.000000000",
+            "updated_by": {
+                "_account_id": 4463,
+                "name": "iccha-sethi",
+                "email": "iccha.sethi@rackspace.com",
+                "username": "iccha-sethi"
+            },
+            "reviewer": {
+                "_account_id": 4463,
+                "name": "iccha-sethi",
+                "email": "iccha.sethi@rackspace.com",
+                "username": "iccha-sethi"
+            },
+            "state": "REVIEWER"
+        }
+    ],
+    "messages": [
+        {
+            "id": "74e0825a9f04f8bc8d71ff879893855ef28dcd62",
+            "author": {
+                "_account_id": 2166,
+                "name": "SmokeStack CI",
+                "username": "smokestack",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 2166,
+                "name": "SmokeStack CI",
+                "username": "smokestack",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2013-08-19 16:56:42.000000000",
+            "message": "Patch Set 1: Works for me\n\nSmokeStack Results (patch set 1):\n\tLibvirt (Fedora 18) Success: https://50.56.5.192/?go=/jobs/116419\n\tLibvirt (Centos 6.4) Success: https://50.56.5.192/?go=/jobs/116420\n",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "a558cbad75032d88a2dd43301c4561239b4ad9ed",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2013-08-19 17:44:46.000000000",
+            "message": "Patch Set 1: Doesn't seem to work\n\nBuild failed.  For information on how to proceed, see https://wiki.openstack.org/wiki/GerritJenkinsGithub#Test_Failures\n\n- gate-glance-pep8 http://logs.openstack.org/71/42671/1/check/gate-glance-pep8/cf7e545 : SUCCESS in 4m 45s\n- gate-glance-docs http://docs-draft.openstack.org/71/42671/1/check/gate-glance-docs/c59de9b/doc/build/html/ : SUCCESS in 6m 12s\n- gate-glance-python26 http://logs.openstack.org/71/42671/1/check/gate-glance-python26/05cb01d : SUCCESS in 14m 52s\n- gate-glance-python27 http://logs.openstack.org/71/42671/1/check/gate-glance-python27/96f64f5 : SUCCESS in 13m 39s\n- gate-tempest-devstack-vm-full http://logs.openstack.org/71/42671/1/check/gate-tempest-devstack-vm-full/0844c14 : SUCCESS in 1h 23m 57s\n- gate-tempest-devstack-vm-cells-full http://logs.openstack.org/71/42671/1/check/gate-tempest-devstack-vm-cells-full/d475041 : FAILURE in 56m 15s (non-voting)\n- gate-tempest-devstack-vm-testr-full http://logs.openstack.org/71/42671/1/check/gate-tempest-devstack-vm-testr-full/ea08a9f : SUCCESS in 1h 09m 56s (non-voting)\n- gate-tempest-devstack-vm-postgres-full http://logs.openstack.org/71/42671/1/check/gate-tempest-devstack-vm-postgres-full/67d5dc2 : SUCCESS in 1h 28m 35s\n- gate-tempest-devstack-vm-neutron http://logs.openstack.org/71/42671/1/check/gate-tempest-devstack-vm-neutron/c831fa7 : SUCCESS in 1h 00m 17s\n- gate-grenade-devstack-vm http://logs.openstack.org/71/42671/1/check/gate-grenade-devstack-vm/9ccc8d0 : FAILURE in 1h 15m 27s\n",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "8e75ac38507f3be0487feee330558d9e8322559c",
+            "author": {
+                "_account_id": 100,
+                "name": "Johannes Erdfelt",
+                "email": "johannes@erdfelt.com",
+                "username": "johannes.erdfelt"
+            },
+            "real_author": {
+                "_account_id": 100,
+                "name": "Johannes Erdfelt",
+                "email": "johannes@erdfelt.com",
+                "username": "johannes.erdfelt"
+            },
+            "date": "2013-08-19 20:48:41.000000000",
+            "message": "Uploaded patch set 2.",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "a9e2b65bede3311579cbad1f1a554475e14d4798",
+            "author": {
+                "_account_id": 2166,
+                "name": "SmokeStack CI",
+                "username": "smokestack",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 2166,
+                "name": "SmokeStack CI",
+                "username": "smokestack",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2013-08-19 22:00:27.000000000",
+            "message": "Patch Set 2: Works for me\n\nSmokeStack Results (patch set 2):\n- Libvirt (Fedora 18) https://smokestack.openstack.org/?go=/jobs/116632 : SUCCESS \n- Libvirt (Centos 6.4) https://smokestack.openstack.org/?go=/jobs/116633 : SUCCESS \n",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "41a94b9916ba8f41ad12ee1a6a916441f7390402",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2013-08-19 22:21:24.000000000",
+            "message": "Patch Set 2: Doesn't seem to work\n\nBuild failed.  For information on how to proceed, see https://wiki.openstack.org/wiki/GerritJenkinsGithub#Test_Failures\n\n- gate-glance-pep8 http://logs.openstack.org/71/42671/2/check/gate-glance-pep8/a4f807f : SUCCESS in 4m 13s\n- gate-glance-docs http://docs-draft.openstack.org/71/42671/2/check/gate-glance-docs/c59cdb6/doc/build/html/ : SUCCESS in 4m 56s\n- gate-glance-python26 http://logs.openstack.org/71/42671/2/check/gate-glance-python26/79ab7d4 : SUCCESS in 12m 50s\n- gate-glance-python27 http://logs.openstack.org/71/42671/2/check/gate-glance-python27/f8f7035 : SUCCESS in 11m 26s\n- gate-tempest-devstack-vm-full http://logs.openstack.org/71/42671/2/check/gate-tempest-devstack-vm-full/cb487d5 : SUCCESS in 1h 12m 24s\n- gate-tempest-devstack-vm-cells-full http://logs.openstack.org/71/42671/2/check/gate-tempest-devstack-vm-cells-full/9556fcd : FAILURE in 44m 18s (non-voting)\n- gate-tempest-devstack-vm-testr-full http://logs.openstack.org/71/42671/2/check/gate-tempest-devstack-vm-testr-full/e9d4b97 : FAILURE in 1h 09m 26s (non-voting)\n- gate-tempest-devstack-vm-postgres-full http://logs.openstack.org/71/42671/2/check/gate-tempest-devstack-vm-postgres-full/e120ac5 : SUCCESS in 1h 22m 08s\n- gate-tempest-devstack-vm-neutron http://logs.openstack.org/71/42671/2/check/gate-tempest-devstack-vm-neutron/1616831 : SUCCESS in 54m 09s\n- gate-grenade-devstack-vm http://logs.openstack.org/71/42671/2/check/gate-grenade-devstack-vm/684eb1b : LOST in 2s\n",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "083eb272de9f92f456e68193c4ce2bfcc35e3745",
+            "author": {
+                "_account_id": 100,
+                "name": "Johannes Erdfelt",
+                "email": "johannes@erdfelt.com",
+                "username": "johannes.erdfelt"
+            },
+            "real_author": {
+                "_account_id": 100,
+                "name": "Johannes Erdfelt",
+                "email": "johannes@erdfelt.com",
+                "username": "johannes.erdfelt"
+            },
+            "date": "2013-08-19 22:32:42.000000000",
+            "message": "Patch Set 2:\n\nrecheck bug 1206495",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "2bec47398e27f58b79be71a3afb153c5f8b679cc",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2013-08-20 01:40:46.000000000",
+            "message": "Patch Set 2: Works for me\n\nBuild succeeded.\n\n- gate-glance-pep8 http://logs.openstack.org/71/42671/2/check/gate-glance-pep8/9021447 : SUCCESS in 4m 10s\n- gate-glance-docs http://docs-draft.openstack.org/71/42671/2/check/gate-glance-docs/a0896cc/doc/build/html/ : SUCCESS in 5m 33s\n- gate-glance-python26 http://logs.openstack.org/71/42671/2/check/gate-glance-python26/b1a001c : SUCCESS in 12m 35s\n- gate-glance-python27 http://logs.openstack.org/71/42671/2/check/gate-glance-python27/1824d3c : SUCCESS in 10m 22s\n- gate-tempest-devstack-vm-full http://logs.openstack.org/71/42671/2/check/gate-tempest-devstack-vm-full/4f7c147 : SUCCESS in 1h 14m 33s\n- gate-tempest-devstack-vm-cells-full http://logs.openstack.org/71/42671/2/check/gate-tempest-devstack-vm-cells-full/a8b5886 : FAILURE in 48m 05s (non-voting)\n- gate-tempest-devstack-vm-testr-full http://logs.openstack.org/71/42671/2/check/gate-tempest-devstack-vm-testr-full/9d9f8b9 : SUCCESS in 56m 29s (non-voting)\n- gate-tempest-devstack-vm-postgres-full http://logs.openstack.org/71/42671/2/check/gate-tempest-devstack-vm-postgres-full/52539e3 : SUCCESS in 1h 23m 31s\n- gate-tempest-devstack-vm-neutron http://logs.openstack.org/71/42671/2/check/gate-tempest-devstack-vm-neutron/51e3838 : SUCCESS in 53m 12s\n- gate-grenade-devstack-vm http://logs.openstack.org/71/42671/2/check/gate-grenade-devstack-vm/9ea8e9e : SUCCESS in 1h 18m 46s\n",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "1fb4b4ed4619c99e7224d9b8ba850bb189931a0d",
+            "author": {
+                "_account_id": 6493,
+                "name": "John Bresnahan",
+                "email": "john@bresnahan.me",
+                "username": "jbresnah"
+            },
+            "real_author": {
+                "_account_id": 6493,
+                "name": "John Bresnahan",
+                "email": "john@bresnahan.me",
+                "username": "jbresnah"
+            },
+            "date": "2013-09-01 19:57:01.000000000",
+            "message": "Patch Set 2: Looks good to me (core reviewer)\n\n",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "86734dddbf8ac0a915687534bd5e01dcad01dbad",
+            "author": {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            "real_author": {
+                "_account_id": 616,
+                "name": "Mark Washenberger",
+                "email": "mark.washenberger@markwash.net",
+                "username": "markwash"
+            },
+            "date": "2013-09-05 19:57:33.000000000",
+            "message": "Patch Set 2: I would prefer that you didn't merge this\n\nWould you mind linking a bug to this? And also can this patch wait a little bit to avoid a conflict or two with some higher priority fixes? I think this is good for RC1 otherwise.",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "55940f0c5c204a6b62f1b9fa6bfeeff1e7084885",
+            "author": {
+                "_account_id": 100,
+                "name": "Johannes Erdfelt",
+                "email": "johannes@erdfelt.com",
+                "username": "johannes.erdfelt"
+            },
+            "real_author": {
+                "_account_id": 100,
+                "name": "Johannes Erdfelt",
+                "email": "johannes@erdfelt.com",
+                "username": "johannes.erdfelt"
+            },
+            "date": "2013-09-05 20:15:15.000000000",
+            "message": "Patch Set 2:\n\nThere is no bug, this is just a code cleanup.\n\nNewer code already uses autoload=True, I'm just updating the older code to do the same thing.\n\nI'm also not sure how this could conflict with anything else. The only changes to migrations should be code cleanups, like this.\n\nI don't know if making this change wait longer will help anything. It's already been waiting since July 25 and it's frustrating enough to have this sit around for so long.",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "300e6c5d90d13bfc474e645fc24be980a3ec3f66",
+            "author": {
+                "_account_id": 9,
+                "name": "LaunchpadSync",
+                "username": "launchpadsync"
+            },
+            "real_author": {
+                "_account_id": 9,
+                "name": "LaunchpadSync",
+                "username": "launchpadsync"
+            },
+            "date": "2013-09-13 06:03:08.000000000",
+            "message": "Patch Set 2:\n\ncode review expired after 1 week of no activity after a negative review, it can be restored using the `Restore Change` button under the Patch Set on the web interface",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "95046c9a9b0f778e904833bffa92d620961ad30f",
+            "author": {
+                "_account_id": 9,
+                "name": "LaunchpadSync",
+                "username": "launchpadsync"
+            },
+            "real_author": {
+                "_account_id": 9,
+                "name": "LaunchpadSync",
+                "username": "launchpadsync"
+            },
+            "date": "2013-09-13 06:03:08.000000000",
+            "message": "Patch Set 2: Abandoned\n\ncode review expired after 1 week of no activity after a negative review, it can be restored using the `Restore Change` button under the Patch Set on the web interface",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "430b7c2d3260e9456363ab6bb2fb5781b92d6435",
+            "author": {
+                "_account_id": 100,
+                "name": "Johannes Erdfelt",
+                "email": "johannes@erdfelt.com",
+                "username": "johannes.erdfelt"
+            },
+            "real_author": {
+                "_account_id": 100,
+                "name": "Johannes Erdfelt",
+                "email": "johannes@erdfelt.com",
+                "username": "johannes.erdfelt"
+            },
+            "date": "2013-10-03 20:40:54.000000000",
+            "message": "Patch Set 2: Restored\n\nNow that the feature freeze is over...",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "b4082c0d00a2dbc2ec5e5c158fa500a2f9153610",
+            "author": {
+                "_account_id": 7491,
+                "name": "Viktor Serhieiev",
+                "email": "viktor.sergeyev@gmail.com",
+                "username": "vsergeyev"
+            },
+            "real_author": {
+                "_account_id": 7491,
+                "name": "Viktor Serhieiev",
+                "email": "viktor.sergeyev@gmail.com",
+                "username": "vsergeyev"
+            },
+            "date": "2013-10-08 07:47:01.000000000",
+            "message": "Patch Set 2: Looks good to me, but someone else must approve\n\nlgtm, migrations looks cleaner with `autoload=True`",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "a3cb9c3ad58752278d729ab39b4eea3a98c03169",
+            "author": {
+                "_account_id": 7703,
+                "name": "Venkatesh Sampath",
+                "email": "venkatesh.sampath@outlook.com",
+                "username": "venkateshsampath"
+            },
+            "real_author": {
+                "_account_id": 7703,
+                "name": "Venkatesh Sampath",
+                "email": "venkatesh.sampath@outlook.com",
+                "username": "venkateshsampath"
+            },
+            "date": "2013-10-08 14:25:25.000000000",
+            "message": "Patch Set 2: Looks good to me, but someone else must approve\n\n",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "a70b15efe0f07293d61d6169bd4a85b453691002",
+            "author": {
+                "_account_id": 4463,
+                "name": "iccha-sethi",
+                "email": "iccha.sethi@rackspace.com",
+                "username": "iccha-sethi"
+            },
+            "real_author": {
+                "_account_id": 4463,
+                "name": "iccha-sethi",
+                "email": "iccha.sethi@rackspace.com",
+                "username": "iccha-sethi"
+            },
+            "date": "2013-10-15 20:01:30.000000000",
+            "message": "Patch Set 2: I would prefer that you didn't merge this\n\nI am happy to approve this patch once it has been linked to a bug. Helps keep track of what we release that way.",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "d7feeb6903b0f19f64d870910a9a680f69bbfcc2",
+            "author": {
+                "_account_id": 9,
+                "name": "LaunchpadSync",
+                "username": "launchpadsync"
+            },
+            "real_author": {
+                "_account_id": 9,
+                "name": "LaunchpadSync",
+                "username": "launchpadsync"
+            },
+            "date": "2013-10-23 06:03:05.000000000",
+            "message": "Patch Set 2: Abandoned\n\ncode review expired after 1 week of no activity after a negative review, it can be restored using the `Restore Change` button under the Patch Set on the web interface",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "4aedc2a00be9b9eb134116596c13f8c4874119e7",
+            "author": {
+                "_account_id": 9,
+                "name": "LaunchpadSync",
+                "username": "launchpadsync"
+            },
+            "real_author": {
+                "_account_id": 9,
+                "name": "LaunchpadSync",
+                "username": "launchpadsync"
+            },
+            "date": "2013-10-23 06:03:05.000000000",
+            "message": "Patch Set 2:\n\ncode review expired after 1 week of no activity after a negative review, it can be restored using the `Restore Change` button under the Patch Set on the web interface",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        }
+    ],
+    "requirements": [],
+    "submit_records": []
+}

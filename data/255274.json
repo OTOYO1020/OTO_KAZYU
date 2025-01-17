@@ -1,0 +1,1759 @@
+{
+    "id": "openstack%2Fglance~master~I5b7bd4cdcc5f2a40fc4a5f74bcc422fd700c4fb0",
+    "project": "openstack/glance",
+    "branch": "master",
+    "topic": "bp/move-v3-to-glare",
+    "hashtags": [],
+    "change_id": "I5b7bd4cdcc5f2a40fc4a5f74bcc422fd700c4fb0",
+    "subject": "Move Glance Artifact Repository API to separate endpoint",
+    "status": "MERGED",
+    "created": "2015-12-09 14:07:26.000000000",
+    "updated": "2016-02-11 02:14:23.000000000",
+    "submitted": "2016-02-11 02:14:23.000000000",
+    "submitter": {
+        "_account_id": 3,
+        "name": "Jenkins",
+        "username": "jenkins"
+    },
+    "insertions": 1396,
+    "deletions": 276,
+    "total_comment_count": 22,
+    "unresolved_comment_count": 0,
+    "has_review_started": true,
+    "meta_rev_id": "260fc3c7987c6e648c7e8aaa2eafc389f83333d3",
+    "_number": 255274,
+    "owner": {
+        "_account_id": 8127,
+        "name": "Alexander Tivelkov",
+        "email": "locher@yandex.ru",
+        "username": "ativelkov"
+    },
+    "labels": {
+        "Verified": {
+            "approved": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 6159,
+                    "name": "Flavio Percoco",
+                    "display_name": "flaper87",
+                    "email": "fpercoco@redhat.com",
+                    "username": "flaper87"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 11391,
+                    "name": "Mikhail Fedosin",
+                    "email": "mfedosin@redhat.com",
+                    "username": "fedosinme"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 8127,
+                    "name": "Alexander Tivelkov",
+                    "email": "locher@yandex.ru",
+                    "username": "ativelkov"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 2537,
+                    "name": "Nikhil Komawar",
+                    "email": "nik.komawar@gmail.com",
+                    "username": "nikhil-komawar"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 8871,
+                    "name": "Elastic Recheck",
+                    "username": "elasticrecheck"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 12000,
+                    "name": "Ian Cordasco",
+                    "email": "sigmavirus24@gmail.com",
+                    "username": "sigmavirus24"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 16658,
+                    "name": "Darja Shakhray",
+                    "email": "damalyavkina@gmail.com",
+                    "username": "dshakhray"
+                },
+                {
+                    "value": 2,
+                    "date": "2016-02-11 02:14:23.000000000",
+                    "post_submit": true,
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-2": "Fails",
+                "-1": "Doesn't seem to work",
+                " 0": "No score",
+                "+1": "Works for me",
+                "+2": "Verified"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        },
+        "Code-Review": {
+            "approved": {
+                "_account_id": 6159,
+                "name": "Flavio Percoco",
+                "display_name": "flaper87",
+                "email": "fpercoco@redhat.com",
+                "username": "flaper87"
+            },
+            "all": [
+                {
+                    "value": 2,
+                    "date": "2016-02-10 15:39:18.000000000",
+                    "_account_id": 6159,
+                    "name": "Flavio Percoco",
+                    "display_name": "flaper87",
+                    "email": "fpercoco@redhat.com",
+                    "username": "flaper87"
+                },
+                {
+                    "value": 2,
+                    "date": "2016-02-10 21:05:05.000000000",
+                    "_account_id": 11391,
+                    "name": "Mikhail Fedosin",
+                    "email": "mfedosin@redhat.com",
+                    "username": "fedosinme"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 8127,
+                    "name": "Alexander Tivelkov",
+                    "email": "locher@yandex.ru",
+                    "username": "ativelkov"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 2537,
+                    "name": "Nikhil Komawar",
+                    "email": "nik.komawar@gmail.com",
+                    "username": "nikhil-komawar"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 8871,
+                    "name": "Elastic Recheck",
+                    "username": "elasticrecheck"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 12000,
+                    "name": "Ian Cordasco",
+                    "email": "sigmavirus24@gmail.com",
+                    "username": "sigmavirus24"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 16658,
+                    "name": "Darja Shakhray",
+                    "email": "damalyavkina@gmail.com",
+                    "username": "dshakhray"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-2": "Do not merge",
+                "-1": "This patch needs further work before it can be merged",
+                " 0": "No score",
+                "+1": "Looks good to me, but someone else must approve",
+                "+2": "Looks good to me (core reviewer)"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        },
+        "Workflow": {
+            "approved": {
+                "_account_id": 11391,
+                "name": "Mikhail Fedosin",
+                "email": "mfedosin@redhat.com",
+                "username": "fedosinme"
+            },
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 6159,
+                    "name": "Flavio Percoco",
+                    "display_name": "flaper87",
+                    "email": "fpercoco@redhat.com",
+                    "username": "flaper87"
+                },
+                {
+                    "value": 1,
+                    "date": "2016-02-10 21:05:05.000000000",
+                    "_account_id": 11391,
+                    "name": "Mikhail Fedosin",
+                    "email": "mfedosin@redhat.com",
+                    "username": "fedosinme"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 8127,
+                    "name": "Alexander Tivelkov",
+                    "email": "locher@yandex.ru",
+                    "username": "ativelkov"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 2537,
+                    "name": "Nikhil Komawar",
+                    "email": "nik.komawar@gmail.com",
+                    "username": "nikhil-komawar"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 8871,
+                    "name": "Elastic Recheck",
+                    "username": "elasticrecheck"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 12000,
+                    "name": "Ian Cordasco",
+                    "email": "sigmavirus24@gmail.com",
+                    "username": "sigmavirus24"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 16658,
+                    "name": "Darja Shakhray",
+                    "email": "damalyavkina@gmail.com",
+                    "username": "dshakhray"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-1": "Work in progress",
+                " 0": "Ready for reviews",
+                "+1": "Approved"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        },
+        "Review-Priority": {
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 6159,
+                    "name": "Flavio Percoco",
+                    "display_name": "flaper87",
+                    "email": "fpercoco@redhat.com",
+                    "username": "flaper87"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 11391,
+                    "name": "Mikhail Fedosin",
+                    "email": "mfedosin@redhat.com",
+                    "username": "fedosinme"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 8127,
+                    "name": "Alexander Tivelkov",
+                    "email": "locher@yandex.ru",
+                    "username": "ativelkov"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 2537,
+                    "name": "Nikhil Komawar",
+                    "email": "nik.komawar@gmail.com",
+                    "username": "nikhil-komawar"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 8871,
+                    "name": "Elastic Recheck",
+                    "username": "elasticrecheck"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 12000,
+                    "name": "Ian Cordasco",
+                    "email": "sigmavirus24@gmail.com",
+                    "username": "sigmavirus24"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 16658,
+                    "name": "Darja Shakhray",
+                    "email": "damalyavkina@gmail.com",
+                    "username": "dshakhray"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-1": "Branch Freeze",
+                " 0": "No Priority",
+                "+1": "Important Change",
+                "+2": "Top Priority / Holds Gate"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        }
+    },
+    "removable_reviewers": [],
+    "reviewers": {
+        "REVIEWER": [
+            {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            {
+                "_account_id": 6159,
+                "name": "Flavio Percoco",
+                "display_name": "flaper87",
+                "email": "fpercoco@redhat.com",
+                "username": "flaper87"
+            },
+            {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            {
+                "_account_id": 8871,
+                "name": "Elastic Recheck",
+                "username": "elasticrecheck"
+            },
+            {
+                "_account_id": 11391,
+                "name": "Mikhail Fedosin",
+                "email": "mfedosin@redhat.com",
+                "username": "fedosinme"
+            },
+            {
+                "_account_id": 12000,
+                "name": "Ian Cordasco",
+                "email": "sigmavirus24@gmail.com",
+                "username": "sigmavirus24"
+            },
+            {
+                "_account_id": 16658,
+                "name": "Darja Shakhray",
+                "email": "damalyavkina@gmail.com",
+                "username": "dshakhray"
+            }
+        ]
+    },
+    "pending_reviewers": {},
+    "reviewer_updates": [
+        {
+            "updated": "2015-12-16 11:45:53.000000000",
+            "updated_by": {
+                "_account_id": 12000,
+                "name": "Ian Cordasco",
+                "email": "sigmavirus24@gmail.com",
+                "username": "sigmavirus24"
+            },
+            "reviewer": {
+                "_account_id": 12000,
+                "name": "Ian Cordasco",
+                "email": "sigmavirus24@gmail.com",
+                "username": "sigmavirus24"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2015-12-16 11:45:58.000000000",
+            "updated_by": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "reviewer": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2015-12-17 09:43:11.000000000",
+            "updated_by": {
+                "_account_id": 8871,
+                "name": "Elastic Recheck",
+                "username": "elasticrecheck"
+            },
+            "reviewer": {
+                "_account_id": 8871,
+                "name": "Elastic Recheck",
+                "username": "elasticrecheck"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2016-02-10 15:11:36.000000000",
+            "updated_by": {
+                "_account_id": 16658,
+                "name": "Darja Shakhray",
+                "email": "damalyavkina@gmail.com",
+                "username": "dshakhray"
+            },
+            "reviewer": {
+                "_account_id": 16658,
+                "name": "Darja Shakhray",
+                "email": "damalyavkina@gmail.com",
+                "username": "dshakhray"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2016-02-10 15:39:18.000000000",
+            "updated_by": {
+                "_account_id": 6159,
+                "name": "Flavio Percoco",
+                "display_name": "flaper87",
+                "email": "fpercoco@redhat.com",
+                "username": "flaper87"
+            },
+            "reviewer": {
+                "_account_id": 6159,
+                "name": "Flavio Percoco",
+                "display_name": "flaper87",
+                "email": "fpercoco@redhat.com",
+                "username": "flaper87"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2016-02-10 21:05:05.000000000",
+            "updated_by": {
+                "_account_id": 11391,
+                "name": "Mikhail Fedosin",
+                "email": "mfedosin@redhat.com",
+                "username": "fedosinme"
+            },
+            "reviewer": {
+                "_account_id": 11391,
+                "name": "Mikhail Fedosin",
+                "email": "mfedosin@redhat.com",
+                "username": "fedosinme"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2016-02-11 02:14:23.000000000",
+            "updated_by": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "reviewer": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "state": "REVIEWER"
+        }
+    ],
+    "messages": [
+        {
+            "id": "b4dccc78ebd6a918453648df9b2f7a8b9683c9bc",
+            "author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "real_author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "date": "2015-12-09 14:07:26.000000000",
+            "message": "Uploaded patch set 1.",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "8ece52abb6c6660e1539d71d148a9a2b046ea661",
+            "author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "real_author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "date": "2015-12-09 14:08:04.000000000",
+            "message": "Uploaded patch set 2.",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "cfd1ec666e71d4fda15a07993d82713f64f2e391",
+            "author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "real_author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "date": "2015-12-09 14:08:24.000000000",
+            "message": "Patch Set 2: Workflow-1",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "8473fc7b3db7a85980d5a5719f465fc13b4e0f4d",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2015-12-09 16:30:13.000000000",
+            "message": "Patch Set 2: Verified-1\n\nBuild failed (check pipeline).  For information on how to proceed, see http://docs.openstack.org/infra/manual/developers.html#automated-testing\n\n- gate-glance-python34 http://logs.openstack.org/74/255274/2/check/gate-glance-python34/42d0150/ : SUCCESS in 5m 00s\n- gate-glance-pep8 http://logs.openstack.org/74/255274/2/check/gate-glance-pep8/9295867/ : FAILURE in 1m 54s\n- gate-glance-docs http://docs-draft.openstack.org/74/255274/2/check/gate-glance-docs/6505d9c//doc/build/html/ : SUCCESS in 1m 52s\n- gate-glance-python27 http://logs.openstack.org/74/255274/2/check/gate-glance-python27/e6ab431/ : FAILURE in 2m 03s\n- gate-tempest-dsvm-full http://logs.openstack.org/74/255274/2/check/gate-tempest-dsvm-full/2330cb2/ : SUCCESS in 52m 06s\n- gate-tempest-dsvm-postgres-full http://logs.openstack.org/74/255274/2/check/gate-tempest-dsvm-postgres-full/2cc1713/ : SUCCESS in 54m 53s\n- gate-tempest-dsvm-neutron-full http://logs.openstack.org/74/255274/2/check/gate-tempest-dsvm-neutron-full/c6aa9df/ : SUCCESS in 1h 20m 55s\n- gate-grenade-dsvm http://logs.openstack.org/74/255274/2/check/gate-grenade-dsvm/10090f7/ : SUCCESS in 55m 40s\n- gate-tempest-dsvm-large-ops http://logs.openstack.org/74/255274/2/check/gate-tempest-dsvm-large-ops/8fbade7/ : SUCCESS in 33m 55s\n- gate-tempest-dsvm-neutron-large-ops http://logs.openstack.org/74/255274/2/check/gate-tempest-dsvm-neutron-large-ops/30cbf4a/ : SUCCESS in 32m 49s\n- gate-tempest-dsvm-full-ceph http://logs.openstack.org/74/255274/2/check/gate-tempest-dsvm-full-ceph/5f8b691/ : SUCCESS in 57m 36s\n- gate-rally-dsvm-glance http://logs.openstack.org/74/255274/2/check/gate-rally-dsvm-glance/f4fb5ee/ : SUCCESS in 45m 48s (non-voting)\n- gate-glance-python27-constraints http://logs.openstack.org/74/255274/2/check/gate-glance-python27-constraints/6383098/ : FAILURE in 1m 56s (non-voting)\n- gate-glance-python34-constraints http://logs.openstack.org/74/255274/2/check/gate-glance-python34-constraints/1f63560/ : SUCCESS in 5m 01s (non-voting)\n- gate-glance-docs-constraints http://docs-draft.openstack.org/74/255274/2/check/gate-glance-docs-constraints/08d303c//doc/build/html/ : SUCCESS in 1m 59s (non-voting)\n- gate-glance-pep8-constraints http://logs.openstack.org/74/255274/2/check/gate-glance-pep8-constraints/b3a3935/ : FAILURE in 1m 41s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "8db7be9b84ac4439ba7a3bb06eacb6244e952a44",
+            "author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "real_author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "date": "2015-12-11 13:04:28.000000000",
+            "message": "Uploaded patch set 3.",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "e8c26a5e2829734089551b1e9e03f44147da4070",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2015-12-11 13:04:36.000000000",
+            "message": "Patch Set 3: Verified-1\n\nMerge Failed.\n\nThis change or one of its cross-repo dependencies was unable to be automatically merged with the current state of its repository. Please rebase the change and upload a new patchset.",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "5dc38c0616186ef7548ceb4588d64cd7b459878b",
+            "author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "real_author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "date": "2015-12-11 13:07:12.000000000",
+            "message": "Uploaded patch set 4.",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "90351300e40e1f590faac10c0f02f5917940e021",
+            "author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "real_author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "date": "2015-12-11 13:07:53.000000000",
+            "message": "Patch Set 4: Workflow-1",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "b268559fe5533e2d9f915bf1694544caefd66d5e",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2015-12-11 14:22:51.000000000",
+            "message": "Patch Set 4: Verified-1\n\nBuild failed (check pipeline).  For information on how to proceed, see http://docs.openstack.org/infra/manual/developers.html#automated-testing\n\n- gate-glance-python34 http://logs.openstack.org/74/255274/4/check/gate-glance-python34/7765556/ : SUCCESS in 5m 11s\n- gate-glance-pep8 http://logs.openstack.org/74/255274/4/check/gate-glance-pep8/f0b140b/ : SUCCESS in 1m 52s\n- gate-glance-docs http://docs-draft.openstack.org/74/255274/4/check/gate-glance-docs/77c9e56//doc/build/html/ : SUCCESS in 2m 13s\n- gate-glance-python27 http://logs.openstack.org/74/255274/4/check/gate-glance-python27/46e70d2/ : FAILURE in 6m 07s\n- gate-tempest-dsvm-full http://logs.openstack.org/74/255274/4/check/gate-tempest-dsvm-full/a38b69f/ : SUCCESS in 1h 11m 47s\n- gate-tempest-dsvm-postgres-full http://logs.openstack.org/74/255274/4/check/gate-tempest-dsvm-postgres-full/79efb74/ : SUCCESS in 49m 03s\n- gate-tempest-dsvm-neutron-full http://logs.openstack.org/74/255274/4/check/gate-tempest-dsvm-neutron-full/28b8400/ : SUCCESS in 55m 41s\n- gate-grenade-dsvm http://logs.openstack.org/74/255274/4/check/gate-grenade-dsvm/7de8bd6/ : FAILURE in 45m 21s\n- gate-tempest-dsvm-large-ops http://logs.openstack.org/74/255274/4/check/gate-tempest-dsvm-large-ops/09aba74/ : SUCCESS in 36m 30s\n- gate-tempest-dsvm-neutron-large-ops http://logs.openstack.org/74/255274/4/check/gate-tempest-dsvm-neutron-large-ops/7a582f5/ : SUCCESS in 31m 55s\n- gate-glance-releasenotes http://docs-draft.openstack.org/74/255274/4/check/gate-glance-releasenotes/bffe377//releasenotes/build/html/ : SUCCESS in 2m 41s\n- gate-tempest-dsvm-full-ceph http://logs.openstack.org/74/255274/4/check/gate-tempest-dsvm-full-ceph/c0c545c/ : SUCCESS in 52m 54s\n- gate-rally-dsvm-glance http://logs.openstack.org/74/255274/4/check/gate-rally-dsvm-glance/dc59fbd/ : SUCCESS in 46m 09s (non-voting)\n- gate-glance-python27-constraints http://logs.openstack.org/74/255274/4/check/gate-glance-python27-constraints/725dde9/ : FAILURE in 5m 30s (non-voting)\n- gate-glance-python34-constraints http://logs.openstack.org/74/255274/4/check/gate-glance-python34-constraints/2ff2e71/ : SUCCESS in 6m 22s (non-voting)\n- gate-glance-docs-constraints http://docs-draft.openstack.org/74/255274/4/check/gate-glance-docs-constraints/4914aed//doc/build/html/ : SUCCESS in 2m 13s (non-voting)\n- gate-glance-pep8-constraints http://logs.openstack.org/74/255274/4/check/gate-glance-pep8-constraints/8738546/ : SUCCESS in 2m 28s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "b988811d70309c542cf39afb156a30f6367793d6",
+            "author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "real_author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "date": "2015-12-11 17:38:22.000000000",
+            "message": "Uploaded patch set 5.",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "3b0d1e9efe1e08860806f1dbb9af319369141dd2",
+            "author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "real_author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "date": "2015-12-11 18:08:06.000000000",
+            "message": "Uploaded patch set 6.",
+            "accounts_in_message": [],
+            "_revision_number": 6
+        },
+        {
+            "id": "478117865621d13f93690e53371dbcafac810c88",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2015-12-11 19:22:49.000000000",
+            "message": "Patch Set 6: Verified-1\n\nBuild failed (check pipeline).  For information on how to proceed, see http://docs.openstack.org/infra/manual/developers.html#automated-testing\n\n- gate-glance-python34 http://logs.openstack.org/74/255274/6/check/gate-glance-python34/3374dfe/ : SUCCESS in 4m 20s\n- gate-glance-pep8 http://logs.openstack.org/74/255274/6/check/gate-glance-pep8/0ae606d/ : SUCCESS in 2m 00s\n- gate-glance-docs http://docs-draft.openstack.org/74/255274/6/check/gate-glance-docs/da035a3//doc/build/html/ : SUCCESS in 2m 05s\n- gate-glance-python27 http://logs.openstack.org/74/255274/6/check/gate-glance-python27/3e4c569/ : SUCCESS in 7m 32s\n- gate-tempest-dsvm-full http://logs.openstack.org/74/255274/6/check/gate-tempest-dsvm-full/645c2c7/ : SUCCESS in 56m 00s\n- gate-tempest-dsvm-postgres-full http://logs.openstack.org/74/255274/6/check/gate-tempest-dsvm-postgres-full/0bba125/ : SUCCESS in 54m 00s\n- gate-tempest-dsvm-neutron-full http://logs.openstack.org/74/255274/6/check/gate-tempest-dsvm-neutron-full/62650e2/ : SUCCESS in 1h 06m 58s\n- gate-grenade-dsvm http://logs.openstack.org/74/255274/6/check/gate-grenade-dsvm/9799784/ : FAILURE in 44m 54s\n- gate-tempest-dsvm-large-ops http://logs.openstack.org/74/255274/6/check/gate-tempest-dsvm-large-ops/89ce3d6/ : SUCCESS in 41m 42s\n- gate-tempest-dsvm-neutron-large-ops http://logs.openstack.org/74/255274/6/check/gate-tempest-dsvm-neutron-large-ops/e64ae1b/ : SUCCESS in 38m 14s\n- gate-glance-releasenotes http://docs-draft.openstack.org/74/255274/6/check/gate-glance-releasenotes/d63301e//releasenotes/build/html/ : SUCCESS in 2m 17s\n- gate-tempest-dsvm-full-ceph http://logs.openstack.org/74/255274/6/check/gate-tempest-dsvm-full-ceph/50c57b0/ : SUCCESS in 46m 26s\n- gate-rally-dsvm-glance http://logs.openstack.org/74/255274/6/check/gate-rally-dsvm-glance/30d6a07/ : SUCCESS in 46m 27s (non-voting)\n- gate-glance-python27-constraints http://logs.openstack.org/74/255274/6/check/gate-glance-python27-constraints/b3e1bbe/ : SUCCESS in 8m 34s (non-voting)\n- gate-glance-python34-constraints http://logs.openstack.org/74/255274/6/check/gate-glance-python34-constraints/fee8700/ : SUCCESS in 4m 50s (non-voting)\n- gate-glance-docs-constraints http://docs-draft.openstack.org/74/255274/6/check/gate-glance-docs-constraints/98e2fb2//doc/build/html/ : SUCCESS in 2m 41s (non-voting)\n- gate-glance-pep8-constraints http://logs.openstack.org/74/255274/6/check/gate-glance-pep8-constraints/f9b0f95/ : SUCCESS in 2m 34s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 6
+        },
+        {
+            "id": "09412e5746327d30aafffd4a9ac5565f7ab44dd9",
+            "author": {
+                "_account_id": 16658,
+                "name": "Darja Shakhray",
+                "email": "damalyavkina@gmail.com",
+                "username": "dshakhray"
+            },
+            "real_author": {
+                "_account_id": 16658,
+                "name": "Darja Shakhray",
+                "email": "damalyavkina@gmail.com",
+                "username": "dshakhray"
+            },
+            "date": "2015-12-13 13:03:40.000000000",
+            "message": "Patch Set 6:\n\nrecheck",
+            "accounts_in_message": [],
+            "_revision_number": 6
+        },
+        {
+            "id": "4d0b35286201e0729866327b2bf1d6b052778659",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2015-12-13 14:07:22.000000000",
+            "message": "Patch Set 6:\n\nBuild failed (check pipeline).  For information on how to proceed, see http://docs.openstack.org/infra/manual/developers.html#automated-testing\n\n- gate-glance-python34 http://logs.openstack.org/74/255274/6/check/gate-glance-python34/837c538/ : SUCCESS in 4m 54s\n- gate-glance-pep8 http://logs.openstack.org/74/255274/6/check/gate-glance-pep8/5934b05/ : SUCCESS in 2m 24s\n- gate-glance-docs http://docs-draft.openstack.org/74/255274/6/check/gate-glance-docs/4064710//doc/build/html/ : SUCCESS in 2m 14s\n- gate-glance-python27 http://logs.openstack.org/74/255274/6/check/gate-glance-python27/39854e9/ : SUCCESS in 6m 45s\n- gate-tempest-dsvm-full http://logs.openstack.org/74/255274/6/check/gate-tempest-dsvm-full/c109e60/ : SUCCESS in 54m 28s\n- gate-tempest-dsvm-postgres-full http://logs.openstack.org/74/255274/6/check/gate-tempest-dsvm-postgres-full/e20aece/ : SUCCESS in 49m 58s\n- gate-tempest-dsvm-neutron-full http://logs.openstack.org/74/255274/6/check/gate-tempest-dsvm-neutron-full/cbe53fb/ : SUCCESS in 1h 03m 33s\n- gate-grenade-dsvm http://logs.openstack.org/74/255274/6/check/gate-grenade-dsvm/5f9ca94/ : FAILURE in 45m 45s\n- gate-tempest-dsvm-large-ops http://logs.openstack.org/74/255274/6/check/gate-tempest-dsvm-large-ops/8a853dc/ : SUCCESS in 36m 49s\n- gate-tempest-dsvm-neutron-large-ops http://logs.openstack.org/74/255274/6/check/gate-tempest-dsvm-neutron-large-ops/f997426/ : SUCCESS in 33m 41s\n- gate-glance-releasenotes http://docs-draft.openstack.org/74/255274/6/check/gate-glance-releasenotes/43076f5//releasenotes/build/html/ : SUCCESS in 2m 12s\n- gate-tempest-dsvm-full-ceph http://logs.openstack.org/74/255274/6/check/gate-tempest-dsvm-full-ceph/a0c8a70/ : SUCCESS in 56m 22s\n- gate-tempest-dsvm-full-devstack-plugin-ceph-nv http://logs.openstack.org/74/255274/6/check/gate-tempest-dsvm-full-devstack-plugin-ceph-nv/184ee84/ : SUCCESS in 43m 53s (non-voting)\n- gate-rally-dsvm-glance http://logs.openstack.org/74/255274/6/check/gate-rally-dsvm-glance/a78d73d/ : SUCCESS in 35m 38s (non-voting)\n- gate-glance-python27-constraints http://logs.openstack.org/74/255274/6/check/gate-glance-python27-constraints/1b7d00e/ : SUCCESS in 6m 31s (non-voting)\n- gate-glance-python34-constraints http://logs.openstack.org/74/255274/6/check/gate-glance-python34-constraints/4984c46/ : SUCCESS in 5m 03s (non-voting)\n- gate-glance-docs-constraints http://docs-draft.openstack.org/74/255274/6/check/gate-glance-docs-constraints/bbc7158//doc/build/html/ : SUCCESS in 3m 06s (non-voting)\n- gate-glance-pep8-constraints http://logs.openstack.org/74/255274/6/check/gate-glance-pep8-constraints/6bc53ed/ : SUCCESS in 2m 28s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 6
+        },
+        {
+            "id": "fc1d33b4d99fadd23a5e0c5cbf003800f9e35595",
+            "author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "real_author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "date": "2015-12-14 07:45:54.000000000",
+            "message": "Uploaded patch set 7.",
+            "accounts_in_message": [],
+            "_revision_number": 7
+        },
+        {
+            "id": "0c1759bcde05b466ca9d063ee7b2584b6efc784a",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2015-12-14 08:57:38.000000000",
+            "message": "Patch Set 7: Verified-1\n\nBuild failed (check pipeline).  For information on how to proceed, see http://docs.openstack.org/infra/manual/developers.html#automated-testing\n\n- gate-glance-python34 http://logs.openstack.org/74/255274/7/check/gate-glance-python34/336d9a9/ : SUCCESS in 5m 03s\n- gate-glance-pep8 http://logs.openstack.org/74/255274/7/check/gate-glance-pep8/1d54aa6/ : SUCCESS in 2m 18s\n- gate-glance-docs http://docs-draft.openstack.org/74/255274/7/check/gate-glance-docs/5524917//doc/build/html/ : SUCCESS in 2m 31s\n- gate-glance-python27 http://logs.openstack.org/74/255274/7/check/gate-glance-python27/b8cfc0a/ : SUCCESS in 9m 36s\n- gate-tempest-dsvm-full http://logs.openstack.org/74/255274/7/check/gate-tempest-dsvm-full/2bc2f3b/ : SUCCESS in 52m 44s\n- gate-tempest-dsvm-postgres-full http://logs.openstack.org/74/255274/7/check/gate-tempest-dsvm-postgres-full/f25303d/ : SUCCESS in 51m 05s\n- gate-tempest-dsvm-neutron-full http://logs.openstack.org/74/255274/7/check/gate-tempest-dsvm-neutron-full/2704892/ : SUCCESS in 1h 10m 06s\n- gate-grenade-dsvm http://logs.openstack.org/74/255274/7/check/gate-grenade-dsvm/082a6a8/ : FAILURE in 42m 06s\n- gate-tempest-dsvm-large-ops http://logs.openstack.org/74/255274/7/check/gate-tempest-dsvm-large-ops/6e7b8fd/ : SUCCESS in 48m 34s\n- gate-tempest-dsvm-neutron-large-ops http://logs.openstack.org/74/255274/7/check/gate-tempest-dsvm-neutron-large-ops/cc6e5f2/ : SUCCESS in 33m 49s\n- gate-glance-releasenotes http://docs-draft.openstack.org/74/255274/7/check/gate-glance-releasenotes/bce6b43//releasenotes/build/html/ : SUCCESS in 2m 18s\n- gate-tempest-dsvm-full-ceph http://logs.openstack.org/74/255274/7/check/gate-tempest-dsvm-full-ceph/257673e/ : SUCCESS in 38m 55s\n- gate-tempest-dsvm-full-devstack-plugin-ceph-nv http://logs.openstack.org/74/255274/7/check/gate-tempest-dsvm-full-devstack-plugin-ceph-nv/5c66ff4/ : SUCCESS in 52m 16s (non-voting)\n- gate-rally-dsvm-glance http://logs.openstack.org/74/255274/7/check/gate-rally-dsvm-glance/8f2aa03/ : SUCCESS in 43m 30s (non-voting)\n- gate-glance-python27-constraints http://logs.openstack.org/74/255274/7/check/gate-glance-python27-constraints/299f846/ : SUCCESS in 9m 35s (non-voting)\n- gate-glance-python34-constraints http://logs.openstack.org/74/255274/7/check/gate-glance-python34-constraints/6e93f66/ : SUCCESS in 11m 14s (non-voting)\n- gate-glance-docs-constraints http://docs-draft.openstack.org/74/255274/7/check/gate-glance-docs-constraints/22017ac//doc/build/html/ : SUCCESS in 2m 37s (non-voting)\n- gate-glance-pep8-constraints http://logs.openstack.org/74/255274/7/check/gate-glance-pep8-constraints/85123bf/ : SUCCESS in 2m 37s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 7
+        },
+        {
+            "id": "a669ac42ce65a6c1b221a422487d656ba238e8eb",
+            "author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "real_author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "date": "2015-12-16 11:38:45.000000000",
+            "message": "Uploaded patch set 8.",
+            "accounts_in_message": [],
+            "_revision_number": 8
+        },
+        {
+            "id": "65f71cc592e9e4e01d3d745a6f0b2b30351c302b",
+            "author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "real_author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "date": "2015-12-16 11:42:06.000000000",
+            "message": "Uploaded patch set 9.",
+            "accounts_in_message": [],
+            "_revision_number": 9
+        },
+        {
+            "id": "e66a37976ced909e5b00ed4af094388323c78b7d",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2015-12-16 13:15:49.000000000",
+            "message": "Patch Set 9: Verified-1\n\nBuild failed (check pipeline).  For information on how to proceed, see http://docs.openstack.org/infra/manual/developers.html#automated-testing\n\n- gate-glance-python34 http://logs.openstack.org/74/255274/9/check/gate-glance-python34/dfbe143/ : FAILURE in 5m 02s\n- gate-glance-pep8 http://logs.openstack.org/74/255274/9/check/gate-glance-pep8/4ad2fda/ : SUCCESS in 1m 45s\n- gate-glance-docs http://docs-draft.openstack.org/74/255274/9/check/gate-glance-docs/4e3d3c7//doc/build/html/ : SUCCESS in 2m 34s\n- gate-glance-python27 http://logs.openstack.org/74/255274/9/check/gate-glance-python27/74ced2e/ : FAILURE in 7m 50s\n- gate-tempest-dsvm-full http://logs.openstack.org/74/255274/9/check/gate-tempest-dsvm-full/69539c5/ : SUCCESS in 54m 37s\n- gate-tempest-dsvm-postgres-full http://logs.openstack.org/74/255274/9/check/gate-tempest-dsvm-postgres-full/e54ed96/ : SUCCESS in 1h 01m 28s\n- gate-tempest-dsvm-neutron-full http://logs.openstack.org/74/255274/9/check/gate-tempest-dsvm-neutron-full/e392059/ : SUCCESS in 1h 18m 56s\n- gate-grenade-dsvm http://logs.openstack.org/74/255274/9/check/gate-grenade-dsvm/d3ae476/ : SUCCESS in 51m 11s\n- gate-tempest-dsvm-large-ops http://logs.openstack.org/74/255274/9/check/gate-tempest-dsvm-large-ops/6c0f6ad/ : SUCCESS in 28m 07s\n- gate-tempest-dsvm-neutron-large-ops http://logs.openstack.org/74/255274/9/check/gate-tempest-dsvm-neutron-large-ops/6d6c88a/ : SUCCESS in 31m 01s\n- gate-glance-releasenotes http://docs-draft.openstack.org/74/255274/9/check/gate-glance-releasenotes/aa01538//releasenotes/build/html/ : SUCCESS in 2m 21s\n- gate-tempest-dsvm-full-ceph http://logs.openstack.org/74/255274/9/check/gate-tempest-dsvm-full-ceph/4b562a8/ : SUCCESS in 1h 08m 21s\n- gate-tempest-dsvm-full-devstack-plugin-ceph-nv http://logs.openstack.org/74/255274/9/check/gate-tempest-dsvm-full-devstack-plugin-ceph-nv/dc60996/ : SUCCESS in 54m 18s (non-voting)\n- gate-rally-dsvm-glance http://logs.openstack.org/74/255274/9/check/gate-rally-dsvm-glance/617cd00/ : SUCCESS in 40m 22s (non-voting)\n- gate-glance-python27-constraints http://logs.openstack.org/74/255274/9/check/gate-glance-python27-constraints/671e5d0/ : SUCCESS in 8m 00s (non-voting)\n- gate-glance-python34-constraints http://logs.openstack.org/74/255274/9/check/gate-glance-python34-constraints/5022498/ : SUCCESS in 4m 57s (non-voting)\n- gate-glance-docs-constraints http://docs-draft.openstack.org/74/255274/9/check/gate-glance-docs-constraints/6c4616e//doc/build/html/ : SUCCESS in 2m 34s (non-voting)\n- gate-glance-pep8-constraints http://logs.openstack.org/74/255274/9/check/gate-glance-pep8-constraints/4ba80a3/ : SUCCESS in 2m 47s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 9
+        },
+        {
+            "id": "a4d9d8ae7c369a334be167e2871366254b845cc4",
+            "author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "real_author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "date": "2015-12-17 08:21:22.000000000",
+            "message": "Patch Set 10: Patch Set 9 was rebased",
+            "accounts_in_message": [],
+            "_revision_number": 9
+        },
+        {
+            "id": "34cec69b22952e1f9a7c346f906afba8c4e0c2d0",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2015-12-17 09:42:55.000000000",
+            "message": "Patch Set 10: Verified-1\n\nBuild failed (check pipeline).  For information on how to proceed, see http://docs.openstack.org/infra/manual/developers.html#automated-testing\n\n- gate-glance-python34 http://logs.openstack.org/74/255274/10/check/gate-glance-python34/f06b661/ : FAILURE in 3m 41s\n- gate-glance-pep8 http://logs.openstack.org/74/255274/10/check/gate-glance-pep8/205297f/ : SUCCESS in 1m 27s\n- gate-glance-docs http://docs-draft.openstack.org/74/255274/10/check/gate-glance-docs/cd4fe0b//doc/build/html/ : SUCCESS in 2m 10s\n- gate-glance-python27 http://logs.openstack.org/74/255274/10/check/gate-glance-python27/a5abd26/ : FAILURE in 5m 47s\n- gate-tempest-dsvm-full http://logs.openstack.org/74/255274/10/check/gate-tempest-dsvm-full/c29176e/ : SUCCESS in 50m 00s\n- gate-tempest-dsvm-postgres-full http://logs.openstack.org/74/255274/10/check/gate-tempest-dsvm-postgres-full/dd2959e/ : SUCCESS in 40m 09s\n- gate-tempest-dsvm-neutron-full http://logs.openstack.org/74/255274/10/check/gate-tempest-dsvm-neutron-full/0d7066a/ : SUCCESS in 55m 49s\n- gate-grenade-dsvm http://logs.openstack.org/74/255274/10/check/gate-grenade-dsvm/66c91ba/ : SUCCESS in 59m 48s\n- gate-tempest-dsvm-large-ops http://logs.openstack.org/74/255274/10/check/gate-tempest-dsvm-large-ops/6529110/ : SUCCESS in 46m 48s\n- gate-tempest-dsvm-neutron-large-ops http://logs.openstack.org/74/255274/10/check/gate-tempest-dsvm-neutron-large-ops/650829a/ : SUCCESS in 34m 48s\n- gate-glance-releasenotes http://docs-draft.openstack.org/74/255274/10/check/gate-glance-releasenotes/780bf98//releasenotes/build/html/ : SUCCESS in 1m 30s\n- gate-tempest-dsvm-full-ceph http://logs.openstack.org/74/255274/10/check/gate-tempest-dsvm-full-ceph/42381c8/ : SUCCESS in 58m 15s\n- gate-tempest-dsvm-full-devstack-plugin-ceph-nv http://logs.openstack.org/74/255274/10/check/gate-tempest-dsvm-full-devstack-plugin-ceph-nv/c04f2e3/ : SUCCESS in 57m 51s (non-voting)\n- gate-rally-dsvm-glance http://logs.openstack.org/74/255274/10/check/gate-rally-dsvm-glance/1f97c92/ : SUCCESS in 45m 37s (non-voting)\n- gate-glance-python27-constraints http://logs.openstack.org/74/255274/10/check/gate-glance-python27-constraints/5e79a50/ : SUCCESS in 5m 52s (non-voting)\n- gate-glance-python34-constraints http://logs.openstack.org/74/255274/10/check/gate-glance-python34-constraints/1926c14/ : SUCCESS in 3m 49s (non-voting)\n- gate-glance-docs-constraints http://docs-draft.openstack.org/74/255274/10/check/gate-glance-docs-constraints/c106c2f//doc/build/html/ : SUCCESS in 1m 44s (non-voting)\n- gate-glance-pep8-constraints http://logs.openstack.org/74/255274/10/check/gate-glance-pep8-constraints/c32f2be/ : SUCCESS in 1m 32s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "e018d056df7a9dc2471acb414ccb96deef368fa2",
+            "author": {
+                "_account_id": 8871,
+                "name": "Elastic Recheck",
+                "username": "elasticrecheck"
+            },
+            "real_author": {
+                "_account_id": 8871,
+                "name": "Elastic Recheck",
+                "username": "elasticrecheck"
+            },
+            "date": "2015-12-17 09:43:11.000000000",
+            "message": "Patch Set 10:\n\nI noticed jenkins failed, I think you hit bug(s):\n\n- gate-glance-python27: https://bugs.launchpad.net/bugs/1526675\n- gate-glance-python34: https://bugs.launchpad.net/bugs/1526675\n\nIf you believe we've correctly identified the failure, feel free to leave a 'recheck' comment to run the tests again.\nFor more details on this and other bugs, please see http://status.openstack.org/elastic-recheck/",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "5da6aebe5b2ab2cd289153a1a6a5ebe02059606f",
+            "author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "real_author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "date": "2015-12-17 14:34:31.000000000",
+            "message": "Patch Set 10:\n\nrecheck 1526675",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "83e5ac25b350e1d18ab9d4bf98fde9879df6075d",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2015-12-17 20:47:26.000000000",
+            "message": "Patch Set 10:\n\nBuild failed (check pipeline).  For information on how to proceed, see http://docs.openstack.org/infra/manual/developers.html#automated-testing\n\n- gate-glance-python34 http://logs.openstack.org/74/255274/10/check/gate-glance-python34/85f1111/ : FAILURE in 5m 10s\n- gate-glance-pep8 http://logs.openstack.org/74/255274/10/check/gate-glance-pep8/898c863/ : SUCCESS in 2m 40s\n- gate-glance-docs http://docs-draft.openstack.org/74/255274/10/check/gate-glance-docs/b68e293//doc/build/html/ : SUCCESS in 2m 57s\n- gate-glance-python27 http://logs.openstack.org/74/255274/10/check/gate-glance-python27/b8d55a9/ : FAILURE in 8m 54s\n- gate-tempest-dsvm-full http://logs.openstack.org/74/255274/10/check/gate-tempest-dsvm-full/e5c40b3/ : SUCCESS in 42m 28s\n- gate-tempest-dsvm-postgres-full http://logs.openstack.org/74/255274/10/check/gate-tempest-dsvm-postgres-full/c8868c2/ : SUCCESS in 51m 48s\n- gate-tempest-dsvm-neutron-full http://logs.openstack.org/74/255274/10/check/gate-tempest-dsvm-neutron-full/e8600ed/ : SUCCESS in 1h 09m 08s\n- gate-grenade-dsvm http://logs.openstack.org/74/255274/10/check/gate-grenade-dsvm/f4ebaa8/ : SUCCESS in 53m 28s\n- gate-tempest-dsvm-large-ops http://logs.openstack.org/74/255274/10/check/gate-tempest-dsvm-large-ops/38e926c/ : SUCCESS in 39m 35s\n- gate-tempest-dsvm-neutron-large-ops http://logs.openstack.org/74/255274/10/check/gate-tempest-dsvm-neutron-large-ops/7661a03/ : SUCCESS in 37m 37s\n- gate-glance-releasenotes http://docs-draft.openstack.org/74/255274/10/check/gate-glance-releasenotes/a3ffc1b//releasenotes/build/html/ : SUCCESS in 2m 29s\n- gate-tempest-dsvm-full-ceph http://logs.openstack.org/74/255274/10/check/gate-tempest-dsvm-full-ceph/b7253fe/ : SUCCESS in 54m 59s\n- gate-tempest-dsvm-full-devstack-plugin-ceph-nv http://logs.openstack.org/74/255274/10/check/gate-tempest-dsvm-full-devstack-plugin-ceph-nv/fbefa84/ : SUCCESS in 52m 41s (non-voting)\n- gate-rally-dsvm-glance http://logs.openstack.org/74/255274/10/check/gate-rally-dsvm-glance/efb7697/ : SUCCESS in 46m 52s (non-voting)\n- gate-glance-python27-constraints http://logs.openstack.org/74/255274/10/check/gate-glance-python27-constraints/68d61f1/ : SUCCESS in 8m 03s (non-voting)\n- gate-glance-python34-constraints http://logs.openstack.org/74/255274/10/check/gate-glance-python34-constraints/1560a1e/ : SUCCESS in 5m 04s (non-voting)\n- gate-glance-docs-constraints http://docs-draft.openstack.org/74/255274/10/check/gate-glance-docs-constraints/4c5b656//doc/build/html/ : SUCCESS in 2m 35s (non-voting)\n- gate-glance-pep8-constraints http://logs.openstack.org/74/255274/10/check/gate-glance-pep8-constraints/e097c29/ : SUCCESS in 3m 03s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "28ec642dcb2ea276ae5a0e535e05c1cf2901571c",
+            "author": {
+                "_account_id": 8871,
+                "name": "Elastic Recheck",
+                "username": "elasticrecheck"
+            },
+            "real_author": {
+                "_account_id": 8871,
+                "name": "Elastic Recheck",
+                "username": "elasticrecheck"
+            },
+            "date": "2015-12-17 21:00:16.000000000",
+            "message": "Patch Set 10:\n\nI noticed jenkins failed, I think you hit bug(s):\n\n- gate-glance-python27: https://bugs.launchpad.net/bugs/1526675\n- gate-glance-python34: https://bugs.launchpad.net/bugs/1526675\n\nIf you believe we've correctly identified the failure, feel free to leave a 'recheck' comment to run the tests again.\nFor more details on this and other bugs, please see http://status.openstack.org/elastic-recheck/",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "41f177cf2c64db8a0edf20fbfbe455f9eb47f2f7",
+            "author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "real_author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "date": "2015-12-17 21:33:27.000000000",
+            "message": "Patch Set 10:\n\nrecheck bug 1526675",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "fbb6169cf23feba7dc92bb09c571a2b5c2d2d3e3",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2015-12-18 01:19:35.000000000",
+            "message": "Patch Set 10:\n\nBuild failed (check pipeline).  For information on how to proceed, see http://docs.openstack.org/infra/manual/developers.html#automated-testing\n\n- gate-glance-python34 http://logs.openstack.org/74/255274/10/check/gate-glance-python34/f568703/ : FAILURE in 6m 15s\n- gate-glance-pep8 http://logs.openstack.org/74/255274/10/check/gate-glance-pep8/433e3a1/ : SUCCESS in 1m 59s\n- gate-glance-docs http://docs-draft.openstack.org/74/255274/10/check/gate-glance-docs/a7f76ea//doc/build/html/ : SUCCESS in 2m 08s\n- gate-glance-python27 http://logs.openstack.org/74/255274/10/check/gate-glance-python27/c98a5bc/ : FAILURE in 6m 55s\n- gate-tempest-dsvm-full http://logs.openstack.org/74/255274/10/check/gate-tempest-dsvm-full/c15a774/ : SUCCESS in 46m 53s\n- gate-tempest-dsvm-postgres-full http://logs.openstack.org/74/255274/10/check/gate-tempest-dsvm-postgres-full/273d5a9/ : SUCCESS in 59m 30s\n- gate-tempest-dsvm-neutron-full http://logs.openstack.org/74/255274/10/check/gate-tempest-dsvm-neutron-full/588a135/ : SUCCESS in 58m 25s\n- gate-grenade-dsvm http://logs.openstack.org/74/255274/10/check/gate-grenade-dsvm/98f5df0/ : SUCCESS in 45m 24s\n- gate-tempest-dsvm-large-ops http://logs.openstack.org/74/255274/10/check/gate-tempest-dsvm-large-ops/247f63a/ : SUCCESS in 31m 41s\n- gate-tempest-dsvm-neutron-large-ops http://logs.openstack.org/74/255274/10/check/gate-tempest-dsvm-neutron-large-ops/6bd83f3/ : SUCCESS in 31m 46s\n- gate-glance-releasenotes http://docs-draft.openstack.org/74/255274/10/check/gate-glance-releasenotes/5e44832//releasenotes/build/html/ : SUCCESS in 2m 06s\n- gate-tempest-dsvm-full-ceph http://logs.openstack.org/74/255274/10/check/gate-tempest-dsvm-full-ceph/3c8afce/ : SUCCESS in 50m 31s\n- gate-tempest-dsvm-full-devstack-plugin-ceph-nv http://logs.openstack.org/74/255274/10/check/gate-tempest-dsvm-full-devstack-plugin-ceph-nv/f780c79/ : SUCCESS in 1h 14m 20s (non-voting)\n- gate-rally-dsvm-glance http://logs.openstack.org/74/255274/10/check/gate-rally-dsvm-glance/3ab2664/ : SUCCESS in 33m 46s (non-voting)\n- gate-glance-python27-constraints http://logs.openstack.org/74/255274/10/check/gate-glance-python27-constraints/ab040c7/ : SUCCESS in 6m 29s (non-voting)\n- gate-glance-python34-constraints http://logs.openstack.org/74/255274/10/check/gate-glance-python34-constraints/ca8b4ba/ : SUCCESS in 5m 53s (non-voting)\n- gate-glance-docs-constraints http://docs-draft.openstack.org/74/255274/10/check/gate-glance-docs-constraints/4dbd003//doc/build/html/ : SUCCESS in 2m 19s (non-voting)\n- gate-glance-pep8-constraints http://logs.openstack.org/74/255274/10/check/gate-glance-pep8-constraints/eb024f6/ : SUCCESS in 1m 58s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "65b41e17bc2a63326a545990b3b32d886d5391e4",
+            "author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "real_author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "date": "2015-12-18 11:27:59.000000000",
+            "message": "Patch Set 11: Patch Set 10 was rebased",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "6025a0231b7850b01d6c82549f8611448937d2d1",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2015-12-18 12:25:14.000000000",
+            "message": "Patch Set 11: Verified+1\n\nBuild succeeded (check pipeline).\n\n- gate-glance-python34 http://logs.openstack.org/74/255274/11/check/gate-glance-python34/052a4ba/ : SUCCESS in 5m 06s\n- gate-glance-pep8 http://logs.openstack.org/74/255274/11/check/gate-glance-pep8/5b306d0/ : SUCCESS in 1m 38s\n- gate-glance-docs http://docs-draft.openstack.org/74/255274/11/check/gate-glance-docs/f3d1c43//doc/build/html/ : SUCCESS in 1m 47s\n- gate-glance-python27 http://logs.openstack.org/74/255274/11/check/gate-glance-python27/5554204/ : SUCCESS in 9m 03s\n- gate-tempest-dsvm-full http://logs.openstack.org/74/255274/11/check/gate-tempest-dsvm-full/72b5186/ : SUCCESS in 42m 17s\n- gate-tempest-dsvm-postgres-full http://logs.openstack.org/74/255274/11/check/gate-tempest-dsvm-postgres-full/8546ee9/ : SUCCESS in 49m 39s\n- gate-tempest-dsvm-neutron-full http://logs.openstack.org/74/255274/11/check/gate-tempest-dsvm-neutron-full/f0d0758/ : SUCCESS in 53m 25s\n- gate-grenade-dsvm http://logs.openstack.org/74/255274/11/check/gate-grenade-dsvm/3d66e9d/ : SUCCESS in 48m 09s\n- gate-tempest-dsvm-large-ops http://logs.openstack.org/74/255274/11/check/gate-tempest-dsvm-large-ops/1d54ecb/ : SUCCESS in 41m 40s\n- gate-tempest-dsvm-neutron-large-ops http://logs.openstack.org/74/255274/11/check/gate-tempest-dsvm-neutron-large-ops/192a84a/ : SUCCESS in 28m 22s\n- gate-glance-releasenotes http://docs-draft.openstack.org/74/255274/11/check/gate-glance-releasenotes/9e8f0a1//releasenotes/build/html/ : SUCCESS in 1m 57s\n- gate-tempest-dsvm-full-ceph http://logs.openstack.org/74/255274/11/check/gate-tempest-dsvm-full-ceph/b620b3f/ : SUCCESS in 52m 10s\n- gate-tempest-dsvm-full-devstack-plugin-ceph-nv http://logs.openstack.org/74/255274/11/check/gate-tempest-dsvm-full-devstack-plugin-ceph-nv/c460fd2/ : SUCCESS in 51m 29s (non-voting)\n- gate-rally-dsvm-glance http://logs.openstack.org/74/255274/11/check/gate-rally-dsvm-glance/aae74b3/ : SUCCESS in 40m 57s (non-voting)\n- gate-glance-python27-constraints http://logs.openstack.org/74/255274/11/check/gate-glance-python27-constraints/bbc2111/ : SUCCESS in 8m 41s (non-voting)\n- gate-glance-python34-constraints http://logs.openstack.org/74/255274/11/check/gate-glance-python34-constraints/ba1869c/ : SUCCESS in 5m 20s (non-voting)\n- gate-glance-docs-constraints http://docs-draft.openstack.org/74/255274/11/check/gate-glance-docs-constraints/00bbd98//doc/build/html/ : SUCCESS in 3m 24s (non-voting)\n- gate-glance-pep8-constraints http://logs.openstack.org/74/255274/11/check/gate-glance-pep8-constraints/56bd664/ : SUCCESS in 2m 49s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 11
+        },
+        {
+            "id": "da74cabdb45fcc6683aa95748814e9d0e1099883",
+            "author": {
+                "_account_id": 6159,
+                "name": "Flavio Percoco",
+                "display_name": "flaper87",
+                "email": "fpercoco@redhat.com",
+                "username": "flaper87"
+            },
+            "real_author": {
+                "_account_id": 6159,
+                "name": "Flavio Percoco",
+                "display_name": "flaper87",
+                "email": "fpercoco@redhat.com",
+                "username": "flaper87"
+            },
+            "date": "2015-12-19 01:24:36.000000000",
+            "message": "Patch Set 11: Code-Review-1\n\n(8 comments)\n\nDid a quick run through.",
+            "accounts_in_message": [],
+            "_revision_number": 11
+        },
+        {
+            "id": "54d7bdacea67f3ee7460a76cad869c591ff409cc",
+            "author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "real_author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "date": "2015-12-21 13:44:18.000000000",
+            "message": "Patch Set 11:\n\n(8 comments)",
+            "accounts_in_message": [],
+            "_revision_number": 11
+        },
+        {
+            "id": "0df6713506b4d05d384f3c4989f619e628a445f8",
+            "author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "real_author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "date": "2015-12-21 13:44:29.000000000",
+            "message": "Uploaded patch set 12.",
+            "accounts_in_message": [],
+            "_revision_number": 12
+        },
+        {
+            "id": "577c979e5b76a418388e298aa0ebfd52201b0732",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2015-12-21 14:53:04.000000000",
+            "message": "Patch Set 12: Verified+1\n\nBuild succeeded (check pipeline).\n\n- gate-glance-python34 http://logs.openstack.org/74/255274/12/check/gate-glance-python34/7df4bc4/ : SUCCESS in 5m 31s\n- gate-glance-pep8 http://logs.openstack.org/74/255274/12/check/gate-glance-pep8/b352e5e/ : SUCCESS in 2m 25s\n- gate-glance-docs http://docs-draft.openstack.org/74/255274/12/check/gate-glance-docs/8d19dbc//doc/build/html/ : SUCCESS in 3m 05s\n- gate-glance-python27 http://logs.openstack.org/74/255274/12/check/gate-glance-python27/b850e1e/ : SUCCESS in 6m 16s\n- gate-tempest-dsvm-full http://logs.openstack.org/74/255274/12/check/gate-tempest-dsvm-full/cbf7eab/ : SUCCESS in 49m 07s\n- gate-tempest-dsvm-postgres-full http://logs.openstack.org/74/255274/12/check/gate-tempest-dsvm-postgres-full/c263499/ : SUCCESS in 48m 27s\n- gate-tempest-dsvm-neutron-full http://logs.openstack.org/74/255274/12/check/gate-tempest-dsvm-neutron-full/0fe0311/ : SUCCESS in 1h 07m 16s\n- gate-grenade-dsvm http://logs.openstack.org/74/255274/12/check/gate-grenade-dsvm/0f4c2eb/ : SUCCESS in 52m 57s\n- gate-tempest-dsvm-large-ops http://logs.openstack.org/74/255274/12/check/gate-tempest-dsvm-large-ops/1f3c4f4/ : SUCCESS in 40m 30s\n- gate-tempest-dsvm-neutron-large-ops http://logs.openstack.org/74/255274/12/check/gate-tempest-dsvm-neutron-large-ops/c5a6d71/ : SUCCESS in 44m 35s\n- gate-glance-releasenotes http://docs-draft.openstack.org/74/255274/12/check/gate-glance-releasenotes/2c7f278//releasenotes/build/html/ : SUCCESS in 1m 59s\n- gate-tempest-dsvm-full-ceph http://logs.openstack.org/74/255274/12/check/gate-tempest-dsvm-full-ceph/c25f2ff/ : SUCCESS in 59m 49s\n- gate-tempest-dsvm-full-devstack-plugin-ceph-nv http://logs.openstack.org/74/255274/12/check/gate-tempest-dsvm-full-devstack-plugin-ceph-nv/10279fe/ : SUCCESS in 55m 13s (non-voting)\n- gate-rally-dsvm-glance http://logs.openstack.org/74/255274/12/check/gate-rally-dsvm-glance/8b3805c/ : SUCCESS in 46m 21s (non-voting)\n- gate-glance-python27-constraints http://logs.openstack.org/74/255274/12/check/gate-glance-python27-constraints/599f651/ : SUCCESS in 5m 35s (non-voting)\n- gate-glance-python34-constraints http://logs.openstack.org/74/255274/12/check/gate-glance-python34-constraints/9ca3400/ : SUCCESS in 5m 06s (non-voting)\n- gate-glance-docs-constraints http://docs-draft.openstack.org/74/255274/12/check/gate-glance-docs-constraints/188658d//doc/build/html/ : SUCCESS in 2m 13s (non-voting)\n- gate-glance-pep8-constraints http://logs.openstack.org/74/255274/12/check/gate-glance-pep8-constraints/3545617/ : SUCCESS in 2m 15s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 12
+        },
+        {
+            "id": "d6969986e2da194495b0412717ecffa5ad3540ac",
+            "author": {
+                "_account_id": 11391,
+                "name": "Mikhail Fedosin",
+                "email": "mfedosin@redhat.com",
+                "username": "fedosinme"
+            },
+            "real_author": {
+                "_account_id": 11391,
+                "name": "Mikhail Fedosin",
+                "email": "mfedosin@redhat.com",
+                "username": "fedosinme"
+            },
+            "date": "2016-01-11 17:18:24.000000000",
+            "message": "Patch Set 12: Code-Review-1\n\nWe have to put artifacts code under glance/api/artifacts/v0.1, because Glare public api will have version 0.2.",
+            "accounts_in_message": [],
+            "_revision_number": 12
+        },
+        {
+            "id": "edd983f4983bb0b5418ce89e82ef8965db0a3181",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2016-01-12 06:33:47.000000000",
+            "message": "Patch Set 12: Verified-1\n\nMerge Failed.\n\nThis change or one of its cross-repo dependencies was unable to be automatically merged with the current state of its repository. Please rebase the change and upload a new patchset.",
+            "accounts_in_message": [],
+            "_revision_number": 12
+        },
+        {
+            "id": "c25427dfca8e1e4af76acd7d656f86443711ecda",
+            "author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "real_author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "date": "2016-01-18 17:47:08.000000000",
+            "message": "Uploaded patch set 13.",
+            "accounts_in_message": [],
+            "_revision_number": 13
+        },
+        {
+            "id": "0cd40cad1a299c57e67048fb04abedc6131a4ea5",
+            "author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "real_author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "date": "2016-01-18 17:51:44.000000000",
+            "message": "Uploaded patch set 14.",
+            "accounts_in_message": [],
+            "_revision_number": 14
+        },
+        {
+            "id": "755447626c38836468b6dd18bb967086e1d65cde",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2016-01-18 21:07:26.000000000",
+            "message": "Patch Set 14: Verified-1\n\nBuild failed (check pipeline).  For information on how to proceed, see http://docs.openstack.org/infra/manual/developers.html#automated-testing\n\n- gate-glance-python34 http://logs.openstack.org/74/255274/14/check/gate-glance-python34/32544ba/ : SUCCESS in 7m 15s\n- gate-glance-pep8 http://logs.openstack.org/74/255274/14/check/gate-glance-pep8/833de13/ : FAILURE in 2m 52s\n- gate-glance-docs http://docs-draft.openstack.org/74/255274/14/check/gate-glance-docs/f785b08//doc/build/html/ : SUCCESS in 2m 52s\n- gate-glance-python27 http://logs.openstack.org/74/255274/14/check/gate-glance-python27/9646adc/ : SUCCESS in 8m 29s\n- gate-tempest-dsvm-full http://logs.openstack.org/74/255274/14/check/gate-tempest-dsvm-full/106cec2/ : SUCCESS in 1h 01m 42s\n- gate-tempest-dsvm-postgres-full http://logs.openstack.org/74/255274/14/check/gate-tempest-dsvm-postgres-full/5dd9c4c/ : SUCCESS in 1h 07m 40s\n- gate-tempest-dsvm-neutron-full http://logs.openstack.org/74/255274/14/check/gate-tempest-dsvm-neutron-full/16d717c/ : SUCCESS in 1h 42m 21s\n- gate-grenade-dsvm http://logs.openstack.org/74/255274/14/check/gate-grenade-dsvm/4e3c643/ : SUCCESS in 51m 45s\n- gate-tempest-dsvm-large-ops http://logs.openstack.org/74/255274/14/check/gate-tempest-dsvm-large-ops/64eff9d/ : SUCCESS in 41m 40s\n- gate-tempest-dsvm-neutron-large-ops http://logs.openstack.org/74/255274/14/check/gate-tempest-dsvm-neutron-large-ops/d4ec633/ : SUCCESS in 41m 57s\n- gate-glance-releasenotes http://docs-draft.openstack.org/74/255274/14/check/gate-glance-releasenotes/aff25ab//releasenotes/build/html/ : SUCCESS in 2m 45s\n- gate-tempest-dsvm-full-ceph http://logs.openstack.org/74/255274/14/check/gate-tempest-dsvm-full-ceph/ba4767d/ : SUCCESS in 1h 07m 11s\n- gate-tempest-dsvm-full-devstack-plugin-ceph-nv http://logs.openstack.org/74/255274/14/check/gate-tempest-dsvm-full-devstack-plugin-ceph-nv/86392d9/ : SUCCESS in 49m 56s (non-voting)\n- gate-rally-dsvm-glance http://logs.openstack.org/74/255274/14/check/gate-rally-dsvm-glance/c910b83/ : SUCCESS in 54m 58s (non-voting)\n- gate-glance-python27-constraints http://logs.openstack.org/74/255274/14/check/gate-glance-python27-constraints/edf9bbe/ : SUCCESS in 7m 46s (non-voting)\n- gate-glance-python34-constraints http://logs.openstack.org/74/255274/14/check/gate-glance-python34-constraints/a5072b6/ : SUCCESS in 5m 07s (non-voting)\n- gate-glance-docs-constraints http://docs-draft.openstack.org/74/255274/14/check/gate-glance-docs-constraints/4d49db9//doc/build/html/ : SUCCESS in 2m 38s (non-voting)\n- gate-glance-pep8-constraints http://logs.openstack.org/74/255274/14/check/gate-glance-pep8-constraints/aac7d3b/ : FAILURE in 2m 37s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 14
+        },
+        {
+            "id": "72233198d1ef1c5929d17d26c3f12329225b97fd",
+            "author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "real_author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "date": "2016-01-19 08:19:39.000000000",
+            "message": "Uploaded patch set 15.",
+            "accounts_in_message": [],
+            "_revision_number": 15
+        },
+        {
+            "id": "ab30c436aa0d555787eec799793c6d9dccad7631",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2016-01-19 20:00:30.000000000",
+            "message": "Patch Set 15: Verified+1\n\nBuild succeeded (check pipeline).\n\n- gate-glance-python34 http://logs.openstack.org/74/255274/15/check/gate-glance-python34/ad2014a/ : SUCCESS in 5m 30s\n- gate-glance-pep8 http://logs.openstack.org/74/255274/15/check/gate-glance-pep8/5f90b38/ : SUCCESS in 2m 28s\n- gate-glance-docs http://docs-draft.openstack.org/74/255274/15/check/gate-glance-docs/2103adc//doc/build/html/ : SUCCESS in 2m 36s\n- gate-glance-python27 http://logs.openstack.org/74/255274/15/check/gate-glance-python27/f636282/ : SUCCESS in 9m 40s\n- gate-tempest-dsvm-full http://logs.openstack.org/74/255274/15/check/gate-tempest-dsvm-full/d021975/ : SUCCESS in 1h 08m 08s\n- gate-tempest-dsvm-postgres-full http://logs.openstack.org/74/255274/15/check/gate-tempest-dsvm-postgres-full/d65bcf8/ : SUCCESS in 58m 02s\n- gate-tempest-dsvm-neutron-full http://logs.openstack.org/74/255274/15/check/gate-tempest-dsvm-neutron-full/693fbb5/ : SUCCESS in 1h 50m 36s\n- gate-grenade-dsvm http://logs.openstack.org/74/255274/15/check/gate-grenade-dsvm/b504c28/ : SUCCESS in 42m 56s\n- gate-tempest-dsvm-large-ops http://logs.openstack.org/74/255274/15/check/gate-tempest-dsvm-large-ops/ee40462/ : SUCCESS in 31m 23s\n- gate-tempest-dsvm-neutron-large-ops http://logs.openstack.org/74/255274/15/check/gate-tempest-dsvm-neutron-large-ops/97974aa/ : SUCCESS in 31m 38s\n- gate-glance-releasenotes http://docs-draft.openstack.org/74/255274/15/check/gate-glance-releasenotes/5b82d76//releasenotes/build/html/ : SUCCESS in 3m 41s\n- gate-tempest-dsvm-full-ceph http://logs.openstack.org/74/255274/15/check/gate-tempest-dsvm-full-ceph/e5b5f3e/ : SUCCESS in 1h 03m 51s\n- gate-tempest-dsvm-full-devstack-plugin-ceph-nv http://logs.openstack.org/74/255274/15/check/gate-tempest-dsvm-full-devstack-plugin-ceph-nv/4184f18/ : SUCCESS in 1h 20m 51s (non-voting)\n- gate-rally-dsvm-glance http://logs.openstack.org/74/255274/15/check/gate-rally-dsvm-glance/63f6841/ : SUCCESS in 1h 13m 02s (non-voting)\n- gate-glance-python27-constraints http://logs.openstack.org/74/255274/15/check/gate-glance-python27-constraints/4e4bd0c/ : SUCCESS in 7m 12s (non-voting)\n- gate-glance-python34-constraints http://logs.openstack.org/74/255274/15/check/gate-glance-python34-constraints/1ccab31/ : SUCCESS in 5m 00s (non-voting)\n- gate-glance-docs-constraints http://docs-draft.openstack.org/74/255274/15/check/gate-glance-docs-constraints/ae98bc3//doc/build/html/ : SUCCESS in 2m 36s (non-voting)\n- gate-glance-pep8-constraints http://logs.openstack.org/74/255274/15/check/gate-glance-pep8-constraints/e749d98/ : SUCCESS in 2m 52s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 15
+        },
+        {
+            "id": "df7cfcee3ea8d61b5c33cfe5542eaa553041e380",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2016-01-20 01:16:14.000000000",
+            "message": "Patch Set 15: Verified-1\n\nMerge Failed.\n\nThis change or one of its cross-repo dependencies was unable to be automatically merged with the current state of its repository. Please rebase the change and upload a new patchset.",
+            "accounts_in_message": [],
+            "_revision_number": 15
+        },
+        {
+            "id": "5f36c4548055145acc637e640db2ce273769c972",
+            "author": {
+                "_account_id": 11391,
+                "name": "Mikhail Fedosin",
+                "email": "mfedosin@redhat.com",
+                "username": "fedosinme"
+            },
+            "real_author": {
+                "_account_id": 11391,
+                "name": "Mikhail Fedosin",
+                "email": "mfedosin@redhat.com",
+                "username": "fedosinme"
+            },
+            "date": "2016-02-01 14:40:39.000000000",
+            "message": "Uploaded patch set 16.",
+            "accounts_in_message": [],
+            "_revision_number": 16
+        },
+        {
+            "id": "235bb551e2d468ce42fb4b49ebe55dfc768878ec",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2016-02-01 15:58:11.000000000",
+            "message": "Patch Set 16: Verified+1\n\nBuild succeeded (check pipeline).\n\n- gate-glance-python34 http://logs.openstack.org/74/255274/16/check/gate-glance-python34/26c38ab/ : SUCCESS in 3m 47s\n- gate-glance-pep8 http://logs.openstack.org/74/255274/16/check/gate-glance-pep8/b49f67b/ : SUCCESS in 2m 20s\n- gate-glance-docs http://docs-draft.openstack.org/74/255274/16/check/gate-glance-docs/4d49f06//doc/build/html/ : SUCCESS in 2m 59s\n- gate-glance-python27 http://logs.openstack.org/74/255274/16/check/gate-glance-python27/61c03b7/ : SUCCESS in 7m 19s\n- gate-tempest-dsvm-full http://logs.openstack.org/74/255274/16/check/gate-tempest-dsvm-full/96319a7/ : SUCCESS in 1h 04m 08s\n- gate-tempest-dsvm-postgres-full http://logs.openstack.org/74/255274/16/check/gate-tempest-dsvm-postgres-full/35e108f/ : SUCCESS in 1h 00m 36s\n- gate-tempest-dsvm-neutron-full http://logs.openstack.org/74/255274/16/check/gate-tempest-dsvm-neutron-full/e62013c/ : SUCCESS in 1h 15m 18s\n- gate-grenade-dsvm http://logs.openstack.org/74/255274/16/check/gate-grenade-dsvm/51495ea/ : SUCCESS in 55m 35s\n- gate-tempest-dsvm-large-ops http://logs.openstack.org/74/255274/16/check/gate-tempest-dsvm-large-ops/4f9e70f/ : SUCCESS in 34m 30s\n- gate-tempest-dsvm-neutron-large-ops http://logs.openstack.org/74/255274/16/check/gate-tempest-dsvm-neutron-large-ops/dc5078f/ : SUCCESS in 26m 50s\n- gate-glance-releasenotes http://docs-draft.openstack.org/74/255274/16/check/gate-glance-releasenotes/151f4eb//releasenotes/build/html/ : SUCCESS in 2m 24s\n- gate-tempest-dsvm-full-ceph http://logs.openstack.org/74/255274/16/check/gate-tempest-dsvm-full-ceph/c5c9424/ : SUCCESS in 50m 52s\n- gate-tempest-dsvm-full-devstack-plugin-ceph-nv http://logs.openstack.org/74/255274/16/check/gate-tempest-dsvm-full-devstack-plugin-ceph-nv/a42d2a3/ : SUCCESS in 52m 42s (non-voting)\n- gate-rally-dsvm-glance http://logs.openstack.org/74/255274/16/check/gate-rally-dsvm-glance/f2c6a70/ : SUCCESS in 48m 36s (non-voting)\n- gate-glance-python27-constraints http://logs.openstack.org/74/255274/16/check/gate-glance-python27-constraints/9fae592/ : SUCCESS in 7m 29s (non-voting)\n- gate-glance-python34-constraints http://logs.openstack.org/74/255274/16/check/gate-glance-python34-constraints/2b98184/ : SUCCESS in 4m 22s (non-voting)\n- gate-glance-docs-constraints http://docs-draft.openstack.org/74/255274/16/check/gate-glance-docs-constraints/60e8733//doc/build/html/ : SUCCESS in 2m 38s (non-voting)\n- gate-glance-pep8-constraints http://logs.openstack.org/74/255274/16/check/gate-glance-pep8-constraints/01cb4ca/ : SUCCESS in 2m 19s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 16
+        },
+        {
+            "id": "069ee18e1dc59a580a70decafb7f9c7467a9c15c",
+            "author": {
+                "_account_id": 11391,
+                "name": "Mikhail Fedosin",
+                "email": "mfedosin@redhat.com",
+                "username": "fedosinme"
+            },
+            "real_author": {
+                "_account_id": 11391,
+                "name": "Mikhail Fedosin",
+                "email": "mfedosin@redhat.com",
+                "username": "fedosinme"
+            },
+            "date": "2016-02-04 12:41:11.000000000",
+            "message": "Patch Set 16: Code-Review+1",
+            "accounts_in_message": [],
+            "_revision_number": 16
+        },
+        {
+            "id": "239755c5353c568bf835fd6fad0143c008425376",
+            "author": {
+                "_account_id": 16658,
+                "name": "Darja Shakhray",
+                "email": "damalyavkina@gmail.com",
+                "username": "dshakhray"
+            },
+            "real_author": {
+                "_account_id": 16658,
+                "name": "Darja Shakhray",
+                "email": "damalyavkina@gmail.com",
+                "username": "dshakhray"
+            },
+            "date": "2016-02-04 13:03:01.000000000",
+            "message": "Patch Set 16: Code-Review+1",
+            "accounts_in_message": [],
+            "_revision_number": 16
+        },
+        {
+            "id": "2d43c3d29df63941b5e8d904c53ceecc54dd2405",
+            "author": {
+                "_account_id": 6159,
+                "name": "Flavio Percoco",
+                "display_name": "flaper87",
+                "email": "fpercoco@redhat.com",
+                "username": "flaper87"
+            },
+            "real_author": {
+                "_account_id": 6159,
+                "name": "Flavio Percoco",
+                "display_name": "flaper87",
+                "email": "fpercoco@redhat.com",
+                "username": "flaper87"
+            },
+            "date": "2016-02-05 12:39:22.000000000",
+            "message": "Patch Set 16: Code-Review-1\n\n(2 comments)\n\nThe patch looks straightforward. My only comment is whether we should do a `s/artifacts/glare/` replacement pretty much everywhere here.\n\nI'd like us to stop calling it artifacts and use the name we've chosen for this.",
+            "accounts_in_message": [],
+            "_revision_number": 16
+        },
+        {
+            "id": "e0209af44aff744566280b98e8312e0a08c4e49d",
+            "author": {
+                "_account_id": 16658,
+                "name": "Darja Shakhray",
+                "email": "damalyavkina@gmail.com",
+                "username": "dshakhray"
+            },
+            "real_author": {
+                "_account_id": 16658,
+                "name": "Darja Shakhray",
+                "email": "damalyavkina@gmail.com",
+                "username": "dshakhray"
+            },
+            "date": "2016-02-08 17:30:41.000000000",
+            "message": "Uploaded patch set 17.",
+            "accounts_in_message": [],
+            "_revision_number": 17
+        },
+        {
+            "id": "01cefc8f06a5616d313eae686c22550eebbea06b",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2016-02-08 20:51:13.000000000",
+            "message": "Patch Set 17: Verified-1\n\nBuild failed (check pipeline).  For information on how to proceed, see http://docs.openstack.org/infra/manual/developers.html#automated-testing\n\n- gate-glance-python34 http://logs.openstack.org/74/255274/17/check/gate-glance-python34/bec79bb/ : SUCCESS in 3m 55s\n- gate-glance-pep8 http://logs.openstack.org/74/255274/17/check/gate-glance-pep8/f78eca5/ : SUCCESS in 1m 19s\n- gate-glance-docs http://docs-draft.openstack.org/74/255274/17/check/gate-glance-docs/ae81eca//doc/build/html/ : SUCCESS in 1m 37s\n- gate-glance-python27 http://logs.openstack.org/74/255274/17/check/gate-glance-python27/0442c3c/ : SUCCESS in 6m 44s\n- gate-tempest-dsvm-full http://logs.openstack.org/74/255274/17/check/gate-tempest-dsvm-full/8b04e1b/ : SUCCESS in 44m 56s\n- gate-tempest-dsvm-postgres-full http://logs.openstack.org/74/255274/17/check/gate-tempest-dsvm-postgres-full/8e596b6/ : SUCCESS in 40m 19s\n- gate-tempest-dsvm-neutron-full http://logs.openstack.org/74/255274/17/check/gate-tempest-dsvm-neutron-full/383df00/ : SUCCESS in 48m 27s\n- gate-grenade-dsvm http://logs.openstack.org/74/255274/17/check/gate-grenade-dsvm/1def176/ : SUCCESS in 39m 59s\n- gate-tempest-dsvm-large-ops http://logs.openstack.org/74/255274/17/check/gate-tempest-dsvm-large-ops/bc05873/ : SUCCESS in 22m 59s\n- gate-tempest-dsvm-neutron-large-ops http://logs.openstack.org/74/255274/17/check/gate-tempest-dsvm-neutron-large-ops/a6d9f12/ : SUCCESS in 24m 33s\n- gate-glance-releasenotes http://docs-draft.openstack.org/74/255274/17/check/gate-glance-releasenotes/91b1b5c//releasenotes/build/html/ : SUCCESS in 1m 17s\n- gate-tempest-dsvm-full-ceph http://logs.openstack.org/74/255274/17/check/gate-tempest-dsvm-full-ceph/1ea0cab/ : FAILURE in 40m 10s\n- gate-tempest-dsvm-full-devstack-plugin-ceph-nv http://logs.openstack.org/74/255274/17/check/gate-tempest-dsvm-full-devstack-plugin-ceph-nv/646c05c/ : FAILURE in 47m 40s (non-voting)\n- gate-rally-dsvm-glance http://logs.openstack.org/74/255274/17/check/gate-rally-dsvm-glance/14753b1/ : SUCCESS in 46m 10s (non-voting)\n- gate-glance-python27-constraints http://logs.openstack.org/74/255274/17/check/gate-glance-python27-constraints/dc05ad7/ : SUCCESS in 5m 28s (non-voting)\n- gate-glance-python34-constraints http://logs.openstack.org/74/255274/17/check/gate-glance-python34-constraints/6095d05/ : SUCCESS in 4m 27s (non-voting)\n- gate-glance-docs-constraints http://docs-draft.openstack.org/74/255274/17/check/gate-glance-docs-constraints/5ddd8ac//doc/build/html/ : SUCCESS in 2m 06s (non-voting)\n- gate-glance-pep8-constraints http://logs.openstack.org/74/255274/17/check/gate-glance-pep8-constraints/46bdbb1/ : SUCCESS in 1m 17s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 17
+        },
+        {
+            "id": "5cd362ae90cf767aac0828042902ead9f6ca8ef7",
+            "author": {
+                "_account_id": 16658,
+                "name": "Darja Shakhray",
+                "email": "damalyavkina@gmail.com",
+                "username": "dshakhray"
+            },
+            "real_author": {
+                "_account_id": 16658,
+                "name": "Darja Shakhray",
+                "email": "damalyavkina@gmail.com",
+                "username": "dshakhray"
+            },
+            "date": "2016-02-09 13:11:43.000000000",
+            "message": "Patch Set 17:\n\nrecheck",
+            "accounts_in_message": [],
+            "_revision_number": 17
+        },
+        {
+            "id": "e2f9059545ab137e2079f0b9aa3ae7109f140359",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2016-02-09 14:34:23.000000000",
+            "message": "Patch Set 17: Verified+1\n\nBuild succeeded (check pipeline).\n\n- gate-glance-python34 http://logs.openstack.org/74/255274/17/check/gate-glance-python34/e65ede1/ : SUCCESS in 3m 22s\n- gate-glance-pep8 http://logs.openstack.org/74/255274/17/check/gate-glance-pep8/d954dc4/ : SUCCESS in 1m 02s\n- gate-glance-docs http://docs-draft.openstack.org/74/255274/17/check/gate-glance-docs/bbf3a3e//doc/build/html/ : SUCCESS in 1m 00s\n- gate-glance-python27 http://logs.openstack.org/74/255274/17/check/gate-glance-python27/399417f/ : SUCCESS in 7m 33s\n- gate-tempest-dsvm-full http://logs.openstack.org/74/255274/17/check/gate-tempest-dsvm-full/052108b/ : SUCCESS in 34m 34s\n- gate-tempest-dsvm-postgres-full http://logs.openstack.org/74/255274/17/check/gate-tempest-dsvm-postgres-full/1872499/ : SUCCESS in 42m 48s\n- gate-tempest-dsvm-neutron-full http://logs.openstack.org/74/255274/17/check/gate-tempest-dsvm-neutron-full/e297fa3/ : SUCCESS in 58m 07s\n- gate-grenade-dsvm http://logs.openstack.org/74/255274/17/check/gate-grenade-dsvm/27553b4/ : SUCCESS in 38m 55s\n- gate-tempest-dsvm-large-ops http://logs.openstack.org/74/255274/17/check/gate-tempest-dsvm-large-ops/9b8394b/ : SUCCESS in 28m 21s\n- gate-tempest-dsvm-neutron-large-ops http://logs.openstack.org/74/255274/17/check/gate-tempest-dsvm-neutron-large-ops/cbc0fe9/ : SUCCESS in 32m 55s\n- gate-glance-releasenotes http://docs-draft.openstack.org/74/255274/17/check/gate-glance-releasenotes/e929643//releasenotes/build/html/ : SUCCESS in 1m 03s\n- gate-tempest-dsvm-full-ceph http://logs.openstack.org/74/255274/17/check/gate-tempest-dsvm-full-ceph/05578e3/ : SUCCESS in 41m 51s\n- gate-tempest-dsvm-full-devstack-plugin-ceph-nv http://logs.openstack.org/74/255274/17/check/gate-tempest-dsvm-full-devstack-plugin-ceph-nv/8b77441/ : SUCCESS in 1h 19m 13s (non-voting)\n- gate-rally-dsvm-glance http://logs.openstack.org/74/255274/17/check/gate-rally-dsvm-glance/e8c040e/ : SUCCESS in 1h 07m 40s (non-voting)\n- gate-glance-python27-constraints http://logs.openstack.org/74/255274/17/check/gate-glance-python27-constraints/b038a07/ : SUCCESS in 6m 04s (non-voting)\n- gate-glance-python34-constraints http://logs.openstack.org/74/255274/17/check/gate-glance-python34-constraints/1eac731/ : SUCCESS in 3m 33s (non-voting)\n- gate-glance-docs-constraints http://docs-draft.openstack.org/74/255274/17/check/gate-glance-docs-constraints/297c36d//doc/build/html/ : SUCCESS in 1m 48s (non-voting)\n- gate-glance-pep8-constraints http://logs.openstack.org/74/255274/17/check/gate-glance-pep8-constraints/8315a36/ : SUCCESS in 1m 08s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 17
+        },
+        {
+            "id": "991433cff569453424e08b35c3a5e250895f4de3",
+            "author": {
+                "_account_id": 6159,
+                "name": "Flavio Percoco",
+                "display_name": "flaper87",
+                "email": "fpercoco@redhat.com",
+                "username": "flaper87"
+            },
+            "real_author": {
+                "_account_id": 6159,
+                "name": "Flavio Percoco",
+                "display_name": "flaper87",
+                "email": "fpercoco@redhat.com",
+                "username": "flaper87"
+            },
+            "date": "2016-02-09 17:16:01.000000000",
+            "message": "Patch Set 17: Code-Review-1\n\n(1 comment)\n\nopppps? :D",
+            "accounts_in_message": [],
+            "_revision_number": 17
+        },
+        {
+            "id": "5815265e6cba4fd1463e31716d58430cd7fbeb86",
+            "author": {
+                "_account_id": 16658,
+                "name": "Darja Shakhray",
+                "email": "damalyavkina@gmail.com",
+                "username": "dshakhray"
+            },
+            "real_author": {
+                "_account_id": 16658,
+                "name": "Darja Shakhray",
+                "email": "damalyavkina@gmail.com",
+                "username": "dshakhray"
+            },
+            "date": "2016-02-09 19:11:09.000000000",
+            "message": "Uploaded patch set 18.",
+            "accounts_in_message": [],
+            "_revision_number": 18
+        },
+        {
+            "id": "2c618eaaf86ba72defac811a8e6d47fcf226da79",
+            "author": {
+                "_account_id": 16658,
+                "name": "Darja Shakhray",
+                "email": "damalyavkina@gmail.com",
+                "username": "dshakhray"
+            },
+            "real_author": {
+                "_account_id": 16658,
+                "name": "Darja Shakhray",
+                "email": "damalyavkina@gmail.com",
+                "username": "dshakhray"
+            },
+            "date": "2016-02-09 19:12:02.000000000",
+            "message": "Patch Set 17:\n\n(1 comment)",
+            "accounts_in_message": [],
+            "_revision_number": 17
+        },
+        {
+            "id": "4d53a64707730a9a0684beb49580bb8f8b851c3e",
+            "author": {
+                "_account_id": 6159,
+                "name": "Flavio Percoco",
+                "display_name": "flaper87",
+                "email": "fpercoco@redhat.com",
+                "username": "flaper87"
+            },
+            "real_author": {
+                "_account_id": 6159,
+                "name": "Flavio Percoco",
+                "display_name": "flaper87",
+                "email": "fpercoco@redhat.com",
+                "username": "flaper87"
+            },
+            "date": "2016-02-09 19:30:16.000000000",
+            "message": "Patch Set 18: Code-Review-1\n\n(1 comment)",
+            "accounts_in_message": [],
+            "_revision_number": 18
+        },
+        {
+            "id": "d4b896b26e081861330428db55fd0b58c0abfecb",
+            "author": {
+                "_account_id": 16658,
+                "name": "Darja Shakhray",
+                "email": "damalyavkina@gmail.com",
+                "username": "dshakhray"
+            },
+            "real_author": {
+                "_account_id": 16658,
+                "name": "Darja Shakhray",
+                "email": "damalyavkina@gmail.com",
+                "username": "dshakhray"
+            },
+            "date": "2016-02-09 20:01:14.000000000",
+            "message": "Patch Set 18:\n\n(1 comment)",
+            "accounts_in_message": [],
+            "_revision_number": 18
+        },
+        {
+            "id": "351b8ea0d6f30d495de14f6714a8c363e0807ef3",
+            "author": {
+                "_account_id": 16658,
+                "name": "Darja Shakhray",
+                "email": "damalyavkina@gmail.com",
+                "username": "dshakhray"
+            },
+            "real_author": {
+                "_account_id": 16658,
+                "name": "Darja Shakhray",
+                "email": "damalyavkina@gmail.com",
+                "username": "dshakhray"
+            },
+            "date": "2016-02-09 20:01:58.000000000",
+            "message": "Uploaded patch set 19.",
+            "accounts_in_message": [],
+            "_revision_number": 19
+        },
+        {
+            "id": "bca11feb190ae96660e13c1c227c5cb97f4fcbf2",
+            "author": {
+                "_account_id": 6159,
+                "name": "Flavio Percoco",
+                "display_name": "flaper87",
+                "email": "fpercoco@redhat.com",
+                "username": "flaper87"
+            },
+            "real_author": {
+                "_account_id": 6159,
+                "name": "Flavio Percoco",
+                "display_name": "flaper87",
+                "email": "fpercoco@redhat.com",
+                "username": "flaper87"
+            },
+            "date": "2016-02-09 20:04:04.000000000",
+            "message": "Patch Set 19:\n\nYEah, every package and module called artifacts  should be renamed to glare.",
+            "accounts_in_message": [],
+            "_revision_number": 19
+        },
+        {
+            "id": "7e2b7f774b64a90e1ac6dcaca81a89280164876a",
+            "author": {
+                "_account_id": 16658,
+                "name": "Darja Shakhray",
+                "email": "damalyavkina@gmail.com",
+                "username": "dshakhray"
+            },
+            "real_author": {
+                "_account_id": 16658,
+                "name": "Darja Shakhray",
+                "email": "damalyavkina@gmail.com",
+                "username": "dshakhray"
+            },
+            "date": "2016-02-09 20:10:18.000000000",
+            "message": "Patch Set 19:\n\nokay, I'll do it",
+            "accounts_in_message": [],
+            "_revision_number": 19
+        },
+        {
+            "id": "10f350fea0a26990b716fe8917d22914e7fde697",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2016-02-09 22:52:27.000000000",
+            "message": "Patch Set 19: Verified-1\n\nBuild failed (check pipeline).  For information on how to proceed, see http://docs.openstack.org/infra/manual/developers.html#automated-testing\n\n- gate-glance-python34 http://logs.openstack.org/74/255274/19/check/gate-glance-python34/b67e782/ : SUCCESS in 3m 47s\n- gate-glance-pep8 http://logs.openstack.org/74/255274/19/check/gate-glance-pep8/9fb49d9/ : FAILURE in 1m 15s\n- gate-glance-docs http://docs-draft.openstack.org/74/255274/19/check/gate-glance-docs/98b8095//doc/build/html/ : SUCCESS in 1m 35s\n- gate-glance-python27 http://logs.openstack.org/74/255274/19/check/gate-glance-python27/208454a/ : FAILURE in 25m 38s\n- gate-tempest-dsvm-full http://logs.openstack.org/74/255274/19/check/gate-tempest-dsvm-full/c36290e/ : SUCCESS in 47m 30s\n- gate-tempest-dsvm-postgres-full http://logs.openstack.org/74/255274/19/check/gate-tempest-dsvm-postgres-full/c21606d/ : SUCCESS in 38m 55s\n- gate-tempest-dsvm-neutron-full http://logs.openstack.org/74/255274/19/check/gate-tempest-dsvm-neutron-full/1cd6eb9/ : SUCCESS in 49m 32s\n- gate-grenade-dsvm http://logs.openstack.org/74/255274/19/check/gate-grenade-dsvm/381e613/ : SUCCESS in 34m 24s\n- gate-tempest-dsvm-large-ops http://logs.openstack.org/74/255274/19/check/gate-tempest-dsvm-large-ops/292a8c1/ : SUCCESS in 31m 08s\n- gate-tempest-dsvm-neutron-large-ops http://logs.openstack.org/74/255274/19/check/gate-tempest-dsvm-neutron-large-ops/7a40628/ : SUCCESS in 23m 17s\n- gate-glance-releasenotes http://docs-draft.openstack.org/74/255274/19/check/gate-glance-releasenotes/48fff7e//releasenotes/build/html/ : SUCCESS in 1m 23s\n- gate-tempest-dsvm-full-ceph http://logs.openstack.org/74/255274/19/check/gate-tempest-dsvm-full-ceph/4d7e577/ : SUCCESS in 55m 10s\n- gate-tempest-dsvm-full-devstack-plugin-ceph-nv http://logs.openstack.org/74/255274/19/check/gate-tempest-dsvm-full-devstack-plugin-ceph-nv/64f8163/ : SUCCESS in 40m 11s (non-voting)\n- gate-rally-dsvm-glance http://logs.openstack.org/74/255274/19/check/gate-rally-dsvm-glance/1ef2d48/ : SUCCESS in 39m 49s (non-voting)\n- gate-glance-python27-constraints http://logs.openstack.org/74/255274/19/check/gate-glance-python27-constraints/3541a08/ : FAILURE in 25m 51s (non-voting)\n- gate-glance-python34-constraints http://logs.openstack.org/74/255274/19/check/gate-glance-python34-constraints/ff272e1/ : SUCCESS in 3m 42s (non-voting)\n- gate-glance-docs-constraints http://docs-draft.openstack.org/74/255274/19/check/gate-glance-docs-constraints/09dad00//doc/build/html/ : SUCCESS in 1m 40s (non-voting)\n- gate-glance-pep8-constraints http://logs.openstack.org/74/255274/19/check/gate-glance-pep8-constraints/e3f83cc/ : FAILURE in 1m 17s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 19
+        },
+        {
+            "id": "5a8dccf703297ec91d14db78cb4e6967723f1b19",
+            "author": {
+                "_account_id": 16658,
+                "name": "Darja Shakhray",
+                "email": "damalyavkina@gmail.com",
+                "username": "dshakhray"
+            },
+            "real_author": {
+                "_account_id": 16658,
+                "name": "Darja Shakhray",
+                "email": "damalyavkina@gmail.com",
+                "username": "dshakhray"
+            },
+            "date": "2016-02-10 13:28:38.000000000",
+            "message": "Uploaded patch set 20.",
+            "accounts_in_message": [],
+            "_revision_number": 20
+        },
+        {
+            "id": "293fd3527089f50e6373e90c2fe54889fd2a4478",
+            "author": {
+                "_account_id": 16658,
+                "name": "Darja Shakhray",
+                "email": "damalyavkina@gmail.com",
+                "username": "dshakhray"
+            },
+            "real_author": {
+                "_account_id": 16658,
+                "name": "Darja Shakhray",
+                "email": "damalyavkina@gmail.com",
+                "username": "dshakhray"
+            },
+            "date": "2016-02-10 15:11:36.000000000",
+            "message": "Patch Set 20:\n\nrecheck",
+            "accounts_in_message": [],
+            "_revision_number": 20
+        },
+        {
+            "id": "d09dd09d214c193830e80e0be78ab38171e9e9bc",
+            "author": {
+                "_account_id": 16658,
+                "name": "Darja Shakhray",
+                "email": "damalyavkina@gmail.com",
+                "username": "dshakhray"
+            },
+            "real_author": {
+                "_account_id": 16658,
+                "name": "Darja Shakhray",
+                "email": "damalyavkina@gmail.com",
+                "username": "dshakhray"
+            },
+            "date": "2016-02-10 15:15:36.000000000",
+            "message": "Uploaded patch set 21.",
+            "accounts_in_message": [],
+            "_revision_number": 21
+        },
+        {
+            "id": "70678a7b194e2120c87b0c403d9cf1ff10b90fb3",
+            "author": {
+                "_account_id": 16658,
+                "name": "Darja Shakhray",
+                "email": "damalyavkina@gmail.com",
+                "username": "dshakhray"
+            },
+            "real_author": {
+                "_account_id": 16658,
+                "name": "Darja Shakhray",
+                "email": "damalyavkina@gmail.com",
+                "username": "dshakhray"
+            },
+            "date": "2016-02-10 15:35:27.000000000",
+            "message": "Uploaded patch set 22.",
+            "accounts_in_message": [],
+            "_revision_number": 22
+        },
+        {
+            "id": "d62ac08fd8d35dd7f69a67e299bcbc8f948998eb",
+            "author": {
+                "_account_id": 6159,
+                "name": "Flavio Percoco",
+                "display_name": "flaper87",
+                "email": "fpercoco@redhat.com",
+                "username": "flaper87"
+            },
+            "real_author": {
+                "_account_id": 6159,
+                "name": "Flavio Percoco",
+                "display_name": "flaper87",
+                "email": "fpercoco@redhat.com",
+                "username": "flaper87"
+            },
+            "date": "2016-02-10 15:39:18.000000000",
+            "message": "Patch Set 22: Code-Review+2\n\nLet's wait for Mr. Jenkins! \n\nThanks :)",
+            "accounts_in_message": [],
+            "_revision_number": 22
+        },
+        {
+            "id": "28fa97daee15bb268f1e80d9b1de9c0cead3f7b0",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2016-02-10 18:31:45.000000000",
+            "message": "Patch Set 22: Verified+1\n\nBuild succeeded (check pipeline).\n\n- gate-glance-python34 http://logs.openstack.org/74/255274/22/check/gate-glance-python34/688efc5/ : SUCCESS in 4m 13s\n- gate-glance-pep8 http://logs.openstack.org/74/255274/22/check/gate-glance-pep8/afe0c57/ : SUCCESS in 1m 18s\n- gate-glance-docs http://docs-draft.openstack.org/74/255274/22/check/gate-glance-docs/3b0e775//doc/build/html/ : SUCCESS in 1m 06s\n- gate-glance-python27 http://logs.openstack.org/74/255274/22/check/gate-glance-python27/25c4a0a/ : SUCCESS in 6m 42s\n- gate-tempest-dsvm-full http://logs.openstack.org/74/255274/22/check/gate-tempest-dsvm-full/4d81d4d/ : SUCCESS in 52m 41s\n- gate-tempest-dsvm-postgres-full http://logs.openstack.org/74/255274/22/check/gate-tempest-dsvm-postgres-full/51a2b82/ : SUCCESS in 52m 20s\n- gate-tempest-dsvm-neutron-full http://logs.openstack.org/74/255274/22/check/gate-tempest-dsvm-neutron-full/be6b0b9/ : SUCCESS in 1h 15m 58s\n- gate-grenade-dsvm http://logs.openstack.org/74/255274/22/check/gate-grenade-dsvm/d23c0a7/ : SUCCESS in 47m 16s\n- gate-tempest-dsvm-large-ops http://logs.openstack.org/74/255274/22/check/gate-tempest-dsvm-large-ops/8797a45/ : SUCCESS in 27m 58s\n- gate-tempest-dsvm-neutron-large-ops http://logs.openstack.org/74/255274/22/check/gate-tempest-dsvm-neutron-large-ops/12645cd/ : SUCCESS in 31m 53s\n- gate-glance-releasenotes http://docs-draft.openstack.org/74/255274/22/check/gate-glance-releasenotes/5f374bf//releasenotes/build/html/ : SUCCESS in 59s\n- gate-tempest-dsvm-full-ceph http://logs.openstack.org/74/255274/22/check/gate-tempest-dsvm-full-ceph/2797fc8/ : SUCCESS in 41m 26s\n- gate-tempest-dsvm-full-devstack-plugin-ceph-nv http://logs.openstack.org/74/255274/22/check/gate-tempest-dsvm-full-devstack-plugin-ceph-nv/e4edd55/ : SUCCESS in 47m 19s (non-voting)\n- gate-rally-dsvm-glance http://logs.openstack.org/74/255274/22/check/gate-rally-dsvm-glance/ddf23ce/ : SUCCESS in 36m 36s (non-voting)\n- gate-glance-python27-constraints http://logs.openstack.org/74/255274/22/check/gate-glance-python27-constraints/948130d/ : SUCCESS in 6m 24s (non-voting)\n- gate-glance-python34-constraints http://logs.openstack.org/74/255274/22/check/gate-glance-python34-constraints/353277b/ : SUCCESS in 3m 41s (non-voting)\n- gate-glance-docs-constraints http://docs-draft.openstack.org/74/255274/22/check/gate-glance-docs-constraints/ef0e35e//doc/build/html/ : SUCCESS in 1m 25s (non-voting)\n- gate-glance-pep8-constraints http://logs.openstack.org/74/255274/22/check/gate-glance-pep8-constraints/803ae6d/ : SUCCESS in 1m 32s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 22
+        },
+        {
+            "id": "63b33028f03f65c00ff01259ec0eacfb031909fc",
+            "author": {
+                "_account_id": 11391,
+                "name": "Mikhail Fedosin",
+                "email": "mfedosin@redhat.com",
+                "username": "fedosinme"
+            },
+            "real_author": {
+                "_account_id": 11391,
+                "name": "Mikhail Fedosin",
+                "email": "mfedosin@redhat.com",
+                "username": "fedosinme"
+            },
+            "date": "2016-02-10 21:05:05.000000000",
+            "message": "Patch Set 22: Code-Review+2 Workflow+1",
+            "accounts_in_message": [],
+            "_revision_number": 22
+        },
+        {
+            "id": "17c7ed7baeaf83e4a444a5e94de0d0d2de98dc27",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2016-02-10 21:06:46.000000000",
+            "message": "Patch Set 22: -Verified\n\nStarting gate jobs.\nhttp://status.openstack.org/zuul/",
+            "accounts_in_message": [],
+            "_revision_number": 22
+        },
+        {
+            "id": "c9e5ce4cfa1839315d08d4b18cad025816449f8a",
+            "date": "2016-02-11 02:14:23.000000000",
+            "message": "Change has been successfully merged into the git repository by Jenkins",
+            "accounts_in_message": [],
+            "_revision_number": 22
+        },
+        {
+            "id": "7dbc9aa9dbcfe574f45ab52b1286e58c2cd07dd7",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2016-02-11 02:14:23.000000000",
+            "message": "Patch Set 22: Verified+2\n\nBuild succeeded (gate pipeline).\n\n- gate-glance-python34 http://logs.openstack.org/74/255274/22/gate/gate-glance-python34/8e8e063/ : SUCCESS in 3m 42s\n- gate-glance-docs http://docs-draft.openstack.org/74/255274/22/gate/gate-glance-docs/bcf4f90//doc/build/html/ : SUCCESS in 1m 18s\n- gate-glance-pep8 http://logs.openstack.org/74/255274/22/gate/gate-glance-pep8/32e73ec/ : SUCCESS in 1m 23s\n- gate-glance-python27 http://logs.openstack.org/74/255274/22/gate/gate-glance-python27/ad1fa49/ : SUCCESS in 5m 49s\n- gate-tempest-dsvm-full http://logs.openstack.org/74/255274/22/gate/gate-tempest-dsvm-full/2a762b6/ : SUCCESS in 49m 19s\n- gate-tempest-dsvm-postgres-full http://logs.openstack.org/74/255274/22/gate/gate-tempest-dsvm-postgres-full/74ca82c/ : SUCCESS in 47m 42s\n- gate-tempest-dsvm-neutron-full http://logs.openstack.org/74/255274/22/gate/gate-tempest-dsvm-neutron-full/fd9d830/ : SUCCESS in 1h 00m 14s\n- gate-grenade-dsvm http://logs.openstack.org/74/255274/22/gate/gate-grenade-dsvm/0ed95a2/ : SUCCESS in 54m 33s\n- gate-tempest-dsvm-large-ops http://logs.openstack.org/74/255274/22/gate/gate-tempest-dsvm-large-ops/393795c/ : SUCCESS in 26m 36s\n- gate-tempest-dsvm-neutron-large-ops http://logs.openstack.org/74/255274/22/gate/gate-tempest-dsvm-neutron-large-ops/65f7f16/ : SUCCESS in 38m 33s\n- gate-glance-releasenotes http://docs-draft.openstack.org/74/255274/22/gate/gate-glance-releasenotes/809f466//releasenotes/build/html/ : SUCCESS in 1m 19s\n- gate-tempest-dsvm-full-ceph http://logs.openstack.org/74/255274/22/gate/gate-tempest-dsvm-full-ceph/a37beb2/ : SUCCESS in 58m 54s",
+            "accounts_in_message": [],
+            "_revision_number": 22
+        }
+    ],
+    "requirements": [],
+    "submit_records": []
+}

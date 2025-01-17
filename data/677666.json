@@ -1,0 +1,698 @@
+{
+    "id": "openstack%2Fglance~master~I92c85647ea4eea7069f8124334402f9127bf653c",
+    "project": "openstack/glance",
+    "branch": "master",
+    "topic": "bug/1838332",
+    "hashtags": [],
+    "change_id": "I92c85647ea4eea7069f8124334402f9127bf653c",
+    "subject": "MultiStore: Lazy update fails if image is not owned by owner",
+    "status": "MERGED",
+    "created": "2019-08-21 08:02:50.000000000",
+    "updated": "2019-09-12 18:39:38.000000000",
+    "submitted": "2019-09-12 18:37:31.000000000",
+    "submitter": {
+        "_account_id": 22348,
+        "name": "Zuul",
+        "username": "zuul",
+        "tags": [
+            "SERVICE_USER"
+        ]
+    },
+    "insertions": 33,
+    "deletions": 6,
+    "total_comment_count": 0,
+    "unresolved_comment_count": 0,
+    "has_review_started": true,
+    "submission_id": "677666-1568313451894-a98c8a47",
+    "meta_rev_id": "639199a454ccd6bbf8222b72894ecfd87c8040bd",
+    "_number": 677666,
+    "owner": {
+        "_account_id": 9303,
+        "name": "Abhishek Kekane",
+        "email": "akekane@redhat.com",
+        "username": "abhishekkekane"
+    },
+    "labels": {
+        "Verified": {
+            "approved": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "all": [
+                {
+                    "value": 2,
+                    "date": "2019-09-12 18:37:31.000000000",
+                    "permitted_voting_range": {
+                        "min": 2,
+                        "max": 2
+                    },
+                    "_account_id": 22348,
+                    "name": "Zuul",
+                    "username": "zuul",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 0,
+                    "_account_id": 27781,
+                    "name": "zhulingjie",
+                    "email": "easyzlj@gmail.com",
+                    "username": "zhulingjie"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 9303,
+                    "name": "Abhishek Kekane",
+                    "email": "akekane@redhat.com",
+                    "username": "abhishekkekane"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 11904,
+                    "name": "Sean McGinnis",
+                    "email": "sean.mcginnis@gmail.com",
+                    "username": "SeanM"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 5314,
+                    "name": "Brian Rosmaita",
+                    "email": "rosmaita.fossdev@gmail.com",
+                    "username": "brian-rosmaita"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 5202,
+                    "name": "Erno Kuvaja",
+                    "email": "jokke@usr.fi",
+                    "username": "jokke"
+                }
+            ],
+            "values": {
+                "-2": "Fails",
+                "-1": "Doesn't seem to work",
+                " 0": "No score",
+                "+1": "Works for me",
+                "+2": "Verified"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        },
+        "Code-Review": {
+            "approved": {
+                "_account_id": 11904,
+                "name": "Sean McGinnis",
+                "email": "sean.mcginnis@gmail.com",
+                "username": "SeanM"
+            },
+            "recommended": {
+                "_account_id": 27781,
+                "name": "zhulingjie",
+                "email": "easyzlj@gmail.com",
+                "username": "zhulingjie"
+            },
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 22348,
+                    "name": "Zuul",
+                    "username": "zuul",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 1,
+                    "date": "2019-09-11 16:36:02.000000000",
+                    "permitted_voting_range": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "_account_id": 27781,
+                    "name": "zhulingjie",
+                    "email": "easyzlj@gmail.com",
+                    "username": "zhulingjie"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 9303,
+                    "name": "Abhishek Kekane",
+                    "email": "akekane@redhat.com",
+                    "username": "abhishekkekane"
+                },
+                {
+                    "value": 2,
+                    "date": "2019-09-12 16:48:12.000000000",
+                    "permitted_voting_range": {
+                        "min": 2,
+                        "max": 2
+                    },
+                    "_account_id": 11904,
+                    "name": "Sean McGinnis",
+                    "email": "sean.mcginnis@gmail.com",
+                    "username": "SeanM"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 5314,
+                    "name": "Brian Rosmaita",
+                    "email": "rosmaita.fossdev@gmail.com",
+                    "username": "brian-rosmaita"
+                },
+                {
+                    "value": 2,
+                    "date": "2019-09-04 11:08:07.000000000",
+                    "permitted_voting_range": {
+                        "min": 2,
+                        "max": 2
+                    },
+                    "_account_id": 5202,
+                    "name": "Erno Kuvaja",
+                    "email": "jokke@usr.fi",
+                    "username": "jokke"
+                }
+            ],
+            "values": {
+                "-2": "Do not merge",
+                "-1": "This patch needs further work before it can be merged",
+                " 0": "No score",
+                "+1": "Looks good to me, but someone else must approve",
+                "+2": "Looks good to me (core reviewer)"
+            },
+            "description": "",
+            "value": 1,
+            "default_value": 0,
+            "optional": true
+        },
+        "Workflow": {
+            "approved": {
+                "_account_id": 5202,
+                "name": "Erno Kuvaja",
+                "email": "jokke@usr.fi",
+                "username": "jokke"
+            },
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 22348,
+                    "name": "Zuul",
+                    "username": "zuul",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 0,
+                    "_account_id": 27781,
+                    "name": "zhulingjie",
+                    "email": "easyzlj@gmail.com",
+                    "username": "zhulingjie"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 9303,
+                    "name": "Abhishek Kekane",
+                    "email": "akekane@redhat.com",
+                    "username": "abhishekkekane"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 11904,
+                    "name": "Sean McGinnis",
+                    "email": "sean.mcginnis@gmail.com",
+                    "username": "SeanM"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 5314,
+                    "name": "Brian Rosmaita",
+                    "email": "rosmaita.fossdev@gmail.com",
+                    "username": "brian-rosmaita"
+                },
+                {
+                    "value": 1,
+                    "date": "2019-09-12 16:52:33.000000000",
+                    "permitted_voting_range": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "_account_id": 5202,
+                    "name": "Erno Kuvaja",
+                    "email": "jokke@usr.fi",
+                    "username": "jokke"
+                }
+            ],
+            "values": {
+                "-1": "Work in progress",
+                " 0": "Ready for reviews",
+                "+1": "Approved"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        },
+        "Review-Priority": {
+            "recommended": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 22348,
+                    "name": "Zuul",
+                    "username": "zuul",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 0,
+                    "_account_id": 27781,
+                    "name": "zhulingjie",
+                    "email": "easyzlj@gmail.com",
+                    "username": "zhulingjie"
+                },
+                {
+                    "value": 1,
+                    "date": "2019-08-22 03:55:33.000000000",
+                    "permitted_voting_range": {
+                        "min": 1,
+                        "max": 2
+                    },
+                    "_account_id": 9303,
+                    "name": "Abhishek Kekane",
+                    "email": "akekane@redhat.com",
+                    "username": "abhishekkekane"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 11904,
+                    "name": "Sean McGinnis",
+                    "email": "sean.mcginnis@gmail.com",
+                    "username": "SeanM"
+                },
+                {
+                    "value": 0,
+                    "date": "2019-08-27 05:19:40.000000000",
+                    "permitted_voting_range": {
+                        "min": 0,
+                        "max": 2
+                    },
+                    "_account_id": 5314,
+                    "name": "Brian Rosmaita",
+                    "email": "rosmaita.fossdev@gmail.com",
+                    "username": "brian-rosmaita"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 5202,
+                    "name": "Erno Kuvaja",
+                    "email": "jokke@usr.fi",
+                    "username": "jokke"
+                }
+            ],
+            "values": {
+                "-1": "Branch Freeze",
+                " 0": "No Priority",
+                "+1": "Important Change",
+                "+2": "Top Priority / Holds Gate"
+            },
+            "description": "",
+            "value": 1,
+            "default_value": 0,
+            "optional": true
+        }
+    },
+    "removable_reviewers": [],
+    "reviewers": {
+        "REVIEWER": [
+            {
+                "_account_id": 5202,
+                "name": "Erno Kuvaja",
+                "email": "jokke@usr.fi",
+                "username": "jokke"
+            },
+            {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            {
+                "_account_id": 11904,
+                "name": "Sean McGinnis",
+                "email": "sean.mcginnis@gmail.com",
+                "username": "SeanM"
+            },
+            {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            {
+                "_account_id": 27781,
+                "name": "zhulingjie",
+                "email": "easyzlj@gmail.com",
+                "username": "zhulingjie"
+            }
+        ]
+    },
+    "pending_reviewers": {},
+    "reviewer_updates": [
+        {
+            "updated": "2019-08-27 05:19:40.000000000",
+            "updated_by": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "reviewer": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2019-09-11 16:36:02.000000000",
+            "updated_by": {
+                "_account_id": 27781,
+                "name": "zhulingjie",
+                "email": "easyzlj@gmail.com",
+                "username": "zhulingjie"
+            },
+            "reviewer": {
+                "_account_id": 27781,
+                "name": "zhulingjie",
+                "email": "easyzlj@gmail.com",
+                "username": "zhulingjie"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2019-09-12 16:48:12.000000000",
+            "updated_by": {
+                "_account_id": 11904,
+                "name": "Sean McGinnis",
+                "email": "sean.mcginnis@gmail.com",
+                "username": "SeanM"
+            },
+            "reviewer": {
+                "_account_id": 11904,
+                "name": "Sean McGinnis",
+                "email": "sean.mcginnis@gmail.com",
+                "username": "SeanM"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2019-09-12 16:52:33.000000000",
+            "updated_by": {
+                "_account_id": 5202,
+                "name": "Erno Kuvaja",
+                "email": "jokke@usr.fi",
+                "username": "jokke"
+            },
+            "reviewer": {
+                "_account_id": 5202,
+                "name": "Erno Kuvaja",
+                "email": "jokke@usr.fi",
+                "username": "jokke"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2019-09-12 18:37:31.000000000",
+            "updated_by": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "reviewer": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "state": "REVIEWER"
+        }
+    ],
+    "messages": [
+        {
+            "id": "878b62c69dc009fa467968fcf268ff3ba706d4ef",
+            "author": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "real_author": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "date": "2019-08-21 08:02:50.000000000",
+            "message": "Uploaded patch set 1.",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "04dd4d38ffadf45e5861675215630020d03a8ce1",
+            "author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2019-08-21 09:58:26.000000000",
+            "message": "Patch Set 1: Verified+1\n\nBuild succeeded (check pipeline).\n\n- tempest-full https://zuul.opendev.org/t/openstack/build/d2a0372aa57944c0ab9889169514cf1e : SUCCESS in 1h 47m 05s\n- neutron-grenade https://zuul.opendev.org/t/openstack/build/7d77d82a28324b27ad287658d388ea63 : SUCCESS in 51m 42s\n- grenade-py3 https://zuul.opendev.org/t/openstack/build/bed33a41ada54af1a2ee34e01027f92b : SUCCESS in 56m 07s\n- tempest-full-py3 https://zuul.opendev.org/t/openstack/build/90f529825a53412d8d0654c7e7fb97c0 : SUCCESS in 1h 34m 45s\n- openstack-tox-lower-constraints https://zuul.opendev.org/t/openstack/build/1cc1dbe56eb64984943b03ea99bf31ce : SUCCESS in 4m 54s\n- openstack-tox-pep8 https://zuul.opendev.org/t/openstack/build/600fe27b810344f387e1fc58831c01ce : SUCCESS in 5m 08s\n- openstack-tox-py27 https://zuul.opendev.org/t/openstack/build/e7e31ebc83824226984625be792040c2 : SUCCESS in 4m 44s\n- openstack-tox-py35 https://zuul.opendev.org/t/openstack/build/e15662070c3647c2b1315c3b4255fb7a : SUCCESS in 6m 09s\n- openstack-tox-py36 https://zuul.opendev.org/t/openstack/build/ba21c36b7b944c7d93b8f7d0f1912445 : SUCCESS in 4m 54s\n- openstack-tox-py37 https://zuul.opendev.org/t/openstack/build/296ec49a637343ca83e63046c30abe3b : SUCCESS in 6m 38s\n- openstack-tox-docs https://zuul.opendev.org/t/openstack/build/4b1cd4801e3d487f98bee13ab24ec7b8 : SUCCESS in 7m 00s\n- openstack-tox-functional https://zuul.opendev.org/t/openstack/build/202a86eba7184660a9c1dbcf0daaafeb : SUCCESS in 9m 07s\n- openstack-tox-functional-py35 https://zuul.opendev.org/t/openstack/build/2b5dee92edcb484e9aa72850e5d2d304 : SUCCESS in 10m 50s\n- glance-eventlet-ssl-handshake-broken-py3 https://zuul.opendev.org/t/openstack/build/497a0d82f7154b0aad1daf44aba76908 : FAILURE in 4m 30s (non-voting)\n- glance-code-constants-check https://zuul.opendev.org/t/openstack/build/ec94351ec22b41fe92910e4c2f9b55cc : SUCCESS in 4m 02s\n- devstack-plugin-ceph-tempest https://zuul.opendev.org/t/openstack/build/869febee174d48cc9b6e5b452b25a9dc : SUCCESS in 1h 07m 35s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "b40fda1ef50d4a2b24513427f10954c72c583e17",
+            "author": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "real_author": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "date": "2019-08-22 03:55:33.000000000",
+            "message": "Patch Set 1: Review-Priority+1",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "5f9c0c15c4b6e0f1cf604372d6dd2aaf2417032e",
+            "author": {
+                "_account_id": 5202,
+                "name": "Erno Kuvaja",
+                "email": "jokke@usr.fi",
+                "username": "jokke"
+            },
+            "real_author": {
+                "_account_id": 5202,
+                "name": "Erno Kuvaja",
+                "email": "jokke@usr.fi",
+                "username": "jokke"
+            },
+            "date": "2019-09-04 11:08:07.000000000",
+            "message": "Patch Set 1: Code-Review+2\n\nNice catch. Definitely good hardening for the feature.",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "457431c0156e0afdeda2f96fe46d5c47181c26d2",
+            "author": {
+                "_account_id": 27781,
+                "name": "zhulingjie",
+                "email": "easyzlj@gmail.com",
+                "username": "zhulingjie"
+            },
+            "real_author": {
+                "_account_id": 27781,
+                "name": "zhulingjie",
+                "email": "easyzlj@gmail.com",
+                "username": "zhulingjie"
+            },
+            "date": "2019-09-11 16:36:02.000000000",
+            "message": "Patch Set 1: Code-Review+1",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "cbe54ac857844839e8d3fadfb24bebb570bc4f0a",
+            "author": {
+                "_account_id": 11904,
+                "name": "Sean McGinnis",
+                "email": "sean.mcginnis@gmail.com",
+                "username": "SeanM"
+            },
+            "real_author": {
+                "_account_id": 11904,
+                "name": "Sean McGinnis",
+                "email": "sean.mcginnis@gmail.com",
+                "username": "SeanM"
+            },
+            "date": "2019-09-12 16:48:12.000000000",
+            "message": "Patch Set 1: Code-Review+2\n\nLooks right to me. Will leave for others to approve though.",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "48a57653dc6cf3ab0df518cfb55aa1616e35fb5d",
+            "author": {
+                "_account_id": 5202,
+                "name": "Erno Kuvaja",
+                "email": "jokke@usr.fi",
+                "username": "jokke"
+            },
+            "real_author": {
+                "_account_id": 5202,
+                "name": "Erno Kuvaja",
+                "email": "jokke@usr.fi",
+                "username": "jokke"
+            },
+            "date": "2019-09-12 16:52:33.000000000",
+            "message": "Patch Set 1: Workflow+1",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "aa7dcfa6d221c1b6ba357525b0760fb8475f1c5f",
+            "author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2019-09-12 16:52:52.000000000",
+            "message": "Patch Set 1: -Verified\n\nStarting gate jobs.",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "d755f370f71c780c2231531f1941274f5dbbbf60",
+            "author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2019-09-12 18:37:31.000000000",
+            "message": "Change has been successfully merged by Zuul",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "1ed9a3233326896f53e986af2ea7aa8d92721c2c",
+            "author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2019-09-12 18:37:31.000000000",
+            "message": "Patch Set 1: Verified+2\n\nBuild succeeded (gate pipeline).\n\n- tempest-full https://zuul.opendev.org/t/openstack/build/f2e6cc985055495b84168ac2501dc115 : SUCCESS in 1h 38m 44s\n- neutron-grenade https://zuul.opendev.org/t/openstack/build/7e0cf4a4519343aeb85b2b85a22d3b7a : SUCCESS in 1h 03m 45s\n- grenade-py3 https://zuul.opendev.org/t/openstack/build/642b0b250242488590d007aefeaf6b04 : SUCCESS in 1h 08m 49s\n- tempest-full-py3 https://zuul.opendev.org/t/openstack/build/750f07015b474f16a9d68ec10277de40 : SUCCESS in 1h 39m 48s\n- openstack-tox-lower-constraints https://zuul.opendev.org/t/openstack/build/bc57a213d2ac4bba83631a0942c58c95 : SUCCESS in 5m 15s\n- openstack-tox-pep8 https://zuul.opendev.org/t/openstack/build/62864d994be14fc0bd90c2e864c0242d : SUCCESS in 4m 30s\n- openstack-tox-py27 https://zuul.opendev.org/t/openstack/build/48394805af6b4aecafdabdee61bf3e27 : SUCCESS in 5m 07s\n- openstack-tox-py36 https://zuul.opendev.org/t/openstack/build/688bb821cb2f4adc92590215caf8df5d : SUCCESS in 4m 40s\n- openstack-tox-py37 https://zuul.opendev.org/t/openstack/build/8ae2b4a7558242d098104064d7089571 : SUCCESS in 4m 48s\n- openstack-tox-docs https://zuul.opendev.org/t/openstack/build/1b95785e2b8c4c8e803cc968ff106545 : SUCCESS in 6m 23s\n- openstack-tox-functional https://zuul.opendev.org/t/openstack/build/b25c386d73984e75a89704bc26d6a348 : SUCCESS in 12m 25s\n- openstack-tox-functional-py37 https://zuul.opendev.org/t/openstack/build/360ba1e121e44d13ac3ab1609d8eb345 : SUCCESS in 10m 29s",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "b1200a7a4e926539eed8edc1380ee740e4fc5a3d",
+            "author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 22348,
+                "name": "Zuul",
+                "username": "zuul",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2019-09-12 18:39:38.000000000",
+            "message": "Patch Set 1:\n\nBuild succeeded (promote pipeline).\n\n- promote-openstack-tox-docs https://zuul.opendev.org/t/openstack/build/8ee0658184ac421c9f559af03fc89fc1 : SUCCESS in 1m 32s",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        }
+    ],
+    "requirements": [],
+    "submit_records": []
+}

@@ -1,0 +1,1131 @@
+{
+    "id": "openstack%2Fglance~master~I4122b17936f94b07748a47dc37c0220c08d236d8",
+    "project": "openstack/glance",
+    "branch": "master",
+    "topic": "bug/1539136",
+    "hashtags": [],
+    "change_id": "I4122b17936f94b07748a47dc37c0220c08d236d8",
+    "subject": "Add proper request context for AMQP notifications",
+    "status": "NEW",
+    "created": "2016-04-19 03:50:12.000000000",
+    "updated": "2019-05-28 11:35:56.000000000",
+    "submit_type": "MERGE_IF_NECESSARY",
+    "mergeable": false,
+    "insertions": 78,
+    "deletions": 52,
+    "total_comment_count": 2,
+    "unresolved_comment_count": 0,
+    "has_review_started": true,
+    "meta_rev_id": "3281aa5bd80e40021ef586d32bcd39c468743d6d",
+    "_number": 307550,
+    "owner": {
+        "_account_id": 17976,
+        "name": "Drew Varner",
+        "email": "avarner@linux.vnet.ibm.com",
+        "username": "avarner"
+    },
+    "labels": {
+        "Verified": {
+            "recommended": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "all": [
+                {
+                    "_account_id": 10156,
+                    "name": "Daryl Mowrer",
+                    "email": "dmowrer@us.ibm.com",
+                    "username": "dmowrer"
+                },
+                {
+                    "_account_id": 8158,
+                    "name": "Hemanth Makkapati",
+                    "email": "makstacker+osgerrit@gmail.com",
+                    "username": "hemanth.makkapati"
+                },
+                {
+                    "date": "2019-05-28 03:04:31.000000000",
+                    "_account_id": 22056,
+                    "name": "yushangbin",
+                    "email": "shangbin.yu@easystack.cn",
+                    "username": "yushangbin"
+                },
+                {
+                    "date": "2016-04-21 21:54:56.000000000",
+                    "_account_id": 17976,
+                    "name": "Drew Varner",
+                    "email": "avarner@linux.vnet.ibm.com",
+                    "username": "avarner"
+                },
+                {
+                    "_account_id": 2537,
+                    "name": "Nikhil Komawar",
+                    "email": "nik.komawar@gmail.com",
+                    "username": "nikhil-komawar"
+                },
+                {
+                    "_account_id": 8587,
+                    "name": "Li Min Liu",
+                    "email": "liulm@certusnet.com.cn",
+                    "username": "LarryLiu"
+                },
+                {
+                    "_account_id": 9303,
+                    "name": "Abhishek Kekane",
+                    "email": "akekane@redhat.com",
+                    "username": "abhishekkekane"
+                },
+                {
+                    "_account_id": 11904,
+                    "name": "Sean McGinnis",
+                    "email": "sean.mcginnis@gmail.com",
+                    "username": "SeanM"
+                },
+                {
+                    "_account_id": 5202,
+                    "name": "Erno Kuvaja",
+                    "email": "jokke@usr.fi",
+                    "username": "jokke"
+                },
+                {
+                    "_account_id": 5314,
+                    "name": "Brian Rosmaita",
+                    "email": "rosmaita.fossdev@gmail.com",
+                    "username": "brian-rosmaita"
+                },
+                {
+                    "value": 1,
+                    "date": "2016-04-21 22:35:04.000000000",
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-2": "Fails",
+                "-1": "Doesn't seem to work",
+                " 0": "No score",
+                "+1": "Works for me",
+                "+2": "Verified"
+            },
+            "description": "",
+            "value": 1,
+            "default_value": 0,
+            "optional": true
+        },
+        "Code-Review": {
+            "recommended": {
+                "_account_id": 10156,
+                "name": "Daryl Mowrer",
+                "email": "dmowrer@us.ibm.com",
+                "username": "dmowrer"
+            },
+            "disliked": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "all": [
+                {
+                    "value": 1,
+                    "date": "2016-04-26 15:53:14.000000000",
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 10156,
+                    "name": "Daryl Mowrer",
+                    "email": "dmowrer@us.ibm.com",
+                    "username": "dmowrer"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 8158,
+                    "name": "Hemanth Makkapati",
+                    "email": "makstacker+osgerrit@gmail.com",
+                    "username": "hemanth.makkapati"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 22056,
+                    "name": "yushangbin",
+                    "email": "shangbin.yu@easystack.cn",
+                    "username": "yushangbin"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 17976,
+                    "name": "Drew Varner",
+                    "email": "avarner@linux.vnet.ibm.com",
+                    "username": "avarner"
+                },
+                {
+                    "value": -1,
+                    "date": "2016-04-21 22:03:42.000000000",
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 2537,
+                    "name": "Nikhil Komawar",
+                    "email": "nik.komawar@gmail.com",
+                    "username": "nikhil-komawar"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 8587,
+                    "name": "Li Min Liu",
+                    "email": "liulm@certusnet.com.cn",
+                    "username": "LarryLiu"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -2,
+                        "max": 2
+                    },
+                    "_account_id": 9303,
+                    "name": "Abhishek Kekane",
+                    "email": "akekane@redhat.com",
+                    "username": "abhishekkekane"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -2,
+                        "max": 2
+                    },
+                    "_account_id": 11904,
+                    "name": "Sean McGinnis",
+                    "email": "sean.mcginnis@gmail.com",
+                    "username": "SeanM"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -2,
+                        "max": 2
+                    },
+                    "_account_id": 5202,
+                    "name": "Erno Kuvaja",
+                    "email": "jokke@usr.fi",
+                    "username": "jokke"
+                },
+                {
+                    "value": -1,
+                    "date": "2016-04-21 21:43:49.000000000",
+                    "permitted_voting_range": {
+                        "min": -2,
+                        "max": 2
+                    },
+                    "_account_id": 5314,
+                    "name": "Brian Rosmaita",
+                    "email": "rosmaita.fossdev@gmail.com",
+                    "username": "brian-rosmaita"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-2": "Do not merge",
+                "-1": "This patch needs further work before it can be merged",
+                " 0": "No score",
+                "+1": "Looks good to me, but someone else must approve",
+                "+2": "Looks good to me (core reviewer)"
+            },
+            "description": "",
+            "value": -1,
+            "default_value": 0,
+            "optional": true
+        },
+        "Workflow": {
+            "rejected": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "all": [
+                {
+                    "date": "2016-04-21 21:52:52.000000000",
+                    "_account_id": 10156,
+                    "name": "Daryl Mowrer",
+                    "email": "dmowrer@us.ibm.com",
+                    "username": "dmowrer"
+                },
+                {
+                    "_account_id": 8158,
+                    "name": "Hemanth Makkapati",
+                    "email": "makstacker+osgerrit@gmail.com",
+                    "username": "hemanth.makkapati"
+                },
+                {
+                    "_account_id": 22056,
+                    "name": "yushangbin",
+                    "email": "shangbin.yu@easystack.cn",
+                    "username": "yushangbin"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 0
+                    },
+                    "_account_id": 17976,
+                    "name": "Drew Varner",
+                    "email": "avarner@linux.vnet.ibm.com",
+                    "username": "avarner"
+                },
+                {
+                    "value": -1,
+                    "date": "2016-06-09 21:38:07.000000000",
+                    "_account_id": 2537,
+                    "name": "Nikhil Komawar",
+                    "email": "nik.komawar@gmail.com",
+                    "username": "nikhil-komawar"
+                },
+                {
+                    "_account_id": 8587,
+                    "name": "Li Min Liu",
+                    "email": "liulm@certusnet.com.cn",
+                    "username": "LarryLiu"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 9303,
+                    "name": "Abhishek Kekane",
+                    "email": "akekane@redhat.com",
+                    "username": "abhishekkekane"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 11904,
+                    "name": "Sean McGinnis",
+                    "email": "sean.mcginnis@gmail.com",
+                    "username": "SeanM"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 5202,
+                    "name": "Erno Kuvaja",
+                    "email": "jokke@usr.fi",
+                    "username": "jokke"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 5314,
+                    "name": "Brian Rosmaita",
+                    "email": "rosmaita.fossdev@gmail.com",
+                    "username": "brian-rosmaita"
+                },
+                {
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-1": "Work in progress",
+                " 0": "Ready for reviews",
+                "+1": "Approved"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        },
+        "Review-Priority": {
+            "all": [
+                {
+                    "_account_id": 10156,
+                    "name": "Daryl Mowrer",
+                    "email": "dmowrer@us.ibm.com",
+                    "username": "dmowrer"
+                },
+                {
+                    "_account_id": 8158,
+                    "name": "Hemanth Makkapati",
+                    "email": "makstacker+osgerrit@gmail.com",
+                    "username": "hemanth.makkapati"
+                },
+                {
+                    "_account_id": 22056,
+                    "name": "yushangbin",
+                    "email": "shangbin.yu@easystack.cn",
+                    "username": "yushangbin"
+                },
+                {
+                    "_account_id": 17976,
+                    "name": "Drew Varner",
+                    "email": "avarner@linux.vnet.ibm.com",
+                    "username": "avarner"
+                },
+                {
+                    "_account_id": 2537,
+                    "name": "Nikhil Komawar",
+                    "email": "nik.komawar@gmail.com",
+                    "username": "nikhil-komawar"
+                },
+                {
+                    "_account_id": 8587,
+                    "name": "Li Min Liu",
+                    "email": "liulm@certusnet.com.cn",
+                    "username": "LarryLiu"
+                },
+                {
+                    "value": 0,
+                    "date": "2019-05-28 11:34:10.000000000",
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 2
+                    },
+                    "_account_id": 9303,
+                    "name": "Abhishek Kekane",
+                    "email": "akekane@redhat.com",
+                    "username": "abhishekkekane"
+                },
+                {
+                    "value": 0,
+                    "date": "2019-05-28 11:35:56.000000000",
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 2
+                    },
+                    "_account_id": 11904,
+                    "name": "Sean McGinnis",
+                    "email": "sean.mcginnis@gmail.com",
+                    "username": "SeanM"
+                },
+                {
+                    "value": 0,
+                    "date": "2019-05-28 11:34:38.000000000",
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 2
+                    },
+                    "_account_id": 5202,
+                    "name": "Erno Kuvaja",
+                    "email": "jokke@usr.fi",
+                    "username": "jokke"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 2
+                    },
+                    "_account_id": 5314,
+                    "name": "Brian Rosmaita",
+                    "email": "rosmaita.fossdev@gmail.com",
+                    "username": "brian-rosmaita"
+                },
+                {
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-1": "Branch Freeze",
+                " 0": "No Priority",
+                "+1": "Important Change",
+                "+2": "Top Priority / Holds Gate"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        }
+    },
+    "removable_reviewers": [],
+    "reviewers": {
+        "REVIEWER": [
+            {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            {
+                "_account_id": 5202,
+                "name": "Erno Kuvaja",
+                "email": "jokke@usr.fi",
+                "username": "jokke"
+            },
+            {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            {
+                "_account_id": 8158,
+                "name": "Hemanth Makkapati",
+                "email": "makstacker+osgerrit@gmail.com",
+                "username": "hemanth.makkapati"
+            },
+            {
+                "_account_id": 8587,
+                "name": "Li Min Liu",
+                "email": "liulm@certusnet.com.cn",
+                "username": "LarryLiu"
+            },
+            {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            {
+                "_account_id": 10156,
+                "name": "Daryl Mowrer",
+                "email": "dmowrer@us.ibm.com",
+                "username": "dmowrer"
+            },
+            {
+                "_account_id": 11904,
+                "name": "Sean McGinnis",
+                "email": "sean.mcginnis@gmail.com",
+                "username": "SeanM"
+            },
+            {
+                "_account_id": 17976,
+                "name": "Drew Varner",
+                "email": "avarner@linux.vnet.ibm.com",
+                "username": "avarner"
+            },
+            {
+                "_account_id": 22056,
+                "name": "yushangbin",
+                "email": "shangbin.yu@easystack.cn",
+                "username": "yushangbin"
+            }
+        ]
+    },
+    "pending_reviewers": {},
+    "reviewer_updates": [
+        {
+            "updated": "2016-04-19 04:41:54.000000000",
+            "updated_by": {
+                "_account_id": 8587,
+                "name": "Li Min Liu",
+                "email": "liulm@certusnet.com.cn",
+                "username": "LarryLiu"
+            },
+            "reviewer": {
+                "_account_id": 8587,
+                "name": "Li Min Liu",
+                "email": "liulm@certusnet.com.cn",
+                "username": "LarryLiu"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2016-04-19 20:29:22.000000000",
+            "updated_by": {
+                "_account_id": 8158,
+                "name": "Hemanth Makkapati",
+                "email": "makstacker+osgerrit@gmail.com",
+                "username": "hemanth.makkapati"
+            },
+            "reviewer": {
+                "_account_id": 8158,
+                "name": "Hemanth Makkapati",
+                "email": "makstacker+osgerrit@gmail.com",
+                "username": "hemanth.makkapati"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2016-04-21 21:43:49.000000000",
+            "updated_by": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "reviewer": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2016-04-21 21:52:52.000000000",
+            "updated_by": {
+                "_account_id": 10156,
+                "name": "Daryl Mowrer",
+                "email": "dmowrer@us.ibm.com",
+                "username": "dmowrer"
+            },
+            "reviewer": {
+                "_account_id": 10156,
+                "name": "Daryl Mowrer",
+                "email": "dmowrer@us.ibm.com",
+                "username": "dmowrer"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2016-04-21 22:35:04.000000000",
+            "updated_by": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "reviewer": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2016-06-09 21:38:07.000000000",
+            "updated_by": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "reviewer": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2019-05-28 03:04:31.000000000",
+            "updated_by": {
+                "_account_id": 22056,
+                "name": "yushangbin",
+                "email": "shangbin.yu@easystack.cn",
+                "username": "yushangbin"
+            },
+            "reviewer": {
+                "_account_id": 22056,
+                "name": "yushangbin",
+                "email": "shangbin.yu@easystack.cn",
+                "username": "yushangbin"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2019-05-28 11:34:10.000000000",
+            "updated_by": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "reviewer": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2019-05-28 11:34:38.000000000",
+            "updated_by": {
+                "_account_id": 5202,
+                "name": "Erno Kuvaja",
+                "email": "jokke@usr.fi",
+                "username": "jokke"
+            },
+            "reviewer": {
+                "_account_id": 5202,
+                "name": "Erno Kuvaja",
+                "email": "jokke@usr.fi",
+                "username": "jokke"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2019-05-28 11:35:56.000000000",
+            "updated_by": {
+                "_account_id": 11904,
+                "name": "Sean McGinnis",
+                "email": "sean.mcginnis@gmail.com",
+                "username": "SeanM"
+            },
+            "reviewer": {
+                "_account_id": 11904,
+                "name": "Sean McGinnis",
+                "email": "sean.mcginnis@gmail.com",
+                "username": "SeanM"
+            },
+            "state": "REVIEWER"
+        }
+    ],
+    "messages": [
+        {
+            "id": "3d25cc61a3fb74d3b8374be454907a67bdff8e70",
+            "author": {
+                "_account_id": 17976,
+                "name": "Drew Varner",
+                "email": "avarner@linux.vnet.ibm.com",
+                "username": "avarner"
+            },
+            "real_author": {
+                "_account_id": 17976,
+                "name": "Drew Varner",
+                "email": "avarner@linux.vnet.ibm.com",
+                "username": "avarner"
+            },
+            "date": "2016-04-19 03:50:12.000000000",
+            "message": "Uploaded patch set 1.",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "f7237c4f49c8f1dd93e60f62e8672ac886ae5361",
+            "author": {
+                "_account_id": 17976,
+                "name": "Drew Varner",
+                "email": "avarner@linux.vnet.ibm.com",
+                "username": "avarner"
+            },
+            "real_author": {
+                "_account_id": 17976,
+                "name": "Drew Varner",
+                "email": "avarner@linux.vnet.ibm.com",
+                "username": "avarner"
+            },
+            "date": "2016-04-19 03:50:39.000000000",
+            "message": "Patch Set 1: Workflow-1",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "9b19cc1622fec316e7ea4828086f1146fac31511",
+            "author": {
+                "_account_id": 8587,
+                "name": "Li Min Liu",
+                "email": "liulm@certusnet.com.cn",
+                "username": "LarryLiu"
+            },
+            "real_author": {
+                "_account_id": 8587,
+                "name": "Li Min Liu",
+                "email": "liulm@certusnet.com.cn",
+                "username": "LarryLiu"
+            },
+            "date": "2016-04-19 04:26:31.000000000",
+            "message": "Patch Set 1: Code-Review-1\n\n(1 comment)",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "eebfed61682208b1111b79821cffaea9fe3f9523",
+            "author": {
+                "_account_id": 8587,
+                "name": "Li Min Liu",
+                "email": "liulm@certusnet.com.cn",
+                "username": "LarryLiu"
+            },
+            "real_author": {
+                "_account_id": 8587,
+                "name": "Li Min Liu",
+                "email": "liulm@certusnet.com.cn",
+                "username": "LarryLiu"
+            },
+            "date": "2016-04-19 04:41:54.000000000",
+            "message": "Patch Set 1: -Code-Review",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "7002e5f8a43ae5c37d941db33377ddd9dfe6ae6a",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2016-04-19 14:33:03.000000000",
+            "message": "Patch Set 1: Verified+1\n\nBuild succeeded (check pipeline).\n\n- gate-glance-python34-db http://logs.openstack.org/50/307550/1/check/gate-glance-python34-db/06b7327/ : SUCCESS in 5m 00s\n- gate-glance-docs http://docs-draft.openstack.org/50/307550/1/check/gate-glance-docs/ba6a876//doc/build/html/ : SUCCESS in 8m 03s\n- gate-glance-pep8 http://logs.openstack.org/50/307550/1/check/gate-glance-pep8/7ae4923/ : SUCCESS in 2m 18s\n- gate-glance-python27-db http://logs.openstack.org/50/307550/1/check/gate-glance-python27-db/c4b76e2/ : SUCCESS in 7m 33s\n- gate-tempest-dsvm-full http://logs.openstack.org/50/307550/1/check/gate-tempest-dsvm-full/a80f710/ : SUCCESS in 36m 57s\n- gate-tempest-dsvm-postgres-full http://logs.openstack.org/50/307550/1/check/gate-tempest-dsvm-postgres-full/5702eec/ : SUCCESS in 37m 54s\n- gate-tempest-dsvm-neutron-full http://logs.openstack.org/50/307550/1/check/gate-tempest-dsvm-neutron-full/edf2b11/ : SUCCESS in 52m 31s\n- gate-grenade-dsvm http://logs.openstack.org/50/307550/1/check/gate-grenade-dsvm/9ff4198/ : SUCCESS in 26m 19s\n- gate-tempest-dsvm-full-devstack-plugin-ceph http://logs.openstack.org/50/307550/1/check/gate-tempest-dsvm-full-devstack-plugin-ceph/e4881d3/ : SUCCESS in 38m 15s\n- gate-tempest-dsvm-neutron-identity-v3-only-full-nv http://logs.openstack.org/50/307550/1/check/gate-tempest-dsvm-neutron-identity-v3-only-full-nv/53d7831/ : SUCCESS in 51m 40s (non-voting)\n- gate-rally-dsvm-glance http://logs.openstack.org/50/307550/1/check/gate-rally-dsvm-glance/52b17e3/ : SUCCESS in 22m 17s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "7728057266921f22669254023e59afc0a61e155d",
+            "author": {
+                "_account_id": 17976,
+                "name": "Drew Varner",
+                "email": "avarner@linux.vnet.ibm.com",
+                "username": "avarner"
+            },
+            "real_author": {
+                "_account_id": 17976,
+                "name": "Drew Varner",
+                "email": "avarner@linux.vnet.ibm.com",
+                "username": "avarner"
+            },
+            "date": "2016-04-21 21:28:20.000000000",
+            "message": "Patch Set 1:\n\n(1 comment)",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "c0e0d2cf91afa77a5beb5620c9d1e3a0e9c8ae37",
+            "author": {
+                "_account_id": 17976,
+                "name": "Drew Varner",
+                "email": "avarner@linux.vnet.ibm.com",
+                "username": "avarner"
+            },
+            "real_author": {
+                "_account_id": 17976,
+                "name": "Drew Varner",
+                "email": "avarner@linux.vnet.ibm.com",
+                "username": "avarner"
+            },
+            "date": "2016-04-21 21:34:34.000000000",
+            "message": "Uploaded patch set 2.",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "2cda83685a00777acb18e061ef27674bcbb6532a",
+            "author": {
+                "_account_id": 17976,
+                "name": "Drew Varner",
+                "email": "avarner@linux.vnet.ibm.com",
+                "username": "avarner"
+            },
+            "real_author": {
+                "_account_id": 17976,
+                "name": "Drew Varner",
+                "email": "avarner@linux.vnet.ibm.com",
+                "username": "avarner"
+            },
+            "date": "2016-04-21 21:37:47.000000000",
+            "message": "Uploaded patch set 3.",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "c89ddd7e935b8fd2e221b1c7efcd2aa26e4affcd",
+            "author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "real_author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "date": "2016-04-21 21:43:49.000000000",
+            "message": "Patch Set 3: Code-Review-1\n\nI think this needs at least a DocImpact in the commit message, as more information will be coming through than previously--not as a matter of payload size as much as exposing information to whoever is allowed access to notifications in a particular cloud.  On that note, are we sure that no sensitive information will be leaked by including the context?  It would be helpful if you could state a bit more clearly in the commit message what the impact of this change is, e.g., \"notifications will now include a non-empty context containing a, b, and c.\"\n\nThanks!",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "bf4ff0d3e695e57f36e4974cb221b6fe8c49289f",
+            "author": {
+                "_account_id": 17976,
+                "name": "Drew Varner",
+                "email": "avarner@linux.vnet.ibm.com",
+                "username": "avarner"
+            },
+            "real_author": {
+                "_account_id": 17976,
+                "name": "Drew Varner",
+                "email": "avarner@linux.vnet.ibm.com",
+                "username": "avarner"
+            },
+            "date": "2016-04-21 21:54:56.000000000",
+            "message": "Patch Set 3:\n\nDaryl, do you have any comments in response to Brian Rosmaita?\n\nAFAIK, AMQP notifications are all intended to have this context, and all other projects include the context in their notifications. It does seem like sensitive information, so I would expect that operators are already tightly controlling notification access.",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "06e11143ca3de2745ab2113733ecaafab277116c",
+            "author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "real_author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "date": "2016-04-21 22:03:42.000000000",
+            "message": "Patch Set 3: Code-Review-1\n\ngood point @Brian, we need a lite spec for this as it def changes notifications behavior.\n\ngah, but our lite specs process is not fully agreed upon! feel free to create a lite spec though. https://github.com/openstack/glance-specs/blob/master/specs/newton/approved/glance/lite-specs.rst",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "12a76962b66f7fe738e5c029d5548a22343ae7f2",
+            "author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "real_author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "date": "2016-04-21 22:29:43.000000000",
+            "message": "Patch Set 3:\n\nI was thinking more along the lines of a releasenotes.yaml file, but a spec-lite would be better.  Drew, I'm sorry to be a PITA about this, but the blank context in the code looks so obvious, that it makes me think that it was done absolutely on purpose and wasn't an oversight.  I'd like to make sure a bunch of Glance cores take a look and think about this.\n\nThanks for adding Daryl to the review, it will be useful to hear what he thinks.",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "40730ff4063389b5c99fc825f5d113d06d23766b",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2016-04-21 22:35:04.000000000",
+            "message": "Patch Set 3: Verified+1\n\nBuild succeeded (check pipeline).\n\n- gate-glance-python34-db http://logs.openstack.org/50/307550/3/check/gate-glance-python34-db/af637a2/ : SUCCESS in 5m 52s\n- gate-glance-docs http://docs-draft.openstack.org/50/307550/3/check/gate-glance-docs/1c113be//doc/build/html/ : SUCCESS in 8m 13s\n- gate-glance-pep8 http://logs.openstack.org/50/307550/3/check/gate-glance-pep8/a9a2aa4/ : SUCCESS in 2m 40s\n- gate-glance-python27-db http://logs.openstack.org/50/307550/3/check/gate-glance-python27-db/511085d/ : SUCCESS in 6m 22s\n- gate-tempest-dsvm-full http://logs.openstack.org/50/307550/3/check/gate-tempest-dsvm-full/b008457/ : SUCCESS in 40m 51s\n- gate-tempest-dsvm-postgres-full http://logs.openstack.org/50/307550/3/check/gate-tempest-dsvm-postgres-full/44ec845/ : SUCCESS in 37m 42s\n- gate-tempest-dsvm-neutron-full http://logs.openstack.org/50/307550/3/check/gate-tempest-dsvm-neutron-full/e96ee24/ : SUCCESS in 53m 55s\n- gate-grenade-dsvm http://logs.openstack.org/50/307550/3/check/gate-grenade-dsvm/515481a/ : SUCCESS in 40m 18s\n- gate-tempest-dsvm-full-devstack-plugin-ceph http://logs.openstack.org/50/307550/3/check/gate-tempest-dsvm-full-devstack-plugin-ceph/078e6e7/ : SUCCESS in 37m 10s\n- gate-tempest-dsvm-neutron-identity-v3-only-full-nv http://logs.openstack.org/50/307550/3/check/gate-tempest-dsvm-neutron-identity-v3-only-full-nv/00af10d/ : SUCCESS in 49m 19s (non-voting)\n- gate-rally-dsvm-glance http://logs.openstack.org/50/307550/3/check/gate-rally-dsvm-glance/c5b1bc2/ : SUCCESS in 36m 39s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "3dcc284b3bbd0478505cc1fd3a8739c506215f81",
+            "author": {
+                "_account_id": 10156,
+                "name": "Daryl Mowrer",
+                "email": "dmowrer@us.ibm.com",
+                "username": "dmowrer"
+            },
+            "real_author": {
+                "_account_id": 10156,
+                "name": "Daryl Mowrer",
+                "email": "dmowrer@us.ibm.com",
+                "username": "dmowrer"
+            },
+            "date": "2016-04-26 15:53:14.000000000",
+            "message": "Patch Set 3: Code-Review+1\n\nDrew, Thanks for working on this. Your code changes look good to me. Nice work!\n\nI agree that you could add some more information to the commit message regarding the important items that are being added to the notification events in the context. \n\nIn regards to the comment that the current blank context must have been done on purpose for a reason... \nAnother possibility is that the blank context is a result of the original implementor choosing not to provide the event context due to time constraints, or thinking that it was optional, so not needed unless someone requested it. More code documentation could have provided the actual reason so we would not have to guess. If it really was done for a reason, I would hope that reason would be documented some where. \n\nMy comments on this topic in general are that as a consumer of notification events, it would be desirable to know the context in which the event was issued. In particular, the user Id, project Id, and auth_token values. With that information, actions can be taken on behalf of the user/project upon receiving the event. \n\nFor example, we are currently working on a notification event listener service in OpenStack Mistral. It listens for notifications events defined by a user, and executes specified workflows in response to receiving those events. Workflows can be public, or be scoped to projects. It is desirable to launch private workflows on behalf of the user who generated the event. This information should come in the event context. Currently we provide a means to run the workflows with an admin trust token if the event does not contain context (such as events from Glance). This may not always be desirable to users. \n\nThe OpenStack Nova service currently provides this context in their notification events. You may want to ask them why they apparently have no concern over sensitive information that the context may be perceived as having. Why don't OpenStack services all behave the same way when using common functions such as notification events. It can be frustrating to be a consumer of OpenStack functions such as this when there is no commonality among the different OpenStack services that support them.",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "73ed3e59dd942b38d56189d1ff9d66d2118f2a64",
+            "author": {
+                "_account_id": 17976,
+                "name": "Drew Varner",
+                "email": "avarner@linux.vnet.ibm.com",
+                "username": "avarner"
+            },
+            "real_author": {
+                "_account_id": 17976,
+                "name": "Drew Varner",
+                "email": "avarner@linux.vnet.ibm.com",
+                "username": "avarner"
+            },
+            "date": "2016-04-29 16:15:55.000000000",
+            "message": "Patch Set 3:\n\nDue to Internal IBM changes, I'm unfortunately not working on Glance any more. If anyone else would like to work on this, feel free to use anything from this patch that you like.",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "2864b03ccd2b6717c17236d96a932abeb9f392c1",
+            "author": {
+                "_account_id": 6159,
+                "name": "Flavio Percoco",
+                "display_name": "flaper87",
+                "email": "fpercoco@redhat.com",
+                "username": "flaper87"
+            },
+            "real_author": {
+                "_account_id": 6159,
+                "name": "Flavio Percoco",
+                "display_name": "flaper87",
+                "email": "fpercoco@redhat.com",
+                "username": "flaper87"
+            },
+            "date": "2016-05-08 23:26:24.000000000",
+            "message": "Abandoned\n\nAbandoning for now! Hopefully someone will pick it up in the future.",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "a4a0ece5edb2d9cf60b3ae8fa4369bc26b37556c",
+            "author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "real_author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "date": "2016-06-09 21:37:34.000000000",
+            "message": "Restored\n\nI will work on this.",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "8c9d6d0bbb6cabf00f408cdf57c1ab6107c704cb",
+            "author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "real_author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "date": "2016-06-09 21:38:07.000000000",
+            "message": "Patch Set 3: Workflow-1\n\nMarking it -W until a new PS, lite-spec and release notes are posted.",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "34643b4d1c2277744f77d3bc3d6f6a503f4e9d00",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2016-06-09 22:57:44.000000000",
+            "message": "Patch Set 3:\n\nBuild succeeded (check pipeline).\n\n- gate-glance-python34-db http://logs.openstack.org/50/307550/3/check/gate-glance-python34-db/63908a4/ : SUCCESS in 7m 08s\n- gate-glance-docs http://docs-draft.openstack.org/50/307550/3/check/gate-glance-docs/dea47c2//doc/build/html/ : SUCCESS in 9m 52s\n- gate-glance-pep8 http://logs.openstack.org/50/307550/3/check/gate-glance-pep8/6979ba8/ : SUCCESS in 4m 35s\n- gate-glance-python27-db http://logs.openstack.org/50/307550/3/check/gate-glance-python27-db/9a0bc55/ : SUCCESS in 9m 47s\n- gate-tempest-dsvm-full http://logs.openstack.org/50/307550/3/check/gate-tempest-dsvm-full/d628eae/ : SUCCESS in 51m 31s\n- gate-tempest-dsvm-postgres-full http://logs.openstack.org/50/307550/3/check/gate-tempest-dsvm-postgres-full/ca84b36/ : SUCCESS in 44m 31s\n- gate-tempest-dsvm-neutron-full http://logs.openstack.org/50/307550/3/check/gate-tempest-dsvm-neutron-full/4a568c4/ : SUCCESS in 1h 09m 30s\n- gate-grenade-dsvm http://logs.openstack.org/50/307550/3/check/gate-grenade-dsvm/4924c5b/ : SUCCESS in 51m 35s\n- gate-tempest-dsvm-full-devstack-plugin-ceph http://logs.openstack.org/50/307550/3/check/gate-tempest-dsvm-full-devstack-plugin-ceph/b4f171d/ : SUCCESS in 48m 07s\n- gate-tempest-dsvm-neutron-identity-v3-only-full-nv http://logs.openstack.org/50/307550/3/check/gate-tempest-dsvm-neutron-identity-v3-only-full-nv/35b4155/ : SUCCESS in 1h 14m 24s (non-voting)\n- gate-rally-dsvm-glance http://logs.openstack.org/50/307550/3/check/gate-rally-dsvm-glance/a1b3565/ : SUCCESS in 46m 19s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "22ecf0a27afc2b7f0e9eb98ab663e410c12f7fd8",
+            "author": {
+                "_account_id": 22056,
+                "name": "yushangbin",
+                "email": "shangbin.yu@easystack.cn",
+                "username": "yushangbin"
+            },
+            "real_author": {
+                "_account_id": 22056,
+                "name": "yushangbin",
+                "email": "shangbin.yu@easystack.cn",
+                "username": "yushangbin"
+            },
+            "date": "2019-05-28 03:04:31.000000000",
+            "message": "Patch Set 3:\n\nThis patch is related with the problem that telemetry service(like ceilometer) can not get the the right \"operator\" of glance resources from the notification. Does someone have any idea about this?",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        }
+    ],
+    "requirements": [],
+    "submit_records": [
+        {
+            "rule_name": "gerrit~DefaultSubmitRule",
+            "status": "OK",
+            "labels": [
+                {
+                    "label": "Verified",
+                    "status": "MAY",
+                    "applied_by": {
+                        "_account_id": 3,
+                        "name": "Jenkins",
+                        "username": "jenkins"
+                    }
+                },
+                {
+                    "label": "Code-Review",
+                    "status": "MAY",
+                    "applied_by": {
+                        "_account_id": 2537,
+                        "name": "Nikhil Komawar",
+                        "email": "nik.komawar@gmail.com",
+                        "username": "nikhil-komawar"
+                    }
+                },
+                {
+                    "label": "Workflow",
+                    "status": "MAY",
+                    "applied_by": {
+                        "_account_id": 2537,
+                        "name": "Nikhil Komawar",
+                        "email": "nik.komawar@gmail.com",
+                        "username": "nikhil-komawar"
+                    }
+                },
+                {
+                    "label": "Review-Priority",
+                    "status": "MAY"
+                }
+            ]
+        }
+    ]
+}

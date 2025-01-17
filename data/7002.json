@@ -1,0 +1,773 @@
+{
+    "id": "openstack%2Fglance~master~I608671aac8300c9195769542708708afda991e04",
+    "project": "openstack/glance",
+    "branch": "master",
+    "topic": "bug/992859",
+    "hashtags": [],
+    "change_id": "I608671aac8300c9195769542708708afda991e04",
+    "subject": "Split noauth context middleware into new class",
+    "status": "MERGED",
+    "created": "2012-05-01 23:09:06.000000000",
+    "updated": "2012-05-03 18:25:37.000000000",
+    "submitted": "2012-05-03 18:25:37.000000000",
+    "submitter": {
+        "_account_id": 3,
+        "name": "Jenkins",
+        "username": "jenkins"
+    },
+    "insertions": 228,
+    "deletions": 208,
+    "total_comment_count": 0,
+    "unresolved_comment_count": 0,
+    "has_review_started": true,
+    "meta_rev_id": "436ce8fc0b13e944d749e3f5044faca8c09a9bf5",
+    "_number": 7002,
+    "owner": {
+        "_account_id": 1132,
+        "name": "Brian Waldon",
+        "email": "brian@waldon.cc",
+        "username": "bcwaldon"
+    },
+    "labels": {
+        "Verified": {
+            "recommended": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 1132,
+                    "name": "Brian Waldon",
+                    "email": "brian@waldon.cc",
+                    "username": "bcwaldon"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 2284,
+                    "name": "Eoghan Glynn",
+                    "email": "eglynn@redhat.com",
+                    "username": "eglynn"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 475,
+                    "name": "Rick Harris",
+                    "email": "rick.harris@rackspace.com",
+                    "username": "rconradharris"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 679,
+                    "name": "Kevin L. Mitchell",
+                    "email": "klmitch@mit.edu",
+                    "username": "klmitch"
+                },
+                {
+                    "value": 1,
+                    "date": "2012-05-03 18:25:37.000000000",
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-2": "Fails",
+                "-1": "Doesn't seem to work",
+                " 0": "No score",
+                "+1": "Works for me",
+                "+2": "Verified"
+            },
+            "description": "",
+            "value": 1,
+            "default_value": 0,
+            "optional": true
+        },
+        "Code-Review": {
+            "approved": {
+                "_account_id": 2284,
+                "name": "Eoghan Glynn",
+                "email": "eglynn@redhat.com",
+                "username": "eglynn"
+            },
+            "all": [
+                {
+                    "value": 0,
+                    "date": "2012-05-03 16:00:29.000000000",
+                    "permitted_voting_range": {
+                        "min": 0,
+                        "max": 1
+                    },
+                    "_account_id": 1132,
+                    "name": "Brian Waldon",
+                    "email": "brian@waldon.cc",
+                    "username": "bcwaldon"
+                },
+                {
+                    "value": 2,
+                    "date": "2012-05-03 16:29:36.000000000",
+                    "_account_id": 2284,
+                    "name": "Eoghan Glynn",
+                    "email": "eglynn@redhat.com",
+                    "username": "eglynn"
+                },
+                {
+                    "value": 2,
+                    "date": "2012-05-03 17:42:18.000000000",
+                    "_account_id": 475,
+                    "name": "Rick Harris",
+                    "email": "rick.harris@rackspace.com",
+                    "username": "rconradharris"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 679,
+                    "name": "Kevin L. Mitchell",
+                    "email": "klmitch@mit.edu",
+                    "username": "klmitch"
+                },
+                {
+                    "value": 0,
+                    "date": "2012-05-03 18:25:37.000000000",
+                    "permitted_voting_range": {
+                        "min": 0,
+                        "max": 1
+                    },
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-2": "Do not merge",
+                "-1": "This patch needs further work before it can be merged",
+                " 0": "No score",
+                "+1": "Looks good to me, but someone else must approve",
+                "+2": "Looks good to me (core reviewer)"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        },
+        "Workflow": {
+            "approved": {
+                "_account_id": 475,
+                "name": "Rick Harris",
+                "email": "rick.harris@rackspace.com",
+                "username": "rconradharris"
+            },
+            "all": [
+                {
+                    "value": 0,
+                    "date": "2012-05-03 16:00:29.000000000",
+                    "_account_id": 1132,
+                    "name": "Brian Waldon",
+                    "email": "brian@waldon.cc",
+                    "username": "bcwaldon"
+                },
+                {
+                    "value": 0,
+                    "date": "2012-05-03 16:29:36.000000000",
+                    "_account_id": 2284,
+                    "name": "Eoghan Glynn",
+                    "email": "eglynn@redhat.com",
+                    "username": "eglynn"
+                },
+                {
+                    "value": 1,
+                    "date": "2012-05-03 17:42:18.000000000",
+                    "_account_id": 475,
+                    "name": "Rick Harris",
+                    "email": "rick.harris@rackspace.com",
+                    "username": "rconradharris"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 679,
+                    "name": "Kevin L. Mitchell",
+                    "email": "klmitch@mit.edu",
+                    "username": "klmitch"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-1": "Work in progress",
+                " 0": "Ready for reviews",
+                "+1": "Approved"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        },
+        "Review-Priority": {
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 1132,
+                    "name": "Brian Waldon",
+                    "email": "brian@waldon.cc",
+                    "username": "bcwaldon"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 2284,
+                    "name": "Eoghan Glynn",
+                    "email": "eglynn@redhat.com",
+                    "username": "eglynn"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 475,
+                    "name": "Rick Harris",
+                    "email": "rick.harris@rackspace.com",
+                    "username": "rconradharris"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 679,
+                    "name": "Kevin L. Mitchell",
+                    "email": "klmitch@mit.edu",
+                    "username": "klmitch"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-1": "Branch Freeze",
+                " 0": "No Priority",
+                "+1": "Important Change",
+                "+2": "Top Priority / Holds Gate"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        }
+    },
+    "removable_reviewers": [],
+    "reviewers": {
+        "REVIEWER": [
+            {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            {
+                "_account_id": 475,
+                "name": "Rick Harris",
+                "email": "rick.harris@rackspace.com",
+                "username": "rconradharris"
+            },
+            {
+                "_account_id": 679,
+                "name": "Kevin L. Mitchell",
+                "email": "klmitch@mit.edu",
+                "username": "klmitch"
+            },
+            {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            {
+                "_account_id": 2284,
+                "name": "Eoghan Glynn",
+                "email": "eglynn@redhat.com",
+                "username": "eglynn"
+            }
+        ]
+    },
+    "pending_reviewers": {},
+    "reviewer_updates": [
+        {
+            "updated": "2012-05-02 23:55:29.000000000",
+            "updated_by": {
+                "_account_id": 679,
+                "name": "Kevin L. Mitchell",
+                "email": "klmitch@mit.edu",
+                "username": "klmitch"
+            },
+            "reviewer": {
+                "_account_id": 679,
+                "name": "Kevin L. Mitchell",
+                "email": "klmitch@mit.edu",
+                "username": "klmitch"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2012-05-03 16:29:36.000000000",
+            "updated_by": {
+                "_account_id": 2284,
+                "name": "Eoghan Glynn",
+                "email": "eglynn@redhat.com",
+                "username": "eglynn"
+            },
+            "reviewer": {
+                "_account_id": 2284,
+                "name": "Eoghan Glynn",
+                "email": "eglynn@redhat.com",
+                "username": "eglynn"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2012-05-03 17:42:18.000000000",
+            "updated_by": {
+                "_account_id": 475,
+                "name": "Rick Harris",
+                "email": "rick.harris@rackspace.com",
+                "username": "rconradharris"
+            },
+            "reviewer": {
+                "_account_id": 475,
+                "name": "Rick Harris",
+                "email": "rick.harris@rackspace.com",
+                "username": "rconradharris"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2012-05-03 18:25:37.000000000",
+            "updated_by": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "reviewer": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "state": "REVIEWER"
+        }
+    ],
+    "messages": [
+        {
+            "id": "d62540fda8e0451d1bd56e70f2dfeaadc304c412",
+            "author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "real_author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "date": "2012-05-01 23:12:39.000000000",
+            "message": "Uploaded patch set 2.",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "b1562d3770870a6916efd2c29d50defc287bc5d1",
+            "author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "real_author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "date": "2012-05-01 23:22:25.000000000",
+            "message": "Uploaded patch set 3.",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "bc13da031e3d3fbf25be9c7b5b9305429a3efaa1",
+            "author": {
+                "_account_id": 2284,
+                "name": "Eoghan Glynn",
+                "email": "eglynn@redhat.com",
+                "username": "eglynn"
+            },
+            "real_author": {
+                "_account_id": 2284,
+                "name": "Eoghan Glynn",
+                "email": "eglynn@redhat.com",
+                "username": "eglynn"
+            },
+            "date": "2012-05-02 11:56:57.000000000",
+            "message": "Patch Set 3:\n\nHave we sacrificed some test coverage by removing TestBinGlance.test_add/update_with_owner_non_admin?\n\nAlso one (non-blocking) suggestion, would \"noauth-\" as opposed to \"unauthenticated-\" be more concise and familiar naming for the new middleware?",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "3e9730d0fdd102d1eca6987bd90aaec59abcd635",
+            "author": {
+                "_account_id": 679,
+                "name": "Kevin L. Mitchell",
+                "email": "klmitch@mit.edu",
+                "username": "klmitch"
+            },
+            "real_author": {
+                "_account_id": 679,
+                "name": "Kevin L. Mitchell",
+                "email": "klmitch@mit.edu",
+                "username": "klmitch"
+            },
+            "date": "2012-05-02 14:25:33.000000000",
+            "message": "Patch Set 3: Looks good to me (core reviewer)\n\n",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "53790f4c23d5798ef3b03b6a40120770f19c1643",
+            "author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "real_author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "date": "2012-05-02 14:45:27.000000000",
+            "message": "Patch Set 3:\n\nEoghan:\n\nYes, we are losing a bit of test coverage with the removal of those tests. I think it would actually be wise to revisit functional testing of authenticated requests in one fell swoop. These two tests were somewhat orthogonal to the existing framework and I would like to make it a bit more seamless.\n\nAs for the name, I *really* don't like 'noauth'. It doesn't mean anything without already having some context. I feel like 'unauthenticated' is much more obvious, no?",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "3b7022e76f023c8721327f5d36c523341345a5be",
+            "author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "real_author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "date": "2012-05-02 17:06:23.000000000",
+            "message": "Uploaded patch set 4.",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "5a64511328819e7b58f15c93d1f0649dde8bc59a",
+            "author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "real_author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "date": "2012-05-02 17:06:48.000000000",
+            "message": "Patch Set 4:\n\nWhoops, missed some failing tests. Good to go now.",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "aad58c50b17844cc1d2daa75e7cffec34e2be4f0",
+            "author": {
+                "_account_id": 679,
+                "name": "Kevin L. Mitchell",
+                "email": "klmitch@mit.edu",
+                "username": "klmitch"
+            },
+            "real_author": {
+                "_account_id": 679,
+                "name": "Kevin L. Mitchell",
+                "email": "klmitch@mit.edu",
+                "username": "klmitch"
+            },
+            "date": "2012-05-02 17:18:12.000000000",
+            "message": "Patch Set 4: Looks good to me (core reviewer)\n\n",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "4713e0f59264baad3ca5d1f12e69431ba4205ae6",
+            "author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "real_author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "date": "2012-05-02 23:05:39.000000000",
+            "message": "Uploaded patch set 5.",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "4ae45c27be924f181cc0639d30d6e9b3ccfefd39",
+            "author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "real_author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "date": "2012-05-02 23:27:46.000000000",
+            "message": "Patch Set 5:\n\nDang, didn't mean to push another patchset. My dependent branch rebased automagically and ended updating this little guy. No changes of mine, here.",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "8dbd29c358d074a4bacd836314edcdf4302e76e8",
+            "author": {
+                "_account_id": 679,
+                "name": "Kevin L. Mitchell",
+                "email": "klmitch@mit.edu",
+                "username": "klmitch"
+            },
+            "real_author": {
+                "_account_id": 679,
+                "name": "Kevin L. Mitchell",
+                "email": "klmitch@mit.edu",
+                "username": "klmitch"
+            },
+            "date": "2012-05-02 23:55:29.000000000",
+            "message": "Patch Set 5: Looks good to me (core reviewer)\n\nHeh :)  Yeah, that's one of the annoyances of gerrit\u2026",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "3250dc2e6129ba2ee256cdfe223d8844f74bba19",
+            "author": {
+                "_account_id": 2284,
+                "name": "Eoghan Glynn",
+                "email": "eglynn@redhat.com",
+                "username": "eglynn"
+            },
+            "real_author": {
+                "_account_id": 2284,
+                "name": "Eoghan Glynn",
+                "email": "eglynn@redhat.com",
+                "username": "eglynn"
+            },
+            "date": "2012-05-03 13:43:51.000000000",
+            "message": "Patch Set 5:\n\nHi Brian,\n\nFair enough on the \"unauthenticated\" versus \"noauth\".\n\nOn the test coverage question though, I wonder are we *unnecessarily* throwing away coverage, if the fakeauth middleware could simply be modified to set the auth-related request headers now expected by the modified context middleware (e.g. X-Identity-Status, X-Roles etc.).\n\nThe reason this could be worth doing is that there was some confusion a while back on image ownership setting by admin versus non-admin users, and these test cases were added at the time to provide clarity on the intent and actual behaviour.\n\nCheers,\nEoghan",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "05875f8e1cfaedcb1fbb4517313b3640f91a494d",
+            "author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "real_author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "date": "2012-05-03 15:48:53.000000000",
+            "message": "Uploaded patch set 6.",
+            "accounts_in_message": [],
+            "_revision_number": 6
+        },
+        {
+            "id": "0c237231ea1879d6365ff7d1aad89a4f30a100f1",
+            "author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "real_author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "date": "2012-05-03 15:49:34.000000000",
+            "message": "Patch Set 5:\n\nI took the time to rewrite the tests in test_bin_glance that were deleted into a nice functional test. I should have done that in the first place.",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "3d79fcf54a63b60a87536a3148cc4cb9d909cfdf",
+            "author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "real_author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "date": "2012-05-03 15:52:03.000000000",
+            "message": "Uploaded patch set 7.",
+            "accounts_in_message": [],
+            "_revision_number": 7
+        },
+        {
+            "id": "9e0418a214af84df3b0e3e435f0ccae9784a54dc",
+            "author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "real_author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "date": "2012-05-03 15:52:18.000000000",
+            "message": "Patch Set 7:\n\nThat was just a pep8 issue. Ready to review.",
+            "accounts_in_message": [],
+            "_revision_number": 7
+        },
+        {
+            "id": "12897eaea1b9d0e963379d10f5c9c0540987f3b7",
+            "author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "real_author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "date": "2012-05-03 16:00:14.000000000",
+            "message": "Uploaded patch set 8.",
+            "accounts_in_message": [],
+            "_revision_number": 8
+        },
+        {
+            "id": "39aea54e2b414b38001f8954dbc75f4943f333d0",
+            "author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "real_author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "date": "2012-05-03 16:00:29.000000000",
+            "message": "Patch Set 8:\n\nAdded the test skipper",
+            "accounts_in_message": [],
+            "_revision_number": 8
+        },
+        {
+            "id": "dd64ae66b56923de2d5c53e4a5c944d522bb1641",
+            "author": {
+                "_account_id": 2284,
+                "name": "Eoghan Glynn",
+                "email": "eglynn@redhat.com",
+                "username": "eglynn"
+            },
+            "real_author": {
+                "_account_id": 2284,
+                "name": "Eoghan Glynn",
+                "email": "eglynn@redhat.com",
+                "username": "eglynn"
+            },
+            "date": "2012-05-03 16:29:36.000000000",
+            "message": "Patch Set 8: Looks good to me (core reviewer)\n\nLooks great, thanks for keeping the coverage on ownership logic.\n\nCheers,\nEoghan",
+            "accounts_in_message": [],
+            "_revision_number": 8
+        },
+        {
+            "id": "e2849b662820ab09516a1d1219b7e59478af7b47",
+            "author": {
+                "_account_id": 475,
+                "name": "Rick Harris",
+                "email": "rick.harris@rackspace.com",
+                "username": "rconradharris"
+            },
+            "real_author": {
+                "_account_id": 475,
+                "name": "Rick Harris",
+                "email": "rick.harris@rackspace.com",
+                "username": "rconradharris"
+            },
+            "date": "2012-05-03 17:42:18.000000000",
+            "message": "Patch Set 8: Looks good to me (core reviewer); Approved\n\nLooks good.",
+            "accounts_in_message": [],
+            "_revision_number": 8
+        },
+        {
+            "id": "77846965962668e0e9a8c2870b26af5e3bb3922c",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2012-05-03 18:25:37.000000000",
+            "message": "Change has been successfully merged into the git repository.",
+            "accounts_in_message": [],
+            "_revision_number": 8
+        },
+        {
+            "id": "45f54b7d033313cc50fca0ff4396bd74c56e8b6f",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2012-05-03 18:25:37.000000000",
+            "message": "Patch Set 8: Verified\n\nBuild Successful \n \nhttps://jenkins.openstack.org/job/gate-integration-tests-devstack-vm/3824/ : SUCCESS \nhttps://jenkins.openstack.org/job/gate-glance-merge/603/ : SUCCESS \nhttps://jenkins.openstack.org/job/gate-glance-pep8/783/ : SUCCESS \nhttps://jenkins.openstack.org/job/gate-glance-python26/300/ : SUCCESS \nhttps://jenkins.openstack.org/job/gate-glance-python27/299/ : SUCCESS",
+            "accounts_in_message": [],
+            "_revision_number": 8
+        }
+    ],
+    "requirements": [],
+    "submit_records": []
+}

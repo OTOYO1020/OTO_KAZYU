@@ -1,0 +1,2250 @@
+{
+    "id": "openstack%2Fglance~master~Ib75676dc90349f008395fb118978f4e37fa876ea",
+    "project": "openstack/glance",
+    "branch": "master",
+    "topic": "bug/1548289",
+    "hashtags": [],
+    "change_id": "Ib75676dc90349f008395fb118978f4e37fa876ea",
+    "subject": "Handling scrubber's exit in non-daemon mode.",
+    "status": "MERGED",
+    "created": "2016-10-06 03:52:35.000000000",
+    "updated": "2017-02-10 02:30:30.000000000",
+    "submitted": "2017-02-10 02:30:30.000000000",
+    "submitter": {
+        "_account_id": 3,
+        "name": "Jenkins",
+        "username": "jenkins"
+    },
+    "insertions": 81,
+    "deletions": 10,
+    "total_comment_count": 51,
+    "unresolved_comment_count": 0,
+    "has_review_started": true,
+    "meta_rev_id": "e3e46c60f7b4cd313f791127713fea97d8e46c1c",
+    "_number": 382711,
+    "owner": {
+        "_account_id": 21722,
+        "name": "Dharini Chandrasekar",
+        "email": "dharini.chandrasekar@intel.com",
+        "username": "dharinic"
+    },
+    "labels": {
+        "Verified": {
+            "approved": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 8158,
+                    "name": "Hemanth Makkapati",
+                    "email": "makstacker+osgerrit@gmail.com",
+                    "username": "hemanth.makkapati"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 2537,
+                    "name": "Nikhil Komawar",
+                    "email": "nik.komawar@gmail.com",
+                    "username": "nikhil-komawar"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 21722,
+                    "name": "Dharini Chandrasekar",
+                    "email": "dharini.chandrasekar@intel.com",
+                    "username": "dharinic"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 12807,
+                    "name": "Steve Lewis (stevelle)",
+                    "email": "stevelle@gmail.com",
+                    "username": "stevelle"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 9303,
+                    "name": "Abhishek Kekane",
+                    "email": "akekane@redhat.com",
+                    "username": "abhishekkekane"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 8871,
+                    "name": "Elastic Recheck",
+                    "username": "elasticrecheck"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 22448,
+                    "name": "Alexander Bashmakov",
+                    "email": "abashmak@yahoo.com",
+                    "username": "abashmak"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 12000,
+                    "name": "Ian Cordasco",
+                    "email": "sigmavirus24@gmail.com",
+                    "username": "sigmavirus24"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 5314,
+                    "name": "Brian Rosmaita",
+                    "email": "rosmaita.fossdev@gmail.com",
+                    "username": "brian-rosmaita"
+                },
+                {
+                    "value": 2,
+                    "date": "2017-02-10 02:30:30.000000000",
+                    "post_submit": true,
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-2": "Fails",
+                "-1": "Doesn't seem to work",
+                " 0": "No score",
+                "+1": "Works for me",
+                "+2": "Verified"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        },
+        "Code-Review": {
+            "approved": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 8158,
+                    "name": "Hemanth Makkapati",
+                    "email": "makstacker+osgerrit@gmail.com",
+                    "username": "hemanth.makkapati"
+                },
+                {
+                    "value": 2,
+                    "date": "2017-01-31 21:24:41.000000000",
+                    "_account_id": 2537,
+                    "name": "Nikhil Komawar",
+                    "email": "nik.komawar@gmail.com",
+                    "username": "nikhil-komawar"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 21722,
+                    "name": "Dharini Chandrasekar",
+                    "email": "dharini.chandrasekar@intel.com",
+                    "username": "dharinic"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 12807,
+                    "name": "Steve Lewis (stevelle)",
+                    "email": "stevelle@gmail.com",
+                    "username": "stevelle"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 9303,
+                    "name": "Abhishek Kekane",
+                    "email": "akekane@redhat.com",
+                    "username": "abhishekkekane"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 8871,
+                    "name": "Elastic Recheck",
+                    "username": "elasticrecheck"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 22448,
+                    "name": "Alexander Bashmakov",
+                    "email": "abashmak@yahoo.com",
+                    "username": "abashmak"
+                },
+                {
+                    "value": 2,
+                    "date": "2017-02-09 19:52:48.000000000",
+                    "_account_id": 12000,
+                    "name": "Ian Cordasco",
+                    "email": "sigmavirus24@gmail.com",
+                    "username": "sigmavirus24"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 5314,
+                    "name": "Brian Rosmaita",
+                    "email": "rosmaita.fossdev@gmail.com",
+                    "username": "brian-rosmaita"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-2": "Do not merge",
+                "-1": "This patch needs further work before it can be merged",
+                " 0": "No score",
+                "+1": "Looks good to me, but someone else must approve",
+                "+2": "Looks good to me (core reviewer)"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        },
+        "Workflow": {
+            "approved": {
+                "_account_id": 12000,
+                "name": "Ian Cordasco",
+                "email": "sigmavirus24@gmail.com",
+                "username": "sigmavirus24"
+            },
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 8158,
+                    "name": "Hemanth Makkapati",
+                    "email": "makstacker+osgerrit@gmail.com",
+                    "username": "hemanth.makkapati"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 2537,
+                    "name": "Nikhil Komawar",
+                    "email": "nik.komawar@gmail.com",
+                    "username": "nikhil-komawar"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 21722,
+                    "name": "Dharini Chandrasekar",
+                    "email": "dharini.chandrasekar@intel.com",
+                    "username": "dharinic"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 12807,
+                    "name": "Steve Lewis (stevelle)",
+                    "email": "stevelle@gmail.com",
+                    "username": "stevelle"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 9303,
+                    "name": "Abhishek Kekane",
+                    "email": "akekane@redhat.com",
+                    "username": "abhishekkekane"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 8871,
+                    "name": "Elastic Recheck",
+                    "username": "elasticrecheck"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 22448,
+                    "name": "Alexander Bashmakov",
+                    "email": "abashmak@yahoo.com",
+                    "username": "abashmak"
+                },
+                {
+                    "value": 1,
+                    "date": "2017-02-09 19:52:48.000000000",
+                    "_account_id": 12000,
+                    "name": "Ian Cordasco",
+                    "email": "sigmavirus24@gmail.com",
+                    "username": "sigmavirus24"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 5314,
+                    "name": "Brian Rosmaita",
+                    "email": "rosmaita.fossdev@gmail.com",
+                    "username": "brian-rosmaita"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-1": "Work in progress",
+                " 0": "Ready for reviews",
+                "+1": "Approved"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        },
+        "Review-Priority": {
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 8158,
+                    "name": "Hemanth Makkapati",
+                    "email": "makstacker+osgerrit@gmail.com",
+                    "username": "hemanth.makkapati"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 2537,
+                    "name": "Nikhil Komawar",
+                    "email": "nik.komawar@gmail.com",
+                    "username": "nikhil-komawar"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 21722,
+                    "name": "Dharini Chandrasekar",
+                    "email": "dharini.chandrasekar@intel.com",
+                    "username": "dharinic"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 12807,
+                    "name": "Steve Lewis (stevelle)",
+                    "email": "stevelle@gmail.com",
+                    "username": "stevelle"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 9303,
+                    "name": "Abhishek Kekane",
+                    "email": "akekane@redhat.com",
+                    "username": "abhishekkekane"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 8871,
+                    "name": "Elastic Recheck",
+                    "username": "elasticrecheck"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 22448,
+                    "name": "Alexander Bashmakov",
+                    "email": "abashmak@yahoo.com",
+                    "username": "abashmak"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 12000,
+                    "name": "Ian Cordasco",
+                    "email": "sigmavirus24@gmail.com",
+                    "username": "sigmavirus24"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 5314,
+                    "name": "Brian Rosmaita",
+                    "email": "rosmaita.fossdev@gmail.com",
+                    "username": "brian-rosmaita"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-1": "Branch Freeze",
+                " 0": "No Priority",
+                "+1": "Important Change",
+                "+2": "Top Priority / Holds Gate"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        }
+    },
+    "removable_reviewers": [],
+    "reviewers": {
+        "REVIEWER": [
+            {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            {
+                "_account_id": 8158,
+                "name": "Hemanth Makkapati",
+                "email": "makstacker+osgerrit@gmail.com",
+                "username": "hemanth.makkapati"
+            },
+            {
+                "_account_id": 8871,
+                "name": "Elastic Recheck",
+                "username": "elasticrecheck"
+            },
+            {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            {
+                "_account_id": 12000,
+                "name": "Ian Cordasco",
+                "email": "sigmavirus24@gmail.com",
+                "username": "sigmavirus24"
+            },
+            {
+                "_account_id": 12807,
+                "name": "Steve Lewis (stevelle)",
+                "email": "stevelle@gmail.com",
+                "username": "stevelle"
+            },
+            {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            {
+                "_account_id": 22448,
+                "name": "Alexander Bashmakov",
+                "email": "abashmak@yahoo.com",
+                "username": "abashmak"
+            }
+        ]
+    },
+    "pending_reviewers": {},
+    "reviewer_updates": [
+        {
+            "updated": "2016-11-15 21:00:40.000000000",
+            "updated_by": {
+                "_account_id": 8158,
+                "name": "Hemanth Makkapati",
+                "email": "makstacker+osgerrit@gmail.com",
+                "username": "hemanth.makkapati"
+            },
+            "reviewer": {
+                "_account_id": 8158,
+                "name": "Hemanth Makkapati",
+                "email": "makstacker+osgerrit@gmail.com",
+                "username": "hemanth.makkapati"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2016-11-22 02:19:43.000000000",
+            "updated_by": {
+                "_account_id": 8871,
+                "name": "Elastic Recheck",
+                "username": "elasticrecheck"
+            },
+            "reviewer": {
+                "_account_id": 8871,
+                "name": "Elastic Recheck",
+                "username": "elasticrecheck"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2016-12-20 21:38:54.000000000",
+            "updated_by": {
+                "_account_id": 22448,
+                "name": "Alexander Bashmakov",
+                "email": "abashmak@yahoo.com",
+                "username": "abashmak"
+            },
+            "reviewer": {
+                "_account_id": 22448,
+                "name": "Alexander Bashmakov",
+                "email": "abashmak@yahoo.com",
+                "username": "abashmak"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2017-01-13 09:39:53.000000000",
+            "updated_by": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "reviewer": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2017-01-17 23:36:22.000000000",
+            "updated_by": {
+                "_account_id": 12807,
+                "name": "Steve Lewis (stevelle)",
+                "email": "stevelle@gmail.com",
+                "username": "stevelle"
+            },
+            "reviewer": {
+                "_account_id": 12807,
+                "name": "Steve Lewis (stevelle)",
+                "email": "stevelle@gmail.com",
+                "username": "stevelle"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2017-01-27 18:27:24.000000000",
+            "updated_by": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "reviewer": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2017-01-31 21:24:41.000000000",
+            "updated_by": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "reviewer": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2017-02-09 19:52:48.000000000",
+            "updated_by": {
+                "_account_id": 12000,
+                "name": "Ian Cordasco",
+                "email": "sigmavirus24@gmail.com",
+                "username": "sigmavirus24"
+            },
+            "reviewer": {
+                "_account_id": 12000,
+                "name": "Ian Cordasco",
+                "email": "sigmavirus24@gmail.com",
+                "username": "sigmavirus24"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2017-02-10 02:30:30.000000000",
+            "updated_by": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "reviewer": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "state": "REVIEWER"
+        }
+    ],
+    "messages": [
+        {
+            "id": "5eb4cd225f17eb4fe9517a5fd945ab3d2ff1a4ba",
+            "author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "real_author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "date": "2016-10-06 03:52:35.000000000",
+            "message": "Uploaded patch set 1.",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "f63d6bdc7edc2963647e82c2d437b6c7c589fd7f",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2016-10-06 04:40:03.000000000",
+            "message": "Patch Set 1: Verified+1\n\nBuild succeeded (check pipeline).\n\n- gate-glance-python34-db http://logs.openstack.org/11/382711/1/check/gate-glance-python34-db/c57f575/ : SUCCESS in 3m 38s\n- gate-glance-python35-db-nv http://logs.openstack.org/11/382711/1/check/gate-glance-python35-db-nv/a29c2f6/ : FAILURE in 45m 08s (non-voting)\n- gate-glance-docs-ubuntu-xenial http://docs-draft.openstack.org/11/382711/1/check/gate-glance-docs-ubuntu-xenial/90ae3a0//doc/build/html/ : SUCCESS in 7m 45s\n- gate-glance-pep8-ubuntu-xenial http://logs.openstack.org/11/382711/1/check/gate-glance-pep8-ubuntu-xenial/52c2acd/ : SUCCESS in 2m 38s\n- gate-glance-python27-db-ubuntu-xenial http://logs.openstack.org/11/382711/1/check/gate-glance-python27-db-ubuntu-xenial/1361cd5/ : SUCCESS in 10m 23s\n- gate-tempest-dsvm-neutron-full-ubuntu-xenial http://logs.openstack.org/11/382711/1/check/gate-tempest-dsvm-neutron-full-ubuntu-xenial/2809567/ : SUCCESS in 47m 14s\n- gate-grenade-dsvm-neutron-ubuntu-xenial http://logs.openstack.org/11/382711/1/check/gate-grenade-dsvm-neutron-ubuntu-xenial/9275367/ : SUCCESS in 31m 53s\n- gate-tempest-dsvm-full-devstack-plugin-ceph-ubuntu-xenial http://logs.openstack.org/11/382711/1/check/gate-tempest-dsvm-full-devstack-plugin-ceph-ubuntu-xenial/1b2c093/ : SUCCESS in 41m 43s\n- gate-tempest-dsvm-neutron-identity-v3-only-full-ubuntu-xenial-nv http://logs.openstack.org/11/382711/1/check/gate-tempest-dsvm-neutron-identity-v3-only-full-ubuntu-xenial-nv/bd6aa2f/ : SUCCESS in 46m 43s (non-voting)\n- gate-rally-dsvm-glance http://logs.openstack.org/11/382711/1/check/gate-rally-dsvm-glance/bdca0bd/ : SUCCESS in 25m 58s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "0354e1b4500560acc349293aa6d3ab90ae0c116f",
+            "author": {
+                "_account_id": 12807,
+                "name": "Steve Lewis (stevelle)",
+                "email": "stevelle@gmail.com",
+                "username": "stevelle"
+            },
+            "real_author": {
+                "_account_id": 12807,
+                "name": "Steve Lewis (stevelle)",
+                "email": "stevelle@gmail.com",
+                "username": "stevelle"
+            },
+            "date": "2016-10-06 16:22:44.000000000",
+            "message": "Patch Set 1:\n\n(1 comment)\n\nI think this solution needs to avoid use of the global var but I can't decide on a specific alternative offer.",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "7b3a91d8079ee8a569f0587072934620a8e90ed7",
+            "author": {
+                "_account_id": 22448,
+                "name": "Alexander Bashmakov",
+                "email": "abashmak@yahoo.com",
+                "username": "abashmak"
+            },
+            "real_author": {
+                "_account_id": 22448,
+                "name": "Alexander Bashmakov",
+                "email": "abashmak@yahoo.com",
+                "username": "abashmak"
+            },
+            "date": "2016-10-10 21:50:26.000000000",
+            "message": "Patch Set 1:\n\n(1 comment)",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "ae65938bdcb46dbff9acc4b25c2482cb324ea9a8",
+            "author": {
+                "_account_id": 12000,
+                "name": "Ian Cordasco",
+                "email": "sigmavirus24@gmail.com",
+                "username": "sigmavirus24"
+            },
+            "real_author": {
+                "_account_id": 12000,
+                "name": "Ian Cordasco",
+                "email": "sigmavirus24@gmail.com",
+                "username": "sigmavirus24"
+            },
+            "date": "2016-10-11 13:23:18.000000000",
+            "message": "Patch Set 1: Code-Review-1\n\n(5 comments)\n\nI agree with Steve that this should not be implemented as a global.",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "5fa2548a58321267341708848c5c4f1a9cd49a57",
+            "author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "real_author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "date": "2016-10-11 15:35:55.000000000",
+            "message": "Uploaded patch set 2.",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "96eb68e35ee011118c2eb77397f0d3aa09d28c84",
+            "author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "real_author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "date": "2016-10-11 15:36:42.000000000",
+            "message": "Patch Set 1:\n\n> (5 comments)\n > \n > I agree with Steve that this should not be implemented as a global.\n\nThanks for the review and suggestion Ian. Uploading a new patch with the incorporated changes.",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "3ef33520fe4bc516101d9aa9a2e13a79bd3a943b",
+            "author": {
+                "_account_id": 22448,
+                "name": "Alexander Bashmakov",
+                "email": "abashmak@yahoo.com",
+                "username": "abashmak"
+            },
+            "real_author": {
+                "_account_id": 22448,
+                "name": "Alexander Bashmakov",
+                "email": "abashmak@yahoo.com",
+                "username": "abashmak"
+            },
+            "date": "2016-10-11 15:40:31.000000000",
+            "message": "Patch Set 2:\n\n(1 comment)",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "774abe39c98932aa896f19267959de1bc7f5a6a4",
+            "author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "real_author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "date": "2016-10-11 15:54:32.000000000",
+            "message": "Patch Set 2:\n\n(1 comment)",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "d5d62b3e0ae697391347c40cec343a89e43624de",
+            "author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "real_author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "date": "2016-10-11 15:56:18.000000000",
+            "message": "Uploaded patch set 3.",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "cfb4d9c841c28eb4e3923ceb2432af04c64c18f2",
+            "author": {
+                "_account_id": 12000,
+                "name": "Ian Cordasco",
+                "email": "sigmavirus24@gmail.com",
+                "username": "sigmavirus24"
+            },
+            "real_author": {
+                "_account_id": 12000,
+                "name": "Ian Cordasco",
+                "email": "sigmavirus24@gmail.com",
+                "username": "sigmavirus24"
+            },
+            "date": "2016-10-11 16:10:52.000000000",
+            "message": "Patch Set 3:\n\n(1 comment)",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "a6bb9311fe4e30b3cc9e0c86f9a3ff4c50b51929",
+            "author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "real_author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "date": "2016-10-11 16:54:48.000000000",
+            "message": "Uploaded patch set 4.",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "f174f0633d4b517a21b0a7c912b0b041559afffa",
+            "author": {
+                "_account_id": 12807,
+                "name": "Steve Lewis (stevelle)",
+                "email": "stevelle@gmail.com",
+                "username": "stevelle"
+            },
+            "real_author": {
+                "_account_id": 12807,
+                "name": "Steve Lewis (stevelle)",
+                "email": "stevelle@gmail.com",
+                "username": "stevelle"
+            },
+            "date": "2016-10-11 17:40:01.000000000",
+            "message": "Patch Set 4: Code-Review+1\n\n(2 comments)\n\ntwo nits: \n - you should only test one thing in each test function. \n - there is already a lot of repetition in test setup here, extracting some common test helper methods and instance variables for the test class would improve the tests.",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "e46dbc0db29bffd227af55421107f3b1fc67fd7e",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2016-10-11 19:27:26.000000000",
+            "message": "Patch Set 4: Verified+1\n\nBuild succeeded (check pipeline).\n\n- gate-glance-python34-db http://logs.openstack.org/11/382711/4/check/gate-glance-python34-db/03aa6ff/ : SUCCESS in 5m 55s\n- gate-glance-python35-db-nv http://logs.openstack.org/11/382711/4/check/gate-glance-python35-db-nv/483027d/ : FAILURE in 43m 05s (non-voting)\n- gate-glance-docs-ubuntu-xenial http://docs-draft.openstack.org/11/382711/4/check/gate-glance-docs-ubuntu-xenial/b5f1d06//doc/build/html/ : SUCCESS in 5m 42s\n- gate-glance-pep8-ubuntu-xenial http://logs.openstack.org/11/382711/4/check/gate-glance-pep8-ubuntu-xenial/089b334/ : SUCCESS in 2m 42s\n- gate-glance-python27-db-ubuntu-xenial http://logs.openstack.org/11/382711/4/check/gate-glance-python27-db-ubuntu-xenial/dfaa26b/ : SUCCESS in 7m 43s\n- gate-tempest-dsvm-neutron-full-ubuntu-xenial http://logs.openstack.org/11/382711/4/check/gate-tempest-dsvm-neutron-full-ubuntu-xenial/787534c/ : SUCCESS in 46m 54s\n- gate-grenade-dsvm-neutron-ubuntu-xenial http://logs.openstack.org/11/382711/4/check/gate-grenade-dsvm-neutron-ubuntu-xenial/4584f52/ : SUCCESS in 36m 54s\n- gate-tempest-dsvm-full-devstack-plugin-ceph-ubuntu-xenial http://logs.openstack.org/11/382711/4/check/gate-tempest-dsvm-full-devstack-plugin-ceph-ubuntu-xenial/d17d950/ : SUCCESS in 45m 53s\n- gate-tempest-dsvm-neutron-identity-v3-only-full-ubuntu-xenial-nv http://logs.openstack.org/11/382711/4/check/gate-tempest-dsvm-neutron-identity-v3-only-full-ubuntu-xenial-nv/e1fa140/ : SUCCESS in 49m 26s (non-voting)\n- gate-rally-dsvm-glance http://logs.openstack.org/11/382711/4/check/gate-rally-dsvm-glance/9bfe926/ : SUCCESS in 48m 34s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "5c560b7fe0f9a3c5d7d8553f73d10ea8df1b5bc3",
+            "author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "real_author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "date": "2016-10-12 19:01:30.000000000",
+            "message": "Uploaded patch set 5.",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "864943d9f688248363a7e32a13d8d365abc654fa",
+            "author": {
+                "_account_id": 22448,
+                "name": "Alexander Bashmakov",
+                "email": "abashmak@yahoo.com",
+                "username": "abashmak"
+            },
+            "real_author": {
+                "_account_id": 22448,
+                "name": "Alexander Bashmakov",
+                "email": "abashmak@yahoo.com",
+                "username": "abashmak"
+            },
+            "date": "2016-10-12 19:11:18.000000000",
+            "message": "Patch Set 5: Code-Review-1\n\n(1 comment)",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "a12735d64b56bede5cbfbca0e4b502462ab6b1bc",
+            "author": {
+                "_account_id": 12807,
+                "name": "Steve Lewis (stevelle)",
+                "email": "stevelle@gmail.com",
+                "username": "stevelle"
+            },
+            "real_author": {
+                "_account_id": 12807,
+                "name": "Steve Lewis (stevelle)",
+                "email": "stevelle@gmail.com",
+                "username": "stevelle"
+            },
+            "date": "2016-10-12 19:34:35.000000000",
+            "message": "Patch Set 5: Code-Review+1\n\n(1 comment)",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "ea3aeac1ab19a9d01160ea1cac8c00ad69fb5e05",
+            "author": {
+                "_account_id": 22448,
+                "name": "Alexander Bashmakov",
+                "email": "abashmak@yahoo.com",
+                "username": "abashmak"
+            },
+            "real_author": {
+                "_account_id": 22448,
+                "name": "Alexander Bashmakov",
+                "email": "abashmak@yahoo.com",
+                "username": "abashmak"
+            },
+            "date": "2016-10-12 19:36:19.000000000",
+            "message": "Patch Set 5: Code-Review+1",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "cc3441729c3ead6292492a1f566018bc69d26e8a",
+            "author": {
+                "_account_id": 12000,
+                "name": "Ian Cordasco",
+                "email": "sigmavirus24@gmail.com",
+                "username": "sigmavirus24"
+            },
+            "real_author": {
+                "_account_id": 12000,
+                "name": "Ian Cordasco",
+                "email": "sigmavirus24@gmail.com",
+                "username": "sigmavirus24"
+            },
+            "date": "2016-10-12 19:51:54.000000000",
+            "message": "Patch Set 5: Code-Review-1\n\n(1 comment)\n\nOne last nit, Dharini, and then I'm +2 on this.",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "6856e123537caec51155d93c9249f2f869d64412",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2016-10-12 20:13:53.000000000",
+            "message": "Patch Set 5: Verified-1\n\nBuild failed (check pipeline).  For information on how to proceed, see http://docs.openstack.org/infra/manual/developers.html#automated-testing\n\n- gate-glance-python34-db http://logs.openstack.org/11/382711/5/check/gate-glance-python34-db/d7ccf73/ : SUCCESS in 3m 53s\n- gate-glance-python35-db-nv http://logs.openstack.org/11/382711/5/check/gate-glance-python35-db-nv/6fdcac7/ : FAILURE in 45m 25s (non-voting)\n- gate-glance-docs-ubuntu-xenial http://docs-draft.openstack.org/11/382711/5/check/gate-glance-docs-ubuntu-xenial/6aef0a5//doc/build/html/ : SUCCESS in 5m 00s\n- gate-glance-pep8-ubuntu-xenial http://logs.openstack.org/11/382711/5/check/gate-glance-pep8-ubuntu-xenial/3a7b44f/ : SUCCESS in 2m 29s\n- gate-glance-python27-db-ubuntu-xenial http://logs.openstack.org/11/382711/5/check/gate-glance-python27-db-ubuntu-xenial/bd35af7/ : SUCCESS in 7m 17s\n- gate-tempest-dsvm-neutron-full-ubuntu-xenial http://logs.openstack.org/11/382711/5/check/gate-tempest-dsvm-neutron-full-ubuntu-xenial/1989b89/ : FAILURE in 1h 07m 39s\n- gate-grenade-dsvm-neutron-ubuntu-xenial http://logs.openstack.org/11/382711/5/check/gate-grenade-dsvm-neutron-ubuntu-xenial/16b1a4a/ : SUCCESS in 47m 50s\n- gate-tempest-dsvm-full-devstack-plugin-ceph-ubuntu-xenial http://logs.openstack.org/11/382711/5/check/gate-tempest-dsvm-full-devstack-plugin-ceph-ubuntu-xenial/f9a23c8/ : SUCCESS in 1h 03m 13s\n- gate-tempest-dsvm-neutron-identity-v3-only-full-ubuntu-xenial-nv http://logs.openstack.org/11/382711/5/check/gate-tempest-dsvm-neutron-identity-v3-only-full-ubuntu-xenial-nv/908ef18/ : SUCCESS in 55m 58s (non-voting)\n- gate-rally-dsvm-glance http://logs.openstack.org/11/382711/5/check/gate-rally-dsvm-glance/42a23cb/ : SUCCESS in 44m 11s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "7b492d41e8c8fa3cad0b5b82cac8ce294282e11a",
+            "author": {
+                "_account_id": 8871,
+                "name": "Elastic Recheck",
+                "username": "elasticrecheck"
+            },
+            "real_author": {
+                "_account_id": 8871,
+                "name": "Elastic Recheck",
+                "username": "elasticrecheck"
+            },
+            "date": "2016-10-12 20:15:27.000000000",
+            "message": "Patch Set 5:\n\nI noticed jenkins failed, I think you hit bug(s):\n\n- gate-tempest-dsvm-neutron-full-ubuntu-xenial: https://bugs.launchpad.net/bugs/1509004\n\nIf you believe we've correctly identified the failure, feel free to leave a 'recheck' comment to run the tests again.\nFor more details on this and other bugs, please see http://status.openstack.org/elastic-recheck/",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "6b7cba7ab3520072fb04feb5215279e39535e75a",
+            "author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "real_author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "date": "2016-10-12 22:28:36.000000000",
+            "message": "Patch Set 5:\n\n(1 comment)",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "1c6ac07e3bed00ea14e1539c1a100f868dfe704d",
+            "author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "real_author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "date": "2016-10-12 22:29:01.000000000",
+            "message": "Uploaded patch set 6.",
+            "accounts_in_message": [],
+            "_revision_number": 6
+        },
+        {
+            "id": "f25bd7b46a987d60f61a237c5a7ebfac35150d1d",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2016-10-12 23:43:03.000000000",
+            "message": "Patch Set 6: Verified+1\n\nBuild succeeded (check pipeline).\n\n- gate-glance-python34-db http://logs.openstack.org/11/382711/6/check/gate-glance-python34-db/7dc9075/ : SUCCESS in 4m 00s\n- gate-glance-python35-db-nv http://logs.openstack.org/11/382711/6/check/gate-glance-python35-db-nv/cbb6f17/ : FAILURE in 45m 18s (non-voting)\n- gate-glance-docs-ubuntu-xenial http://docs-draft.openstack.org/11/382711/6/check/gate-glance-docs-ubuntu-xenial/30e31a6//doc/build/html/ : SUCCESS in 5m 59s\n- gate-glance-pep8-ubuntu-xenial http://logs.openstack.org/11/382711/6/check/gate-glance-pep8-ubuntu-xenial/7dfbab9/ : SUCCESS in 2m 36s\n- gate-glance-python27-db-ubuntu-xenial http://logs.openstack.org/11/382711/6/check/gate-glance-python27-db-ubuntu-xenial/07f0b30/ : SUCCESS in 6m 48s\n- gate-tempest-dsvm-neutron-full-ubuntu-xenial http://logs.openstack.org/11/382711/6/check/gate-tempest-dsvm-neutron-full-ubuntu-xenial/c06d62b/ : SUCCESS in 1h 11m 03s\n- gate-grenade-dsvm-neutron-ubuntu-xenial http://logs.openstack.org/11/382711/6/check/gate-grenade-dsvm-neutron-ubuntu-xenial/2b42ddc/ : SUCCESS in 31m 18s\n- gate-tempest-dsvm-full-devstack-plugin-ceph-ubuntu-xenial http://logs.openstack.org/11/382711/6/check/gate-tempest-dsvm-full-devstack-plugin-ceph-ubuntu-xenial/f5e6449/ : SUCCESS in 41m 55s\n- gate-tempest-dsvm-neutron-identity-v3-only-full-ubuntu-xenial-nv http://logs.openstack.org/11/382711/6/check/gate-tempest-dsvm-neutron-identity-v3-only-full-ubuntu-xenial-nv/24ca35b/ : SUCCESS in 43m 36s (non-voting)\n- gate-rally-dsvm-glance http://logs.openstack.org/11/382711/6/check/gate-rally-dsvm-glance/5c5c36d/ : SUCCESS in 26m 07s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 6
+        },
+        {
+            "id": "eec8c4f4a595eb14429c00f43d9435770661a090",
+            "author": {
+                "_account_id": 12807,
+                "name": "Steve Lewis (stevelle)",
+                "email": "stevelle@gmail.com",
+                "username": "stevelle"
+            },
+            "real_author": {
+                "_account_id": 12807,
+                "name": "Steve Lewis (stevelle)",
+                "email": "stevelle@gmail.com",
+                "username": "stevelle"
+            },
+            "date": "2016-10-13 00:30:05.000000000",
+            "message": "Patch Set 6: Code-Review+1\n\nHappy with the changes to tests, the fix itself still looks good.",
+            "accounts_in_message": [],
+            "_revision_number": 6
+        },
+        {
+            "id": "d7db5f66f6d371e37ad1c33a7f0087c63216a366",
+            "author": {
+                "_account_id": 8158,
+                "name": "Hemanth Makkapati",
+                "email": "makstacker+osgerrit@gmail.com",
+                "username": "hemanth.makkapati"
+            },
+            "real_author": {
+                "_account_id": 8158,
+                "name": "Hemanth Makkapati",
+                "email": "makstacker+osgerrit@gmail.com",
+                "username": "hemanth.makkapati"
+            },
+            "date": "2016-11-15 21:00:40.000000000",
+            "message": "Patch Set 6: Code-Review-1\n\n(2 comments)\n\nDon't think the fix proposed here fixes the reported issue.\nPlease look at my inline comments.",
+            "accounts_in_message": [],
+            "_revision_number": 6
+        },
+        {
+            "id": "fde28c4f832ca26d27de8fcda981dd0a29fb983d",
+            "author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "real_author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "date": "2016-11-22 01:00:47.000000000",
+            "message": "Patch Set 6:\n\n(2 comments)",
+            "accounts_in_message": [],
+            "_revision_number": 6
+        },
+        {
+            "id": "12fda85e8b9fb8a28dff29ff3891058aed03820c",
+            "author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "real_author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "date": "2016-11-22 01:02:49.000000000",
+            "message": "Uploaded patch set 7.",
+            "accounts_in_message": [],
+            "_revision_number": 7
+        },
+        {
+            "id": "87609cb56eef87835287fa6b7da73bd0d52db2f5",
+            "author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "real_author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "date": "2016-11-22 01:13:04.000000000",
+            "message": "Patch Set 6:\n\n(1 comment)",
+            "accounts_in_message": [],
+            "_revision_number": 6
+        },
+        {
+            "id": "a0ec79797ca8fc375756647c906cb174ff0c9393",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2016-11-22 02:19:32.000000000",
+            "message": "Patch Set 7: Verified-1\n\nBuild failed (check pipeline).  For information on how to proceed, see http://docs.openstack.org/infra/manual/developers.html#automated-testing\n\n- gate-glance-python34-db http://logs.openstack.org/11/382711/7/check/gate-glance-python34-db/34580c5/ : SUCCESS in 6m 34s\n- gate-glance-python35-db-nv http://logs.openstack.org/11/382711/7/check/gate-glance-python35-db-nv/ff13442/ : FAILURE in 45m 17s (non-voting)\n- gate-glance-docs-ubuntu-xenial http://docs-draft.openstack.org/11/382711/7/check/gate-glance-docs-ubuntu-xenial/ea0d184//doc/build/html/ : SUCCESS in 5m 01s\n- gate-glance-pep8-ubuntu-xenial http://logs.openstack.org/11/382711/7/check/gate-glance-pep8-ubuntu-xenial/83c5a85/ : SUCCESS in 4m 54s\n- gate-glance-python27-db-ubuntu-xenial http://logs.openstack.org/11/382711/7/check/gate-glance-python27-db-ubuntu-xenial/62a206a/ : SUCCESS in 7m 24s\n- gate-tempest-dsvm-neutron-full-ubuntu-xenial http://logs.openstack.org/11/382711/7/check/gate-tempest-dsvm-neutron-full-ubuntu-xenial/b564526/ : SUCCESS in 46m 28s\n- gate-grenade-dsvm-neutron-ubuntu-xenial http://logs.openstack.org/11/382711/7/check/gate-grenade-dsvm-neutron-ubuntu-xenial/268cb64/ : FAILURE in 29m 11s\n- gate-tempest-dsvm-full-devstack-plugin-ceph-ubuntu-xenial http://logs.openstack.org/11/382711/7/check/gate-tempest-dsvm-full-devstack-plugin-ceph-ubuntu-xenial/cc1732e/ : SUCCESS in 1h 12m 52s\n- gate-tempest-dsvm-neutron-identity-v3-only-full-ubuntu-xenial-nv http://logs.openstack.org/11/382711/7/check/gate-tempest-dsvm-neutron-identity-v3-only-full-ubuntu-xenial-nv/13dbe05/ : SUCCESS in 1h 12m 42s (non-voting)\n- gate-rally-dsvm-glance http://logs.openstack.org/11/382711/7/check/gate-rally-dsvm-glance/350db61/ : FAILURE in 23m 01s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 7
+        },
+        {
+            "id": "510b93ceadfbb624556bfd680620431e0b0505b8",
+            "author": {
+                "_account_id": 8871,
+                "name": "Elastic Recheck",
+                "username": "elasticrecheck"
+            },
+            "real_author": {
+                "_account_id": 8871,
+                "name": "Elastic Recheck",
+                "username": "elasticrecheck"
+            },
+            "date": "2016-11-22 02:19:43.000000000",
+            "message": "Patch Set 7:\n\nI noticed jenkins failed, I think you hit bug(s):\n\n- gate-grenade-dsvm-neutron-ubuntu-xenial: https://bugs.launchpad.net/bugs/1463631\n\nIf you believe we've correctly identified the failure, feel free to leave a 'recheck' comment to run the tests again.\nFor more details on this and other bugs, please see http://status.openstack.org/elastic-recheck/",
+            "accounts_in_message": [],
+            "_revision_number": 7
+        },
+        {
+            "id": "5b217c952bc18a363be1df4ca8bbc428a4da1374",
+            "author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "real_author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "date": "2016-11-22 02:54:48.000000000",
+            "message": "Patch Set 7:\n\nrecheck",
+            "accounts_in_message": [],
+            "_revision_number": 7
+        },
+        {
+            "id": "517ff40315bb6f29003e268027cf19cf5aafa158",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2016-11-22 03:49:03.000000000",
+            "message": "Patch Set 7: Verified+1\n\nBuild succeeded (check pipeline).\n\n- gate-glance-python34-db http://logs.openstack.org/11/382711/7/check/gate-glance-python34-db/fadce3f/ : SUCCESS in 3m 18s\n- gate-glance-python35-db-nv http://logs.openstack.org/11/382711/7/check/gate-glance-python35-db-nv/01c8592/ : FAILURE in 45m 54s (non-voting)\n- gate-glance-docs-ubuntu-xenial http://docs-draft.openstack.org/11/382711/7/check/gate-glance-docs-ubuntu-xenial/49109db//doc/build/html/ : SUCCESS in 5m 27s\n- gate-glance-pep8-ubuntu-xenial http://logs.openstack.org/11/382711/7/check/gate-glance-pep8-ubuntu-xenial/4a5db5d/ : SUCCESS in 3m 30s\n- gate-glance-python27-db-ubuntu-xenial http://logs.openstack.org/11/382711/7/check/gate-glance-python27-db-ubuntu-xenial/063bb2e/ : SUCCESS in 8m 09s\n- gate-tempest-dsvm-neutron-full-ubuntu-xenial http://logs.openstack.org/11/382711/7/check/gate-tempest-dsvm-neutron-full-ubuntu-xenial/32cee07/ : SUCCESS in 48m 36s\n- gate-grenade-dsvm-neutron-ubuntu-xenial http://logs.openstack.org/11/382711/7/check/gate-grenade-dsvm-neutron-ubuntu-xenial/1f38083/ : SUCCESS in 33m 29s\n- gate-tempest-dsvm-full-devstack-plugin-ceph-ubuntu-xenial http://logs.openstack.org/11/382711/7/check/gate-tempest-dsvm-full-devstack-plugin-ceph-ubuntu-xenial/486915a/ : SUCCESS in 50m 38s\n- gate-tempest-dsvm-neutron-identity-v3-only-full-ubuntu-xenial-nv http://logs.openstack.org/11/382711/7/check/gate-tempest-dsvm-neutron-identity-v3-only-full-ubuntu-xenial-nv/0f0a6cc/ : FAILURE in 52m 33s (non-voting)\n- gate-rally-dsvm-glance http://logs.openstack.org/11/382711/7/check/gate-rally-dsvm-glance/cde2c36/ : FAILURE in 16m 01s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 7
+        },
+        {
+            "id": "f47e1464822a31ceaee6ac539439b343625befd6",
+            "author": {
+                "_account_id": 12807,
+                "name": "Steve Lewis (stevelle)",
+                "email": "stevelle@gmail.com",
+                "username": "stevelle"
+            },
+            "real_author": {
+                "_account_id": 12807,
+                "name": "Steve Lewis (stevelle)",
+                "email": "stevelle@gmail.com",
+                "username": "stevelle"
+            },
+            "date": "2016-11-29 18:37:28.000000000",
+            "message": "Patch Set 7: Code-Review-1\n\nI *think* we still have the issue Hemanth brought up (0 invocations of the mapped function for an empty list of work to do)\n\nAdditionally, This solution raises a SystemExit when the query succeeds but no pending work is found. In that case it should exit 0.",
+            "accounts_in_message": [],
+            "_revision_number": 7
+        },
+        {
+            "id": "523407429de923045d9f70ec703b9d409cf856c1",
+            "author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "real_author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "date": "2016-11-29 21:08:33.000000000",
+            "message": "Patch Set 7:\n\nThe existing functional tests does not accommodate changes to exit codes. And, an attempt to edit them to reflect the updated exits results in segmentation faults. Not sure how we can do an exit 1 in this case.. (re-raising an exception does not work too) Maybe that is why the existing code just does an LOG.error and not exit 1?\nAny suggestions or ideas?",
+            "accounts_in_message": [],
+            "_revision_number": 7
+        },
+        {
+            "id": "71585b98776442a4d55df08405f4390d549c73a1",
+            "author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "real_author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "date": "2016-12-02 20:09:45.000000000",
+            "message": "Patch Set 6:\n\n(1 comment)",
+            "accounts_in_message": [],
+            "_revision_number": 6
+        },
+        {
+            "id": "12244bb7b054a86ea84f58d60c5f623bb4727357",
+            "author": {
+                "_account_id": 12807,
+                "name": "Steve Lewis (stevelle)",
+                "email": "stevelle@gmail.com",
+                "username": "stevelle"
+            },
+            "real_author": {
+                "_account_id": 12807,
+                "name": "Steve Lewis (stevelle)",
+                "email": "stevelle@gmail.com",
+                "username": "stevelle"
+            },
+            "date": "2016-12-05 17:41:01.000000000",
+            "message": "Patch Set 7:\n\nProvided a patch via paste out of band with an alternate means of addressing this, with all tests passing to give some ideas. \n\nThe other functional tests which are failing when this bug is fixed are failing because an invalid configuration for the scrubber is provided and when the functional test suite tries to start the scrubber in a background process the scrubber (correctly) exits with an exit code 1, which violates an implicit expectation of those tests (an expectation baked into the start_servers method). It becomes necessary to revise some tests at least a bit because of this flaw in the functional test framework.\n\nIn each case I found that the scrubber was not needed by the tests and by even attempting to start it we were adding a significant amount of time to test execution time. \n\nMy patch bypasses the startup (and shutdown) of the scrubber for those tests via a newly supported conditional exclusion of the scrubber introduced to the FunctionalTest class. This also cuts significant time from test execution. \n\nOther potential solutions exist, including setting the expected exit code for the scrubber process before starting services.",
+            "accounts_in_message": [],
+            "_revision_number": 7
+        },
+        {
+            "id": "2a539501c9e8d2b4230fb7ecd7d1acb98a1d8372",
+            "author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "real_author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "date": "2016-12-05 20:19:18.000000000",
+            "message": "Uploaded patch set 8.",
+            "accounts_in_message": [],
+            "_revision_number": 8
+        },
+        {
+            "id": "6bcc2817e345bb2d84fffb3f995e0b0105813e0e",
+            "author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "real_author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "date": "2016-12-05 20:22:22.000000000",
+            "message": "Patch Set 8:\n\nUploaded PS #8 after editing functional test cases with Steve's guidance.\nSince spawn_n is used in daemon_mode, as per [1], we need not have additional conditional checks to determine whether to raise and exception or exit, as spawn handles that for the daemon mode automatically.\n[1] http://eventlet.net/doc/modules/greenthread.html#eventlet.greenthread.spawn_n",
+            "accounts_in_message": [],
+            "_revision_number": 8
+        },
+        {
+            "id": "acb91b0fca8a9a5b7900d94b94941178894d8fcb",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2016-12-05 21:18:48.000000000",
+            "message": "Patch Set 8: Verified-1\n\nBuild failed (check pipeline).  For information on how to proceed, see http://docs.openstack.org/infra/manual/developers.html#automated-testing\n\n- gate-glance-python34-db http://logs.openstack.org/11/382711/8/check/gate-glance-python34-db/ca7649b/ : SUCCESS in 3m 50s\n- gate-glance-python35-db-nv http://logs.openstack.org/11/382711/8/check/gate-glance-python35-db-nv/40838d1/ : FAILURE in 45m 20s (non-voting)\n- gate-glance-docs-ubuntu-xenial http://docs-draft.openstack.org/11/382711/8/check/gate-glance-docs-ubuntu-xenial/6ffb63b//doc/build/html/ : SUCCESS in 7m 42s\n- gate-glance-pep8-ubuntu-xenial http://logs.openstack.org/11/382711/8/check/gate-glance-pep8-ubuntu-xenial/d9df45f/ : SUCCESS in 3m 08s\n- gate-glance-python27-db-ubuntu-xenial http://logs.openstack.org/11/382711/8/check/gate-glance-python27-db-ubuntu-xenial/fa1b4ab/ : FAILURE in 6m 33s\n- gate-tempest-dsvm-neutron-full-ubuntu-xenial http://logs.openstack.org/11/382711/8/check/gate-tempest-dsvm-neutron-full-ubuntu-xenial/bed2cf0/ : SUCCESS in 50m 55s\n- gate-grenade-dsvm-neutron-ubuntu-xenial http://logs.openstack.org/11/382711/8/check/gate-grenade-dsvm-neutron-ubuntu-xenial/564e4bb/ : SUCCESS in 49m 02s\n- gate-tempest-dsvm-full-devstack-plugin-ceph-ubuntu-xenial http://logs.openstack.org/11/382711/8/check/gate-tempest-dsvm-full-devstack-plugin-ceph-ubuntu-xenial/e0c7a97/ : SUCCESS in 57m 29s\n- gate-tempest-dsvm-neutron-identity-v3-only-full-ubuntu-xenial-nv http://logs.openstack.org/11/382711/8/check/gate-tempest-dsvm-neutron-identity-v3-only-full-ubuntu-xenial-nv/ced899e/ : SUCCESS in 51m 17s (non-voting)\n- gate-rally-dsvm-glance-ubuntu-xenial-nv http://logs.openstack.org/11/382711/8/check/gate-rally-dsvm-glance-ubuntu-xenial-nv/3c0c401/ : SUCCESS in 26m 02s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 8
+        },
+        {
+            "id": "0b2641874b498657d862c68e78745af880d8b754",
+            "author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "real_author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "date": "2016-12-05 22:08:52.000000000",
+            "message": "Uploaded patch set 9.",
+            "accounts_in_message": [],
+            "_revision_number": 9
+        },
+        {
+            "id": "7a819983644ba1ca78d1ca7e06a0f956a64daf1e",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2016-12-05 23:05:28.000000000",
+            "message": "Patch Set 9: Verified+1\n\nBuild succeeded (check pipeline).\n\n- gate-glance-python34-db http://logs.openstack.org/11/382711/9/check/gate-glance-python34-db/6f4e67a/ : SUCCESS in 4m 15s\n- gate-glance-python35-db-nv http://logs.openstack.org/11/382711/9/check/gate-glance-python35-db-nv/dd96356/ : FAILURE in 45m 19s (non-voting)\n- gate-glance-docs-ubuntu-xenial http://docs-draft.openstack.org/11/382711/9/check/gate-glance-docs-ubuntu-xenial/3fd49b4//doc/build/html/ : SUCCESS in 8m 31s\n- gate-glance-pep8-ubuntu-xenial http://logs.openstack.org/11/382711/9/check/gate-glance-pep8-ubuntu-xenial/c1acf30/ : SUCCESS in 3m 08s\n- gate-glance-python27-db-ubuntu-xenial http://logs.openstack.org/11/382711/9/check/gate-glance-python27-db-ubuntu-xenial/ec92283/ : SUCCESS in 7m 48s\n- gate-tempest-dsvm-neutron-full-ubuntu-xenial http://logs.openstack.org/11/382711/9/check/gate-tempest-dsvm-neutron-full-ubuntu-xenial/c70a725/ : SUCCESS in 49m 49s\n- gate-grenade-dsvm-neutron-ubuntu-xenial http://logs.openstack.org/11/382711/9/check/gate-grenade-dsvm-neutron-ubuntu-xenial/5c3a522/ : SUCCESS in 54m 05s\n- gate-tempest-dsvm-full-devstack-plugin-ceph-ubuntu-xenial http://logs.openstack.org/11/382711/9/check/gate-tempest-dsvm-full-devstack-plugin-ceph-ubuntu-xenial/8061ff9/ : SUCCESS in 55m 24s\n- gate-tempest-dsvm-neutron-identity-v3-only-full-ubuntu-xenial-nv http://logs.openstack.org/11/382711/9/check/gate-tempest-dsvm-neutron-identity-v3-only-full-ubuntu-xenial-nv/218963c/ : SUCCESS in 49m 11s (non-voting)\n- gate-rally-dsvm-glance-ubuntu-xenial-nv http://logs.openstack.org/11/382711/9/check/gate-rally-dsvm-glance-ubuntu-xenial-nv/83e59ed/ : SUCCESS in 43m 25s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 9
+        },
+        {
+            "id": "dc1eba50a4f0838b35b135dd2068cf287a9906b5",
+            "author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "real_author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "date": "2016-12-20 00:12:07.000000000",
+            "message": "Uploaded patch set 10.",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "409f9a02336c70761214796e53ce856db4e35624",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2016-12-20 01:18:36.000000000",
+            "message": "Patch Set 10: Verified+1\n\nBuild succeeded (check pipeline).\n\n- gate-glance-python35-db-nv http://logs.openstack.org/11/382711/10/check/gate-glance-python35-db-nv/e10efc5/ : FAILURE in 45m 24s (non-voting)\n- gate-glance-docs-ubuntu-xenial http://docs-draft.openstack.org/11/382711/10/check/gate-glance-docs-ubuntu-xenial/6c5c009//doc/build/html/ : SUCCESS in 5m 59s\n- gate-glance-pep8-ubuntu-xenial http://logs.openstack.org/11/382711/10/check/gate-glance-pep8-ubuntu-xenial/9fbe3b8/ : SUCCESS in 3m 55s\n- gate-glance-python27-db-ubuntu-xenial http://logs.openstack.org/11/382711/10/check/gate-glance-python27-db-ubuntu-xenial/b5b0439/ : SUCCESS in 9m 09s\n- gate-tempest-dsvm-neutron-full-ubuntu-xenial http://logs.openstack.org/11/382711/10/check/gate-tempest-dsvm-neutron-full-ubuntu-xenial/fea137c/ : SUCCESS in 53m 17s\n- gate-grenade-dsvm-neutron-ubuntu-xenial http://logs.openstack.org/11/382711/10/check/gate-grenade-dsvm-neutron-ubuntu-xenial/3177337/ : SUCCESS in 34m 41s\n- gate-glance-releasenotes http://docs-draft.openstack.org/11/382711/10/check/gate-glance-releasenotes/eebbf17//releasenotes/build/html/ : SUCCESS in 3m 40s\n- gate-tempest-dsvm-full-devstack-plugin-ceph-ubuntu-xenial http://logs.openstack.org/11/382711/10/check/gate-tempest-dsvm-full-devstack-plugin-ceph-ubuntu-xenial/a509b41/ : SUCCESS in 1h 04m 53s\n- gate-tempest-dsvm-neutron-identity-v3-only-full-ubuntu-xenial-nv http://logs.openstack.org/11/382711/10/check/gate-tempest-dsvm-neutron-identity-v3-only-full-ubuntu-xenial-nv/53256d8/ : FAILURE in 53m 03s (non-voting)\n- gate-rally-dsvm-glance-ubuntu-xenial-nv http://logs.openstack.org/11/382711/10/check/gate-rally-dsvm-glance-ubuntu-xenial-nv/f1a0864/ : SUCCESS in 49m 51s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "a1057d34fd78490cfb03b597353782049b9aa652",
+            "author": {
+                "_account_id": 12807,
+                "name": "Steve Lewis (stevelle)",
+                "email": "stevelle@gmail.com",
+                "username": "stevelle"
+            },
+            "real_author": {
+                "_account_id": 12807,
+                "name": "Steve Lewis (stevelle)",
+                "email": "stevelle@gmail.com",
+                "username": "stevelle"
+            },
+            "date": "2016-12-20 04:05:22.000000000",
+            "message": "Patch Set 10: Code-Review-1\n\n(1 comment)\n\nOne bit of cleanup left.",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "03ef710e1cba63cb668eb980c0ffe229030f4e7e",
+            "author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "real_author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "date": "2016-12-20 17:55:15.000000000",
+            "message": "Patch Set 11: Published edit on patch set 10",
+            "accounts_in_message": [],
+            "_revision_number": 11
+        },
+        {
+            "id": "c1e182b6266b482c7ade3d84d1f054113f2602c6",
+            "author": {
+                "_account_id": 12807,
+                "name": "Steve Lewis (stevelle)",
+                "email": "stevelle@gmail.com",
+                "username": "stevelle"
+            },
+            "real_author": {
+                "_account_id": 12807,
+                "name": "Steve Lewis (stevelle)",
+                "email": "stevelle@gmail.com",
+                "username": "stevelle"
+            },
+            "date": "2016-12-20 18:19:45.000000000",
+            "message": "Patch Set 11: Code-Review+1\n\nThis fix looks good to me. If others are satisfied with the additional test being sufficient this seems like it should be ready.\n\nOnly +1 because I am listed as a co-author, having contributed on the changes to tests to skip starting the scrubber in functional tests that have no dependency on it.",
+            "accounts_in_message": [],
+            "_revision_number": 11
+        },
+        {
+            "id": "57b97ea4f47d34c29ffb747991eb4fa4587b8e8e",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2016-12-20 19:28:59.000000000",
+            "message": "Patch Set 11: Verified+1\n\nBuild succeeded (check pipeline).\n\n- gate-glance-python35-db-nv http://logs.openstack.org/11/382711/11/check/gate-glance-python35-db-nv/39448a8/ : FAILURE in 46m 10s (non-voting)\n- gate-glance-docs-ubuntu-xenial http://docs-draft.openstack.org/11/382711/11/check/gate-glance-docs-ubuntu-xenial/7e8d043//doc/build/html/ : SUCCESS in 8m 33s\n- gate-glance-pep8-ubuntu-xenial http://logs.openstack.org/11/382711/11/check/gate-glance-pep8-ubuntu-xenial/29a576e/ : SUCCESS in 5m 10s\n- gate-glance-python27-db-ubuntu-xenial http://logs.openstack.org/11/382711/11/check/gate-glance-python27-db-ubuntu-xenial/06bcc28/ : SUCCESS in 9m 00s\n- gate-tempest-dsvm-neutron-full-ubuntu-xenial http://logs.openstack.org/11/382711/11/check/gate-tempest-dsvm-neutron-full-ubuntu-xenial/7ad2e9b/ : SUCCESS in 1h 25m 19s\n- gate-grenade-dsvm-neutron-ubuntu-xenial http://logs.openstack.org/11/382711/11/check/gate-grenade-dsvm-neutron-ubuntu-xenial/0f4932b/ : SUCCESS in 34m 03s\n- gate-glance-releasenotes http://docs-draft.openstack.org/11/382711/11/check/gate-glance-releasenotes/c9477ba//releasenotes/build/html/ : SUCCESS in 3m 27s\n- gate-tempest-dsvm-full-devstack-plugin-ceph-ubuntu-xenial http://logs.openstack.org/11/382711/11/check/gate-tempest-dsvm-full-devstack-plugin-ceph-ubuntu-xenial/5032bd8/ : SUCCESS in 1h 30m 57s\n- gate-tempest-dsvm-neutron-identity-v3-only-full-ubuntu-xenial-nv http://logs.openstack.org/11/382711/11/check/gate-tempest-dsvm-neutron-identity-v3-only-full-ubuntu-xenial-nv/665f64d/ : FAILURE in 38m 23s (non-voting)\n- gate-rally-dsvm-glance-ubuntu-xenial-nv http://logs.openstack.org/11/382711/11/check/gate-rally-dsvm-glance-ubuntu-xenial-nv/b9af23b/ : SUCCESS in 29m 25s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 11
+        },
+        {
+            "id": "76163ce945d88d8dea424cf357fefb4bf678901e",
+            "author": {
+                "_account_id": 22448,
+                "name": "Alexander Bashmakov",
+                "email": "abashmak@yahoo.com",
+                "username": "abashmak"
+            },
+            "real_author": {
+                "_account_id": 22448,
+                "name": "Alexander Bashmakov",
+                "email": "abashmak@yahoo.com",
+                "username": "abashmak"
+            },
+            "date": "2016-12-20 20:36:14.000000000",
+            "message": "Patch Set 11: Code-Review-1\n\n(1 comment)\n\nSorry to -1 at this stage, but please look at my comment on the release note.",
+            "accounts_in_message": [],
+            "_revision_number": 11
+        },
+        {
+            "id": "e7b7b279fde9343ceb076b0bc36c4fac72e018b2",
+            "author": {
+                "_account_id": 12807,
+                "name": "Steve Lewis (stevelle)",
+                "email": "stevelle@gmail.com",
+                "username": "stevelle"
+            },
+            "real_author": {
+                "_account_id": 12807,
+                "name": "Steve Lewis (stevelle)",
+                "email": "stevelle@gmail.com",
+                "username": "stevelle"
+            },
+            "date": "2016-12-20 20:51:59.000000000",
+            "message": "Patch Set 11: -Code-Review\n\n(1 comment)",
+            "accounts_in_message": [],
+            "_revision_number": 11
+        },
+        {
+            "id": "4cb1003ef70de7f0d05cd0c73b8d6f20f5cc72e4",
+            "author": {
+                "_account_id": 22448,
+                "name": "Alexander Bashmakov",
+                "email": "abashmak@yahoo.com",
+                "username": "abashmak"
+            },
+            "real_author": {
+                "_account_id": 22448,
+                "name": "Alexander Bashmakov",
+                "email": "abashmak@yahoo.com",
+                "username": "abashmak"
+            },
+            "date": "2016-12-20 20:57:46.000000000",
+            "message": "Patch Set 11: Code-Review+1\n\n(1 comment)",
+            "accounts_in_message": [],
+            "_revision_number": 11
+        },
+        {
+            "id": "9a4efdff90e438ad35b640aa6f21dbc05250cff5",
+            "author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "real_author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "date": "2016-12-20 21:02:46.000000000",
+            "message": "Patch Set 12: Published edit on patch set 11",
+            "accounts_in_message": [],
+            "_revision_number": 12
+        },
+        {
+            "id": "e663cadc65aee8b1fc509191cb1e8644d3083668",
+            "author": {
+                "_account_id": 12807,
+                "name": "Steve Lewis (stevelle)",
+                "email": "stevelle@gmail.com",
+                "username": "stevelle"
+            },
+            "real_author": {
+                "_account_id": 12807,
+                "name": "Steve Lewis (stevelle)",
+                "email": "stevelle@gmail.com",
+                "username": "stevelle"
+            },
+            "date": "2016-12-20 21:19:22.000000000",
+            "message": "Patch Set 12: Code-Review+1",
+            "accounts_in_message": [],
+            "_revision_number": 12
+        },
+        {
+            "id": "0f511dfaf0a5ff8dab5a1c4154e1692c085c4e71",
+            "author": {
+                "_account_id": 22448,
+                "name": "Alexander Bashmakov",
+                "email": "abashmak@yahoo.com",
+                "username": "abashmak"
+            },
+            "real_author": {
+                "_account_id": 22448,
+                "name": "Alexander Bashmakov",
+                "email": "abashmak@yahoo.com",
+                "username": "abashmak"
+            },
+            "date": "2016-12-20 21:38:54.000000000",
+            "message": "Patch Set 12: Code-Review+1",
+            "accounts_in_message": [],
+            "_revision_number": 12
+        },
+        {
+            "id": "5d659bdeb868a8f8a89d7d3884683765e8dddb20",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2016-12-20 22:19:46.000000000",
+            "message": "Patch Set 12: Verified+1\n\nBuild succeeded (check pipeline).\n\n- gate-glance-python35-db-nv http://logs.openstack.org/11/382711/12/check/gate-glance-python35-db-nv/02cfd31/ : FAILURE in 45m 17s (non-voting)\n- gate-glance-docs-ubuntu-xenial http://docs-draft.openstack.org/11/382711/12/check/gate-glance-docs-ubuntu-xenial/a23961c//doc/build/html/ : SUCCESS in 7m 56s\n- gate-glance-pep8-ubuntu-xenial http://logs.openstack.org/11/382711/12/check/gate-glance-pep8-ubuntu-xenial/06339c6/ : SUCCESS in 4m 31s\n- gate-glance-python27-db-ubuntu-xenial http://logs.openstack.org/11/382711/12/check/gate-glance-python27-db-ubuntu-xenial/0df8377/ : SUCCESS in 9m 38s\n- gate-tempest-dsvm-neutron-full-ubuntu-xenial http://logs.openstack.org/11/382711/12/check/gate-tempest-dsvm-neutron-full-ubuntu-xenial/9fa5745/ : SUCCESS in 1h 15m 51s\n- gate-grenade-dsvm-neutron-ubuntu-xenial http://logs.openstack.org/11/382711/12/check/gate-grenade-dsvm-neutron-ubuntu-xenial/6b3da10/ : SUCCESS in 51m 06s\n- gate-glance-releasenotes http://docs-draft.openstack.org/11/382711/12/check/gate-glance-releasenotes/be3e275//releasenotes/build/html/ : SUCCESS in 3m 56s\n- gate-tempest-dsvm-full-devstack-plugin-ceph-ubuntu-xenial http://logs.openstack.org/11/382711/12/check/gate-tempest-dsvm-full-devstack-plugin-ceph-ubuntu-xenial/9766c84/ : SUCCESS in 1h 09m 22s\n- gate-tempest-dsvm-neutron-identity-v3-only-full-ubuntu-xenial-nv http://logs.openstack.org/11/382711/12/check/gate-tempest-dsvm-neutron-identity-v3-only-full-ubuntu-xenial-nv/15510b4/ : FAILURE in 59m 14s (non-voting)\n- gate-rally-dsvm-glance-ubuntu-xenial-nv http://logs.openstack.org/11/382711/12/check/gate-rally-dsvm-glance-ubuntu-xenial-nv/245ca14/ : SUCCESS in 29m 49s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 12
+        },
+        {
+            "id": "2978634ee6bfbec17a16d75991355455892e018b",
+            "author": {
+                "_account_id": 12807,
+                "name": "Steve Lewis (stevelle)",
+                "email": "stevelle@gmail.com",
+                "username": "stevelle"
+            },
+            "real_author": {
+                "_account_id": 12807,
+                "name": "Steve Lewis (stevelle)",
+                "email": "stevelle@gmail.com",
+                "username": "stevelle"
+            },
+            "date": "2017-01-11 22:21:21.000000000",
+            "message": "Patch Set 12:\n\nI'm listed as co-author so won't upgrade my vote on this, but I'm in favor of the current implementation.",
+            "accounts_in_message": [],
+            "_revision_number": 12
+        },
+        {
+            "id": "ea4fa71d536ba8644d9b28bbb01e2e0001113ef8",
+            "author": {
+                "_account_id": 12000,
+                "name": "Ian Cordasco",
+                "email": "sigmavirus24@gmail.com",
+                "username": "sigmavirus24"
+            },
+            "real_author": {
+                "_account_id": 12000,
+                "name": "Ian Cordasco",
+                "email": "sigmavirus24@gmail.com",
+                "username": "sigmavirus24"
+            },
+            "date": "2017-01-12 18:05:05.000000000",
+            "message": "Patch Set 12:\n\n(2 comments)\n\nI'm tempted to -1 because I'm not particularly fond of using RuntimeError for this. It's not exactly intended for people to use in their own code. Adding something to glance/exceptions.py for this would be better. Am I missing something about the reasoning for choosing RuntimeError here?",
+            "accounts_in_message": [],
+            "_revision_number": 12
+        },
+        {
+            "id": "7548e7205f7781e106e9f135d95c74f2b1a492bc",
+            "author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "real_author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "date": "2017-01-12 18:21:31.000000000",
+            "message": "Patch Set 12:\n\n(2 comments)\n\nHi Ian,\nResponded inline. Let me know what you think.",
+            "accounts_in_message": [],
+            "_revision_number": 12
+        },
+        {
+            "id": "22ec83cf7e700205a1ffce2768a0af91912abf22",
+            "author": {
+                "_account_id": 12807,
+                "name": "Steve Lewis (stevelle)",
+                "email": "stevelle@gmail.com",
+                "username": "stevelle"
+            },
+            "real_author": {
+                "_account_id": 12807,
+                "name": "Steve Lewis (stevelle)",
+                "email": "stevelle@gmail.com",
+                "username": "stevelle"
+            },
+            "date": "2017-01-12 18:24:54.000000000",
+            "message": "Patch Set 12:\n\nA SystemExit might not behave as desired (in fact I suspect that is exactly what was causing segfaults in tests) but any conventional Exception probably ought to work here, and that could possibly address the concern about using RuntimeError.",
+            "accounts_in_message": [],
+            "_revision_number": 12
+        },
+        {
+            "id": "05358e17b0abad0f80a0e102b40d406e7a292e67",
+            "author": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "real_author": {
+                "_account_id": 9303,
+                "name": "Abhishek Kekane",
+                "email": "akekane@redhat.com",
+                "username": "abhishekkekane"
+            },
+            "date": "2017-01-13 09:39:53.000000000",
+            "message": "Patch Set 12: Code-Review+1",
+            "accounts_in_message": [],
+            "_revision_number": 12
+        },
+        {
+            "id": "ee0fa62b05f993c548c1aa9c0600c69f89e77881",
+            "author": {
+                "_account_id": 12000,
+                "name": "Ian Cordasco",
+                "email": "sigmavirus24@gmail.com",
+                "username": "sigmavirus24"
+            },
+            "real_author": {
+                "_account_id": 12000,
+                "name": "Ian Cordasco",
+                "email": "sigmavirus24@gmail.com",
+                "username": "sigmavirus24"
+            },
+            "date": "2017-01-13 14:23:08.000000000",
+            "message": "Patch Set 12: Code-Review-1\n\n(2 comments)",
+            "accounts_in_message": [],
+            "_revision_number": 12
+        },
+        {
+            "id": "61a1f66662b3846a6ca7dfd392aba94c16224475",
+            "author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "real_author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "date": "2017-01-13 20:09:39.000000000",
+            "message": "Uploaded patch set 13.",
+            "accounts_in_message": [],
+            "_revision_number": 13
+        },
+        {
+            "id": "d16cb65e451914401972f7b34e2f27403030c7e2",
+            "author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "real_author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "date": "2017-01-13 20:09:42.000000000",
+            "message": "Patch Set 12:\n\n(2 comments)\n\nThanks for the review and suggestion Ian.\nI added a more suitable exception for this purpose and updated the change.",
+            "accounts_in_message": [],
+            "_revision_number": 12
+        },
+        {
+            "id": "4985da2bb799e2dafe2629afc18b8280080ddbbe",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2017-01-13 21:59:52.000000000",
+            "message": "Patch Set 13: Verified+1\n\nBuild succeeded (check pipeline).\n\n- gate-glance-python35-db-nv http://logs.openstack.org/11/382711/13/check/gate-glance-python35-db-nv/d27e7f8/ : FAILURE in 3m 03s (non-voting)\n- gate-glance-docs-ubuntu-xenial http://docs-draft.openstack.org/11/382711/13/check/gate-glance-docs-ubuntu-xenial/cccdca0//doc/build/html/ : SUCCESS in 6m 07s\n- gate-glance-pep8-ubuntu-xenial http://logs.openstack.org/11/382711/13/check/gate-glance-pep8-ubuntu-xenial/a88bcca/ : SUCCESS in 4m 21s\n- gate-glance-python27-db-ubuntu-xenial http://logs.openstack.org/11/382711/13/check/gate-glance-python27-db-ubuntu-xenial/b3a11f4/ : SUCCESS in 12m 21s\n- gate-tempest-dsvm-neutron-full-ubuntu-xenial http://logs.openstack.org/11/382711/13/check/gate-tempest-dsvm-neutron-full-ubuntu-xenial/3deec81/ : SUCCESS in 1h 31m 15s\n- gate-grenade-dsvm-neutron-ubuntu-xenial http://logs.openstack.org/11/382711/13/check/gate-grenade-dsvm-neutron-ubuntu-xenial/91212ad/ : SUCCESS in 31m 47s\n- gate-glance-releasenotes http://docs-draft.openstack.org/11/382711/13/check/gate-glance-releasenotes/76c192a//releasenotes/build/html/ : SUCCESS in 3m 12s\n- gate-tempest-dsvm-full-devstack-plugin-ceph-ubuntu-xenial http://logs.openstack.org/11/382711/13/check/gate-tempest-dsvm-full-devstack-plugin-ceph-ubuntu-xenial/6a9cf1a/ : FAILURE in 1h 47m 59s (non-voting)\n- gate-tempest-dsvm-neutron-identity-v3-only-full-ubuntu-xenial-nv http://logs.openstack.org/11/382711/13/check/gate-tempest-dsvm-neutron-identity-v3-only-full-ubuntu-xenial-nv/e675daf/ : SUCCESS in 1h 14m 54s (non-voting)\n- gate-rally-dsvm-glance-ubuntu-xenial-nv http://logs.openstack.org/11/382711/13/check/gate-rally-dsvm-glance-ubuntu-xenial-nv/42ce14d/ : SUCCESS in 37m 44s (non-voting)\n- gate-rally-dsvm-py35-glance-nv http://logs.openstack.org/11/382711/13/check/gate-rally-dsvm-py35-glance-nv/24b7750/ : SUCCESS in 45m 03s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 13
+        },
+        {
+            "id": "524be41f4e00220a235779adba732f019ad920b8",
+            "author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "real_author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "date": "2017-01-16 14:24:09.000000000",
+            "message": "Patch Set 13: Code-Review-1\n\n(1 comment)\n\nI think this looks good (and is an excellent example of teamwork, I think the patch evolved into a very nice fix).  It would be nice to make the release notes more specific, though.  Suggestion inline.",
+            "accounts_in_message": [],
+            "_revision_number": 13
+        },
+        {
+            "id": "6aaed33db4bce5230c3bb5bb492457ade4ad8a59",
+            "author": {
+                "_account_id": 12807,
+                "name": "Steve Lewis (stevelle)",
+                "email": "stevelle@gmail.com",
+                "username": "stevelle"
+            },
+            "real_author": {
+                "_account_id": 12807,
+                "name": "Steve Lewis (stevelle)",
+                "email": "stevelle@gmail.com",
+                "username": "stevelle"
+            },
+            "date": "2017-01-17 18:23:22.000000000",
+            "message": "Patch Set 13: Code-Review-1\n\n(1 comment)",
+            "accounts_in_message": [],
+            "_revision_number": 13
+        },
+        {
+            "id": "ce0b1ac3abcc992d29309fa60de7a06fa83a21ce",
+            "author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "real_author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "date": "2017-01-17 19:51:38.000000000",
+            "message": "Patch Set 13:\n\n(1 comment)\n\nAgree with Steve about the revision.",
+            "accounts_in_message": [],
+            "_revision_number": 13
+        },
+        {
+            "id": "070702ba7d3dc2c19ab62a8ffdbb23f5971718e6",
+            "author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "real_author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "date": "2017-01-17 21:39:02.000000000",
+            "message": "Uploaded patch set 14.",
+            "accounts_in_message": [],
+            "_revision_number": 14
+        },
+        {
+            "id": "c0736b39818536a6193a4717f0b3b66a1f1c7a72",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2017-01-17 23:22:22.000000000",
+            "message": "Patch Set 14: Verified+1\n\nBuild succeeded (check pipeline).\n\n- gate-glance-python35-db-nv http://logs.openstack.org/11/382711/14/check/gate-glance-python35-db-nv/56fa9c2/ : FAILURE in 4m 16s (non-voting)\n- gate-glance-docs-ubuntu-xenial http://docs-draft.openstack.org/11/382711/14/check/gate-glance-docs-ubuntu-xenial/dc6a0a4//doc/build/html/ : SUCCESS in 8m 17s\n- gate-glance-pep8-ubuntu-xenial http://logs.openstack.org/11/382711/14/check/gate-glance-pep8-ubuntu-xenial/d0ec41a/ : SUCCESS in 3m 58s\n- gate-glance-python27-db-ubuntu-xenial http://logs.openstack.org/11/382711/14/check/gate-glance-python27-db-ubuntu-xenial/7647647/ : SUCCESS in 9m 19s\n- gate-tempest-dsvm-neutron-full-ubuntu-xenial http://logs.openstack.org/11/382711/14/check/gate-tempest-dsvm-neutron-full-ubuntu-xenial/1c1f6b7/ : SUCCESS in 58m 43s\n- gate-grenade-dsvm-neutron-ubuntu-xenial http://logs.openstack.org/11/382711/14/check/gate-grenade-dsvm-neutron-ubuntu-xenial/5a9e209/ : SUCCESS in 50m 12s\n- gate-glance-releasenotes http://docs-draft.openstack.org/11/382711/14/check/gate-glance-releasenotes/500d4a9//releasenotes/build/html/ : SUCCESS in 4m 21s\n- gate-tempest-dsvm-full-devstack-plugin-ceph-ubuntu-xenial http://logs.openstack.org/11/382711/14/check/gate-tempest-dsvm-full-devstack-plugin-ceph-ubuntu-xenial/0c2296a/ : SUCCESS in 1h 32m 08s (non-voting)\n- gate-tempest-dsvm-neutron-identity-v3-only-full-ubuntu-xenial-nv http://logs.openstack.org/11/382711/14/check/gate-tempest-dsvm-neutron-identity-v3-only-full-ubuntu-xenial-nv/41c1358/ : SUCCESS in 1h 41m 17s (non-voting)\n- gate-rally-dsvm-glance-ubuntu-xenial-nv http://logs.openstack.org/11/382711/14/check/gate-rally-dsvm-glance-ubuntu-xenial-nv/a56cec4/ : SUCCESS in 31m 06s (non-voting)\n- gate-rally-dsvm-py35-glance-nv http://logs.openstack.org/11/382711/14/check/gate-rally-dsvm-py35-glance-nv/0448647/ : SUCCESS in 26m 25s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 14
+        },
+        {
+            "id": "3142c5e14e97cdb5796d7c9295194c17b09cc931",
+            "author": {
+                "_account_id": 12807,
+                "name": "Steve Lewis (stevelle)",
+                "email": "stevelle@gmail.com",
+                "username": "stevelle"
+            },
+            "real_author": {
+                "_account_id": 12807,
+                "name": "Steve Lewis (stevelle)",
+                "email": "stevelle@gmail.com",
+                "username": "stevelle"
+            },
+            "date": "2017-01-17 23:36:22.000000000",
+            "message": "Patch Set 14: Code-Review+1",
+            "accounts_in_message": [],
+            "_revision_number": 14
+        },
+        {
+            "id": "7146f41283119d8b7d7eaac78ce489b0e5c9b5db",
+            "author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "real_author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "date": "2017-01-27 18:27:24.000000000",
+            "message": "Patch Set 14: Code-Review+2\n\nThis will be a nice bugfix for operators, I'm OK with getting it into Ocata.",
+            "accounts_in_message": [],
+            "_revision_number": 14
+        },
+        {
+            "id": "2f04d443299b6dd2c7a6baceea0f421c656603c9",
+            "author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "real_author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "date": "2017-01-30 22:40:56.000000000",
+            "message": "Patch Set 14: Code-Review-1\n\n(6 comments)\n\nsome comments and suggestions inline",
+            "accounts_in_message": [],
+            "_revision_number": 14
+        },
+        {
+            "id": "cfc3fd4a6d366afc8832081d8cdc24dd364ae982",
+            "author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "real_author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "date": "2017-01-30 22:47:42.000000000",
+            "message": "Patch Set 14:\n\n(1 comment)",
+            "accounts_in_message": [],
+            "_revision_number": 14
+        },
+        {
+            "id": "0e41dc65aa88100cfad0bb39d04c698dd49363b4",
+            "author": {
+                "_account_id": 12807,
+                "name": "Steve Lewis (stevelle)",
+                "email": "stevelle@gmail.com",
+                "username": "stevelle"
+            },
+            "real_author": {
+                "_account_id": 12807,
+                "name": "Steve Lewis (stevelle)",
+                "email": "stevelle@gmail.com",
+                "username": "stevelle"
+            },
+            "date": "2017-01-30 23:26:23.000000000",
+            "message": "Patch Set 14:\n\nI recommended defaulting the Scrubber to enabled in functional tests, and only disabled it (set it to False) in cases where a) it was clear that the scrubber was NOT needed for the functional use case and b) the scrubber was unable to find the registry service (often due to misconfiguration), causing the non-zero exit and the test suite failure.\n\nWe could switch it the other way but I was concerned that future contributors may not realize they needed to explicitly enable the scrubber in a functional scenario which did rely on the scrubber. It was exactly the concern about missing it out that I felt recommended a default True.\n\nI don't feel really strongly about that decision, and have no qualms about adding more comments as guidance.",
+            "accounts_in_message": [],
+            "_revision_number": 14
+        },
+        {
+            "id": "f071354791675bda7a4354578cb121ce58b00c00",
+            "author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "real_author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "date": "2017-01-30 23:53:05.000000000",
+            "message": "Uploaded patch set 15.",
+            "accounts_in_message": [],
+            "_revision_number": 15
+        },
+        {
+            "id": "fd159539c852de19ebe7d9354e820327aa97b5bf",
+            "author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "real_author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "date": "2017-01-30 23:53:13.000000000",
+            "message": "Patch Set 14:\n\n(5 comments)",
+            "accounts_in_message": [],
+            "_revision_number": 14
+        },
+        {
+            "id": "ce49ba4ce6f7d1a685a5e01059ac3f92a50f67c9",
+            "author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "real_author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "date": "2017-01-31 00:09:42.000000000",
+            "message": "Patch Set 15: Workflow-1\n\nmox to mock causing some tests to fail.",
+            "accounts_in_message": [],
+            "_revision_number": 15
+        },
+        {
+            "id": "7f4a6e4fcdfd5e906efc3b189460231383a26be6",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2017-01-31 01:25:38.000000000",
+            "message": "Patch Set 15: Verified-1\n\nBuild failed (check pipeline).  For information on how to proceed, see http://docs.openstack.org/infra/manual/developers.html#automated-testing\n\n- gate-glance-python35-db-nv http://logs.openstack.org/11/382711/15/check/gate-glance-python35-db-nv/f75efbc/ : FAILURE in 5m 32s (non-voting)\n- gate-glance-docs-ubuntu-xenial http://docs-draft.openstack.org/11/382711/15/check/gate-glance-docs-ubuntu-xenial/196d193//doc/build/html/ : SUCCESS in 5m 29s\n- gate-glance-pep8-ubuntu-xenial http://logs.openstack.org/11/382711/15/check/gate-glance-pep8-ubuntu-xenial/2e7e9d5/ : SUCCESS in 3m 12s\n- gate-glance-python27-db-ubuntu-xenial http://logs.openstack.org/11/382711/15/check/gate-glance-python27-db-ubuntu-xenial/0e374eb/ : FAILURE in 9m 03s\n- gate-tempest-dsvm-neutron-full-ubuntu-trusty http://logs.openstack.org/11/382711/15/check/gate-tempest-dsvm-neutron-full-ubuntu-trusty/1e340b6/ : SUCCESS in 1h 29m 54s\n- gate-tempest-dsvm-neutron-full-ubuntu-xenial http://logs.openstack.org/11/382711/15/check/gate-tempest-dsvm-neutron-full-ubuntu-xenial/f65f0d7/ : SUCCESS in 1h 03m 34s\n- gate-grenade-dsvm-neutron-ubuntu-xenial http://logs.openstack.org/11/382711/15/check/gate-grenade-dsvm-neutron-ubuntu-xenial/21db1e5/ : SUCCESS in 31m 22s\n- gate-glance-releasenotes http://docs-draft.openstack.org/11/382711/15/check/gate-glance-releasenotes/5bca72c//releasenotes/build/html/ : SUCCESS in 3m 49s\n- gate-tempest-dsvm-full-devstack-plugin-ceph-ubuntu-xenial http://logs.openstack.org/11/382711/15/check/gate-tempest-dsvm-full-devstack-plugin-ceph-ubuntu-xenial/dd3694e/ : SUCCESS in 1h 30m 58s (non-voting)\n- gate-tempest-dsvm-neutron-identity-v3-only-full-ubuntu-xenial-nv http://logs.openstack.org/11/382711/15/check/gate-tempest-dsvm-neutron-identity-v3-only-full-ubuntu-xenial-nv/57b6084/ : SUCCESS in 1h 27m 38s (non-voting)\n- gate-rally-dsvm-glance-ubuntu-xenial-nv http://logs.openstack.org/11/382711/15/check/gate-rally-dsvm-glance-ubuntu-xenial-nv/6e89f7f/ : SUCCESS in 36m 47s (non-voting)\n- gate-rally-dsvm-py35-glance-nv http://logs.openstack.org/11/382711/15/check/gate-rally-dsvm-py35-glance-nv/66d26fa/ : SUCCESS in 41m 59s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 15
+        },
+        {
+            "id": "480ad2f4db20a9bac6494c916578ba92db9f27b9",
+            "author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "real_author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "date": "2017-01-31 03:14:32.000000000",
+            "message": "Patch Set 14:\n\n> I recommended defaulting the Scrubber to enabled in functional\n > tests, and only disabled it (set it to False) in cases where a) it\n\nthanks for that recommendation. I guess we'd have a inline note indicating the same.\n\n > was clear that the scrubber was NOT needed for the functional use\n > case and b) the scrubber was unable to find the registry service\n > (often due to misconfiguration), causing the non-zero exit and the\n > test suite failure.\n\nditto\n\n > \n > We could switch it the other way but I was concerned that future\n > contributors may not realize they needed to explicitly enable the\n > scrubber in a functional scenario which did rely on the scrubber.\n > It was exactly the concern about missing it out that I felt\n > recommended a default True.\n > \n\nI am not persistent of a specific default value as long as the value doesn't affect us strongly negatively. However, I think we need to add some documentation (NOTE or docstring) to indicate the consequences of the default value on the future introduction of tests which will help the developer make informed decisions.\n\n > I don't feel really strongly about that decision, and have no\n > qualms about adding more comments as guidance.",
+            "accounts_in_message": [],
+            "_revision_number": 14
+        },
+        {
+            "id": "589e5e4e3eee9760d87a51288b94d3b895881647",
+            "author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "real_author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "date": "2017-01-31 19:36:39.000000000",
+            "message": "Uploaded patch set 16.",
+            "accounts_in_message": [],
+            "_revision_number": 16
+        },
+        {
+            "id": "cc2743975f009897a01dcdf9f670a9cdff458427",
+            "author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "real_author": {
+                "_account_id": 21722,
+                "name": "Dharini Chandrasekar",
+                "email": "dharini.chandrasekar@intel.com",
+                "username": "dharinic"
+            },
+            "date": "2017-01-31 20:06:55.000000000",
+            "message": "Uploaded patch set 17.",
+            "accounts_in_message": [],
+            "_revision_number": 17
+        },
+        {
+            "id": "f8068f0e5f7b1e722843ea185c60eb3f7e648e19",
+            "author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "real_author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "date": "2017-01-31 21:24:41.000000000",
+            "message": "Patch Set 17: Code-Review+2\n\n(2 comments)\n\na nit inline but can let it go",
+            "accounts_in_message": [],
+            "_revision_number": 17
+        },
+        {
+            "id": "a85b1ae288a7b5972e5de10385726569e878d08f",
+            "author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "real_author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "date": "2017-01-31 21:24:48.000000000",
+            "message": "Patch Set 17:\n\ngood work!",
+            "accounts_in_message": [],
+            "_revision_number": 17
+        },
+        {
+            "id": "4dc171e1b59de1267fd540e6489454c6ba314d49",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2017-01-31 21:46:38.000000000",
+            "message": "Patch Set 17: Verified+1\n\nBuild succeeded (check pipeline).\n\n- gate-glance-python35-db-nv http://logs.openstack.org/11/382711/17/check/gate-glance-python35-db-nv/0f6523c/ : FAILURE in 11m 24s (non-voting)\n- gate-glance-docs-ubuntu-xenial http://docs-draft.openstack.org/11/382711/17/check/gate-glance-docs-ubuntu-xenial/bbb176d//doc/build/html/ : SUCCESS in 8m 55s\n- gate-glance-pep8-ubuntu-xenial http://logs.openstack.org/11/382711/17/check/gate-glance-pep8-ubuntu-xenial/e515cd1/ : SUCCESS in 5m 09s\n- gate-glance-python27-db-ubuntu-xenial http://logs.openstack.org/11/382711/17/check/gate-glance-python27-db-ubuntu-xenial/0e3592d/ : SUCCESS in 14m 05s\n- gate-tempest-dsvm-neutron-full-ubuntu-xenial http://logs.openstack.org/11/382711/17/check/gate-tempest-dsvm-neutron-full-ubuntu-xenial/0aaea0a/ : SUCCESS in 1h 39m 21s\n- gate-grenade-dsvm-neutron-ubuntu-xenial http://logs.openstack.org/11/382711/17/check/gate-grenade-dsvm-neutron-ubuntu-xenial/2f5057a/ : SUCCESS in 55m 58s\n- gate-glance-releasenotes http://docs-draft.openstack.org/11/382711/17/check/gate-glance-releasenotes/f73a7c9//releasenotes/build/html/ : SUCCESS in 2m 55s\n- gate-tempest-dsvm-full-devstack-plugin-ceph-ubuntu-xenial http://logs.openstack.org/11/382711/17/check/gate-tempest-dsvm-full-devstack-plugin-ceph-ubuntu-xenial/93bb59f/ : FAILURE in 1h 01m 33s (non-voting)\n- gate-tempest-dsvm-neutron-identity-v3-only-full-ubuntu-xenial-nv http://logs.openstack.org/11/382711/17/check/gate-tempest-dsvm-neutron-identity-v3-only-full-ubuntu-xenial-nv/26826af/ : SUCCESS in 58m 24s (non-voting)\n- gate-rally-dsvm-glance-ubuntu-xenial-nv http://logs.openstack.org/11/382711/17/check/gate-rally-dsvm-glance-ubuntu-xenial-nv/90a1b20/ : SUCCESS in 32m 05s (non-voting)\n- gate-rally-dsvm-py35-glance-nv http://logs.openstack.org/11/382711/17/check/gate-rally-dsvm-py35-glance-nv/3006c2d/ : SUCCESS in 25m 06s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 17
+        },
+        {
+            "id": "68419cbd328cf3a69771850ea7913f131bed38e2",
+            "author": {
+                "_account_id": 12000,
+                "name": "Ian Cordasco",
+                "email": "sigmavirus24@gmail.com",
+                "username": "sigmavirus24"
+            },
+            "real_author": {
+                "_account_id": 12000,
+                "name": "Ian Cordasco",
+                "email": "sigmavirus24@gmail.com",
+                "username": "sigmavirus24"
+            },
+            "date": "2017-02-01 13:32:34.000000000",
+            "message": "Patch Set 17: Code-Review-2\n\nAdding a procedural -2 here. We are focusing on feature freeze exemptions until Thursday. I'll remove my -2 on Friday. This bug should be nominated for backport to stable/ocata on Friday as well.",
+            "accounts_in_message": [],
+            "_revision_number": 17
+        },
+        {
+            "id": "abb0a156e466d087c3e89d57e58c245ddf5012cd",
+            "author": {
+                "_account_id": 12000,
+                "name": "Ian Cordasco",
+                "email": "sigmavirus24@gmail.com",
+                "username": "sigmavirus24"
+            },
+            "real_author": {
+                "_account_id": 12000,
+                "name": "Ian Cordasco",
+                "email": "sigmavirus24@gmail.com",
+                "username": "sigmavirus24"
+            },
+            "date": "2017-02-03 13:55:16.000000000",
+            "message": "Patch Set 17: -Code-Review\n\nGlance RC-1 is released, this can proceed.",
+            "accounts_in_message": [],
+            "_revision_number": 17
+        },
+        {
+            "id": "ada442b8ff4e165e9ce753714898721f5e712be0",
+            "author": {
+                "_account_id": 12000,
+                "name": "Ian Cordasco",
+                "email": "sigmavirus24@gmail.com",
+                "username": "sigmavirus24"
+            },
+            "real_author": {
+                "_account_id": 12000,
+                "name": "Ian Cordasco",
+                "email": "sigmavirus24@gmail.com",
+                "username": "sigmavirus24"
+            },
+            "date": "2017-02-09 19:52:48.000000000",
+            "message": "Patch Set 17: Code-Review+2 Workflow+1",
+            "accounts_in_message": [],
+            "_revision_number": 17
+        },
+        {
+            "id": "6b8e70b5257266e60b58331101b9333d1105e1bd",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2017-02-09 19:54:45.000000000",
+            "message": "Patch Set 17: -Verified\n\nStarting gate jobs.\nhttp://status.openstack.org/zuul/",
+            "accounts_in_message": [],
+            "_revision_number": 17
+        },
+        {
+            "id": "3e61312aedc401c851f3a16281c16bbf735d1502",
+            "date": "2017-02-10 02:30:30.000000000",
+            "message": "Change has been successfully merged into the git repository by Jenkins",
+            "accounts_in_message": [],
+            "_revision_number": 17
+        },
+        {
+            "id": "172dd0a38cfb4fee5a7bd1e5a8e09650204c5edc",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2017-02-10 02:30:30.000000000",
+            "message": "Patch Set 17: Verified+2\n\nBuild succeeded (gate pipeline).\n\n- gate-glance-docs-ubuntu-xenial http://docs-draft.openstack.org/11/382711/17/gate/gate-glance-docs-ubuntu-xenial/f2d8ce6//doc/build/html/ : SUCCESS in 7m 51s\n- gate-glance-pep8-ubuntu-xenial http://logs.openstack.org/11/382711/17/gate/gate-glance-pep8-ubuntu-xenial/e9e5cd2/ : SUCCESS in 3m 08s\n- gate-glance-python27-db-ubuntu-xenial http://logs.openstack.org/11/382711/17/gate/gate-glance-python27-db-ubuntu-xenial/69aac4e/ : SUCCESS in 7m 46s\n- gate-tempest-dsvm-neutron-full-ubuntu-xenial http://logs.openstack.org/11/382711/17/gate/gate-tempest-dsvm-neutron-full-ubuntu-xenial/a4b944c/ : SUCCESS in 1h 53m 54s\n- gate-grenade-dsvm-neutron-ubuntu-xenial http://logs.openstack.org/11/382711/17/gate/gate-grenade-dsvm-neutron-ubuntu-xenial/4da975a/ : SUCCESS in 52m 54s\n- gate-glance-releasenotes http://docs-draft.openstack.org/11/382711/17/gate/gate-glance-releasenotes/7de32ac//releasenotes/build/html/ : SUCCESS in 2m 21s",
+            "accounts_in_message": [],
+            "_revision_number": 17
+        }
+    ],
+    "requirements": [],
+    "submit_records": []
+}

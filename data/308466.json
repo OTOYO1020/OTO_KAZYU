@@ -1,0 +1,797 @@
+{
+    "id": "openstack%2Fglance~master~I8862f6c94538dd818c7360ba287e14c1264ff20f",
+    "project": "openstack/glance",
+    "branch": "master",
+    "topic": "bug/1516031",
+    "hashtags": [],
+    "change_id": "I8862f6c94538dd818c7360ba287e14c1264ff20f",
+    "subject": "Remove deprecated \"sign-the-hash\" approach",
+    "status": "MERGED",
+    "created": "2016-04-20 16:41:38.000000000",
+    "updated": "2016-04-21 21:33:25.000000000",
+    "submitted": "2016-04-21 21:33:25.000000000",
+    "submitter": {
+        "_account_id": 3,
+        "name": "Jenkins",
+        "username": "jenkins"
+    },
+    "insertions": 0,
+    "deletions": 390,
+    "total_comment_count": 2,
+    "unresolved_comment_count": 0,
+    "has_review_started": true,
+    "meta_rev_id": "e5dae30381a4aaed99ca4617f9b2100165d2ebad",
+    "_number": 308466,
+    "owner": {
+        "_account_id": 15524,
+        "name": "dane-fichter",
+        "email": "dane.fichter@jhuapl.edu",
+        "username": "dane-fichter"
+    },
+    "labels": {
+        "Verified": {
+            "approved": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 8623,
+                    "name": "Kaitlin Farr",
+                    "email": "kaitlin.farr@jhuapl.edu",
+                    "username": "kaitlin.farr"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 6783,
+                    "name": "Nathan Reller",
+                    "email": "nathan.s.reller@gmail.com",
+                    "username": "rellerreller"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 6159,
+                    "name": "Flavio Percoco",
+                    "display_name": "flaper87",
+                    "email": "fpercoco@redhat.com",
+                    "username": "flaper87"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 2537,
+                    "name": "Nikhil Komawar",
+                    "email": "nik.komawar@gmail.com",
+                    "username": "nikhil-komawar"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 7012,
+                    "name": "Brianna Poulos",
+                    "email": "Brianna.Poulos@jhuapl.edu",
+                    "username": "brianna-poulos"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 15524,
+                    "name": "dane-fichter",
+                    "email": "dane.fichter@jhuapl.edu",
+                    "username": "dane-fichter"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 6802,
+                    "name": "Joel Coffman",
+                    "email": "jmc7tp@gmail.com",
+                    "username": "joel-coffman"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 5202,
+                    "name": "Erno Kuvaja",
+                    "email": "jokke@usr.fi",
+                    "username": "jokke"
+                },
+                {
+                    "value": 2,
+                    "date": "2016-04-21 21:33:25.000000000",
+                    "post_submit": true,
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-2": "Fails",
+                "-1": "Doesn't seem to work",
+                " 0": "No score",
+                "+1": "Works for me",
+                "+2": "Verified"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        },
+        "Code-Review": {
+            "approved": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "recommended": {
+                "_account_id": 6783,
+                "name": "Nathan Reller",
+                "email": "nathan.s.reller@gmail.com",
+                "username": "rellerreller"
+            },
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 8623,
+                    "name": "Kaitlin Farr",
+                    "email": "kaitlin.farr@jhuapl.edu",
+                    "username": "kaitlin.farr"
+                },
+                {
+                    "value": 1,
+                    "date": "2016-04-21 13:16:28.000000000",
+                    "permitted_voting_range": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "_account_id": 6783,
+                    "name": "Nathan Reller",
+                    "email": "nathan.s.reller@gmail.com",
+                    "username": "rellerreller"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 6159,
+                    "name": "Flavio Percoco",
+                    "display_name": "flaper87",
+                    "email": "fpercoco@redhat.com",
+                    "username": "flaper87"
+                },
+                {
+                    "value": 2,
+                    "date": "2016-04-21 20:16:29.000000000",
+                    "_account_id": 2537,
+                    "name": "Nikhil Komawar",
+                    "email": "nik.komawar@gmail.com",
+                    "username": "nikhil-komawar"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 7012,
+                    "name": "Brianna Poulos",
+                    "email": "Brianna.Poulos@jhuapl.edu",
+                    "username": "brianna-poulos"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 15524,
+                    "name": "dane-fichter",
+                    "email": "dane.fichter@jhuapl.edu",
+                    "username": "dane-fichter"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 6802,
+                    "name": "Joel Coffman",
+                    "email": "jmc7tp@gmail.com",
+                    "username": "joel-coffman"
+                },
+                {
+                    "value": 2,
+                    "date": "2016-04-21 13:14:16.000000000",
+                    "permitted_voting_range": {
+                        "min": 2,
+                        "max": 2
+                    },
+                    "_account_id": 5202,
+                    "name": "Erno Kuvaja",
+                    "email": "jokke@usr.fi",
+                    "username": "jokke"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-2": "Do not merge",
+                "-1": "This patch needs further work before it can be merged",
+                " 0": "No score",
+                "+1": "Looks good to me, but someone else must approve",
+                "+2": "Looks good to me (core reviewer)"
+            },
+            "description": "",
+            "value": 1,
+            "default_value": 0,
+            "optional": true
+        },
+        "Workflow": {
+            "approved": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 8623,
+                    "name": "Kaitlin Farr",
+                    "email": "kaitlin.farr@jhuapl.edu",
+                    "username": "kaitlin.farr"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 6783,
+                    "name": "Nathan Reller",
+                    "email": "nathan.s.reller@gmail.com",
+                    "username": "rellerreller"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 6159,
+                    "name": "Flavio Percoco",
+                    "display_name": "flaper87",
+                    "email": "fpercoco@redhat.com",
+                    "username": "flaper87"
+                },
+                {
+                    "value": 1,
+                    "date": "2016-04-21 20:16:29.000000000",
+                    "_account_id": 2537,
+                    "name": "Nikhil Komawar",
+                    "email": "nik.komawar@gmail.com",
+                    "username": "nikhil-komawar"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 7012,
+                    "name": "Brianna Poulos",
+                    "email": "Brianna.Poulos@jhuapl.edu",
+                    "username": "brianna-poulos"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 15524,
+                    "name": "dane-fichter",
+                    "email": "dane.fichter@jhuapl.edu",
+                    "username": "dane-fichter"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 6802,
+                    "name": "Joel Coffman",
+                    "email": "jmc7tp@gmail.com",
+                    "username": "joel-coffman"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 5202,
+                    "name": "Erno Kuvaja",
+                    "email": "jokke@usr.fi",
+                    "username": "jokke"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-1": "Work in progress",
+                " 0": "Ready for reviews",
+                "+1": "Approved"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        },
+        "Review-Priority": {
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 8623,
+                    "name": "Kaitlin Farr",
+                    "email": "kaitlin.farr@jhuapl.edu",
+                    "username": "kaitlin.farr"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 6783,
+                    "name": "Nathan Reller",
+                    "email": "nathan.s.reller@gmail.com",
+                    "username": "rellerreller"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 6159,
+                    "name": "Flavio Percoco",
+                    "display_name": "flaper87",
+                    "email": "fpercoco@redhat.com",
+                    "username": "flaper87"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 2537,
+                    "name": "Nikhil Komawar",
+                    "email": "nik.komawar@gmail.com",
+                    "username": "nikhil-komawar"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 7012,
+                    "name": "Brianna Poulos",
+                    "email": "Brianna.Poulos@jhuapl.edu",
+                    "username": "brianna-poulos"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 15524,
+                    "name": "dane-fichter",
+                    "email": "dane.fichter@jhuapl.edu",
+                    "username": "dane-fichter"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 6802,
+                    "name": "Joel Coffman",
+                    "email": "jmc7tp@gmail.com",
+                    "username": "joel-coffman"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 5202,
+                    "name": "Erno Kuvaja",
+                    "email": "jokke@usr.fi",
+                    "username": "jokke"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-1": "Branch Freeze",
+                " 0": "No Priority",
+                "+1": "Important Change",
+                "+2": "Top Priority / Holds Gate"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        }
+    },
+    "removable_reviewers": [],
+    "reviewers": {
+        "REVIEWER": [
+            {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            {
+                "_account_id": 5202,
+                "name": "Erno Kuvaja",
+                "email": "jokke@usr.fi",
+                "username": "jokke"
+            },
+            {
+                "_account_id": 6159,
+                "name": "Flavio Percoco",
+                "display_name": "flaper87",
+                "email": "fpercoco@redhat.com",
+                "username": "flaper87"
+            },
+            {
+                "_account_id": 6783,
+                "name": "Nathan Reller",
+                "email": "nathan.s.reller@gmail.com",
+                "username": "rellerreller"
+            },
+            {
+                "_account_id": 6802,
+                "name": "Joel Coffman",
+                "email": "jmc7tp@gmail.com",
+                "username": "joel-coffman"
+            },
+            {
+                "_account_id": 7012,
+                "name": "Brianna Poulos",
+                "email": "Brianna.Poulos@jhuapl.edu",
+                "username": "brianna-poulos"
+            },
+            {
+                "_account_id": 8623,
+                "name": "Kaitlin Farr",
+                "email": "kaitlin.farr@jhuapl.edu",
+                "username": "kaitlin.farr"
+            },
+            {
+                "_account_id": 15524,
+                "name": "dane-fichter",
+                "email": "dane.fichter@jhuapl.edu",
+                "username": "dane-fichter"
+            }
+        ]
+    },
+    "pending_reviewers": {},
+    "reviewer_updates": [
+        {
+            "updated": "2016-04-20 16:46:47.000000000",
+            "updated_by": {
+                "_account_id": 6802,
+                "name": "Joel Coffman",
+                "email": "jmc7tp@gmail.com",
+                "username": "joel-coffman"
+            },
+            "reviewer": {
+                "_account_id": 6802,
+                "name": "Joel Coffman",
+                "email": "jmc7tp@gmail.com",
+                "username": "joel-coffman"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2016-04-20 16:46:51.000000000",
+            "updated_by": {
+                "_account_id": 8623,
+                "name": "Kaitlin Farr",
+                "email": "kaitlin.farr@jhuapl.edu",
+                "username": "kaitlin.farr"
+            },
+            "reviewer": {
+                "_account_id": 8623,
+                "name": "Kaitlin Farr",
+                "email": "kaitlin.farr@jhuapl.edu",
+                "username": "kaitlin.farr"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2016-04-20 16:47:11.000000000",
+            "updated_by": {
+                "_account_id": 6159,
+                "name": "Flavio Percoco",
+                "display_name": "flaper87",
+                "email": "fpercoco@redhat.com",
+                "username": "flaper87"
+            },
+            "reviewer": {
+                "_account_id": 6159,
+                "name": "Flavio Percoco",
+                "display_name": "flaper87",
+                "email": "fpercoco@redhat.com",
+                "username": "flaper87"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2016-04-20 16:52:35.000000000",
+            "updated_by": {
+                "_account_id": 7012,
+                "name": "Brianna Poulos",
+                "email": "Brianna.Poulos@jhuapl.edu",
+                "username": "brianna-poulos"
+            },
+            "reviewer": {
+                "_account_id": 7012,
+                "name": "Brianna Poulos",
+                "email": "Brianna.Poulos@jhuapl.edu",
+                "username": "brianna-poulos"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2016-04-21 13:14:16.000000000",
+            "updated_by": {
+                "_account_id": 5202,
+                "name": "Erno Kuvaja",
+                "email": "jokke@usr.fi",
+                "username": "jokke"
+            },
+            "reviewer": {
+                "_account_id": 5202,
+                "name": "Erno Kuvaja",
+                "email": "jokke@usr.fi",
+                "username": "jokke"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2016-04-21 13:16:28.000000000",
+            "updated_by": {
+                "_account_id": 6783,
+                "name": "Nathan Reller",
+                "email": "nathan.s.reller@gmail.com",
+                "username": "rellerreller"
+            },
+            "reviewer": {
+                "_account_id": 6783,
+                "name": "Nathan Reller",
+                "email": "nathan.s.reller@gmail.com",
+                "username": "rellerreller"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2016-04-21 20:16:29.000000000",
+            "updated_by": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "reviewer": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2016-04-21 21:33:25.000000000",
+            "updated_by": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "reviewer": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "state": "REVIEWER"
+        }
+    ],
+    "messages": [
+        {
+            "id": "1de3b83cda40714c1e5889b53e3a49038a480586",
+            "author": {
+                "_account_id": 15524,
+                "name": "dane-fichter",
+                "email": "dane.fichter@jhuapl.edu",
+                "username": "dane-fichter"
+            },
+            "real_author": {
+                "_account_id": 15524,
+                "name": "dane-fichter",
+                "email": "dane.fichter@jhuapl.edu",
+                "username": "dane-fichter"
+            },
+            "date": "2016-04-20 16:41:38.000000000",
+            "message": "Uploaded patch set 1.",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "d5e0e9ad8ca66c7d5df2f29c93f3c5836d986db9",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2016-04-20 19:33:24.000000000",
+            "message": "Patch Set 1: Verified+1\n\nBuild succeeded (check pipeline).\n\n- gate-glance-python34-db http://logs.openstack.org/66/308466/1/check/gate-glance-python34-db/9850f20/ : SUCCESS in 6m 52s\n- gate-glance-docs http://docs-draft.openstack.org/66/308466/1/check/gate-glance-docs/4024363//doc/build/html/ : SUCCESS in 7m 22s\n- gate-glance-pep8 http://logs.openstack.org/66/308466/1/check/gate-glance-pep8/17f6c35/ : SUCCESS in 3m 22s\n- gate-glance-python27-db http://logs.openstack.org/66/308466/1/check/gate-glance-python27-db/10ffe89/ : SUCCESS in 9m 49s\n- gate-tempest-dsvm-full http://logs.openstack.org/66/308466/1/check/gate-tempest-dsvm-full/cea9bb3/ : SUCCESS in 44m 58s\n- gate-tempest-dsvm-postgres-full http://logs.openstack.org/66/308466/1/check/gate-tempest-dsvm-postgres-full/467bbc3/ : SUCCESS in 38m 42s\n- gate-tempest-dsvm-neutron-full http://logs.openstack.org/66/308466/1/check/gate-tempest-dsvm-neutron-full/c7edd98/ : SUCCESS in 51m 51s\n- gate-grenade-dsvm http://logs.openstack.org/66/308466/1/check/gate-grenade-dsvm/f6bf349/ : SUCCESS in 39m 12s\n- gate-tempest-dsvm-full-devstack-plugin-ceph http://logs.openstack.org/66/308466/1/check/gate-tempest-dsvm-full-devstack-plugin-ceph/f67f475/ : SUCCESS in 39m 47s\n- gate-tempest-dsvm-neutron-identity-v3-only-full-nv http://logs.openstack.org/66/308466/1/check/gate-tempest-dsvm-neutron-identity-v3-only-full-nv/0fb89a6/ : SUCCESS in 43m 34s (non-voting)\n- gate-rally-dsvm-glance http://logs.openstack.org/66/308466/1/check/gate-rally-dsvm-glance/ea33667/ : SUCCESS in 30m 57s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "1e8b7585d8c5eeff83d73b69cb0e452e571ef07b",
+            "author": {
+                "_account_id": 6783,
+                "name": "Nathan Reller",
+                "email": "nathan.s.reller@gmail.com",
+                "username": "rellerreller"
+            },
+            "real_author": {
+                "_account_id": 6783,
+                "name": "Nathan Reller",
+                "email": "nathan.s.reller@gmail.com",
+                "username": "rellerreller"
+            },
+            "date": "2016-04-21 00:15:38.000000000",
+            "message": "Patch Set 1: Code-Review+1\n\nIs it only one release before it is removed? For some reason I thought it was two.",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "b37084612060ec6474c76607c762797f67a51c75",
+            "author": {
+                "_account_id": 6802,
+                "name": "Joel Coffman",
+                "email": "jmc7tp@gmail.com",
+                "username": "joel-coffman"
+            },
+            "real_author": {
+                "_account_id": 6802,
+                "name": "Joel Coffman",
+                "email": "jmc7tp@gmail.com",
+                "username": "joel-coffman"
+            },
+            "date": "2016-04-21 12:14:46.000000000",
+            "message": "Patch Set 1: Code-Review+1\n\n(1 comment)\n\nLooks like only one release is required after deprecation: https://governance.openstack.org/reference/tags/assert_follows-standard-deprecation.html",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "6874abab8262d3ceb1b60097bf8cd7d1f99a75a0",
+            "author": {
+                "_account_id": 15524,
+                "name": "dane-fichter",
+                "email": "dane.fichter@jhuapl.edu",
+                "username": "dane-fichter"
+            },
+            "real_author": {
+                "_account_id": 15524,
+                "name": "dane-fichter",
+                "email": "dane.fichter@jhuapl.edu",
+                "username": "dane-fichter"
+            },
+            "date": "2016-04-21 12:32:10.000000000",
+            "message": "Patch Set 1:\n\n(1 comment)\n\n@Nate: Generally I think there's a longer gap between deprecation and removal, but we're removing this ASAP due to concerns from the Nova community.",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "6c50abd0e48738e47c641c72028b55a7edc438b0",
+            "author": {
+                "_account_id": 15524,
+                "name": "dane-fichter",
+                "email": "dane.fichter@jhuapl.edu",
+                "username": "dane-fichter"
+            },
+            "real_author": {
+                "_account_id": 15524,
+                "name": "dane-fichter",
+                "email": "dane.fichter@jhuapl.edu",
+                "username": "dane-fichter"
+            },
+            "date": "2016-04-21 12:33:45.000000000",
+            "message": "Uploaded patch set 2: Commit message was updated.",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "eefc43b3e9c1b1afcbdc39a82dda319ce46c9833",
+            "author": {
+                "_account_id": 5202,
+                "name": "Erno Kuvaja",
+                "email": "jokke@usr.fi",
+                "username": "jokke"
+            },
+            "real_author": {
+                "_account_id": 5202,
+                "name": "Erno Kuvaja",
+                "email": "jokke@usr.fi",
+                "username": "jokke"
+            },
+            "date": "2016-04-21 13:14:16.000000000",
+            "message": "Patch Set 2: Code-Review+2\n\nThis was agreed to be removed in Newton due to the fact that the signing of the MD5 hash was never sufficient anyways. I'm ok with this.",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "8f1145618ec9155e858b0c144930a1a52eaeb7f7",
+            "author": {
+                "_account_id": 6783,
+                "name": "Nathan Reller",
+                "email": "nathan.s.reller@gmail.com",
+                "username": "rellerreller"
+            },
+            "real_author": {
+                "_account_id": 6783,
+                "name": "Nathan Reller",
+                "email": "nathan.s.reller@gmail.com",
+                "username": "rellerreller"
+            },
+            "date": "2016-04-21 13:16:28.000000000",
+            "message": "Patch Set 2: Code-Review+1",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "c8ad40d192056552d15774467a7ea0ea4d92998e",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2016-04-21 16:02:33.000000000",
+            "message": "Patch Set 2: Verified+1\n\nBuild succeeded (check pipeline).\n\n- gate-glance-python34-db http://logs.openstack.org/66/308466/2/check/gate-glance-python34-db/e2484d2/ : SUCCESS in 4m 56s\n- gate-glance-docs http://docs-draft.openstack.org/66/308466/2/check/gate-glance-docs/7a2ffd5//doc/build/html/ : SUCCESS in 4m 19s\n- gate-glance-pep8 http://logs.openstack.org/66/308466/2/check/gate-glance-pep8/4df8c66/ : SUCCESS in 3m 04s\n- gate-glance-python27-db http://logs.openstack.org/66/308466/2/check/gate-glance-python27-db/46293da/ : SUCCESS in 7m 41s\n- gate-tempest-dsvm-full http://logs.openstack.org/66/308466/2/check/gate-tempest-dsvm-full/cc2ba34/ : SUCCESS in 40m 08s\n- gate-tempest-dsvm-postgres-full http://logs.openstack.org/66/308466/2/check/gate-tempest-dsvm-postgres-full/91a233f/ : SUCCESS in 44m 47s\n- gate-tempest-dsvm-neutron-full http://logs.openstack.org/66/308466/2/check/gate-tempest-dsvm-neutron-full/957e9c6/ : SUCCESS in 1h 10m 39s\n- gate-grenade-dsvm http://logs.openstack.org/66/308466/2/check/gate-grenade-dsvm/fe103a4/ : SUCCESS in 48m 12s\n- gate-tempest-dsvm-full-devstack-plugin-ceph http://logs.openstack.org/66/308466/2/check/gate-tempest-dsvm-full-devstack-plugin-ceph/bdd5cca/ : SUCCESS in 45m 56s\n- gate-tempest-dsvm-neutron-identity-v3-only-full-nv http://logs.openstack.org/66/308466/2/check/gate-tempest-dsvm-neutron-identity-v3-only-full-nv/e6b6192/ : SUCCESS in 53m 29s (non-voting)\n- gate-rally-dsvm-glance http://logs.openstack.org/66/308466/2/check/gate-rally-dsvm-glance/d821e45/ : SUCCESS in 38m 52s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "815a00c53ec86bd4ae81454c239108c6b169f268",
+            "author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "real_author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "date": "2016-04-21 20:16:29.000000000",
+            "message": "Patch Set 2: Code-Review+2 Workflow+1\n\nLG, thanks!",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "18ef8f09e6702642fd6438d33f3b7110e6b404ea",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2016-04-21 20:16:34.000000000",
+            "message": "Patch Set 2: -Verified\n\nStarting gate jobs.\nhttp://status.openstack.org/zuul/",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "ffa2e98ee56eb7ff6f0514d0c3c64fe6d92f7b0a",
+            "date": "2016-04-21 21:33:25.000000000",
+            "message": "Change has been successfully merged into the git repository by Jenkins",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "7768d797423a0f40ef29af0c3914fe12ff00e1ba",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2016-04-21 21:33:25.000000000",
+            "message": "Patch Set 2: Verified+2\n\nBuild succeeded (gate pipeline).\n\n- gate-glance-python34-db http://logs.openstack.org/66/308466/2/gate/gate-glance-python34-db/4f2a4d8/ : SUCCESS in 4m 47s\n- gate-glance-docs http://docs-draft.openstack.org/66/308466/2/gate/gate-glance-docs/bc65d76//doc/build/html/ : SUCCESS in 7m 47s\n- gate-glance-pep8 http://logs.openstack.org/66/308466/2/gate/gate-glance-pep8/53f5d53/ : SUCCESS in 3m 17s\n- gate-glance-python27-db http://logs.openstack.org/66/308466/2/gate/gate-glance-python27-db/4635590/ : SUCCESS in 6m 48s\n- gate-tempest-dsvm-full http://logs.openstack.org/66/308466/2/gate/gate-tempest-dsvm-full/0111f99/ : SUCCESS in 47m 01s\n- gate-tempest-dsvm-postgres-full http://logs.openstack.org/66/308466/2/gate/gate-tempest-dsvm-postgres-full/bddfce0/ : SUCCESS in 35m 47s\n- gate-tempest-dsvm-neutron-full http://logs.openstack.org/66/308466/2/gate/gate-tempest-dsvm-neutron-full/0f9a7ec/ : SUCCESS in 58m 41s\n- gate-grenade-dsvm http://logs.openstack.org/66/308466/2/gate/gate-grenade-dsvm/85918ad/ : SUCCESS in 23m 36s\n- gate-tempest-dsvm-full-devstack-plugin-ceph http://logs.openstack.org/66/308466/2/gate/gate-tempest-dsvm-full-devstack-plugin-ceph/d3dc8bc/ : SUCCESS in 35m 35s",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        }
+    ],
+    "requirements": [],
+    "submit_records": []
+}

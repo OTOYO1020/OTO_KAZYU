@@ -1,0 +1,3194 @@
+{
+    "id": "openstack%2Fglance~master~If5bb4b608d02c502e2cec953317c9156865e58de",
+    "project": "openstack/glance",
+    "branch": "master",
+    "topic": "import-refactor",
+    "hashtags": [],
+    "change_id": "If5bb4b608d02c502e2cec953317c9156865e58de",
+    "subject": "Image Import Refactor: Value discovery",
+    "status": "ABANDONED",
+    "created": "2016-01-21 18:58:51.000000000",
+    "updated": "2020-02-03 19:02:06.000000000",
+    "insertions": 218,
+    "deletions": 0,
+    "total_comment_count": 104,
+    "unresolved_comment_count": 0,
+    "has_review_started": true,
+    "meta_rev_id": "c690c229434596723831854f0788d2300b75fa47",
+    "_number": 270980,
+    "owner": {
+        "_account_id": 8122,
+        "name": "Cyril Roelandt",
+        "email": "cyril@redhat.com",
+        "username": "cyril.roelandt.enovance"
+    },
+    "labels": {
+        "Verified": {
+            "all": [
+                {
+                    "_account_id": 15054,
+                    "name": "wangxiyuan",
+                    "email": "wangxiyuan1007@gmail.com",
+                    "username": "wangxiyuan"
+                },
+                {
+                    "_account_id": 6159,
+                    "name": "Flavio Percoco",
+                    "display_name": "flaper87",
+                    "email": "fpercoco@redhat.com",
+                    "username": "flaper87"
+                },
+                {
+                    "_account_id": 2472,
+                    "name": "Doug Hellmann",
+                    "email": "dhellmann@redhat.com",
+                    "username": "doug-hellmann"
+                },
+                {
+                    "date": "2016-08-25 05:42:16.000000000",
+                    "_account_id": 2537,
+                    "name": "Nikhil Komawar",
+                    "email": "nik.komawar@gmail.com",
+                    "username": "nikhil-komawar"
+                },
+                {
+                    "_account_id": 970,
+                    "name": "Dean Troyer",
+                    "email": "dtroyer@gmail.com",
+                    "username": "dtroyer"
+                },
+                {
+                    "_account_id": 16683,
+                    "name": "Alexey Galkin",
+                    "email": "agalkin@mirantis.com",
+                    "username": "agalkin"
+                },
+                {
+                    "_account_id": 12807,
+                    "name": "Steve Lewis (stevelle)",
+                    "email": "stevelle@gmail.com",
+                    "username": "stevelle"
+                },
+                {
+                    "_account_id": 455,
+                    "name": "Stuart McLaren",
+                    "email": "stuart.mclaren@hpe.com",
+                    "username": "stuart-mclaren"
+                },
+                {
+                    "_account_id": 5314,
+                    "name": "Brian Rosmaita",
+                    "email": "rosmaita.fossdev@gmail.com",
+                    "username": "brian-rosmaita"
+                },
+                {
+                    "_account_id": 17123,
+                    "name": "Tom Cocozzello (tjcocozz)",
+                    "email": "tjcocozz@us.ibm.com",
+                    "username": "tcocozzello"
+                },
+                {
+                    "_account_id": 17116,
+                    "name": "Niall Bunting",
+                    "email": "niall.bunting@hpe.com",
+                    "username": "NiallBunting"
+                },
+                {
+                    "_account_id": 11356,
+                    "name": "Louis Taylor",
+                    "email": "louis@kragniz.eu",
+                    "username": "kragniz"
+                },
+                {
+                    "_account_id": 8158,
+                    "name": "Hemanth Makkapati",
+                    "email": "makstacker+osgerrit@gmail.com",
+                    "username": "hemanth.makkapati"
+                },
+                {
+                    "_account_id": 11391,
+                    "name": "Mikhail Fedosin",
+                    "email": "mfedosin@redhat.com",
+                    "username": "fedosinme"
+                },
+                {
+                    "_account_id": 8122,
+                    "name": "Cyril Roelandt",
+                    "email": "cyril@redhat.com",
+                    "username": "cyril.roelandt.enovance"
+                },
+                {
+                    "_account_id": 6484,
+                    "name": "Feilong Wang",
+                    "email": "hustemb@gmail.com",
+                    "username": "flwang"
+                },
+                {
+                    "_account_id": 9237,
+                    "name": "Kevin Fox",
+                    "email": "kevin@efox.cc",
+                    "username": "kfox1111"
+                },
+                {
+                    "_account_id": 22448,
+                    "name": "Alexander Bashmakov",
+                    "email": "abashmak@yahoo.com",
+                    "username": "abashmak"
+                },
+                {
+                    "_account_id": 5202,
+                    "name": "Erno Kuvaja",
+                    "email": "jokke@usr.fi",
+                    "username": "jokke"
+                },
+                {
+                    "_account_id": 10035,
+                    "name": "greghaynes",
+                    "email": "greg@greghaynes.net",
+                    "username": "greghaynes"
+                }
+            ],
+            "values": {
+                "-2": "Fails",
+                "-1": "Doesn't seem to work",
+                " 0": "No score",
+                "+1": "Works for me",
+                "+2": "Verified"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        },
+        "Code-Review": {
+            "disliked": {
+                "_account_id": 22448,
+                "name": "Alexander Bashmakov",
+                "email": "abashmak@yahoo.com",
+                "username": "abashmak"
+            },
+            "all": [
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 15054,
+                    "name": "wangxiyuan",
+                    "email": "wangxiyuan1007@gmail.com",
+                    "username": "wangxiyuan"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 6159,
+                    "name": "Flavio Percoco",
+                    "display_name": "flaper87",
+                    "email": "fpercoco@redhat.com",
+                    "username": "flaper87"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 2472,
+                    "name": "Doug Hellmann",
+                    "email": "dhellmann@redhat.com",
+                    "username": "doug-hellmann"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 2537,
+                    "name": "Nikhil Komawar",
+                    "email": "nik.komawar@gmail.com",
+                    "username": "nikhil-komawar"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 970,
+                    "name": "Dean Troyer",
+                    "email": "dtroyer@gmail.com",
+                    "username": "dtroyer"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 16683,
+                    "name": "Alexey Galkin",
+                    "email": "agalkin@mirantis.com",
+                    "username": "agalkin"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 12807,
+                    "name": "Steve Lewis (stevelle)",
+                    "email": "stevelle@gmail.com",
+                    "username": "stevelle"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 455,
+                    "name": "Stuart McLaren",
+                    "email": "stuart.mclaren@hpe.com",
+                    "username": "stuart-mclaren"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -2,
+                        "max": 2
+                    },
+                    "_account_id": 5314,
+                    "name": "Brian Rosmaita",
+                    "email": "rosmaita.fossdev@gmail.com",
+                    "username": "brian-rosmaita"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 17123,
+                    "name": "Tom Cocozzello (tjcocozz)",
+                    "email": "tjcocozz@us.ibm.com",
+                    "username": "tcocozzello"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 17116,
+                    "name": "Niall Bunting",
+                    "email": "niall.bunting@hpe.com",
+                    "username": "NiallBunting"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 11356,
+                    "name": "Louis Taylor",
+                    "email": "louis@kragniz.eu",
+                    "username": "kragniz"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 8158,
+                    "name": "Hemanth Makkapati",
+                    "email": "makstacker+osgerrit@gmail.com",
+                    "username": "hemanth.makkapati"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 11391,
+                    "name": "Mikhail Fedosin",
+                    "email": "mfedosin@redhat.com",
+                    "username": "fedosinme"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -2,
+                        "max": 2
+                    },
+                    "_account_id": 8122,
+                    "name": "Cyril Roelandt",
+                    "email": "cyril@redhat.com",
+                    "username": "cyril.roelandt.enovance"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 6484,
+                    "name": "Feilong Wang",
+                    "email": "hustemb@gmail.com",
+                    "username": "flwang"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 9237,
+                    "name": "Kevin Fox",
+                    "email": "kevin@efox.cc",
+                    "username": "kfox1111"
+                },
+                {
+                    "value": -1,
+                    "date": "2016-08-25 17:54:11.000000000",
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 22448,
+                    "name": "Alexander Bashmakov",
+                    "email": "abashmak@yahoo.com",
+                    "username": "abashmak"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -2,
+                        "max": 2
+                    },
+                    "_account_id": 5202,
+                    "name": "Erno Kuvaja",
+                    "email": "jokke@usr.fi",
+                    "username": "jokke"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 10035,
+                    "name": "greghaynes",
+                    "email": "greg@greghaynes.net",
+                    "username": "greghaynes"
+                }
+            ],
+            "values": {
+                "-2": "Do not merge",
+                "-1": "This patch needs further work before it can be merged",
+                " 0": "No score",
+                "+1": "Looks good to me, but someone else must approve",
+                "+2": "Looks good to me (core reviewer)"
+            },
+            "description": "",
+            "value": -1,
+            "default_value": 0,
+            "optional": true
+        },
+        "Workflow": {
+            "all": [
+                {
+                    "_account_id": 15054,
+                    "name": "wangxiyuan",
+                    "email": "wangxiyuan1007@gmail.com",
+                    "username": "wangxiyuan"
+                },
+                {
+                    "_account_id": 6159,
+                    "name": "Flavio Percoco",
+                    "display_name": "flaper87",
+                    "email": "fpercoco@redhat.com",
+                    "username": "flaper87"
+                },
+                {
+                    "_account_id": 2472,
+                    "name": "Doug Hellmann",
+                    "email": "dhellmann@redhat.com",
+                    "username": "doug-hellmann"
+                },
+                {
+                    "_account_id": 2537,
+                    "name": "Nikhil Komawar",
+                    "email": "nik.komawar@gmail.com",
+                    "username": "nikhil-komawar"
+                },
+                {
+                    "_account_id": 970,
+                    "name": "Dean Troyer",
+                    "email": "dtroyer@gmail.com",
+                    "username": "dtroyer"
+                },
+                {
+                    "_account_id": 16683,
+                    "name": "Alexey Galkin",
+                    "email": "agalkin@mirantis.com",
+                    "username": "agalkin"
+                },
+                {
+                    "date": "2017-02-24 16:21:20.000000000",
+                    "_account_id": 12807,
+                    "name": "Steve Lewis (stevelle)",
+                    "email": "stevelle@gmail.com",
+                    "username": "stevelle"
+                },
+                {
+                    "_account_id": 455,
+                    "name": "Stuart McLaren",
+                    "email": "stuart.mclaren@hpe.com",
+                    "username": "stuart-mclaren"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 5314,
+                    "name": "Brian Rosmaita",
+                    "email": "rosmaita.fossdev@gmail.com",
+                    "username": "brian-rosmaita"
+                },
+                {
+                    "_account_id": 17123,
+                    "name": "Tom Cocozzello (tjcocozz)",
+                    "email": "tjcocozz@us.ibm.com",
+                    "username": "tcocozzello"
+                },
+                {
+                    "_account_id": 17116,
+                    "name": "Niall Bunting",
+                    "email": "niall.bunting@hpe.com",
+                    "username": "NiallBunting"
+                },
+                {
+                    "_account_id": 11356,
+                    "name": "Louis Taylor",
+                    "email": "louis@kragniz.eu",
+                    "username": "kragniz"
+                },
+                {
+                    "_account_id": 8158,
+                    "name": "Hemanth Makkapati",
+                    "email": "makstacker+osgerrit@gmail.com",
+                    "username": "hemanth.makkapati"
+                },
+                {
+                    "_account_id": 11391,
+                    "name": "Mikhail Fedosin",
+                    "email": "mfedosin@redhat.com",
+                    "username": "fedosinme"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 8122,
+                    "name": "Cyril Roelandt",
+                    "email": "cyril@redhat.com",
+                    "username": "cyril.roelandt.enovance"
+                },
+                {
+                    "_account_id": 6484,
+                    "name": "Feilong Wang",
+                    "email": "hustemb@gmail.com",
+                    "username": "flwang"
+                },
+                {
+                    "_account_id": 9237,
+                    "name": "Kevin Fox",
+                    "email": "kevin@efox.cc",
+                    "username": "kfox1111"
+                },
+                {
+                    "_account_id": 22448,
+                    "name": "Alexander Bashmakov",
+                    "email": "abashmak@yahoo.com",
+                    "username": "abashmak"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 1
+                    },
+                    "_account_id": 5202,
+                    "name": "Erno Kuvaja",
+                    "email": "jokke@usr.fi",
+                    "username": "jokke"
+                },
+                {
+                    "_account_id": 10035,
+                    "name": "greghaynes",
+                    "email": "greg@greghaynes.net",
+                    "username": "greghaynes"
+                }
+            ],
+            "values": {
+                "-1": "Work in progress",
+                " 0": "Ready for reviews",
+                "+1": "Approved"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        },
+        "Review-Priority": {
+            "all": [
+                {
+                    "_account_id": 15054,
+                    "name": "wangxiyuan",
+                    "email": "wangxiyuan1007@gmail.com",
+                    "username": "wangxiyuan"
+                },
+                {
+                    "_account_id": 6159,
+                    "name": "Flavio Percoco",
+                    "display_name": "flaper87",
+                    "email": "fpercoco@redhat.com",
+                    "username": "flaper87"
+                },
+                {
+                    "_account_id": 2472,
+                    "name": "Doug Hellmann",
+                    "email": "dhellmann@redhat.com",
+                    "username": "doug-hellmann"
+                },
+                {
+                    "_account_id": 2537,
+                    "name": "Nikhil Komawar",
+                    "email": "nik.komawar@gmail.com",
+                    "username": "nikhil-komawar"
+                },
+                {
+                    "_account_id": 970,
+                    "name": "Dean Troyer",
+                    "email": "dtroyer@gmail.com",
+                    "username": "dtroyer"
+                },
+                {
+                    "_account_id": 16683,
+                    "name": "Alexey Galkin",
+                    "email": "agalkin@mirantis.com",
+                    "username": "agalkin"
+                },
+                {
+                    "_account_id": 12807,
+                    "name": "Steve Lewis (stevelle)",
+                    "email": "stevelle@gmail.com",
+                    "username": "stevelle"
+                },
+                {
+                    "_account_id": 455,
+                    "name": "Stuart McLaren",
+                    "email": "stuart.mclaren@hpe.com",
+                    "username": "stuart-mclaren"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 2
+                    },
+                    "_account_id": 5314,
+                    "name": "Brian Rosmaita",
+                    "email": "rosmaita.fossdev@gmail.com",
+                    "username": "brian-rosmaita"
+                },
+                {
+                    "_account_id": 17123,
+                    "name": "Tom Cocozzello (tjcocozz)",
+                    "email": "tjcocozz@us.ibm.com",
+                    "username": "tcocozzello"
+                },
+                {
+                    "_account_id": 17116,
+                    "name": "Niall Bunting",
+                    "email": "niall.bunting@hpe.com",
+                    "username": "NiallBunting"
+                },
+                {
+                    "_account_id": 11356,
+                    "name": "Louis Taylor",
+                    "email": "louis@kragniz.eu",
+                    "username": "kragniz"
+                },
+                {
+                    "_account_id": 8158,
+                    "name": "Hemanth Makkapati",
+                    "email": "makstacker+osgerrit@gmail.com",
+                    "username": "hemanth.makkapati"
+                },
+                {
+                    "_account_id": 11391,
+                    "name": "Mikhail Fedosin",
+                    "email": "mfedosin@redhat.com",
+                    "username": "fedosinme"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 2
+                    },
+                    "_account_id": 8122,
+                    "name": "Cyril Roelandt",
+                    "email": "cyril@redhat.com",
+                    "username": "cyril.roelandt.enovance"
+                },
+                {
+                    "_account_id": 6484,
+                    "name": "Feilong Wang",
+                    "email": "hustemb@gmail.com",
+                    "username": "flwang"
+                },
+                {
+                    "_account_id": 9237,
+                    "name": "Kevin Fox",
+                    "email": "kevin@efox.cc",
+                    "username": "kfox1111"
+                },
+                {
+                    "_account_id": 22448,
+                    "name": "Alexander Bashmakov",
+                    "email": "abashmak@yahoo.com",
+                    "username": "abashmak"
+                },
+                {
+                    "value": 0,
+                    "permitted_voting_range": {
+                        "min": -1,
+                        "max": 2
+                    },
+                    "_account_id": 5202,
+                    "name": "Erno Kuvaja",
+                    "email": "jokke@usr.fi",
+                    "username": "jokke"
+                },
+                {
+                    "_account_id": 10035,
+                    "name": "greghaynes",
+                    "email": "greg@greghaynes.net",
+                    "username": "greghaynes"
+                }
+            ],
+            "values": {
+                "-1": "Branch Freeze",
+                " 0": "No Priority",
+                "+1": "Important Change",
+                "+2": "Top Priority / Holds Gate"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        }
+    },
+    "removable_reviewers": [],
+    "reviewers": {
+        "REVIEWER": [
+            {
+                "_account_id": 455,
+                "name": "Stuart McLaren",
+                "email": "stuart.mclaren@hpe.com",
+                "username": "stuart-mclaren"
+            },
+            {
+                "_account_id": 970,
+                "name": "Dean Troyer",
+                "email": "dtroyer@gmail.com",
+                "username": "dtroyer"
+            },
+            {
+                "_account_id": 2472,
+                "name": "Doug Hellmann",
+                "email": "dhellmann@redhat.com",
+                "username": "doug-hellmann"
+            },
+            {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            {
+                "_account_id": 5202,
+                "name": "Erno Kuvaja",
+                "email": "jokke@usr.fi",
+                "username": "jokke"
+            },
+            {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            {
+                "_account_id": 6159,
+                "name": "Flavio Percoco",
+                "display_name": "flaper87",
+                "email": "fpercoco@redhat.com",
+                "username": "flaper87"
+            },
+            {
+                "_account_id": 6484,
+                "name": "Feilong Wang",
+                "email": "hustemb@gmail.com",
+                "username": "flwang"
+            },
+            {
+                "_account_id": 8122,
+                "name": "Cyril Roelandt",
+                "email": "cyril@redhat.com",
+                "username": "cyril.roelandt.enovance"
+            },
+            {
+                "_account_id": 8158,
+                "name": "Hemanth Makkapati",
+                "email": "makstacker+osgerrit@gmail.com",
+                "username": "hemanth.makkapati"
+            },
+            {
+                "_account_id": 9237,
+                "name": "Kevin Fox",
+                "email": "kevin@efox.cc",
+                "username": "kfox1111"
+            },
+            {
+                "_account_id": 10035,
+                "name": "greghaynes",
+                "email": "greg@greghaynes.net",
+                "username": "greghaynes"
+            },
+            {
+                "_account_id": 11356,
+                "name": "Louis Taylor",
+                "email": "louis@kragniz.eu",
+                "username": "kragniz"
+            },
+            {
+                "_account_id": 11391,
+                "name": "Mikhail Fedosin",
+                "email": "mfedosin@redhat.com",
+                "username": "fedosinme"
+            },
+            {
+                "_account_id": 12807,
+                "name": "Steve Lewis (stevelle)",
+                "email": "stevelle@gmail.com",
+                "username": "stevelle"
+            },
+            {
+                "_account_id": 15054,
+                "name": "wangxiyuan",
+                "email": "wangxiyuan1007@gmail.com",
+                "username": "wangxiyuan"
+            },
+            {
+                "_account_id": 16683,
+                "name": "Alexey Galkin",
+                "email": "agalkin@mirantis.com",
+                "username": "agalkin"
+            },
+            {
+                "_account_id": 17116,
+                "name": "Niall Bunting",
+                "email": "niall.bunting@hpe.com",
+                "username": "NiallBunting"
+            },
+            {
+                "_account_id": 17123,
+                "name": "Tom Cocozzello (tjcocozz)",
+                "email": "tjcocozz@us.ibm.com",
+                "username": "tcocozzello"
+            },
+            {
+                "_account_id": 22448,
+                "name": "Alexander Bashmakov",
+                "email": "abashmak@yahoo.com",
+                "username": "abashmak"
+            }
+        ]
+    },
+    "pending_reviewers": {},
+    "reviewer_updates": [
+        {
+            "updated": "2016-01-21 18:59:31.000000000",
+            "updated_by": {
+                "_account_id": 16683,
+                "name": "Alexey Galkin",
+                "email": "agalkin@mirantis.com",
+                "username": "agalkin"
+            },
+            "reviewer": {
+                "_account_id": 16683,
+                "name": "Alexey Galkin",
+                "email": "agalkin@mirantis.com",
+                "username": "agalkin"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2016-01-21 18:59:32.000000000",
+            "updated_by": {
+                "_account_id": 11356,
+                "name": "Louis Taylor",
+                "email": "louis@kragniz.eu",
+                "username": "kragniz"
+            },
+            "reviewer": {
+                "_account_id": 11356,
+                "name": "Louis Taylor",
+                "email": "louis@kragniz.eu",
+                "username": "kragniz"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2016-01-21 18:59:33.000000000",
+            "updated_by": {
+                "_account_id": 6484,
+                "name": "Feilong Wang",
+                "email": "hustemb@gmail.com",
+                "username": "flwang"
+            },
+            "reviewer": {
+                "_account_id": 6484,
+                "name": "Feilong Wang",
+                "email": "hustemb@gmail.com",
+                "username": "flwang"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2016-01-21 18:59:33.000000000",
+            "updated_by": {
+                "_account_id": 11391,
+                "name": "Mikhail Fedosin",
+                "email": "mfedosin@redhat.com",
+                "username": "fedosinme"
+            },
+            "reviewer": {
+                "_account_id": 11391,
+                "name": "Mikhail Fedosin",
+                "email": "mfedosin@redhat.com",
+                "username": "fedosinme"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2016-01-22 17:03:49.000000000",
+            "updated_by": {
+                "_account_id": 6159,
+                "name": "Flavio Percoco",
+                "display_name": "flaper87",
+                "email": "fpercoco@redhat.com",
+                "username": "flaper87"
+            },
+            "reviewer": {
+                "_account_id": 6159,
+                "name": "Flavio Percoco",
+                "display_name": "flaper87",
+                "email": "fpercoco@redhat.com",
+                "username": "flaper87"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2016-03-18 15:38:32.000000000",
+            "updated_by": {
+                "_account_id": 17116,
+                "name": "Niall Bunting",
+                "email": "niall.bunting@hpe.com",
+                "username": "NiallBunting"
+            },
+            "reviewer": {
+                "_account_id": 17116,
+                "name": "Niall Bunting",
+                "email": "niall.bunting@hpe.com",
+                "username": "NiallBunting"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2016-03-25 13:59:27.000000000",
+            "updated_by": {
+                "_account_id": 17123,
+                "name": "Tom Cocozzello (tjcocozz)",
+                "email": "tjcocozz@us.ibm.com",
+                "username": "tcocozzello"
+            },
+            "reviewer": {
+                "_account_id": 17123,
+                "name": "Tom Cocozzello (tjcocozz)",
+                "email": "tjcocozz@us.ibm.com",
+                "username": "tcocozzello"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2016-04-16 15:11:47.000000000",
+            "updated_by": {
+                "_account_id": 10035,
+                "name": "greghaynes",
+                "email": "greg@greghaynes.net",
+                "username": "greghaynes"
+            },
+            "reviewer": {
+                "_account_id": 10035,
+                "name": "greghaynes",
+                "email": "greg@greghaynes.net",
+                "username": "greghaynes"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2016-04-21 17:06:46.000000000",
+            "updated_by": {
+                "_account_id": 8158,
+                "name": "Hemanth Makkapati",
+                "email": "makstacker+osgerrit@gmail.com",
+                "username": "hemanth.makkapati"
+            },
+            "reviewer": {
+                "_account_id": 8158,
+                "name": "Hemanth Makkapati",
+                "email": "makstacker+osgerrit@gmail.com",
+                "username": "hemanth.makkapati"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2016-04-23 02:43:52.000000000",
+            "updated_by": {
+                "_account_id": 15054,
+                "name": "wangxiyuan",
+                "email": "wangxiyuan1007@gmail.com",
+                "username": "wangxiyuan"
+            },
+            "reviewer": {
+                "_account_id": 15054,
+                "name": "wangxiyuan",
+                "email": "wangxiyuan1007@gmail.com",
+                "username": "wangxiyuan"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2016-05-03 14:07:39.000000000",
+            "updated_by": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "reviewer": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2016-05-05 08:06:09.000000000",
+            "updated_by": {
+                "_account_id": 5202,
+                "name": "Erno Kuvaja",
+                "email": "jokke@usr.fi",
+                "username": "jokke"
+            },
+            "reviewer": {
+                "_account_id": 5202,
+                "name": "Erno Kuvaja",
+                "email": "jokke@usr.fi",
+                "username": "jokke"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2016-05-05 09:05:22.000000000",
+            "updated_by": {
+                "_account_id": 455,
+                "name": "Stuart McLaren",
+                "email": "stuart.mclaren@hpe.com",
+                "username": "stuart-mclaren"
+            },
+            "reviewer": {
+                "_account_id": 455,
+                "name": "Stuart McLaren",
+                "email": "stuart.mclaren@hpe.com",
+                "username": "stuart-mclaren"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2016-05-11 18:53:05.000000000",
+            "updated_by": {
+                "_account_id": 2472,
+                "name": "Doug Hellmann",
+                "email": "dhellmann@redhat.com",
+                "username": "doug-hellmann"
+            },
+            "reviewer": {
+                "_account_id": 2472,
+                "name": "Doug Hellmann",
+                "email": "dhellmann@redhat.com",
+                "username": "doug-hellmann"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2016-05-13 00:08:27.000000000",
+            "updated_by": {
+                "_account_id": 9237,
+                "name": "Kevin Fox",
+                "email": "kevin@efox.cc",
+                "username": "kfox1111"
+            },
+            "reviewer": {
+                "_account_id": 9237,
+                "name": "Kevin Fox",
+                "email": "kevin@efox.cc",
+                "username": "kfox1111"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2016-05-19 17:12:31.000000000",
+            "updated_by": {
+                "_account_id": 970,
+                "name": "Dean Troyer",
+                "email": "dtroyer@gmail.com",
+                "username": "dtroyer"
+            },
+            "reviewer": {
+                "_account_id": 970,
+                "name": "Dean Troyer",
+                "email": "dtroyer@gmail.com",
+                "username": "dtroyer"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2016-08-25 05:42:16.000000000",
+            "updated_by": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "reviewer": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2016-08-25 17:54:11.000000000",
+            "updated_by": {
+                "_account_id": 22448,
+                "name": "Alexander Bashmakov",
+                "email": "abashmak@yahoo.com",
+                "username": "abashmak"
+            },
+            "reviewer": {
+                "_account_id": 22448,
+                "name": "Alexander Bashmakov",
+                "email": "abashmak@yahoo.com",
+                "username": "abashmak"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2017-02-24 16:21:20.000000000",
+            "updated_by": {
+                "_account_id": 12807,
+                "name": "Steve Lewis (stevelle)",
+                "email": "stevelle@gmail.com",
+                "username": "stevelle"
+            },
+            "reviewer": {
+                "_account_id": 12807,
+                "name": "Steve Lewis (stevelle)",
+                "email": "stevelle@gmail.com",
+                "username": "stevelle"
+            },
+            "state": "REVIEWER"
+        }
+    ],
+    "messages": [
+        {
+            "id": "78c1a746de497b13204c8dcb6cb1814df120ab5f",
+            "author": {
+                "_account_id": 8122,
+                "name": "Cyril Roelandt",
+                "email": "cyril@redhat.com",
+                "username": "cyril.roelandt.enovance"
+            },
+            "real_author": {
+                "_account_id": 8122,
+                "name": "Cyril Roelandt",
+                "email": "cyril@redhat.com",
+                "username": "cyril.roelandt.enovance"
+            },
+            "date": "2016-01-21 18:58:51.000000000",
+            "message": "Uploaded patch set 1.",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "9da93023c317d2d41b5c5e567568dc825e7aa047",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2016-01-21 21:04:30.000000000",
+            "message": "Patch Set 1: Verified+1\n\nBuild succeeded (check pipeline).\n\n- gate-glance-python34 http://logs.openstack.org/80/270980/1/check/gate-glance-python34/c0f292c/ : SUCCESS in 6m 04s\n- gate-glance-pep8 http://logs.openstack.org/80/270980/1/check/gate-glance-pep8/14e6728/ : SUCCESS in 2m 34s\n- gate-glance-docs http://docs-draft.openstack.org/80/270980/1/check/gate-glance-docs/5f53af5//doc/build/html/ : SUCCESS in 2m 31s\n- gate-glance-python27 http://logs.openstack.org/80/270980/1/check/gate-glance-python27/d3dc7f3/ : SUCCESS in 7m 41s\n- gate-tempest-dsvm-full http://logs.openstack.org/80/270980/1/check/gate-tempest-dsvm-full/7955905/ : SUCCESS in 41m 32s\n- gate-tempest-dsvm-postgres-full http://logs.openstack.org/80/270980/1/check/gate-tempest-dsvm-postgres-full/efa8e4d/ : SUCCESS in 41m 05s\n- gate-tempest-dsvm-neutron-full http://logs.openstack.org/80/270980/1/check/gate-tempest-dsvm-neutron-full/f89c89d/ : SUCCESS in 55m 52s\n- gate-grenade-dsvm http://logs.openstack.org/80/270980/1/check/gate-grenade-dsvm/76bc2e4/ : SUCCESS in 42m 22s\n- gate-tempest-dsvm-large-ops http://logs.openstack.org/80/270980/1/check/gate-tempest-dsvm-large-ops/3179a92/ : SUCCESS in 30m 47s\n- gate-tempest-dsvm-neutron-large-ops http://logs.openstack.org/80/270980/1/check/gate-tempest-dsvm-neutron-large-ops/e4b2c3c/ : SUCCESS in 32m 42s\n- gate-glance-releasenotes http://docs-draft.openstack.org/80/270980/1/check/gate-glance-releasenotes/4426fc5//releasenotes/build/html/ : SUCCESS in 2m 26s\n- gate-tempest-dsvm-full-ceph http://logs.openstack.org/80/270980/1/check/gate-tempest-dsvm-full-ceph/142c012/ : SUCCESS in 50m 28s\n- gate-tempest-dsvm-full-devstack-plugin-ceph-nv http://logs.openstack.org/80/270980/1/check/gate-tempest-dsvm-full-devstack-plugin-ceph-nv/bdff941/ : SUCCESS in 54m 51s (non-voting)\n- gate-rally-dsvm-glance http://logs.openstack.org/80/270980/1/check/gate-rally-dsvm-glance/db059d1/ : SUCCESS in 51m 45s (non-voting)\n- gate-glance-python27-constraints http://logs.openstack.org/80/270980/1/check/gate-glance-python27-constraints/a3efba5/ : SUCCESS in 10m 54s (non-voting)\n- gate-glance-python34-constraints http://logs.openstack.org/80/270980/1/check/gate-glance-python34-constraints/6641257/ : SUCCESS in 5m 14s (non-voting)\n- gate-glance-docs-constraints http://docs-draft.openstack.org/80/270980/1/check/gate-glance-docs-constraints/e1568ec//doc/build/html/ : SUCCESS in 2m 32s (non-voting)\n- gate-glance-pep8-constraints http://logs.openstack.org/80/270980/1/check/gate-glance-pep8-constraints/c5ee544/ : SUCCESS in 2m 34s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "be947cd3fca36b88122012739f2f2ce8d94ed399",
+            "author": {
+                "_account_id": 6159,
+                "name": "Flavio Percoco",
+                "display_name": "flaper87",
+                "email": "fpercoco@redhat.com",
+                "username": "flaper87"
+            },
+            "real_author": {
+                "_account_id": 6159,
+                "name": "Flavio Percoco",
+                "display_name": "flaper87",
+                "email": "fpercoco@redhat.com",
+                "username": "flaper87"
+            },
+            "date": "2016-01-22 17:03:49.000000000",
+            "message": "Patch Set 1:\n\n(1 comment)\n\nThanks, Cyril. Will review in detail soon",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "4dbbed0dc2ecbdc1c39368aa9aa4c188d1546e3c",
+            "author": {
+                "_account_id": 6159,
+                "name": "Flavio Percoco",
+                "display_name": "flaper87",
+                "email": "fpercoco@redhat.com",
+                "username": "flaper87"
+            },
+            "real_author": {
+                "_account_id": 6159,
+                "name": "Flavio Percoco",
+                "display_name": "flaper87",
+                "email": "fpercoco@redhat.com",
+                "username": "flaper87"
+            },
+            "date": "2016-01-26 02:16:38.000000000",
+            "message": "Patch Set 2: Published edit on patch set 1",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "83201efb95fd87be12d502b53c65ffddb65be00c",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2016-01-26 03:23:52.000000000",
+            "message": "Patch Set 2: Verified+1\n\nBuild succeeded (check pipeline).\n\n- gate-glance-python34 http://logs.openstack.org/80/270980/2/check/gate-glance-python34/fed8ca8/ : SUCCESS in 5m 12s\n- gate-glance-pep8 http://logs.openstack.org/80/270980/2/check/gate-glance-pep8/94cdeaf/ : SUCCESS in 2m 26s\n- gate-glance-docs http://docs-draft.openstack.org/80/270980/2/check/gate-glance-docs/0fe1ecb//doc/build/html/ : SUCCESS in 2m 38s\n- gate-glance-python27 http://logs.openstack.org/80/270980/2/check/gate-glance-python27/a26e1fd/ : SUCCESS in 7m 36s\n- gate-tempest-dsvm-full http://logs.openstack.org/80/270980/2/check/gate-tempest-dsvm-full/21433f9/ : SUCCESS in 47m 37s\n- gate-tempest-dsvm-postgres-full http://logs.openstack.org/80/270980/2/check/gate-tempest-dsvm-postgres-full/2a69890/ : SUCCESS in 42m 37s\n- gate-tempest-dsvm-neutron-full http://logs.openstack.org/80/270980/2/check/gate-tempest-dsvm-neutron-full/bd66690/ : SUCCESS in 1h 03m 46s\n- gate-grenade-dsvm http://logs.openstack.org/80/270980/2/check/gate-grenade-dsvm/4387fc6/ : SUCCESS in 54m 00s\n- gate-tempest-dsvm-large-ops http://logs.openstack.org/80/270980/2/check/gate-tempest-dsvm-large-ops/0099589/ : SUCCESS in 37m 59s\n- gate-tempest-dsvm-neutron-large-ops http://logs.openstack.org/80/270980/2/check/gate-tempest-dsvm-neutron-large-ops/8affb45/ : SUCCESS in 39m 35s\n- gate-glance-releasenotes http://docs-draft.openstack.org/80/270980/2/check/gate-glance-releasenotes/ca38764//releasenotes/build/html/ : SUCCESS in 2m 25s\n- gate-tempest-dsvm-full-ceph http://logs.openstack.org/80/270980/2/check/gate-tempest-dsvm-full-ceph/dbbe56d/ : SUCCESS in 54m 37s\n- gate-tempest-dsvm-full-devstack-plugin-ceph-nv http://logs.openstack.org/80/270980/2/check/gate-tempest-dsvm-full-devstack-plugin-ceph-nv/41efc0e/ : SUCCESS in 51m 21s (non-voting)\n- gate-rally-dsvm-glance http://logs.openstack.org/80/270980/2/check/gate-rally-dsvm-glance/5c8a3e9/ : SUCCESS in 43m 45s (non-voting)\n- gate-glance-python27-constraints http://logs.openstack.org/80/270980/2/check/gate-glance-python27-constraints/922c920/ : FAILURE in 8m 45s (non-voting)\n- gate-glance-python34-constraints http://logs.openstack.org/80/270980/2/check/gate-glance-python34-constraints/e35ccf6/ : SUCCESS in 6m 08s (non-voting)\n- gate-glance-docs-constraints http://docs-draft.openstack.org/80/270980/2/check/gate-glance-docs-constraints/6c2dee1//doc/build/html/ : SUCCESS in 2m 46s (non-voting)\n- gate-glance-pep8-constraints http://logs.openstack.org/80/270980/2/check/gate-glance-pep8-constraints/b285d23/ : SUCCESS in 2m 17s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "1455e7dfc76e0f4eebe30d7203a660101d04e795",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2016-01-26 21:10:19.000000000",
+            "message": "Patch Set 2: Verified-1\n\nMerge Failed.\n\nThis change or one of its cross-repo dependencies was unable to be automatically merged with the current state of its repository. Please rebase the change and upload a new patchset.",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "2d5614509376c7e1b879ba1921ac02f0fd293a87",
+            "author": {
+                "_account_id": 8122,
+                "name": "Cyril Roelandt",
+                "email": "cyril@redhat.com",
+                "username": "cyril.roelandt.enovance"
+            },
+            "real_author": {
+                "_account_id": 8122,
+                "name": "Cyril Roelandt",
+                "email": "cyril@redhat.com",
+                "username": "cyril.roelandt.enovance"
+            },
+            "date": "2016-01-27 11:22:04.000000000",
+            "message": "Uploaded patch set 3.",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "746c2657e93952ee2617d2ce53d274518ad2380c",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2016-01-27 12:35:29.000000000",
+            "message": "Patch Set 3: Verified+1\n\nBuild succeeded (check pipeline).\n\n- gate-glance-python34 http://logs.openstack.org/80/270980/3/check/gate-glance-python34/0238a7c/ : SUCCESS in 3m 53s\n- gate-glance-pep8 http://logs.openstack.org/80/270980/3/check/gate-glance-pep8/1049979/ : SUCCESS in 2m 27s\n- gate-glance-docs http://docs-draft.openstack.org/80/270980/3/check/gate-glance-docs/5a42c9e//doc/build/html/ : SUCCESS in 2m 23s\n- gate-glance-python27 http://logs.openstack.org/80/270980/3/check/gate-glance-python27/37d4f35/ : SUCCESS in 7m 28s\n- gate-tempest-dsvm-full http://logs.openstack.org/80/270980/3/check/gate-tempest-dsvm-full/70b747f/ : SUCCESS in 47m 10s\n- gate-tempest-dsvm-postgres-full http://logs.openstack.org/80/270980/3/check/gate-tempest-dsvm-postgres-full/db6e9e1/ : SUCCESS in 1h 09m 54s\n- gate-tempest-dsvm-neutron-full http://logs.openstack.org/80/270980/3/check/gate-tempest-dsvm-neutron-full/97d8665/ : SUCCESS in 1h 01m 39s\n- gate-grenade-dsvm http://logs.openstack.org/80/270980/3/check/gate-grenade-dsvm/98e089e/ : SUCCESS in 1h 05m 15s\n- gate-tempest-dsvm-large-ops http://logs.openstack.org/80/270980/3/check/gate-tempest-dsvm-large-ops/e8e0167/ : SUCCESS in 33m 33s\n- gate-tempest-dsvm-neutron-large-ops http://logs.openstack.org/80/270980/3/check/gate-tempest-dsvm-neutron-large-ops/efb3cc8/ : SUCCESS in 34m 58s\n- gate-tempest-dsvm-full-ceph http://logs.openstack.org/80/270980/3/check/gate-tempest-dsvm-full-ceph/516794f/ : SUCCESS in 46m 04s\n- gate-tempest-dsvm-full-devstack-plugin-ceph-nv http://logs.openstack.org/80/270980/3/check/gate-tempest-dsvm-full-devstack-plugin-ceph-nv/b65d9c1/ : SUCCESS in 51m 11s (non-voting)\n- gate-rally-dsvm-glance http://logs.openstack.org/80/270980/3/check/gate-rally-dsvm-glance/3547df8/ : SUCCESS in 43m 54s (non-voting)\n- gate-glance-python27-constraints http://logs.openstack.org/80/270980/3/check/gate-glance-python27-constraints/8cd5f5b/ : SUCCESS in 7m 27s (non-voting)\n- gate-glance-python34-constraints http://logs.openstack.org/80/270980/3/check/gate-glance-python34-constraints/1db8ddd/ : SUCCESS in 3m 38s (non-voting)\n- gate-glance-docs-constraints http://docs-draft.openstack.org/80/270980/3/check/gate-glance-docs-constraints/b926a9f//doc/build/html/ : SUCCESS in 2m 39s (non-voting)\n- gate-glance-pep8-constraints http://logs.openstack.org/80/270980/3/check/gate-glance-pep8-constraints/9c7b7e0/ : SUCCESS in 2m 15s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "e6132c60e9d66fd8ec814b450f576b2482b8a418",
+            "author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "real_author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "date": "2016-01-28 12:57:52.000000000",
+            "message": "Patch Set 3:\n\nThanks for getting started on this, Cyril.   I need to get to work finalizing the names for some of these (e.g., there was disagreement over 'glance-direct').  But I think we can patch as we go.\n\nAlso, I think this will need DocImpact and ApiImpact flags.",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "b6f41f023a16a8f09211ea07067b6d39a67fcbb6",
+            "author": {
+                "_account_id": 20066,
+                "name": "Soumiyajit",
+                "email": "soumiyajit@nectechnologies.in",
+                "username": "Soumiyajit"
+            },
+            "real_author": {
+                "_account_id": 20066,
+                "name": "Soumiyajit",
+                "email": "soumiyajit@nectechnologies.in",
+                "username": "Soumiyajit"
+            },
+            "date": "2016-03-12 11:45:48.000000000",
+            "message": "Patch Set 3: Code-Review+1",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "e88a9e710ef9f6e4cddd3200840e1cb1e097e98b",
+            "author": {
+                "_account_id": 20066,
+                "name": "Soumiyajit",
+                "email": "soumiyajit@nectechnologies.in",
+                "username": "Soumiyajit"
+            },
+            "real_author": {
+                "_account_id": 20066,
+                "name": "Soumiyajit",
+                "email": "soumiyajit@nectechnologies.in",
+                "username": "Soumiyajit"
+            },
+            "date": "2016-03-12 11:49:55.000000000",
+            "message": "Removed the following votes:\n\n* Code-Review+1 by Soumiyajit <soumiyajit@nectechnologies.in>\n",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "e603a05f67fecd978378950063364551d086b9c0",
+            "author": {
+                "_account_id": 17116,
+                "name": "Niall Bunting",
+                "email": "niall.bunting@hpe.com",
+                "username": "NiallBunting"
+            },
+            "real_author": {
+                "_account_id": 17116,
+                "name": "Niall Bunting",
+                "email": "niall.bunting@hpe.com",
+                "username": "NiallBunting"
+            },
+            "date": "2016-03-15 11:05:03.000000000",
+            "message": "Patch Set 3: Code-Review-1\n\n(4 comments)",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "3cd4ac884e2b2dd0fab02b39877fd5c930ea6498",
+            "author": {
+                "_account_id": 8122,
+                "name": "Cyril Roelandt",
+                "email": "cyril@redhat.com",
+                "username": "cyril.roelandt.enovance"
+            },
+            "real_author": {
+                "_account_id": 8122,
+                "name": "Cyril Roelandt",
+                "email": "cyril@redhat.com",
+                "username": "cyril.roelandt.enovance"
+            },
+            "date": "2016-03-15 15:23:27.000000000",
+            "message": "Patch Set 3:\n\n(4 comments)",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "f7e4eb0515b647dd1837438ca757c6f83d3f2620",
+            "author": {
+                "_account_id": 8122,
+                "name": "Cyril Roelandt",
+                "email": "cyril@redhat.com",
+                "username": "cyril.roelandt.enovance"
+            },
+            "real_author": {
+                "_account_id": 8122,
+                "name": "Cyril Roelandt",
+                "email": "cyril@redhat.com",
+                "username": "cyril.roelandt.enovance"
+            },
+            "date": "2016-03-15 15:23:48.000000000",
+            "message": "Uploaded patch set 4.",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "1b933aee1371ba2c117ec7fedafbc3e001e716b1",
+            "author": {
+                "_account_id": 8122,
+                "name": "Cyril Roelandt",
+                "email": "cyril@redhat.com",
+                "username": "cyril.roelandt.enovance"
+            },
+            "real_author": {
+                "_account_id": 8122,
+                "name": "Cyril Roelandt",
+                "email": "cyril@redhat.com",
+                "username": "cyril.roelandt.enovance"
+            },
+            "date": "2016-03-15 15:29:41.000000000",
+            "message": "Patch Set 4:\n\n(1 comment)",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "ad3d1fc81969d27090769ee5469a3a0ebc7e479a",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2016-03-15 16:30:22.000000000",
+            "message": "Patch Set 4: Verified-1\n\nBuild failed (check pipeline).  For information on how to proceed, see http://docs.openstack.org/infra/manual/developers.html#automated-testing\n\n- gate-glance-python34 http://logs.openstack.org/80/270980/4/check/gate-glance-python34/25f8f4b/ : FAILURE in 5m 28s\n- gate-glance-pep8 http://logs.openstack.org/80/270980/4/check/gate-glance-pep8/948984d/ : SUCCESS in 2m 11s\n- gate-glance-docs http://docs-draft.openstack.org/80/270980/4/check/gate-glance-docs/5d57550//doc/build/html/ : SUCCESS in 4m 17s\n- gate-glance-python27 http://logs.openstack.org/80/270980/4/check/gate-glance-python27/788eab2/ : FAILURE in 8m 01s\n- gate-tempest-dsvm-full http://logs.openstack.org/80/270980/4/check/gate-tempest-dsvm-full/0f8a9f0/ : SUCCESS in 40m 11s\n- gate-tempest-dsvm-postgres-full http://logs.openstack.org/80/270980/4/check/gate-tempest-dsvm-postgres-full/aa6c318/ : SUCCESS in 36m 27s\n- gate-tempest-dsvm-neutron-full http://logs.openstack.org/80/270980/4/check/gate-tempest-dsvm-neutron-full/d65395c/ : SUCCESS in 1h 05m 00s\n- gate-grenade-dsvm http://logs.openstack.org/80/270980/4/check/gate-grenade-dsvm/afd0c4f/ : SUCCESS in 27m 04s\n- gate-tempest-dsvm-full-ceph http://logs.openstack.org/80/270980/4/check/gate-tempest-dsvm-full-ceph/94acf60/ : SUCCESS in 28m 03s (non-voting)\n- gate-tempest-dsvm-full-devstack-plugin-ceph-nv http://logs.openstack.org/80/270980/4/check/gate-tempest-dsvm-full-devstack-plugin-ceph-nv/bc798d1/ : SUCCESS in 43m 19s (non-voting)\n- gate-rally-dsvm-glance http://logs.openstack.org/80/270980/4/check/gate-rally-dsvm-glance/e50085f/ : SUCCESS in 34m 13s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "845b23279150d85a10321c716417058c8e7e0636",
+            "author": {
+                "_account_id": 8122,
+                "name": "Cyril Roelandt",
+                "email": "cyril@redhat.com",
+                "username": "cyril.roelandt.enovance"
+            },
+            "real_author": {
+                "_account_id": 8122,
+                "name": "Cyril Roelandt",
+                "email": "cyril@redhat.com",
+                "username": "cyril.roelandt.enovance"
+            },
+            "date": "2016-03-16 14:51:58.000000000",
+            "message": "Uploaded patch set 5.",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "79537293e43f7fc6a53685bc83155ad103464f79",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2016-03-16 15:53:19.000000000",
+            "message": "Patch Set 5: Verified+1\n\nBuild succeeded (check pipeline).\n\n- gate-glance-python34 http://logs.openstack.org/80/270980/5/check/gate-glance-python34/da46e09/ : SUCCESS in 8m 25s\n- gate-glance-pep8 http://logs.openstack.org/80/270980/5/check/gate-glance-pep8/c726c03/ : SUCCESS in 4m 21s\n- gate-glance-docs http://docs-draft.openstack.org/80/270980/5/check/gate-glance-docs/5e6680c//doc/build/html/ : SUCCESS in 11m 35s\n- gate-glance-python27 http://logs.openstack.org/80/270980/5/check/gate-glance-python27/0c76793/ : SUCCESS in 8m 29s\n- gate-tempest-dsvm-full http://logs.openstack.org/80/270980/5/check/gate-tempest-dsvm-full/2c93cf8/ : SUCCESS in 51m 42s\n- gate-tempest-dsvm-postgres-full http://logs.openstack.org/80/270980/5/check/gate-tempest-dsvm-postgres-full/6381f82/ : SUCCESS in 40m 30s\n- gate-tempest-dsvm-neutron-full http://logs.openstack.org/80/270980/5/check/gate-tempest-dsvm-neutron-full/49b7258/ : SUCCESS in 59m 18s\n- gate-grenade-dsvm http://logs.openstack.org/80/270980/5/check/gate-grenade-dsvm/89c5b34/ : SUCCESS in 26m 59s\n- gate-tempest-dsvm-full-ceph http://logs.openstack.org/80/270980/5/check/gate-tempest-dsvm-full-ceph/c17d6a0/ : SUCCESS in 27m 07s (non-voting)\n- gate-tempest-dsvm-full-devstack-plugin-ceph-nv http://logs.openstack.org/80/270980/5/check/gate-tempest-dsvm-full-devstack-plugin-ceph-nv/88c82b7/ : SUCCESS in 45m 55s (non-voting)\n- gate-rally-dsvm-glance http://logs.openstack.org/80/270980/5/check/gate-rally-dsvm-glance/5cc963c/ : SUCCESS in 25m 04s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "cbc0612dbc916c29ef2991543028d5c0e571f3ee",
+            "author": {
+                "_account_id": 17116,
+                "name": "Niall Bunting",
+                "email": "niall.bunting@hpe.com",
+                "username": "NiallBunting"
+            },
+            "real_author": {
+                "_account_id": 17116,
+                "name": "Niall Bunting",
+                "email": "niall.bunting@hpe.com",
+                "username": "NiallBunting"
+            },
+            "date": "2016-03-18 15:38:32.000000000",
+            "message": "Patch Set 5: Code-Review+1",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "8d3e4cff474babb25f84d48a707d6982f7fa4219",
+            "author": {
+                "_account_id": 15054,
+                "name": "wangxiyuan",
+                "email": "wangxiyuan1007@gmail.com",
+                "username": "wangxiyuan"
+            },
+            "real_author": {
+                "_account_id": 15054,
+                "name": "wangxiyuan",
+                "email": "wangxiyuan1007@gmail.com",
+                "username": "wangxiyuan"
+            },
+            "date": "2016-03-21 11:30:12.000000000",
+            "message": "Patch Set 5:\n\n(1 comment)",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "6521b7eb39b3ee47af9d86b1261a994115f08a74",
+            "author": {
+                "_account_id": 8122,
+                "name": "Cyril Roelandt",
+                "email": "cyril@redhat.com",
+                "username": "cyril.roelandt.enovance"
+            },
+            "real_author": {
+                "_account_id": 8122,
+                "name": "Cyril Roelandt",
+                "email": "cyril@redhat.com",
+                "username": "cyril.roelandt.enovance"
+            },
+            "date": "2016-03-22 16:36:06.000000000",
+            "message": "Uploaded patch set 6.",
+            "accounts_in_message": [],
+            "_revision_number": 6
+        },
+        {
+            "id": "b34f7df82213427ebb975c1b626c7186de47eb6f",
+            "author": {
+                "_account_id": 8122,
+                "name": "Cyril Roelandt",
+                "email": "cyril@redhat.com",
+                "username": "cyril.roelandt.enovance"
+            },
+            "real_author": {
+                "_account_id": 8122,
+                "name": "Cyril Roelandt",
+                "email": "cyril@redhat.com",
+                "username": "cyril.roelandt.enovance"
+            },
+            "date": "2016-03-22 16:36:22.000000000",
+            "message": "Patch Set 5:\n\n(1 comment)",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "66ff7114592ae7ac41b15accb4bf8549c970ba9e",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2016-03-22 18:18:22.000000000",
+            "message": "Patch Set 6: Verified+1\n\nBuild succeeded (check pipeline).\n\n- gate-glance-python34-db http://logs.openstack.org/80/270980/6/check/gate-glance-python34-db/c9d00b2/ : SUCCESS in 4m 49s\n- gate-glance-docs http://docs-draft.openstack.org/80/270980/6/check/gate-glance-docs/b366baf//doc/build/html/ : SUCCESS in 4m 15s\n- gate-glance-pep8 http://logs.openstack.org/80/270980/6/check/gate-glance-pep8/7c7ae6b/ : SUCCESS in 2m 35s\n- gate-glance-python27-db http://logs.openstack.org/80/270980/6/check/gate-glance-python27-db/df184eb/ : SUCCESS in 7m 48s\n- gate-tempest-dsvm-full http://logs.openstack.org/80/270980/6/check/gate-tempest-dsvm-full/2267afd/ : SUCCESS in 36m 10s\n- gate-tempest-dsvm-postgres-full http://logs.openstack.org/80/270980/6/check/gate-tempest-dsvm-postgres-full/2e65942/ : SUCCESS in 37m 13s\n- gate-tempest-dsvm-neutron-full http://logs.openstack.org/80/270980/6/check/gate-tempest-dsvm-neutron-full/015443a/ : SUCCESS in 1h 05m 55s\n- gate-grenade-dsvm http://logs.openstack.org/80/270980/6/check/gate-grenade-dsvm/7454214/ : SUCCESS in 45m 16s\n- gate-tempest-dsvm-full-devstack-plugin-ceph-nv http://logs.openstack.org/80/270980/6/check/gate-tempest-dsvm-full-devstack-plugin-ceph-nv/3ac3df1/ : SUCCESS in 39m 00s (non-voting)\n- gate-rally-dsvm-glance http://logs.openstack.org/80/270980/6/check/gate-rally-dsvm-glance/3dd3297/ : SUCCESS in 31m 55s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 6
+        },
+        {
+            "id": "697a144a075dfbcd0493c62e5140252b7a653a14",
+            "author": {
+                "_account_id": 17123,
+                "name": "Tom Cocozzello (tjcocozz)",
+                "email": "tjcocozz@us.ibm.com",
+                "username": "tcocozzello"
+            },
+            "real_author": {
+                "_account_id": 17123,
+                "name": "Tom Cocozzello (tjcocozz)",
+                "email": "tjcocozz@us.ibm.com",
+                "username": "tcocozzello"
+            },
+            "date": "2016-03-25 13:59:27.000000000",
+            "message": "Patch Set 6: Code-Review+1\n\n(2 comments)\n\nTested and works as expected. lgtm",
+            "accounts_in_message": [],
+            "_revision_number": 6
+        },
+        {
+            "id": "770bc1e56a772d32010bf71a562813299f9f6a41",
+            "author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "real_author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "date": "2016-03-25 16:36:00.000000000",
+            "message": "Patch Set 6: Code-Review-1\n\n(5 comments)\n\nThis is looking good, but I think it makes sense to include the new configuration options as part of this patch.  (I'm open to other opinions, though.)  See comments inline.",
+            "accounts_in_message": [],
+            "_revision_number": 6
+        },
+        {
+            "id": "2bdab181bc078e3e580c923301e40ae8e7e246df",
+            "author": {
+                "_account_id": 455,
+                "name": "Stuart McLaren",
+                "email": "stuart.mclaren@hpe.com",
+                "username": "stuart-mclaren"
+            },
+            "real_author": {
+                "_account_id": 455,
+                "name": "Stuart McLaren",
+                "email": "stuart.mclaren@hpe.com",
+                "username": "stuart-mclaren"
+            },
+            "date": "2016-04-15 15:48:52.000000000",
+            "message": "Patch Set 6: Code-Review-1\n\n(6 comments)\n\nThanks Cyril.\n\nJust a few nits.\n\n(And a query on one of Brian's comments.)\n\nI'm inclined to lean towards adding non-complete code and iterating on it over time.\n\nOne question:\n\nIs it ok to expose this discovery API before the data APIs are implemented?\nie can we claim we support glance-direct although we don't yet?\n\nIt would be nice to exercise the code by making an API call while not potentially misleading users. Not sure what the solution is...maybe expose under /experimental initially?",
+            "accounts_in_message": [],
+            "_revision_number": 6
+        },
+        {
+            "id": "1e4b8f449c1f07c3c0eb25e91e159ebf71cafba1",
+            "author": {
+                "_account_id": 10035,
+                "name": "greghaynes",
+                "email": "greg@greghaynes.net",
+                "username": "greghaynes"
+            },
+            "real_author": {
+                "_account_id": 10035,
+                "name": "greghaynes",
+                "email": "greg@greghaynes.net",
+                "username": "greghaynes"
+            },
+            "date": "2016-04-16 15:11:47.000000000",
+            "message": "Patch Set 6:\n\n(1 comment)",
+            "accounts_in_message": [],
+            "_revision_number": 6
+        },
+        {
+            "id": "2f9ffbfcce55dd112bdc08f00b1e94de18d65661",
+            "author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "real_author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "date": "2016-04-18 16:10:31.000000000",
+            "message": "Patch Set 6:\n\n(5 comments)\n\nSome responses inline.",
+            "accounts_in_message": [],
+            "_revision_number": 6
+        },
+        {
+            "id": "9b274a7c174ea68efdb03540a2e5932f6c0362da",
+            "author": {
+                "_account_id": 455,
+                "name": "Stuart McLaren",
+                "email": "stuart.mclaren@hpe.com",
+                "username": "stuart-mclaren"
+            },
+            "real_author": {
+                "_account_id": 455,
+                "name": "Stuart McLaren",
+                "email": "stuart.mclaren@hpe.com",
+                "username": "stuart-mclaren"
+            },
+            "date": "2016-04-18 17:34:14.000000000",
+            "message": "Patch Set 6:\n\n(3 comments)",
+            "accounts_in_message": [],
+            "_revision_number": 6
+        },
+        {
+            "id": "87af913c97050cde660c0438fabc3cf71b8fef22",
+            "author": {
+                "_account_id": 455,
+                "name": "Stuart McLaren",
+                "email": "stuart.mclaren@hpe.com",
+                "username": "stuart-mclaren"
+            },
+            "real_author": {
+                "_account_id": 455,
+                "name": "Stuart McLaren",
+                "email": "stuart.mclaren@hpe.com",
+                "username": "stuart-mclaren"
+            },
+            "date": "2016-04-18 17:56:40.000000000",
+            "message": "Patch Set 6:\n\n(1 comment)",
+            "accounts_in_message": [],
+            "_revision_number": 6
+        },
+        {
+            "id": "c3bccb54160bbce6c9bec20dff2d39404d133227",
+            "author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "real_author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "date": "2016-04-18 18:32:43.000000000",
+            "message": "Patch Set 6:\n\n(1 comment)\n\nFirst, apologies to Cyril, because the discussion we're having has nothing to do with the quality of your patch!\n\nStuart, I appreciate your point about implementing the hard stuff first, but I am very concerned about us producing the current image upload with a few bells and whistles and none of the security features as the MVP.  That's why I'd prefer to define them here as a declaration of what we intend to accomplish.  That doesn't mean that we need to work on max_import_size before the (harder) taskflow stuff.  But it would leave the non-implemented options as obvious bugs rather than something we *might* add to image import in a few cycles.  I see these as key features distinguishing image import from image upload, so I really have reservations about leaving them out.",
+            "accounts_in_message": [],
+            "_revision_number": 6
+        },
+        {
+            "id": "66a98a9b554f198ec491957dbb726cd533bd3938",
+            "author": {
+                "_account_id": 8122,
+                "name": "Cyril Roelandt",
+                "email": "cyril@redhat.com",
+                "username": "cyril.roelandt.enovance"
+            },
+            "real_author": {
+                "_account_id": 8122,
+                "name": "Cyril Roelandt",
+                "email": "cyril@redhat.com",
+                "username": "cyril.roelandt.enovance"
+            },
+            "date": "2016-04-19 15:31:56.000000000",
+            "message": "Patch Set 6:\n\n(6 comments)\n\nI'll try to please everyone in the next patchset :)",
+            "accounts_in_message": [],
+            "_revision_number": 6
+        },
+        {
+            "id": "f8cd7af20fe7495bb36cf86a17e3383c6989cbea",
+            "author": {
+                "_account_id": 8122,
+                "name": "Cyril Roelandt",
+                "email": "cyril@redhat.com",
+                "username": "cyril.roelandt.enovance"
+            },
+            "real_author": {
+                "_account_id": 8122,
+                "name": "Cyril Roelandt",
+                "email": "cyril@redhat.com",
+                "username": "cyril.roelandt.enovance"
+            },
+            "date": "2016-04-19 15:33:10.000000000",
+            "message": "Uploaded patch set 7.",
+            "accounts_in_message": [],
+            "_revision_number": 7
+        },
+        {
+            "id": "19584e46022de4383394a647ffd6a0162ff38495",
+            "author": {
+                "_account_id": 455,
+                "name": "Stuart McLaren",
+                "email": "stuart.mclaren@hpe.com",
+                "username": "stuart-mclaren"
+            },
+            "real_author": {
+                "_account_id": 455,
+                "name": "Stuart McLaren",
+                "email": "stuart.mclaren@hpe.com",
+                "username": "stuart-mclaren"
+            },
+            "date": "2016-04-19 17:30:51.000000000",
+            "message": "Patch Set 7:\n\n(7 comments)\n\nThanks Cyril.\n\nCouple of small nits/ comments.",
+            "accounts_in_message": [],
+            "_revision_number": 7
+        },
+        {
+            "id": "ba7424370811aa8fc9f21de57fd1512719589da8",
+            "author": {
+                "_account_id": 455,
+                "name": "Stuart McLaren",
+                "email": "stuart.mclaren@hpe.com",
+                "username": "stuart-mclaren"
+            },
+            "real_author": {
+                "_account_id": 455,
+                "name": "Stuart McLaren",
+                "email": "stuart.mclaren@hpe.com",
+                "username": "stuart-mclaren"
+            },
+            "date": "2016-04-19 17:31:56.000000000",
+            "message": "Patch Set 7: Code-Review-1\n\n-1 for the glance-direct entry. If we remove that we can successfully discover that import is not supported!",
+            "accounts_in_message": [],
+            "_revision_number": 7
+        },
+        {
+            "id": "ede0f48a872fad0831a2db09317849cb17c48da8",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2016-04-20 00:56:18.000000000",
+            "message": "Patch Set 7: Verified+1\n\nBuild succeeded (check pipeline).\n\n- gate-glance-python34-db http://logs.openstack.org/80/270980/7/check/gate-glance-python34-db/170723c/ : SUCCESS in 5m 13s\n- gate-glance-docs http://docs-draft.openstack.org/80/270980/7/check/gate-glance-docs/ab0802b//doc/build/html/ : SUCCESS in 7m 09s\n- gate-glance-pep8 http://logs.openstack.org/80/270980/7/check/gate-glance-pep8/6724a6a/ : SUCCESS in 2m 37s\n- gate-glance-python27-db http://logs.openstack.org/80/270980/7/check/gate-glance-python27-db/b9647cf/ : SUCCESS in 6m 21s\n- gate-tempest-dsvm-full http://logs.openstack.org/80/270980/7/check/gate-tempest-dsvm-full/06a1b70/ : SUCCESS in 44m 20s\n- gate-tempest-dsvm-postgres-full http://logs.openstack.org/80/270980/7/check/gate-tempest-dsvm-postgres-full/c4b37cf/ : SUCCESS in 37m 24s\n- gate-tempest-dsvm-neutron-full http://logs.openstack.org/80/270980/7/check/gate-tempest-dsvm-neutron-full/6524280/ : SUCCESS in 50m 27s\n- gate-grenade-dsvm http://logs.openstack.org/80/270980/7/check/gate-grenade-dsvm/14adc54/ : SUCCESS in 33m 07s\n- gate-tempest-dsvm-full-devstack-plugin-ceph http://logs.openstack.org/80/270980/7/check/gate-tempest-dsvm-full-devstack-plugin-ceph/6df3925/ : SUCCESS in 37m 29s\n- gate-tempest-dsvm-neutron-identity-v3-only-full-nv http://logs.openstack.org/80/270980/7/check/gate-tempest-dsvm-neutron-identity-v3-only-full-nv/adb3f0f/ : SUCCESS in 1h 10m 51s (non-voting)\n- gate-rally-dsvm-glance http://logs.openstack.org/80/270980/7/check/gate-rally-dsvm-glance/d703e14/ : SUCCESS in 22m 55s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 7
+        },
+        {
+            "id": "c553478d1cf07d83d7dd65767c33fdb70a5e2e1e",
+            "author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "real_author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "date": "2016-04-20 02:28:47.000000000",
+            "message": "Patch Set 7:\n\n(2 comments)\n\nSome inline comments.",
+            "accounts_in_message": [],
+            "_revision_number": 7
+        },
+        {
+            "id": "6ff5416824a8b3845f22c76e7c12f3acd6192016",
+            "author": {
+                "_account_id": 455,
+                "name": "Stuart McLaren",
+                "email": "stuart.mclaren@hpe.com",
+                "username": "stuart-mclaren"
+            },
+            "real_author": {
+                "_account_id": 455,
+                "name": "Stuart McLaren",
+                "email": "stuart.mclaren@hpe.com",
+                "username": "stuart-mclaren"
+            },
+            "date": "2016-04-20 09:27:29.000000000",
+            "message": "Patch Set 7:\n\n(1 comment)",
+            "accounts_in_message": [],
+            "_revision_number": 7
+        },
+        {
+            "id": "da5d2d0d5fd2ebce650724ac9f4874e3ae9738c1",
+            "author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "real_author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "date": "2016-04-20 13:02:03.000000000",
+            "message": "Patch Set 7:\n\n(1 comment)\n\nReply to Stuart's question inline.",
+            "accounts_in_message": [],
+            "_revision_number": 7
+        },
+        {
+            "id": "6234458af75d80602a950e126b04aaa8b78bf3b7",
+            "author": {
+                "_account_id": 455,
+                "name": "Stuart McLaren",
+                "email": "stuart.mclaren@hpe.com",
+                "username": "stuart-mclaren"
+            },
+            "real_author": {
+                "_account_id": 455,
+                "name": "Stuart McLaren",
+                "email": "stuart.mclaren@hpe.com",
+                "username": "stuart-mclaren"
+            },
+            "date": "2016-04-20 13:27:54.000000000",
+            "message": "Patch Set 7:\n\n(1 comment)",
+            "accounts_in_message": [],
+            "_revision_number": 7
+        },
+        {
+            "id": "c1e1bb34fdf8af1a38a4d1cd9da20d5325520018",
+            "author": {
+                "_account_id": 8122,
+                "name": "Cyril Roelandt",
+                "email": "cyril@redhat.com",
+                "username": "cyril.roelandt.enovance"
+            },
+            "real_author": {
+                "_account_id": 8122,
+                "name": "Cyril Roelandt",
+                "email": "cyril@redhat.com",
+                "username": "cyril.roelandt.enovance"
+            },
+            "date": "2016-04-20 14:27:05.000000000",
+            "message": "Patch Set 7:\n\n(5 comments)",
+            "accounts_in_message": [],
+            "_revision_number": 7
+        },
+        {
+            "id": "aa98dc52591f6d5c3cdefb897f973a073756966c",
+            "author": {
+                "_account_id": 8122,
+                "name": "Cyril Roelandt",
+                "email": "cyril@redhat.com",
+                "username": "cyril.roelandt.enovance"
+            },
+            "real_author": {
+                "_account_id": 8122,
+                "name": "Cyril Roelandt",
+                "email": "cyril@redhat.com",
+                "username": "cyril.roelandt.enovance"
+            },
+            "date": "2016-04-20 14:27:23.000000000",
+            "message": "Uploaded patch set 8.",
+            "accounts_in_message": [],
+            "_revision_number": 8
+        },
+        {
+            "id": "37922355af2052121a19ee19872eac1d37ceb9a7",
+            "author": {
+                "_account_id": 8122,
+                "name": "Cyril Roelandt",
+                "email": "cyril@redhat.com",
+                "username": "cyril.roelandt.enovance"
+            },
+            "real_author": {
+                "_account_id": 8122,
+                "name": "Cyril Roelandt",
+                "email": "cyril@redhat.com",
+                "username": "cyril.roelandt.enovance"
+            },
+            "date": "2016-04-20 14:33:23.000000000",
+            "message": "Patch Set 7:\n\nI think I answered most of the comments, except the one about the new \"image_import\" config section. The idea makes sense to me, but I'd just like to know what others think about it before starting the implementation.",
+            "accounts_in_message": [],
+            "_revision_number": 7
+        },
+        {
+            "id": "a7a9287923b25639bc254d356aa5d761a55304e8",
+            "author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "real_author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "date": "2016-04-20 15:28:19.000000000",
+            "message": "Patch Set 7:\n\n(1 comment)\n\nInline.",
+            "accounts_in_message": [],
+            "_revision_number": 7
+        },
+        {
+            "id": "aa0c5e17308c8ffbc1e40e1c5f3c7bcaba6cdf59",
+            "author": {
+                "_account_id": 455,
+                "name": "Stuart McLaren",
+                "email": "stuart.mclaren@hpe.com",
+                "username": "stuart-mclaren"
+            },
+            "real_author": {
+                "_account_id": 455,
+                "name": "Stuart McLaren",
+                "email": "stuart.mclaren@hpe.com",
+                "username": "stuart-mclaren"
+            },
+            "date": "2016-04-20 15:40:43.000000000",
+            "message": "Patch Set 7:\n\n(1 comment)",
+            "accounts_in_message": [],
+            "_revision_number": 7
+        },
+        {
+            "id": "4a7c2688d1ac00f9f50d1db4371454c84cec22f1",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2016-04-20 16:13:34.000000000",
+            "message": "Patch Set 8: Verified-1\n\nBuild failed (check pipeline).  For information on how to proceed, see http://docs.openstack.org/infra/manual/developers.html#automated-testing\n\n- gate-glance-python34-db http://logs.openstack.org/80/270980/8/check/gate-glance-python34-db/12feb7e/ : SUCCESS in 9m 29s\n- gate-glance-docs http://docs-draft.openstack.org/80/270980/8/check/gate-glance-docs/89ae890//doc/build/html/ : SUCCESS in 6m 34s\n- gate-glance-pep8 http://logs.openstack.org/80/270980/8/check/gate-glance-pep8/358b360/ : FAILURE in 2m 22s\n- gate-glance-python27-db http://logs.openstack.org/80/270980/8/check/gate-glance-python27-db/95bbb85/ : SUCCESS in 8m 54s\n- gate-tempest-dsvm-full http://logs.openstack.org/80/270980/8/check/gate-tempest-dsvm-full/7e4c7ed/ : SUCCESS in 42m 46s\n- gate-tempest-dsvm-postgres-full http://logs.openstack.org/80/270980/8/check/gate-tempest-dsvm-postgres-full/90fb105/ : SUCCESS in 45m 12s\n- gate-tempest-dsvm-neutron-full http://logs.openstack.org/80/270980/8/check/gate-tempest-dsvm-neutron-full/d94433e/ : SUCCESS in 55m 44s\n- gate-grenade-dsvm http://logs.openstack.org/80/270980/8/check/gate-grenade-dsvm/87f72b0/ : SUCCESS in 33m 40s\n- gate-tempest-dsvm-full-devstack-plugin-ceph http://logs.openstack.org/80/270980/8/check/gate-tempest-dsvm-full-devstack-plugin-ceph/40d3159/ : SUCCESS in 45m 18s\n- gate-tempest-dsvm-neutron-identity-v3-only-full-nv http://logs.openstack.org/80/270980/8/check/gate-tempest-dsvm-neutron-identity-v3-only-full-nv/e6ab937/ : SUCCESS in 56m 18s (non-voting)\n- gate-rally-dsvm-glance http://logs.openstack.org/80/270980/8/check/gate-rally-dsvm-glance/2375d8d/ : SUCCESS in 39m 16s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 8
+        },
+        {
+            "id": "d76e4741cf3482e9254863018c165e10cb485261",
+            "author": {
+                "_account_id": 455,
+                "name": "Stuart McLaren",
+                "email": "stuart.mclaren@hpe.com",
+                "username": "stuart-mclaren"
+            },
+            "real_author": {
+                "_account_id": 455,
+                "name": "Stuart McLaren",
+                "email": "stuart.mclaren@hpe.com",
+                "username": "stuart-mclaren"
+            },
+            "date": "2016-04-20 16:32:11.000000000",
+            "message": "Patch Set 8:\n\n(1 comment)\n\nThanks Cyril.\n\nI think at this point the only thing I'm wondering is whether we should group image import options together in a specific section of glance-api.conf, eg:\n\n [image_import]\n size_cap = ...\n container_formats = ...\n disk_formats = ...\n max_upload_time = ...\n import_methods = ...\n max_virtual_bytes = ...\n plugins = ...\n\nThe advantage would be that operators could see all the relevant import related parameters in one place, rather than hunting through our ~1,800 lines of example config for parameters related to import.\n\nI kind of like the idea ... but I'm interested in what others think.",
+            "accounts_in_message": [],
+            "_revision_number": 8
+        },
+        {
+            "id": "0e265765beab5b39bcaa191319017d4e91d28f09",
+            "author": {
+                "_account_id": 8122,
+                "name": "Cyril Roelandt",
+                "email": "cyril@redhat.com",
+                "username": "cyril.roelandt.enovance"
+            },
+            "real_author": {
+                "_account_id": 8122,
+                "name": "Cyril Roelandt",
+                "email": "cyril@redhat.com",
+                "username": "cyril.roelandt.enovance"
+            },
+            "date": "2016-04-20 16:33:04.000000000",
+            "message": "Uploaded patch set 9.",
+            "accounts_in_message": [],
+            "_revision_number": 9
+        },
+        {
+            "id": "ed644a4434cf7722aab85f654a9b9ce8ed61411e",
+            "author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "real_author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "date": "2016-04-20 19:31:23.000000000",
+            "message": "Patch Set 9:\n\n@Stuart: you've asked about the config file twice, and ... crickets.  I think it's a good idea.  Adding Hemanth, who's working on the cross-project categorized configuration options effort, to see what he thinks.",
+            "accounts_in_message": [],
+            "_revision_number": 9
+        },
+        {
+            "id": "8cd51ce0d2a85b6bf18b5780ad1e3203bd5e795b",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2016-04-20 19:48:58.000000000",
+            "message": "Patch Set 9: Verified+1\n\nBuild succeeded (check pipeline).\n\n- gate-glance-python34-db http://logs.openstack.org/80/270980/9/check/gate-glance-python34-db/89565d6/ : SUCCESS in 5m 14s\n- gate-glance-docs http://docs-draft.openstack.org/80/270980/9/check/gate-glance-docs/94d7c83//doc/build/html/ : SUCCESS in 7m 11s\n- gate-glance-pep8 http://logs.openstack.org/80/270980/9/check/gate-glance-pep8/59c0e76/ : SUCCESS in 3m 11s\n- gate-glance-python27-db http://logs.openstack.org/80/270980/9/check/gate-glance-python27-db/9892e7c/ : SUCCESS in 8m 38s\n- gate-tempest-dsvm-full http://logs.openstack.org/80/270980/9/check/gate-tempest-dsvm-full/01bfffa/ : SUCCESS in 44m 51s\n- gate-tempest-dsvm-postgres-full http://logs.openstack.org/80/270980/9/check/gate-tempest-dsvm-postgres-full/748f43b/ : SUCCESS in 48m 07s\n- gate-tempest-dsvm-neutron-full http://logs.openstack.org/80/270980/9/check/gate-tempest-dsvm-neutron-full/ca474e4/ : SUCCESS in 1h 16m 48s\n- gate-grenade-dsvm http://logs.openstack.org/80/270980/9/check/gate-grenade-dsvm/5abb7e8/ : SUCCESS in 40m 34s\n- gate-tempest-dsvm-full-devstack-plugin-ceph http://logs.openstack.org/80/270980/9/check/gate-tempest-dsvm-full-devstack-plugin-ceph/8c8f503/ : SUCCESS in 47m 38s\n- gate-tempest-dsvm-neutron-identity-v3-only-full-nv http://logs.openstack.org/80/270980/9/check/gate-tempest-dsvm-neutron-identity-v3-only-full-nv/bfcb36c/ : SUCCESS in 1h 04m 14s (non-voting)\n- gate-rally-dsvm-glance http://logs.openstack.org/80/270980/9/check/gate-rally-dsvm-glance/ef08550/ : SUCCESS in 35m 26s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 9
+        },
+        {
+            "id": "93f81d71f333359445870dc9a6f86b3bf52c55be",
+            "author": {
+                "_account_id": 8122,
+                "name": "Cyril Roelandt",
+                "email": "cyril@redhat.com",
+                "username": "cyril.roelandt.enovance"
+            },
+            "real_author": {
+                "_account_id": 8122,
+                "name": "Cyril Roelandt",
+                "email": "cyril@redhat.com",
+                "username": "cyril.roelandt.enovance"
+            },
+            "date": "2016-04-21 14:00:05.000000000",
+            "message": "Patch Set 9:\n\nYeah, depending on what Hemanth says, I may or may not implement this :)",
+            "accounts_in_message": [],
+            "_revision_number": 9
+        },
+        {
+            "id": "e1c3e9bc7fe3cb20607d5cbaa1db8f0bf78daba8",
+            "author": {
+                "_account_id": 8158,
+                "name": "Hemanth Makkapati",
+                "email": "makstacker+osgerrit@gmail.com",
+                "username": "hemanth.makkapati"
+            },
+            "real_author": {
+                "_account_id": 8158,
+                "name": "Hemanth Makkapati",
+                "email": "makstacker+osgerrit@gmail.com",
+                "username": "hemanth.makkapati"
+            },
+            "date": "2016-04-21 17:06:46.000000000",
+            "message": "Patch Set 9:\n\n+1\nIt definitely makes sense to group the import opts under one section.\nAnd, it surely falls within the interests of the cross-project effort in the sense that it advocates natural/logical grouping of opts.\n\nOne thing that does come to my mind is the help text format. Since we are beginning to work on improving the help text for all config opts across glance and glance_store, can we start following that here as well?\n\nThe help text format can be found here, https://bugs.launchpad.net/glance/+bug/1570946\nAnd, the first patch towards the above change is at https://review.openstack.org/#/c/307978/",
+            "accounts_in_message": [],
+            "_revision_number": 9
+        },
+        {
+            "id": "cca307f8c6747a486b15b8fe598771784e37ef07",
+            "author": {
+                "_account_id": 15054,
+                "name": "wangxiyuan",
+                "email": "wangxiyuan1007@gmail.com",
+                "username": "wangxiyuan"
+            },
+            "real_author": {
+                "_account_id": 15054,
+                "name": "wangxiyuan",
+                "email": "wangxiyuan1007@gmail.com",
+                "username": "wangxiyuan"
+            },
+            "date": "2016-04-22 02:19:40.000000000",
+            "message": "Patch Set 6:\n\n+1 for Stuart's suggestion. Since this feature is for import, to group these options in a specific section could make it more clear and easiler to be modified.",
+            "accounts_in_message": [],
+            "_revision_number": 6
+        },
+        {
+            "id": "ee597a1005e0563aa7fd76d5dca0f1bb242c1da6",
+            "author": {
+                "_account_id": 8122,
+                "name": "Cyril Roelandt",
+                "email": "cyril@redhat.com",
+                "username": "cyril.roelandt.enovance"
+            },
+            "real_author": {
+                "_account_id": 8122,
+                "name": "Cyril Roelandt",
+                "email": "cyril@redhat.com",
+                "username": "cyril.roelandt.enovance"
+            },
+            "date": "2016-04-22 16:18:15.000000000",
+            "message": "Uploaded patch set 10.",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "e3f5dfed93edce27f23ec369a149af1ce3f2964c",
+            "author": {
+                "_account_id": 455,
+                "name": "Stuart McLaren",
+                "email": "stuart.mclaren@hpe.com",
+                "username": "stuart-mclaren"
+            },
+            "real_author": {
+                "_account_id": 455,
+                "name": "Stuart McLaren",
+                "email": "stuart.mclaren@hpe.com",
+                "username": "stuart-mclaren"
+            },
+            "date": "2016-04-22 16:52:33.000000000",
+            "message": "Patch Set 10: Code-Review+1\n\nThanks",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "41b7b6556a43733add4bd553cb9d78c0b05c4d5e",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2016-04-22 17:29:39.000000000",
+            "message": "Patch Set 10: Verified+1\n\nBuild succeeded (check pipeline).\n\n- gate-glance-python34-db http://logs.openstack.org/80/270980/10/check/gate-glance-python34-db/72d9c63/ : SUCCESS in 5m 13s\n- gate-glance-docs http://docs-draft.openstack.org/80/270980/10/check/gate-glance-docs/f4ac1bf//doc/build/html/ : SUCCESS in 4m 18s\n- gate-glance-pep8 http://logs.openstack.org/80/270980/10/check/gate-glance-pep8/c18f09a/ : SUCCESS in 1m 46s\n- gate-glance-python27-db http://logs.openstack.org/80/270980/10/check/gate-glance-python27-db/0d37c55/ : SUCCESS in 9m 17s\n- gate-tempest-dsvm-full http://logs.openstack.org/80/270980/10/check/gate-tempest-dsvm-full/122e591/ : SUCCESS in 38m 52s\n- gate-tempest-dsvm-postgres-full http://logs.openstack.org/80/270980/10/check/gate-tempest-dsvm-postgres-full/e9bf3d3/ : SUCCESS in 55m 12s\n- gate-tempest-dsvm-neutron-full http://logs.openstack.org/80/270980/10/check/gate-tempest-dsvm-neutron-full/5602aa5/ : SUCCESS in 1h 10m 04s\n- gate-grenade-dsvm http://logs.openstack.org/80/270980/10/check/gate-grenade-dsvm/9ad7a6c/ : SUCCESS in 35m 30s\n- gate-tempest-dsvm-full-devstack-plugin-ceph http://logs.openstack.org/80/270980/10/check/gate-tempest-dsvm-full-devstack-plugin-ceph/c8139e1/ : SUCCESS in 56m 13s\n- gate-tempest-dsvm-neutron-identity-v3-only-full-nv http://logs.openstack.org/80/270980/10/check/gate-tempest-dsvm-neutron-identity-v3-only-full-nv/80cee27/ : SUCCESS in 53m 52s (non-voting)\n- gate-rally-dsvm-glance http://logs.openstack.org/80/270980/10/check/gate-rally-dsvm-glance/4d97e08/ : SUCCESS in 35m 25s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "0ec0a6e4e859463c29def55d15042be0597dfba8",
+            "author": {
+                "_account_id": 15054,
+                "name": "wangxiyuan",
+                "email": "wangxiyuan1007@gmail.com",
+                "username": "wangxiyuan"
+            },
+            "real_author": {
+                "_account_id": 15054,
+                "name": "wangxiyuan",
+                "email": "wangxiyuan1007@gmail.com",
+                "username": "wangxiyuan"
+            },
+            "date": "2016-04-23 02:43:52.000000000",
+            "message": "Patch Set 10: Code-Review+1",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "73d3412d3d5e213695238242aa8240a5b71f1c72",
+            "author": {
+                "_account_id": 455,
+                "name": "Stuart McLaren",
+                "email": "stuart.mclaren@hpe.com",
+                "username": "stuart-mclaren"
+            },
+            "real_author": {
+                "_account_id": 455,
+                "name": "Stuart McLaren",
+                "email": "stuart.mclaren@hpe.com",
+                "username": "stuart-mclaren"
+            },
+            "date": "2016-05-03 13:12:23.000000000",
+            "message": "Patch Set 10:\n\nAdded Mike to get some feedback on this from a cross project discoverability point of view.",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "eaf541c2831a74d42ae62a4db82b44a389d80746",
+            "author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "real_author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "date": "2016-05-03 14:07:39.000000000",
+            "message": "Patch Set 10:\n\nGood idea to add Mike for a cross-project perspective.  Just want to note that the prototype in the spec was discussed at a few API WG meetings in December, and the consensus was that this was OK.",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "7534004a1d5592bc6f23f9aabe18e2e1c585cb87",
+            "author": {
+                "_account_id": 7822,
+                "name": "Chris Hoge (not involved in upstream development)",
+                "email": "chris@hogepodge.com",
+                "username": "hogepodge"
+            },
+            "real_author": {
+                "_account_id": 7822,
+                "name": "Chris Hoge (not involved in upstream development)",
+                "email": "chris@hogepodge.com",
+                "username": "hogepodge"
+            },
+            "date": "2016-05-04 23:06:14.000000000",
+            "message": "Patch Set 10:\n\n(1 comment)",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "d7dbfeebec07e3727459d1f7b7edfec33140e948",
+            "author": {
+                "_account_id": 5202,
+                "name": "Erno Kuvaja",
+                "email": "jokke@usr.fi",
+                "username": "jokke"
+            },
+            "real_author": {
+                "_account_id": 5202,
+                "name": "Erno Kuvaja",
+                "email": "jokke@usr.fi",
+                "username": "jokke"
+            },
+            "date": "2016-05-05 08:06:09.000000000",
+            "message": "Patch Set 10: Code-Review-1\n\n(3 comments)\n\nI really want to disagree with Brian about the config options. I don't think we should duplicate those.",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "a8004f6c74745aec2b7dca122557f3ba2277ad45",
+            "author": {
+                "_account_id": 455,
+                "name": "Stuart McLaren",
+                "email": "stuart.mclaren@hpe.com",
+                "username": "stuart-mclaren"
+            },
+            "real_author": {
+                "_account_id": 455,
+                "name": "Stuart McLaren",
+                "email": "stuart.mclaren@hpe.com",
+                "username": "stuart-mclaren"
+            },
+            "date": "2016-05-05 09:05:22.000000000",
+            "message": "Patch Set 10: Code-Review-1\n\n(1 comment)\n\nDropping to -1 for not editing glance-api.conf directly.",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "004336fc82eebd1b589a7aa1ad6ef991401dd8c1",
+            "author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "real_author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "date": "2016-05-05 13:13:38.000000000",
+            "message": "Patch Set 10:\n\n(1 comment)",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "ffdb4a47e995da3ae09181f7ba84b77519b251e7",
+            "author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "real_author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "date": "2016-05-05 13:16:00.000000000",
+            "message": "Patch Set 10:\n\nMike, thanks for adding Sean.  Sean, just to give you some context, I showed you the prototype for this patch at the cross-project \"discovery\" session at the summit.",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "c81b87800625c17fb09b256497696c0f394c4003",
+            "author": {
+                "_account_id": 170,
+                "name": "Mike Perez",
+                "email": "thingee@gmail.com",
+                "username": "thingee"
+            },
+            "real_author": {
+                "_account_id": 170,
+                "name": "Mike Perez",
+                "email": "thingee@gmail.com",
+                "username": "thingee"
+            },
+            "date": "2016-05-05 21:44:01.000000000",
+            "message": "Patch Set 10:\n\n(1 comment)",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "2da8046e9994b5ef29ff49d0a18423fa3dc09169",
+            "author": {
+                "_account_id": 7822,
+                "name": "Chris Hoge (not involved in upstream development)",
+                "email": "chris@hogepodge.com",
+                "username": "hogepodge"
+            },
+            "real_author": {
+                "_account_id": 7822,
+                "name": "Chris Hoge (not involved in upstream development)",
+                "email": "chris@hogepodge.com",
+                "username": "hogepodge"
+            },
+            "date": "2016-05-05 21:53:56.000000000",
+            "message": "Patch Set 10:\n\n(1 comment)",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "fca59a674cd7416643428c548d753ddf324eeba6",
+            "author": {
+                "_account_id": 455,
+                "name": "Stuart McLaren",
+                "email": "stuart.mclaren@hpe.com",
+                "username": "stuart-mclaren"
+            },
+            "real_author": {
+                "_account_id": 455,
+                "name": "Stuart McLaren",
+                "email": "stuart.mclaren@hpe.com",
+                "username": "stuart-mclaren"
+            },
+            "date": "2016-05-06 09:25:51.000000000",
+            "message": "Patch Set 10:\n\n(1 comment)",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "539ee93d2e3af5d109a3ec4bb04d6e9317cce732",
+            "author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "real_author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "date": "2016-05-06 16:58:10.000000000",
+            "message": "Patch Set 10:\n\n(1 comment)\n\nComment inline.",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "1381530434a5058fcbaf7f7cbec928e9789d8bc2",
+            "author": {
+                "_account_id": 7822,
+                "name": "Chris Hoge (not involved in upstream development)",
+                "email": "chris@hogepodge.com",
+                "username": "hogepodge"
+            },
+            "real_author": {
+                "_account_id": 7822,
+                "name": "Chris Hoge (not involved in upstream development)",
+                "email": "chris@hogepodge.com",
+                "username": "hogepodge"
+            },
+            "date": "2016-05-06 18:13:15.000000000",
+            "message": "Patch Set 10:\n\n(1 comment)",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "7fca632f4f8e5b0851ce0e94d35dc77a16232608",
+            "author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "real_author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "date": "2016-05-06 18:22:40.000000000",
+            "message": "Patch Set 10:\n\n(1 comment)\n\nComment inline.",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "8fb4099975dd3ff7e3abdb42cb02724a127602be",
+            "author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "real_author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "date": "2016-05-06 18:59:09.000000000",
+            "message": "Patch Set 10:\n\nOn Chris' question, as a primary author on tasks work I can say that for one cycle at least tasks API was no-op. If that is what being asked for no upstream implementation.\n\nTo be honest, Tasks API as a whole has always been upstream. The concept of tasks being deployer specific may be the resulting theme of \"not being upstream\" idea.",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "76a0cafc2a26509aaccc76b0b22d06fa8f9fe81a",
+            "author": {
+                "_account_id": 2903,
+                "name": "Morgan Fainberg",
+                "email": "morgan.fainberg@gmail.com",
+                "username": "mdrnstm"
+            },
+            "real_author": {
+                "_account_id": 2903,
+                "name": "Morgan Fainberg",
+                "email": "morgan.fainberg@gmail.com",
+                "username": "mdrnstm"
+            },
+            "date": "2016-05-06 20:30:56.000000000",
+            "message": "Patch Set 10:\n\n(1 comment)",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "bbafe5117916d980325ba8f208b6a92fccdeee9e",
+            "author": {
+                "_account_id": 170,
+                "name": "Mike Perez",
+                "email": "thingee@gmail.com",
+                "username": "thingee"
+            },
+            "real_author": {
+                "_account_id": 170,
+                "name": "Mike Perez",
+                "email": "thingee@gmail.com",
+                "username": "thingee"
+            },
+            "date": "2016-05-06 20:50:03.000000000",
+            "message": "Patch Set 10:\n\n(1 comment)",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "6161cccf29f6ed4c319f50975d1ff366d3e5cbdd",
+            "author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "real_author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "date": "2016-05-06 22:41:09.000000000",
+            "message": "Patch Set 10: Code-Review-1\n\nYou can go ahead and add NewtonPriority to the commit message.\n\nI agree there should be NO left outs in the call. Let's get this consistent with what's described in the spec.\n\nYou can add Depends-On for all the import specs and updates being proposed so that people know what's the implementation intent.\n\nThanks for taking care of this!",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "fa37778b1609ae902322e03a9f3151824fe5d68c",
+            "author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "real_author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "date": "2016-05-06 22:53:39.000000000",
+            "message": "Patch Set 10:\n\n(2 comments)\n\nMorgan and Mike:\n\nThe implementation cannot go far from what's in the spec so, the DefCore capabilities have been pretty explicitly provided.\n\nWhat Brian intends to say that we can't promise the types of implementation unless they are in the code for the operators to use and yet keep them as a part of the info call. \n\nWho wants to take guarantee that the entire import implementation will be done in one cycle? (This is a serious question)",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "292b49a75cf13d1ee161aedf07f993ce72a96f1a",
+            "author": {
+                "_account_id": 2903,
+                "name": "Morgan Fainberg",
+                "email": "morgan.fainberg@gmail.com",
+                "username": "mdrnstm"
+            },
+            "real_author": {
+                "_account_id": 2903,
+                "name": "Morgan Fainberg",
+                "email": "morgan.fainberg@gmail.com",
+                "username": "mdrnstm"
+            },
+            "date": "2016-05-10 00:44:23.000000000",
+            "message": "Patch Set 10:\n\n(1 comment)",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "a0dadb36109a0ea1480192bdd69813222fc27f27",
+            "author": {
+                "_account_id": 8122,
+                "name": "Cyril Roelandt",
+                "email": "cyril@redhat.com",
+                "username": "cyril.roelandt.enovance"
+            },
+            "real_author": {
+                "_account_id": 8122,
+                "name": "Cyril Roelandt",
+                "email": "cyril@redhat.com",
+                "username": "cyril.roelandt.enovance"
+            },
+            "date": "2016-05-10 15:48:04.000000000",
+            "message": "Patch Set 10:\n\n(4 comments)\n\nOK. So, all in all, what should we do with this patch? Wait for the glance-direct implementation to be merged before trying to push it? I'll fix the \"easy\" parts in the next commit, but I wonder whether we can reach an agreement on the bigger picture.",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "ef7c06d3597c445efdbe8d27b205c3978e58c371",
+            "author": {
+                "_account_id": 15054,
+                "name": "wangxiyuan",
+                "email": "wangxiyuan1007@gmail.com",
+                "username": "wangxiyuan"
+            },
+            "real_author": {
+                "_account_id": 15054,
+                "name": "wangxiyuan",
+                "email": "wangxiyuan1007@gmail.com",
+                "username": "wangxiyuan"
+            },
+            "date": "2016-05-11 08:21:36.000000000",
+            "message": "Patch Set 10:\n\n(1 comment)",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "2e651bf7bd05af98efa454450d73f9e9c83f64a7",
+            "author": {
+                "_account_id": 2472,
+                "name": "Doug Hellmann",
+                "email": "dhellmann@redhat.com",
+                "username": "doug-hellmann"
+            },
+            "real_author": {
+                "_account_id": 2472,
+                "name": "Doug Hellmann",
+                "email": "dhellmann@redhat.com",
+                "username": "doug-hellmann"
+            },
+            "date": "2016-05-11 18:53:05.000000000",
+            "message": "Patch Set 10:\n\n(1 comment)",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "7a1b2e9606b52d15327fe4bc7a84bdfca2a86a83",
+            "author": {
+                "_account_id": 2903,
+                "name": "Morgan Fainberg",
+                "email": "morgan.fainberg@gmail.com",
+                "username": "mdrnstm"
+            },
+            "real_author": {
+                "_account_id": 2903,
+                "name": "Morgan Fainberg",
+                "email": "morgan.fainberg@gmail.com",
+                "username": "mdrnstm"
+            },
+            "date": "2016-05-11 19:04:39.000000000",
+            "message": "Patch Set 10:\n\n(1 comment)",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "118654cbdaf8b8978797f5091343cb822e1ad5d8",
+            "author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "real_author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "date": "2016-05-11 23:11:39.000000000",
+            "message": "Patch Set 10:\n\n@Cyril: Please hold off the changes until all of us converge here.",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "cc0ae9825dad55879f6671a1149e974785cfca1d",
+            "author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "real_author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "date": "2016-05-12 00:30:19.000000000",
+            "message": "Patch Set 10: Code-Review-2\n\n(1 comment)\n\nLet's stop all import work until we have the TC on the same page with the Glance team.\n\nGlance team will be meeting tomorrow (Thursday at 1330 UTC on #openstack-glance) to discuss import work as per http://lists.openstack.org/pipermail/openstack-dev/2016-May/093703.html\n\nI will be handing out research, spec, coding tasks to individuals who have been involved in the discussion and know the clear path forward. So, be prepared.",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "85ca86d4a81c502fcb92fbcf986c6163165f9571",
+            "author": {
+                "_account_id": 2472,
+                "name": "Doug Hellmann",
+                "email": "dhellmann@redhat.com",
+                "username": "doug-hellmann"
+            },
+            "real_author": {
+                "_account_id": 2472,
+                "name": "Doug Hellmann",
+                "email": "dhellmann@redhat.com",
+                "username": "doug-hellmann"
+            },
+            "date": "2016-05-13 19:49:42.000000000",
+            "message": "Patch Set 10:\n\n@Nikhil, I apologize for not having time to participate in every part of the discussion of this work last cycle. I thought the glance team had it well in hand and had settled on a minimal change that would provide an API meeting the needs for DefCore and users. The scope seems to have grown since that time, which is concerning because it is extremely important that this work be finished as soon as possible.\n\nThe copy-from-url case seems reasonable. I strongly encourage you to do that work after some DefCore-compatible version of the other import mechanisms is completely working and the tests are written to the DefCore team's criteria (although you shouldn't wait for them to actually adopt the tests). From a contributor community perspective getting *SOMETHING* DefCore can use is more important that deprecating any of the existing APIs which provide these \"deal breaker\" features. That will allow us to move ahead with the new work while maintaining support for the old APIs, deprecating them later (or even just deciding to continue to support them -- either way the decision and work is deferred).\n\nRegarding the confusion about the plan outside of the glance team, it would help greatly with communication if someone could write a short (very very short) description of how the API will work without getting into all of the details of exactly what is in each header or part of the request or response, but explaining how the calls are different (the spec on this is long, convoluted, and difficult for someone who is not already an expert in glance to understand at this point). For example, \"The client will use the discovery API to find out which upload/import mechanisms are enabled in a cloud. Then they will use the response to call the appropriate API methods to perform the upload/import the image in one of the supported ways. For method X, they will call endpoint A, providing...\". Please send that to the mailing list where it is easier to have a discussion like this.\n\nRegarding a default upload mechanism, we seem to be placing a lot of faith in security teams at different companies who all have different opinions about how uploading should work to be \"safe\". Rather than choosing upstream, where we don't really care as long as the feature is supported, I suggest that we just write the tests to require that one of the several mechanisms is available for uploading an image from outside of the cloud. We can have a separate test for each mechanism that \"skips\" if the mechanism is not actually enabled, unless *no*  mechanism is enabled in which case it should fail. If the mechanism to be tested is enabled, the test will only be handling one case so it can be written clearly without a bunch of branching. If the tests for direct, swift, and copy-from all also test that *some*  mechanism is enabled then we'll be able to ensure that all clouds provide the feature in some way without dictating what that is. The DefCore team can then figure out how to specify \"one of these N tests must pass\" (maybe they already have a way to do that, I don't know).",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "a4d633fcf207171cd514fb9bc834463b95582636",
+            "author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "real_author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "date": "2016-05-14 17:27:36.000000000",
+            "message": "Patch Set 10:\n\n@Doug:\n\nThanks a ton for your clear cut reply! I appreciate the approach.\n\n\nI echo your sentiment 100% and that is also exactly what I mean to say, in all that I am saying. We need to get things done ASAP and we can\u2019t halt small patches just because they have TODOs on them. We need to understand why those exists say something planned ahead and ping people on irc so see why so \u2014 being super efficient in communication. Why I say that? Please see my elaborate response inline.\n\n\n> @Nikhil, I apologize for not having time to participate in every part of the discussion of this work last cycle. I thought the glance team had it well in hand and had settled on a minimal change that would provide an API meeting the needs for DefCore and users. The scope seems to have grown since that time, which is concerning because it is extremely important that this work be finished as soon as possible.\n\nFirstly, no issues Doug, I think we all do not expect you to participate in all the discussions. Also, I would not want the TC members thinking that Glance team does not have this in hand. Because, that is not really the case.\n\nThe very fact that you are saying that Glance team does not have this in hand is what is really disappointing. The entire purpose of my response was to indicate that we know what we are doing and there\u2019s good reference provided in there to indicate that. If anything, I think anyone who is not involved in Glance on regular basis need to make an informed review, decisions, communication when they want to hold back something. Please (I request you please) do not blame this on Glance. I think we\u2019ve had a fair share of bad publicity and to be fair none of that is our fault. All the development has been done publicly, all the API changes proposed as summit sessions and people have been provided an opportunity to provide feedback. It is really unfortunate that people have a strong say on how things should work post something is implemented or when it has been discussed on the spec and implementation is in progress.\n\nIt\u2019s a big failure for the OpenStack community, our review mechanism isn\u2019t either fair or efficient. Our communication on ML, emails, etherpads etc. isn\u2019t efficient and that results in a cultural habit of the same. We need to make informed reviews and decisions, always. And if we are not sure we need to ask the right questions that will not generate more speculation. \n\nIf you think I am proposing to slow down the proposal, then I should think I have failed miserably in communicating the intent \u2014 just to let you know I have been pushing for this to be done as a MVP  (something viable for DefCore) since Mitaka (just prior to elections, after elections & before summit, after the summit and now when I have a fair idea of how we are going to more forward on this.) Brian Rosmaita (as per his nod last week) and I are going to see this through (or I myself will see this through in Newton).  I have proposed a break down of the proposal as MVP (followed by everything else) at the summit. And to be honest, I feel the most pressure to get this done more than anyone else (due to many many reasons that people do not know).  If you think this is utter non-sense you can confirm with others (starting Brian).\n\nIn my defense, I had asked if we need to discuss this as a work session at the summit but the majority wins and it did not make it. Though I had asked people to join us for this discussion during the summit in the contributors\u2019 meet up where the team was preferring to discuss this. Also, I have pushed back the mid-cycle to June 15-17 (quite early in the cycle) just to make sure we are on the right track to get this done. Also, I am proposing for us to have more efficient channels of communication as I am really tired of the long discussions happening time after time, late, very very late. So, no offense to anyone it\u2019s not me who is blocking the progress.\n\nHaving said that, I think the end goal of any proposal should be that we have a successful cloud running OpenStack. When people vet their opinions that certain use cases are essential for them then I think it becomes important for us to consider them given OpenStack\u2019s mission statement is also about building massively scalable clouds https://governance.openstack.org/resolutions/20160106-mission-amendment.html?highlight=mission . \n\nHaving a trivial implementation is no way to move forward to support that case. Popularity of the use of the API is one aspect of implementing something, technically excellent is another end of the spectrum. We need to be empathetic about both the kind of APIs. \n\nI attempted my best to give a quick yet holistic response to how we need to move forward supporting both our needs going forward. It has been my experience that people are unwilling to budge after saying that is was discussed and we won\u2019t support it. So, the copy-from case becomes important to be brought up now and people know that it is a possibility (yes only a possibility of the future but not (anything less than possibility) say probability).\n\n\n> The copy-from-url case seems reasonable. I strongly encourage you to do that work after some DefCore-compatible version of the other import mechanisms is completely working and the tests are written to the DefCore team's criteria (although you shouldn't wait for them to actually adopt the tests). From a contributor community perspective getting *SOMETHING* DefCore can use is more important that deprecating any of the existing APIs which provide these \"deal breaker\" features. That will allow us to move ahead with the new work while maintaining support for the old APIs, deprecating them later (or even just deciding to continue to support them -- either way the decision and work is deferred).\n\nI cannot agree more than what you are saying. I have always been in the favor of not deprecating before (new) things are implemented but that trend seems to be going otherwise in OpenStack and I strongly dislike that. We need operational convenience before making deal breakers \u2014 even if it\u2019s supporting older APIs. So, +2 on that!\n\nThanks for being practical on the copy-from case, it appears to be equally popular case as the direct streaming to glance \u2014 because it\u2019s more asynchronous thus convenient. For large scale (in terms of number of uploads or in terms of larger uploads) I think it\u2019s more useful for a user to simply specify a url and wait for the import happens (a _more_ cloud friendly operation).\n\nI am not encouraging the copy-from case to be implemented before/in parallel to the DefCore capabilities. You can see in the spec that I have not asked for it as a part of the first Import Refactor implementation (as we can understand that it\u2019s about DefCore) the future discussion on how to support more can happen later. But at the same time, all the late push back on things makes is really difficult to ensure that your use cases are not heard for and people say you missed the train. That\u2019s not the right approach we need to take \u2014 hence if a point brought up earlier then better.\n\n\n> Regarding the confusion about the plan outside of the glance team, it would help greatly with communication if someone could write a short (very very short) description of how the API will work without getting into all of the details of exactly what is in each header or part of the request or response, but explaining how the calls are different (the spec on this is long, convoluted, and difficult for someone who is not already an expert in glance to understand at this point). For example, \"The client will use the discovery API to find out which upload/import mechanisms are enabled in a cloud. Then they will use the response to call the appropriate API methods to perform the upload/import the image in one of the supported ways. For method X, they will call endpoint A, providing...\". Please send that to the mailing list where it is easier to have a discussion like this.\n\n\nI am okay with the writing the description but it\u2019s a really sad part that we are planning to have this discussion after the spec is approved and we are at more than 7 months since this spec was first published. This has been my really worry and hence the subsequent response. I keep getting worried about the bad publicity Glance team keeps getting (for something that\u2019s not our fault) and the headers discussion that should really have been on the spec. Besides, there are other teams that are not using glance properly and leaks exist in the system \u2014 no one is willing to look (research) that way of how disastrous our implementations exists based on bad/wrong assumptions. I had to self-assign a research task to gather facts around the same. It seems like people want to target Glance team and I really hope that is not true. How can I be sure?\n\nWe are however okay to write a wiki (heck even a spec) where the discussion could happen in a sane manner and there\u2019s no bad intent communicated. When we are marching forward as fast as we can to get things implemented for DefCore, I hate to have another series of long ML discussions \u2014 that\u2019s not the efficient way to communicate things (at least when there are elements who want to target Glance) as per past experience.\n\n\n> Regarding a default upload mechanism, we seem to be placing a lot of faith in security teams at different companies who all have different opinions about how uploading should work to be \"safe\". Rather than choosing upstream, where we don't really care as long as the feature is supported, I suggest that we just write the tests to require that one of the several mechanisms is available for uploading an image from outside of the cloud. We can have a separate test for each mechanism that \"skips\" if the mechanism is not actually enabled, unless *no* mechanism is enabled in which case it should fail. If the mechanism to be tested is enabled, the test will only be handling one case so it can be written clearly without a bunch of branching. If the tests for direct, swift, and copy-from all also test that *some* mechanism is enabled then we'll be able to ensure that all clouds provide the feature in some way without dictating what that is. The DefCore team can then figure out how to specify \"one of these N tests must pass\" (maybe they already have a way to do that, I don't know).\n\nI think that sounds fair and again I echo that sentiment. It\u2019s a pain that there are many influencers in this effort who are not always coordinated. I have been on the same opinion that we need to pass at least one test for a particular import mechanism and if that passes then the interop branding can be given.\n\nAgain, I really want to have the most efficient communication where we are not repeating the same arguments again and that we are considering all elements of the OpenStack mission statement when implementing something ( https://governance.openstack.org/resolutions/20160106-mission-amendment.html?highlight=mission ).\n\nI have made the mid-cycle very early in the cycle, sent out the email to ML early too, am pushing Glancers to attend the same as far as possible (even if remotely) discuss Import. I\u2019ve come up with priorities that are not conflicting (not technically controvertial) with each other and enables different Glancers to keep themselves busy with just the right things (focus). I am encouraging other mediums of communication when appropriate and needed, expressing the intent where needed and very strongly encouraging for people to focus on MVP. I am keeping an eye on Glance ML emails and making sure we do not step ahead or step back of ourselves. \n\nLet me know how else I can be of assistance when it comes to communicating the right things. I am happy to do that as long as it helps us being \u201cunstuck\u201d.\n\nDanke!",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "8dce51eb0d4b6b41f81d4bd0116b64cecf7fc777",
+            "author": {
+                "_account_id": 2472,
+                "name": "Doug Hellmann",
+                "email": "dhellmann@redhat.com",
+                "username": "doug-hellmann"
+            },
+            "real_author": {
+                "_account_id": 2472,
+                "name": "Doug Hellmann",
+                "email": "dhellmann@redhat.com",
+                "username": "doug-hellmann"
+            },
+            "date": "2016-05-16 17:29:06.000000000",
+            "message": "Patch Set 10:\n\n@Nikhil, I've cut quite a bit of your response. It seems I've given you the impression that I'm attacking you personally, or the Glance core team. That was not my intent, and I'm sorry for phrasing things in a way that made it seem otherwise. I know the team has been working hard on this. Although I didn't participate in all of the discussions on the spec or at the summit, I have been trying to keep up at least enough to know that the problem was still being worked on.\n\n > @Doug:\n > \n > Thanks a ton for your clear cut reply! I appreciate the approach.\n > \n > \n > I echo your sentiment 100% and that is also exactly what I mean to\n > say, in all that I am saying. We need to get things done ASAP and\n > we can\u2019t halt small patches just because they have TODOs on them.\n > We need to understand why those exists say something planned ahead\n > and ping people on irc so see why so \u2014 being super efficient in\n > communication. Why I say that? Please see my elaborate response\n > inline.\n\nI think this process would go a lot more smoothly if folks wrote about their plans more clearly using fewer words. A simple comment in this patch saying something like \"we'll be adding supported methods to this list explicitly as we implement them inside glance\" would address the TODO question.\n\n > The very fact that you are saying that Glance team does not have\n > this in hand is what is really disappointing. The entire purpose of\n\nThe last time I looked at this work the scope was limited to fixing the API on top of the existing mechanisms for getting images into glance. That grew a bit with the pull API, but as I said that's fine. All of the background stuff about processing images based on the task API implementation feels a bit like overkill for an initial version, but assuming it's reusing the existing implementation it should also be fine. So what seems to not be \"in hand\" is the part where you communicate the plan clearly to all of the folks outside of the glance core team who have an interest in the outcome, and to ensure that the API is generally suitable for the new requirements that led to creating it. Has someone done that review?\n\n > my response was to indicate that we know what we are doing and\n > there\u2019s good reference provided in there to indicate that. If\n > anything, I think anyone who is not involved in Glance on regular\n > basis need to make an informed review, decisions, communication\n > when they want to hold back something. Please (I request you\n > please) do not blame this on Glance. I think we\u2019ve had a fair share\n > of bad publicity and to be fair none of that is our fault. All the\n > development has been done publicly, all the API changes proposed as\n > summit sessions and people have been provided an opportunity to\n > provide feedback. It is really unfortunate that people have a\n > strong say on how things should work post something is implemented\n > or when it has been discussed on the spec and implementation is in\n > progress.\n\nWe are all trying to help build a robust solution that meets all of the requirements. If folks have concerns about the suitability of the proposed API, and whether it is going to meet the DefCore needs that triggered this work in the beginning, having that feedback now is better than after code is in glance. Even if it seems late because of the length of time the glance team has been discussing the issue, not everyone was involved in those team discussions.\n\n > just to let you know I have been pushing for this to be done as a\n > MVP  (something viable for DefCore) since Mitaka (just prior to\n > elections, after elections & before summit, after the summit and\n > now when I have a fair idea of how we are going to more forward on\n > this.) Brian Rosmaita (as per his nod last week) and I are going to\n > see this through (or I myself will see this through in Newton).  I\n\nI'm glad to know it is a high priority for several members of the team to make progress on this work. \n\n > In my defense, I had asked if we need to discuss this as a work\n > session at the summit but the majority wins and it did not make it.\n > Though I had asked people to join us for this discussion during the\n > summit in the contributors\u2019 meet up where the team was preferring\n > to discuss this. Also, I have pushed back the mid-cycle to June\n > 15-17 (quite early in the cycle) just to make sure we are on the\n > right track to get this done. Also, I am proposing for us to have\n > more efficient channels of communication as I am really tired of\n > the long discussions happening time after time, late, very very\n > late. So, no offense to anyone it\u2019s not me who is blocking the\n > progress.\n\nThis is a big change. You should expect lots of discussion. I'm not really any happier than you are that further discussion will mean further delays, but if we end up with an API that doesn't do what we need then rushing to finish it won't really have saved us any time.\n\n > \n > Having said that, I think the end goal of any proposal should be\n > that we have a successful cloud running OpenStack. When people vet\n > their opinions that certain use cases are essential for them then I\n > think it becomes important for us to consider them given\n > OpenStack\u2019s mission statement is also about building massively\n > scalable clouds https://governance.openstack.org/resolutions/20160106-mission-amendment.html?highlight=mission\n > .\n > \n > Having a trivial implementation is no way to move forward to\n > support that case. Popularity of the use of the API is one aspect\n > of implementing something, technically excellent is another end of\n > the spectrum. We need to be empathetic about both the kind of APIs.\n\nI'm not sure where you got \"trivial\" from. What I have been anticipating is a new API that sits in front of a bunch of existing features of Glance for which the API is either exposed poorly or not at all. Because I'm not intimately familiar with the existing glance code and feature set, I can't tell if that's what's being built, though, or if there are a bunch of new features being added in at the same time.\n\n > I attempted my best to give a quick yet holistic response to how we\n > need to move forward supporting both our needs going forward. It\n > has been my experience that people are unwilling to budge after\n > saying that is was discussed and we won\u2019t support it. So, the\n > copy-from case becomes important to be brought up now and people\n > know that it is a possibility (yes only a possibility of the future\n > but not (anything less than possibility) say probability).\n\nPerhaps if there was some sort of documentation for the implementation phases that would help everyone.\n\n > I am not encouraging the copy-from case to be implemented before/in\n > parallel to the DefCore capabilities. You can see in the spec that\n > I have not asked for it as a part of the first Import Refactor\n > implementation (as we can understand that it\u2019s about DefCore) the\n\nThe spec at http://specs.openstack.org/openstack/glance-specs/specs/mitaka/approved/image-import/image-import-refactor.html only mentions copy-from in passing. Is it in another spec somewhere else?\n\n > We are however okay to write a wiki (heck even a spec) where the\n > discussion could happen in a sane manner and there\u2019s no bad intent\n > communicated. When we are marching forward as fast as we can to get\n > things implemented for DefCore, I hate to have another series of\n > long ML discussions \u2014 that\u2019s not the efficient way to communicate\n > things (at least when there are elements who want to target Glance)\n > as per past experience.\n\nLike it or not, the mailing list is our most effective asynchronous discussion forum.",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "0644395ebd6155a302ad71ef6d2aafe2121767c2",
+            "author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "real_author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "date": "2016-05-17 05:11:53.000000000",
+            "message": "Patch Set 10:\n\n@Doug:\n\n\n\n\n\n> It seems I've given you the impression that I'm attacking you personally, or the Glance core team. That was not my intent, and I'm sorry for phrasing things in a way that made it seem otherwise. I know the team has been working hard on this. Although I didn't participate in all of the discussions on the spec or at the summit, I have been trying to keep up at least enough to know that the problem was still being worked on.\n\n\n\n\n\n\nI wasn\u2019t referring to any specific individual attacking the Glance team. It has been our experience that any thread on ML results into a diversion that doesn\u2019t give us the fruitful response required for us to move forward and it creates bad press for Glance. The team overall is unhappy with this and I\u2019ve been given this feedback at the summit. Again, I do intend to say that you or any one specific is targeting us, but there are elements on the ML that results into such situation.\n\n\n\n\n\n\n> I think this process would go a lot more smoothly if folks wrote about their plans more clearly using fewer words. A simple comment in this patch saying something like \"we'll be adding supported methods to this list explicitly as we implement them inside glance\" would address the TODO question.\n\n\n\n\n\n\nSurely, we will work on the documentation more. To be frank, the spec is the most convenient document and we were hoping for it to be something worth referring to or for asking questions if there are doubt on specific elements of it. But we take your feedback that we need to simplify further and I think that can be done. However, at the end of the day we work with people and the most accurate understanding can only come by talking to people.\n\n\n\n\n\n\n\n> The last time I looked at this work the scope was limited to fixing the API on top of the existing mechanisms for getting images into glance. That grew a bit with the pull API, but as I said that's fine. All of the background stuff about processing images based on the task API implementation feels a bit like overkill for an initial version, but assuming it's reusing the existing implementation it should also be fine. So what seems to not be \"in hand\" is the part where you communicate the plan clearly to all of the folks outside of the glance core team who have an interest in the outcome, and to ensure that the API is generally suitable for the new requirements that led to creating it. Has someone done that review?\n\n\n\n\n\n\n\nI do not think we are working on anything that involves task API at the moment. The end user facing API is pretty clean as you can see from the spec, there is no magic and it clearly states all the calls that need to be made to successfully import an image including the request body, response and the schema changes. So, the way Glance team think is that the spec clearly explains the approach we are taking with the API. We are hoping that people will read the spec and ask questions on the spec if something isn\u2019t clear or needs to be added before jumping to conclusions (something I hope isn\u2019t happening). I really want all those who are worried about this API to be involved in the syncs, and we will use non-glance language to ensure people can collaborate easily. We have made good attempts of keeping the community open friendly and easy to talk to but despite that we see delays in the involvement and apprehension to contribute early on.\n\n\n\n\n\n\n\n> We are all trying to help build a robust solution that meets all of the requirements. If folks have concerns about the suitability of the proposed API, and whether it is going to meet the DefCore needs that triggered this work in the beginning, having that feedback now is better than after code is in glance. Even if it seems late because of the length of time the glance team has been discussing the issue, not everyone was involved in those team discussions.\n\n\n\n\n\n\nI think it\u2019s a bad assumption that what Glance team is discussing is significantly different from what DefCore requirements are. We all are trying to develop something that is going to play well with all concerned without making it interop hostile. So, I do welcome everyone in the discussions and the Glance only discussions can be done separately so that we are not wasting people\u2019s time.\n\n\n\n\n\n> I'm glad to know it is a high priority for several members of the team to make progress on this work. \n\n\n\n\n\nThank you.\n\n\n\n\n\n> This is a big change. You should expect lots of discussion. I'm not really any happier than you are that further discussion will mean further delays, but if we end up with an API that doesn't do what we need then rushing to finish it won't really have saved us any time.\n\n\n\n\n\n\nI agree and it\u2019s good to have further discussions. But I\u2019m trying to make sure that we do not repeat the same arguments. You can only imagine the disappointment from Glance team if argue the same things over and over again.\n\n\n\n\n\n\n\n> I'm not sure where you got \"trivial\" from. What I have been anticipating is a new API that sits in front of a bunch of existing features of Glance for which the API is either exposed poorly or not at all. Because I'm not intimately familiar with the existing glance code and feature set, I can't tell if that's what's being built, though, or if there are a bunch of new features being added in at the same time.\n\n\n\n\n\nI think that\u2019s my bad \u2014 a poor choice of words when saying \u201ctrivial\u201d. The streaming part of the call or putting data directly onto the glance node is something that\u2019s not massively scalable. So, let\u2019s scratch that off for now as it\u2019s a implementation detail that I inadvertently mentioned. I think the spec is a good source of truth on what we are planning to build and if someone points out that what we are doing is not in the spec, that will be more than helpful feedback. We are working hard on updating the spec as we get feedback \u2014 you can imaging that\u2019s only natural with the kind & length of change this is.\n\n\n\n\n\n\n> Perhaps if there was some sort of documentation for the implementation phases that would help everyone.\n\n\n\n\n\nThanks for that feedback, it is helpful to prioritize it. It becomes relevant when people ask for it \u2014 you can see that Glance team is short on the head count on the number of people fully involved in this spec/work so we are optimally working on the most required changes. We are, however, looking for and very appreciative of the constructive feedback given. So, a very special thank you.\n\n\n\n\n \n> The spec at http://specs.openstack.org/openstack/glance-specs/specs/mitaka/approved/image-import/image-import-refactor.html only mentions copy-from in passing. Is it in another spec somewhere else?\n\n\n\n\n\nI guess we could add more info. Like I said, the Glance team wants to be precise on the initial phase of the implementation. I guess we could add more information on the possible future changes \u2014 something team wanted to avoid specifically as it would create confusion. Unfortunately, missing info has created confusion!\n\n\n\n\n\n> Like it or not, the mailing list is our most effective asynchronous discussion forum.\n\n\n\n\n\nI do like ML when they make sense. As you can see that people are not afraid to troll on the lists and make irrelevant points that lead to a very disruptive behavior and delay in making changes \u2014 even it affects the ability to fully resolve a particular issue. If you think, it is still a good idea, I am willing to put faith in your words.",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "2983f34342a9d4bbf77dd5a38789802e252b6761",
+            "author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "real_author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "date": "2016-05-19 12:46:42.000000000",
+            "message": "Patch Set 10:\n\nFollowing up on a suggestion from Doug, I've put together a quick Image Import FAQ to give people a quick entry point into the spec to make it easy to understand the overall design so that people can make more informed comments about how particular implementation pieces, such as this very patch we're commenting on, fit into the total scheme.\n\nImage Import FAQ patch: https://review.openstack.org/#/c/318313/",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "10f33e43f0a5139b3a72c79cbb56809f4b6fb20b",
+            "author": {
+                "_account_id": 970,
+                "name": "Dean Troyer",
+                "email": "dtroyer@gmail.com",
+                "username": "dtroyer"
+            },
+            "real_author": {
+                "_account_id": 970,
+                "name": "Dean Troyer",
+                "email": "dtroyer@gmail.com",
+                "username": "dtroyer"
+            },
+            "date": "2016-05-21 14:23:52.000000000",
+            "message": "Patch Set 10:\n\n(1 comment)",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "ec78fe12e5340c63ad6dc9cbe6118df2dcea818c",
+            "author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "real_author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "date": "2016-07-14 01:34:58.000000000",
+            "message": "Patch Set 10: -Code-Review",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "b891b9acd150680fa4ebb09b9da4cc036a05dec7",
+            "author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "real_author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "date": "2016-08-04 01:43:35.000000000",
+            "message": "Patch Set 10: Code-Review-1\n\n(2 comments)",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "09babd220a54fe69dbe362ef20c413528aabe3c3",
+            "author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "real_author": {
+                "_account_id": 5314,
+                "name": "Brian Rosmaita",
+                "email": "rosmaita.fossdev@gmail.com",
+                "username": "brian-rosmaita"
+            },
+            "date": "2016-08-05 19:44:56.000000000",
+            "message": "Patch Set 10:\n\n(1 comment)\n\nResponse/question for Nikhil inline.",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "806efdfda4b200be4cbae888f8d850c43672b1db",
+            "author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "real_author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "date": "2016-08-05 20:22:23.000000000",
+            "message": "Patch Set 10:\n\n(1 comment)\n\nThanks for the comments/questions Brian.\n\nI added response inline.",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "4b040ca3862924bb55904857145beaf6db67230d",
+            "author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "real_author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "date": "2016-08-05 20:38:26.000000000",
+            "message": "Patch Set 10:\n\n(5 comments)",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "2ebf80e1c5640eed08b96cd5b416ff603195d659",
+            "author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "real_author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "date": "2016-08-15 19:15:36.000000000",
+            "message": "Topic changed from bug/1523944 to import-refactor-newton",
+            "accounts_in_message": [],
+            "_revision_number": 10
+        },
+        {
+            "id": "84d731fac079e3b42fb1bcf1ebd7912b79f5617d",
+            "author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "real_author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "date": "2016-08-23 05:39:10.000000000",
+            "message": "Uploaded patch set 11.",
+            "accounts_in_message": [],
+            "_revision_number": 11
+        },
+        {
+            "id": "eb846d5980453e9d1755bdbd3aa64f3a87cbddfd",
+            "author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "real_author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "date": "2016-08-23 05:40:05.000000000",
+            "message": "Uploaded patch set 12.",
+            "accounts_in_message": [],
+            "_revision_number": 12
+        },
+        {
+            "id": "682502889f3d310d16a97008470f0954f6fde1b2",
+            "author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "real_author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "date": "2016-08-23 05:41:57.000000000",
+            "message": "Topic changed from bug/1523944 to import-refactor-newton)",
+            "accounts_in_message": [],
+            "_revision_number": 12
+        },
+        {
+            "id": "26c90ea570fbeeb58868a01eeddc86a981b2f68a",
+            "author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "real_author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "date": "2016-08-23 05:42:08.000000000",
+            "message": "Topic changed from import-refactor-newton) to import-refactor-newton",
+            "accounts_in_message": [],
+            "_revision_number": 12
+        },
+        {
+            "id": "4bc3fcdd4f97773434c938b08bf38a7da98272f2",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2016-08-23 06:36:58.000000000",
+            "message": "Patch Set 12: Verified-1\n\nBuild failed (check pipeline).  For information on how to proceed, see http://docs.openstack.org/infra/manual/developers.html#automated-testing\n\n- gate-glance-python34-db http://logs.openstack.org/80/270980/12/check/gate-glance-python34-db/84921e2/ : FAILURE in 4m 08s\n- gate-glance-python35-db-nv http://logs.openstack.org/80/270980/12/check/gate-glance-python35-db-nv/915e4f5/ : FAILURE in 8m 19s (non-voting)\n- gate-glance-docs-ubuntu-xenial http://docs-draft.openstack.org/80/270980/12/check/gate-glance-docs-ubuntu-xenial/7333c66//doc/build/html/ : SUCCESS in 6m 51s\n- gate-glance-pep8-ubuntu-xenial http://logs.openstack.org/80/270980/12/check/gate-glance-pep8-ubuntu-xenial/cb0dd8f/ : FAILURE in 2m 39s\n- gate-glance-python27-db-ubuntu-xenial http://logs.openstack.org/80/270980/12/check/gate-glance-python27-db-ubuntu-xenial/4261b25/ : FAILURE in 5m 55s\n- gate-grenade-dsvm-neutron-ubuntu-trusty http://logs.openstack.org/80/270980/12/check/gate-grenade-dsvm-neutron-ubuntu-trusty/70f5ea1/ : FAILURE in 53m 06s\n- gate-tempest-dsvm-neutron-full-ubuntu-xenial http://logs.openstack.org/80/270980/12/check/gate-tempest-dsvm-neutron-full-ubuntu-xenial/2553c5a/ : FAILURE in 18m 13s\n- gate-tempest-dsvm-full-devstack-plugin-ceph http://logs.openstack.org/80/270980/12/check/gate-tempest-dsvm-full-devstack-plugin-ceph/595326d/ : FAILURE in 23m 59s\n- gate-tempest-dsvm-neutron-identity-v3-only-full-nv http://logs.openstack.org/80/270980/12/check/gate-tempest-dsvm-neutron-identity-v3-only-full-nv/b58dd64/ : FAILURE in 23m 38s (non-voting)\n- gate-rally-dsvm-glance http://logs.openstack.org/80/270980/12/check/gate-rally-dsvm-glance/2b01b0e/ : FAILURE in 24m 38s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 12
+        },
+        {
+            "id": "781a57141b77034d5b3330e492b0a7cc2b3efc56",
+            "author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "real_author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "date": "2016-08-23 16:53:12.000000000",
+            "message": "Patch Set 12: Workflow-1",
+            "accounts_in_message": [],
+            "_revision_number": 12
+        },
+        {
+            "id": "59eecaa14d902299dadb54e1a9b859aa86e3ec70",
+            "author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "real_author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "date": "2016-08-23 18:50:58.000000000",
+            "message": "Uploaded patch set 13.",
+            "accounts_in_message": [],
+            "_revision_number": 13
+        },
+        {
+            "id": "73c538208c1d612924a25e133150df058814e0cf",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2016-08-23 21:50:31.000000000",
+            "message": "Patch Set 13: Verified+1\n\nBuild succeeded (check pipeline).\n\n- gate-glance-python34-db http://logs.openstack.org/80/270980/13/check/gate-glance-python34-db/65335ab/ : SUCCESS in 7m 21s\n- gate-glance-python35-db-nv http://logs.openstack.org/80/270980/13/check/gate-glance-python35-db-nv/0ab4003/ : FAILURE in 42m 48s (non-voting)\n- gate-glance-docs-ubuntu-xenial http://docs-draft.openstack.org/80/270980/13/check/gate-glance-docs-ubuntu-xenial/fe97fc2//doc/build/html/ : SUCCESS in 5m 18s\n- gate-glance-pep8-ubuntu-xenial http://logs.openstack.org/80/270980/13/check/gate-glance-pep8-ubuntu-xenial/35ce6fb/ : SUCCESS in 6m 03s\n- gate-glance-python27-db-ubuntu-xenial http://logs.openstack.org/80/270980/13/check/gate-glance-python27-db-ubuntu-xenial/34efeba/ : SUCCESS in 9m 43s\n- gate-grenade-dsvm-neutron-ubuntu-trusty http://logs.openstack.org/80/270980/13/check/gate-grenade-dsvm-neutron-ubuntu-trusty/0504491/ : SUCCESS in 1h 05m 27s\n- gate-tempest-dsvm-neutron-full-ubuntu-xenial http://logs.openstack.org/80/270980/13/check/gate-tempest-dsvm-neutron-full-ubuntu-xenial/e69278c/ : SUCCESS in 1h 04m 57s\n- gate-tempest-dsvm-full-devstack-plugin-ceph http://logs.openstack.org/80/270980/13/check/gate-tempest-dsvm-full-devstack-plugin-ceph/7cd9270/ : SUCCESS in 55m 10s\n- gate-tempest-dsvm-neutron-identity-v3-only-full-nv http://logs.openstack.org/80/270980/13/check/gate-tempest-dsvm-neutron-identity-v3-only-full-nv/bb111d8/ : FAILURE in 41m 40s (non-voting)\n- gate-rally-dsvm-glance http://logs.openstack.org/80/270980/13/check/gate-rally-dsvm-glance/4addd05/ : SUCCESS in 53m 33s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 13
+        },
+        {
+            "id": "4ec5783a2f2d706f531527fd8306bec89c698b54",
+            "author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "real_author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "date": "2016-08-25 05:42:16.000000000",
+            "message": "Patch Set 13:\n\n(2 comments)",
+            "accounts_in_message": [],
+            "_revision_number": 13
+        },
+        {
+            "id": "619c494d08257461f54a95363f8d9e654e87f6aa",
+            "author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "real_author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "date": "2016-08-25 14:02:03.000000000",
+            "message": "Topic changed from bug/1523944 to import-refactor-newton",
+            "accounts_in_message": [],
+            "_revision_number": 13
+        },
+        {
+            "id": "9995d5e2aae501030a299922ad8a27e6592a0541",
+            "author": {
+                "_account_id": 22448,
+                "name": "Alexander Bashmakov",
+                "email": "abashmak@yahoo.com",
+                "username": "abashmak"
+            },
+            "real_author": {
+                "_account_id": 22448,
+                "name": "Alexander Bashmakov",
+                "email": "abashmak@yahoo.com",
+                "username": "abashmak"
+            },
+            "date": "2016-08-25 17:54:11.000000000",
+            "message": "Patch Set 13: Code-Review-1\n\n(5 comments)",
+            "accounts_in_message": [],
+            "_revision_number": 13
+        },
+        {
+            "id": "7a3df02b2f703b5fbe0c55c2c7cb83e0b4a12457",
+            "author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "real_author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "date": "2017-02-24 15:53:26.000000000",
+            "message": "Topic changed from import-refactor-newton to import-refactor",
+            "accounts_in_message": [],
+            "_revision_number": 13
+        },
+        {
+            "id": "243adcfe54fb143e48c7f83a95c17e0cc025e743",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2017-07-19 16:16:48.000000000",
+            "message": "Patch Set 13: Verified-1\n\nMerge Failed.\n\nThis change or one of its cross-repo dependencies was unable to be automatically merged with the current state of its repository. Please rebase the change and upload a new patchset.",
+            "accounts_in_message": [],
+            "_revision_number": 13
+        },
+        {
+            "id": "2af02f2568f001163e6d8528ab23e303a3c50b7f",
+            "author": {
+                "_account_id": 5263,
+                "name": "Jeremy Stanley",
+                "display_name": "fungi",
+                "email": "fungi@yuggoth.org",
+                "username": "fungi",
+                "status": "missing, presumed fed"
+            },
+            "real_author": {
+                "_account_id": 5263,
+                "name": "Jeremy Stanley",
+                "display_name": "fungi",
+                "email": "fungi@yuggoth.org",
+                "username": "fungi",
+                "status": "missing, presumed fed"
+            },
+            "date": "2017-12-18 02:48:26.000000000",
+            "message": "Removed reviewer Jenkins with the following votes:\n\n* Verified-1 by Jenkins (3)\n",
+            "accounts_in_message": [],
+            "_revision_number": 13
+        },
+        {
+            "id": "c690c229434596723831854f0788d2300b75fa47",
+            "author": {
+                "_account_id": 8122,
+                "name": "Cyril Roelandt",
+                "email": "cyril@redhat.com",
+                "username": "cyril.roelandt.enovance"
+            },
+            "real_author": {
+                "_account_id": 8122,
+                "name": "Cyril Roelandt",
+                "email": "cyril@redhat.com",
+                "username": "cyril.roelandt.enovance"
+            },
+            "date": "2020-02-03 19:02:06.000000000",
+            "message": "Abandoned",
+            "accounts_in_message": [],
+            "_revision_number": 13
+        }
+    ],
+    "requirements": [],
+    "submit_records": []
+}

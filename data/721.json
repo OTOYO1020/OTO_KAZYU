@@ -1,0 +1,547 @@
+{
+    "id": "openstack%2Fglance~master~I975b2095980cfc56408fa76b47cf830cdd650ff2",
+    "project": "openstack/glance",
+    "branch": "master",
+    "hashtags": [],
+    "change_id": "I975b2095980cfc56408fa76b47cf830cdd650ff2",
+    "subject": "Extract image members into new Glance API controller",
+    "status": "MERGED",
+    "created": "2011-09-28 20:52:59.000000000",
+    "updated": "2011-09-29 20:28:05.000000000",
+    "submitted": "2011-09-29 20:28:04.000000000",
+    "submitter": {
+        "_account_id": 3,
+        "name": "Jenkins",
+        "username": "jenkins"
+    },
+    "insertions": 188,
+    "deletions": 161,
+    "total_comment_count": 0,
+    "unresolved_comment_count": 0,
+    "has_review_started": true,
+    "meta_rev_id": "fecbd6d4fbac077df903c5ee4304cf7e976e3e45",
+    "_number": 721,
+    "owner": {
+        "_account_id": 1132,
+        "name": "Brian Waldon",
+        "email": "brian@waldon.cc",
+        "username": "bcwaldon"
+    },
+    "labels": {
+        "Verified": {
+            "recommended": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 1132,
+                    "name": "Brian Waldon",
+                    "email": "brian@waldon.cc",
+                    "username": "bcwaldon"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 7,
+                    "name": "Jay Pipes",
+                    "email": "jaypipes@gmail.com",
+                    "username": "jaypipes"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 706,
+                    "name": "Brian Lamar",
+                    "email": "brian.lamar@rackspace.com",
+                    "username": "blamar"
+                },
+                {
+                    "value": 1,
+                    "date": "2011-09-29 20:28:04.000000000",
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-2": "Fails",
+                "-1": "Doesn't seem to work",
+                " 0": "No score",
+                "+1": "Works for me",
+                "+2": "Verified"
+            },
+            "description": "",
+            "value": 1,
+            "default_value": 0,
+            "optional": true
+        },
+        "Code-Review": {
+            "approved": {
+                "_account_id": 706,
+                "name": "Brian Lamar",
+                "email": "brian.lamar@rackspace.com",
+                "username": "blamar"
+            },
+            "recommended": {
+                "_account_id": 7,
+                "name": "Jay Pipes",
+                "email": "jaypipes@gmail.com",
+                "username": "jaypipes"
+            },
+            "all": [
+                {
+                    "value": 0,
+                    "date": "2011-09-29 16:00:51.000000000",
+                    "permitted_voting_range": {
+                        "min": 0,
+                        "max": 1
+                    },
+                    "_account_id": 1132,
+                    "name": "Brian Waldon",
+                    "email": "brian@waldon.cc",
+                    "username": "bcwaldon"
+                },
+                {
+                    "value": 1,
+                    "date": "2011-09-29 19:20:57.000000000",
+                    "permitted_voting_range": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "_account_id": 7,
+                    "name": "Jay Pipes",
+                    "email": "jaypipes@gmail.com",
+                    "username": "jaypipes"
+                },
+                {
+                    "value": 2,
+                    "date": "2011-09-29 20:26:26.000000000",
+                    "_account_id": 706,
+                    "name": "Brian Lamar",
+                    "email": "brian.lamar@rackspace.com",
+                    "username": "blamar"
+                },
+                {
+                    "value": 0,
+                    "date": "2011-09-29 20:26:30.000000000",
+                    "permitted_voting_range": {
+                        "min": 0,
+                        "max": 1
+                    },
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-2": "Do not merge",
+                "-1": "This patch needs further work before it can be merged",
+                " 0": "No score",
+                "+1": "Looks good to me, but someone else must approve",
+                "+2": "Looks good to me (core reviewer)"
+            },
+            "description": "",
+            "value": 1,
+            "default_value": 0,
+            "optional": true
+        },
+        "Workflow": {
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 1132,
+                    "name": "Brian Waldon",
+                    "email": "brian@waldon.cc",
+                    "username": "bcwaldon"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 7,
+                    "name": "Jay Pipes",
+                    "email": "jaypipes@gmail.com",
+                    "username": "jaypipes"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 706,
+                    "name": "Brian Lamar",
+                    "email": "brian.lamar@rackspace.com",
+                    "username": "blamar"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-1": "Work in progress",
+                " 0": "Ready for reviews",
+                "+1": "Approved"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        },
+        "Review-Priority": {
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 1132,
+                    "name": "Brian Waldon",
+                    "email": "brian@waldon.cc",
+                    "username": "bcwaldon"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 7,
+                    "name": "Jay Pipes",
+                    "email": "jaypipes@gmail.com",
+                    "username": "jaypipes"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 706,
+                    "name": "Brian Lamar",
+                    "email": "brian.lamar@rackspace.com",
+                    "username": "blamar"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-1": "Branch Freeze",
+                " 0": "No Priority",
+                "+1": "Important Change",
+                "+2": "Top Priority / Holds Gate"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        }
+    },
+    "removable_reviewers": [],
+    "reviewers": {
+        "REVIEWER": [
+            {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            {
+                "_account_id": 7,
+                "name": "Jay Pipes",
+                "email": "jaypipes@gmail.com",
+                "username": "jaypipes"
+            },
+            {
+                "_account_id": 706,
+                "name": "Brian Lamar",
+                "email": "brian.lamar@rackspace.com",
+                "username": "blamar"
+            },
+            {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            }
+        ]
+    },
+    "pending_reviewers": {},
+    "reviewer_updates": [
+        {
+            "updated": "2011-09-29 19:20:57.000000000",
+            "updated_by": {
+                "_account_id": 7,
+                "name": "Jay Pipes",
+                "email": "jaypipes@gmail.com",
+                "username": "jaypipes"
+            },
+            "reviewer": {
+                "_account_id": 7,
+                "name": "Jay Pipes",
+                "email": "jaypipes@gmail.com",
+                "username": "jaypipes"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2011-09-29 20:26:26.000000000",
+            "updated_by": {
+                "_account_id": 706,
+                "name": "Brian Lamar",
+                "email": "brian.lamar@rackspace.com",
+                "username": "blamar"
+            },
+            "reviewer": {
+                "_account_id": 706,
+                "name": "Brian Lamar",
+                "email": "brian.lamar@rackspace.com",
+                "username": "blamar"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2011-09-29 20:28:04.000000000",
+            "updated_by": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "reviewer": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "state": "REVIEWER"
+        }
+    ],
+    "messages": [
+        {
+            "id": "93386abd969e387b4dca80d488f8f13178616415",
+            "author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "real_author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "date": "2011-09-28 20:55:32.000000000",
+            "message": "Patch Set 1:\n\nThe change from httplib.CREATED to 201 in images.py was made in order to remove the httplib import. Using that library to provided an alias to 201 is unnecessary. The HTTP RFC isn't going to change any time soon.",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "c5d827b641c7f62cb126febdaeaa32a1a4dee611",
+            "author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "real_author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "date": "2011-09-28 21:05:41.000000000",
+            "message": "Uploaded patch set 2.",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "61d94795d47f618981b1e4e3ffed247a065361df",
+            "author": {
+                "_account_id": 706,
+                "name": "Brian Lamar",
+                "email": "brian.lamar@rackspace.com",
+                "username": "blamar"
+            },
+            "real_author": {
+                "_account_id": 706,
+                "name": "Brian Lamar",
+                "email": "brian.lamar@rackspace.com",
+                "username": "blamar"
+            },
+            "date": "2011-09-28 21:28:11.000000000",
+            "message": "Patch Set 1:\n\nGood start to some good re-factoring. Thanks!",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "012d6d463446925dc67c7e376276b099ecbace8e",
+            "author": {
+                "_account_id": 706,
+                "name": "Brian Lamar",
+                "email": "brian.lamar@rackspace.com",
+                "username": "blamar"
+            },
+            "real_author": {
+                "_account_id": 706,
+                "name": "Brian Lamar",
+                "email": "brian.lamar@rackspace.com",
+                "username": "blamar"
+            },
+            "date": "2011-09-28 21:28:20.000000000",
+            "message": "Patch Set 2: Looks good to me, but someone else must approve\n\n",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "7d2fefc3eea1c7a38fec49759cb5f7393d08a89d",
+            "author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "real_author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "date": "2011-09-29 15:59:19.000000000",
+            "message": "Uploaded patch set 3.",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "085bf57f5ba8656ad4f88ed2ea088143de6ae3f7",
+            "author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "real_author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "date": "2011-09-29 16:00:51.000000000",
+            "message": "Patch Set 3:\n\nRealized I dropped the / alias to /images. Added that back.",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "9335087783b631090c01e9601e9daf0f0f76cd9d",
+            "author": {
+                "_account_id": 7,
+                "name": "Jay Pipes",
+                "email": "jaypipes@gmail.com",
+                "username": "jaypipes"
+            },
+            "real_author": {
+                "_account_id": 7,
+                "name": "Jay Pipes",
+                "email": "jaypipes@gmail.com",
+                "username": "jaypipes"
+            },
+            "date": "2011-09-29 19:20:57.000000000",
+            "message": "Patch Set 3: Looks good to me, but someone else must approve\n\nAwesome.",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "bc5be129a4f657614859207d58ef55f53aea4fe5",
+            "author": {
+                "_account_id": 706,
+                "name": "Brian Lamar",
+                "email": "brian.lamar@rackspace.com",
+                "username": "blamar"
+            },
+            "real_author": {
+                "_account_id": 706,
+                "name": "Brian Lamar",
+                "email": "brian.lamar@rackspace.com",
+                "username": "blamar"
+            },
+            "date": "2011-09-29 20:26:26.000000000",
+            "message": "Patch Set 3: Looks good to me, approved\n\nTy for the webob.exc cleanup :)",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "2574f377af78cdfe7570df3dff3d7903a0d933db",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2011-09-29 20:26:30.000000000",
+            "message": "Patch Set 3:\n\nBuild Started https://jenkins.openstack.org/job/glance-merge/91/ (2/3)",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "2771ca155a4ef4b93eea2379da783f016cddf841",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2011-09-29 20:26:30.000000000",
+            "message": "Patch Set 3:\n\nBuild Started https://jenkins.openstack.org/job/glance-pep8/262/ (1/3)",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "f1f081c5f41b944b9850395d039a7bac4cc53f00",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2011-09-29 20:26:33.000000000",
+            "message": "Patch Set 3:\n\nBuild Started https://jenkins.openstack.org/job/glance/89257/ (3/3)",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "6fe344c582cb6deadacbac8ec089220a4c61fc72",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2011-09-29 20:28:04.000000000",
+            "message": "Patch Set 3: Verified\n\nBuild Successful \n \nhttps://jenkins.openstack.org/job/glance-merge/91/ : SUCCESS \nhttps://jenkins.openstack.org/job/glance-pep8/262/ : SUCCESS \nhttps://jenkins.openstack.org/job/glance/89257/ : SUCCESS",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "fecbd6d4fbac077df903c5ee4304cf7e976e3e45",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2011-09-29 20:28:05.000000000",
+            "message": "Change has been successfully merged into the git repository.",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        }
+    ],
+    "requirements": [],
+    "submit_records": []
+}

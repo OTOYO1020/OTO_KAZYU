@@ -1,0 +1,972 @@
+{
+    "id": "openstack%2Fglance~master~I5e9f3ba8298e50345ab4983db96a3f0ce90cab80",
+    "project": "openstack/glance",
+    "branch": "master",
+    "topic": "refactor_pagination",
+    "hashtags": [],
+    "change_id": "I5e9f3ba8298e50345ab4983db96a3f0ce90cab80",
+    "subject": "Create sorting/pagination helper function",
+    "status": "MERGED",
+    "created": "2012-02-15 18:07:28.000000000",
+    "updated": "2012-02-22 18:22:08.000000000",
+    "submitted": "2012-02-22 18:21:20.000000000",
+    "submitter": {
+        "_account_id": 3,
+        "name": "Jenkins",
+        "username": "jenkins"
+    },
+    "insertions": 111,
+    "deletions": 62,
+    "total_comment_count": 13,
+    "unresolved_comment_count": 0,
+    "has_review_started": true,
+    "meta_rev_id": "64e6f71224bfea25cf74aa9a45712e7eb02340d4",
+    "_number": 4206,
+    "owner": {
+        "_account_id": 144,
+        "name": "justinsb",
+        "email": "justin@fathomdb.com",
+        "username": "justin-fathomdb"
+    },
+    "labels": {
+        "Verified": {
+            "recommended": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 1132,
+                    "name": "Brian Waldon",
+                    "email": "brian@waldon.cc",
+                    "username": "bcwaldon"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 2284,
+                    "name": "Eoghan Glynn",
+                    "email": "eglynn@redhat.com",
+                    "username": "eglynn"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 1994,
+                    "name": "Zhongyue Luo",
+                    "email": "zhongyue.luo@gmail.com",
+                    "username": "zyluo"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 475,
+                    "name": "Rick Harris",
+                    "email": "rick.harris@rackspace.com",
+                    "username": "rconradharris"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 2166,
+                    "name": "SmokeStack CI",
+                    "username": "smokestack",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 0,
+                    "_account_id": 7,
+                    "name": "Jay Pipes",
+                    "email": "jaypipes@gmail.com",
+                    "username": "jaypipes"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 144,
+                    "name": "justinsb",
+                    "email": "justin@fathomdb.com",
+                    "username": "justin-fathomdb"
+                },
+                {
+                    "value": 1,
+                    "date": "2012-02-22 18:21:20.000000000",
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-2": "Fails",
+                "-1": "Doesn't seem to work",
+                " 0": "No score",
+                "+1": "Works for me",
+                "+2": "Verified"
+            },
+            "description": "",
+            "value": 1,
+            "default_value": 0,
+            "optional": true
+        },
+        "Code-Review": {
+            "approved": {
+                "_account_id": 7,
+                "name": "Jay Pipes",
+                "email": "jaypipes@gmail.com",
+                "username": "jaypipes"
+            },
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 1132,
+                    "name": "Brian Waldon",
+                    "email": "brian@waldon.cc",
+                    "username": "bcwaldon"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 2284,
+                    "name": "Eoghan Glynn",
+                    "email": "eglynn@redhat.com",
+                    "username": "eglynn"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 1994,
+                    "name": "Zhongyue Luo",
+                    "email": "zhongyue.luo@gmail.com",
+                    "username": "zyluo"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 475,
+                    "name": "Rick Harris",
+                    "email": "rick.harris@rackspace.com",
+                    "username": "rconradharris"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 2166,
+                    "name": "SmokeStack CI",
+                    "username": "smokestack",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 2,
+                    "date": "2012-02-22 18:12:42.000000000",
+                    "_account_id": 7,
+                    "name": "Jay Pipes",
+                    "email": "jaypipes@gmail.com",
+                    "username": "jaypipes"
+                },
+                {
+                    "value": 0,
+                    "date": "2012-02-22 18:08:32.000000000",
+                    "permitted_voting_range": {
+                        "min": 0,
+                        "max": 1
+                    },
+                    "_account_id": 144,
+                    "name": "justinsb",
+                    "email": "justin@fathomdb.com",
+                    "username": "justin-fathomdb"
+                },
+                {
+                    "value": 0,
+                    "date": "2012-02-22 18:21:20.000000000",
+                    "permitted_voting_range": {
+                        "min": 0,
+                        "max": 1
+                    },
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-2": "Do not merge",
+                "-1": "This patch needs further work before it can be merged",
+                " 0": "No score",
+                "+1": "Looks good to me, but someone else must approve",
+                "+2": "Looks good to me (core reviewer)"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        },
+        "Workflow": {
+            "approved": {
+                "_account_id": 7,
+                "name": "Jay Pipes",
+                "email": "jaypipes@gmail.com",
+                "username": "jaypipes"
+            },
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 1132,
+                    "name": "Brian Waldon",
+                    "email": "brian@waldon.cc",
+                    "username": "bcwaldon"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 2284,
+                    "name": "Eoghan Glynn",
+                    "email": "eglynn@redhat.com",
+                    "username": "eglynn"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 1994,
+                    "name": "Zhongyue Luo",
+                    "email": "zhongyue.luo@gmail.com",
+                    "username": "zyluo"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 475,
+                    "name": "Rick Harris",
+                    "email": "rick.harris@rackspace.com",
+                    "username": "rconradharris"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 2166,
+                    "name": "SmokeStack CI",
+                    "username": "smokestack",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 1,
+                    "date": "2012-02-22 18:12:42.000000000",
+                    "_account_id": 7,
+                    "name": "Jay Pipes",
+                    "email": "jaypipes@gmail.com",
+                    "username": "jaypipes"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 144,
+                    "name": "justinsb",
+                    "email": "justin@fathomdb.com",
+                    "username": "justin-fathomdb"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-1": "Work in progress",
+                " 0": "Ready for reviews",
+                "+1": "Approved"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        },
+        "Review-Priority": {
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 1132,
+                    "name": "Brian Waldon",
+                    "email": "brian@waldon.cc",
+                    "username": "bcwaldon"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 2284,
+                    "name": "Eoghan Glynn",
+                    "email": "eglynn@redhat.com",
+                    "username": "eglynn"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 1994,
+                    "name": "Zhongyue Luo",
+                    "email": "zhongyue.luo@gmail.com",
+                    "username": "zyluo"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 475,
+                    "name": "Rick Harris",
+                    "email": "rick.harris@rackspace.com",
+                    "username": "rconradharris"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 2166,
+                    "name": "SmokeStack CI",
+                    "username": "smokestack",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 0,
+                    "_account_id": 7,
+                    "name": "Jay Pipes",
+                    "email": "jaypipes@gmail.com",
+                    "username": "jaypipes"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 144,
+                    "name": "justinsb",
+                    "email": "justin@fathomdb.com",
+                    "username": "justin-fathomdb"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                }
+            ],
+            "values": {
+                "-1": "Branch Freeze",
+                " 0": "No Priority",
+                "+1": "Important Change",
+                "+2": "Top Priority / Holds Gate"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        }
+    },
+    "removable_reviewers": [],
+    "reviewers": {
+        "REVIEWER": [
+            {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            {
+                "_account_id": 7,
+                "name": "Jay Pipes",
+                "email": "jaypipes@gmail.com",
+                "username": "jaypipes"
+            },
+            {
+                "_account_id": 144,
+                "name": "justinsb",
+                "email": "justin@fathomdb.com",
+                "username": "justin-fathomdb"
+            },
+            {
+                "_account_id": 475,
+                "name": "Rick Harris",
+                "email": "rick.harris@rackspace.com",
+                "username": "rconradharris"
+            },
+            {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            {
+                "_account_id": 1994,
+                "name": "Zhongyue Luo",
+                "email": "zhongyue.luo@gmail.com",
+                "username": "zyluo"
+            },
+            {
+                "_account_id": 2166,
+                "name": "SmokeStack CI",
+                "username": "smokestack",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            {
+                "_account_id": 2284,
+                "name": "Eoghan Glynn",
+                "email": "eglynn@redhat.com",
+                "username": "eglynn"
+            }
+        ]
+    },
+    "pending_reviewers": {},
+    "reviewer_updates": [
+        {
+            "updated": "2012-02-16 23:22:50.000000000",
+            "updated_by": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "reviewer": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2012-02-17 09:19:16.000000000",
+            "updated_by": {
+                "_account_id": 2284,
+                "name": "Eoghan Glynn",
+                "email": "eglynn@redhat.com",
+                "username": "eglynn"
+            },
+            "reviewer": {
+                "_account_id": 2284,
+                "name": "Eoghan Glynn",
+                "email": "eglynn@redhat.com",
+                "username": "eglynn"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2012-02-18 23:26:54.000000000",
+            "updated_by": {
+                "_account_id": 1994,
+                "name": "Zhongyue Luo",
+                "email": "zhongyue.luo@gmail.com",
+                "username": "zyluo"
+            },
+            "reviewer": {
+                "_account_id": 1994,
+                "name": "Zhongyue Luo",
+                "email": "zhongyue.luo@gmail.com",
+                "username": "zyluo"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2012-02-21 22:23:30.000000000",
+            "updated_by": {
+                "_account_id": 475,
+                "name": "Rick Harris",
+                "email": "rick.harris@rackspace.com",
+                "username": "rconradharris"
+            },
+            "reviewer": {
+                "_account_id": 475,
+                "name": "Rick Harris",
+                "email": "rick.harris@rackspace.com",
+                "username": "rconradharris"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2012-02-22 02:28:12.000000000",
+            "updated_by": {
+                "_account_id": 2166,
+                "name": "SmokeStack CI",
+                "username": "smokestack",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "reviewer": {
+                "_account_id": 2166,
+                "name": "SmokeStack CI",
+                "username": "smokestack",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2012-02-22 18:12:42.000000000",
+            "updated_by": {
+                "_account_id": 7,
+                "name": "Jay Pipes",
+                "email": "jaypipes@gmail.com",
+                "username": "jaypipes"
+            },
+            "reviewer": {
+                "_account_id": 7,
+                "name": "Jay Pipes",
+                "email": "jaypipes@gmail.com",
+                "username": "jaypipes"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2012-02-22 18:21:20.000000000",
+            "updated_by": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "reviewer": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "state": "REVIEWER"
+        }
+    ],
+    "messages": [
+        {
+            "id": "1e1e2bdc54469e5278efad2b46819470158f3db7",
+            "author": {
+                "_account_id": 144,
+                "name": "justinsb",
+                "email": "justin@fathomdb.com",
+                "username": "justin-fathomdb"
+            },
+            "real_author": {
+                "_account_id": 144,
+                "name": "justinsb",
+                "email": "justin@fathomdb.com",
+                "username": "justin-fathomdb"
+            },
+            "date": "2012-02-15 18:10:51.000000000",
+            "message": "Uploaded patch set 2.",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "8bb3bb4c049475713cd3c371aa4575cbb15df181",
+            "author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "real_author": {
+                "_account_id": 1132,
+                "name": "Brian Waldon",
+                "email": "brian@waldon.cc",
+                "username": "bcwaldon"
+            },
+            "date": "2012-02-16 23:22:50.000000000",
+            "message": "Patch Set 2: Looks good to me (core reviewer)\n\nThis is great, Justin. This abstraction is awesome. For others interested, I did functionally test this and it works like a charm!",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "ccbfcf8d53218b1008e0b3d692de8f42287bd1a5",
+            "author": {
+                "_account_id": 475,
+                "name": "Rick Harris",
+                "email": "rick.harris@rackspace.com",
+                "username": "rconradharris"
+            },
+            "real_author": {
+                "_account_id": 475,
+                "name": "Rick Harris",
+                "email": "rick.harris@rackspace.com",
+                "username": "rconradharris"
+            },
+            "date": "2012-02-16 23:44:10.000000000",
+            "message": "Patch Set 2: (5 inline comments)\n\nKiller stuff.\n\nTossed out some small nits for consideration, nothing big though.",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "4e0509dacca4662fd657e852f45bd34c8b3e6733",
+            "author": {
+                "_account_id": 2284,
+                "name": "Eoghan Glynn",
+                "email": "eglynn@redhat.com",
+                "username": "eglynn"
+            },
+            "real_author": {
+                "_account_id": 2284,
+                "name": "Eoghan Glynn",
+                "email": "eglynn@redhat.com",
+                "username": "eglynn"
+            },
+            "date": "2012-02-17 09:19:16.000000000",
+            "message": "Patch Set 2: (1 inline comment)\n\n*Very* nice!\n\nOne tiny nit mentioned inline, but not a blocker.\n\nI'll hold off approving for now, in case you want to address any of Rick's suggestions above.\n\nCheers,\nEoghan",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "73b009d19c78ef470dd2eb358c7764f50b984f33",
+            "author": {
+                "_account_id": 7,
+                "name": "Jay Pipes",
+                "email": "jaypipes@gmail.com",
+                "username": "jaypipes"
+            },
+            "real_author": {
+                "_account_id": 7,
+                "name": "Jay Pipes",
+                "email": "jaypipes@gmail.com",
+                "username": "jaypipes"
+            },
+            "date": "2012-02-17 15:31:45.000000000",
+            "message": "Patch Set 2: I would prefer that you didn't submit this\n\n(3 inline comments)\n\nFabulous stuff, Justin. I agree with most of Rick H's comments, and added some backup in there of my own. Fix those little issues up and this will be ready to go in.\n\nThanks very much for the great work!\n\n-jay",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "6b77b7b5819367d11c4c25ba3d893060a5ad2ebf",
+            "author": {
+                "_account_id": 144,
+                "name": "justinsb",
+                "email": "justin@fathomdb.com",
+                "username": "justin-fathomdb"
+            },
+            "real_author": {
+                "_account_id": 144,
+                "name": "justinsb",
+                "email": "justin@fathomdb.com",
+                "username": "justin-fathomdb"
+            },
+            "date": "2012-02-17 18:03:54.000000000",
+            "message": "Patch Set 2:\n\nThese are all great suggestions - thanks guys - I will make the changes.\n\nOne question I had though: the original code used \"!= None\", so I kept that as this patch is really just a refactor.  Is it OK to switch it to \"is not None\"?  Google tells me it's only different if there's a custom operator..",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "5e92363073c2709100e600fae58b38c688eabb4f",
+            "author": {
+                "_account_id": 7,
+                "name": "Jay Pipes",
+                "email": "jaypipes@gmail.com",
+                "username": "jaypipes"
+            },
+            "real_author": {
+                "_account_id": 7,
+                "name": "Jay Pipes",
+                "email": "jaypipes@gmail.com",
+                "username": "jaypipes"
+            },
+            "date": "2012-02-17 18:20:23.000000000",
+            "message": "Patch Set 2:\n\nre: the is not None vs. != None, it's a minor thing... if you want to change them to is not None, good, if not, no one will string you up for it :)",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "9ffc0328e4cc0c5d786d09f9259c22ca92825c29",
+            "author": {
+                "_account_id": 475,
+                "name": "Rick Harris",
+                "email": "rick.harris@rackspace.com",
+                "username": "rconradharris"
+            },
+            "real_author": {
+                "_account_id": 475,
+                "name": "Rick Harris",
+                "email": "rick.harris@rackspace.com",
+                "username": "rconradharris"
+            },
+            "date": "2012-02-18 18:12:23.000000000",
+            "message": "Patch Set 2: (1 inline comment)\n\nA gotcha in one of my suggestions, amended to note that.",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "a891dedbf0a25755f16cde843820da463593bc0d",
+            "author": {
+                "_account_id": 1994,
+                "name": "Zhongyue Luo",
+                "email": "zhongyue.luo@gmail.com",
+                "username": "zyluo"
+            },
+            "real_author": {
+                "_account_id": 1994,
+                "name": "Zhongyue Luo",
+                "email": "zhongyue.luo@gmail.com",
+                "username": "zyluo"
+            },
+            "date": "2012-02-18 23:26:54.000000000",
+            "message": "Patch Set 2: (1 inline comment)\n\n",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "a808f9f30cfdd75ebefa2df4d07bd0fd86a3b245",
+            "author": {
+                "_account_id": 144,
+                "name": "justinsb",
+                "email": "justin@fathomdb.com",
+                "username": "justin-fathomdb"
+            },
+            "real_author": {
+                "_account_id": 144,
+                "name": "justinsb",
+                "email": "justin@fathomdb.com",
+                "username": "justin-fathomdb"
+            },
+            "date": "2012-02-21 21:53:16.000000000",
+            "message": "Uploaded patch set 3.",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "5e73f7ec1d6a7ec40358ce54d52f352edfcae37a",
+            "author": {
+                "_account_id": 475,
+                "name": "Rick Harris",
+                "email": "rick.harris@rackspace.com",
+                "username": "rconradharris"
+            },
+            "real_author": {
+                "_account_id": 475,
+                "name": "Rick Harris",
+                "email": "rick.harris@rackspace.com",
+                "username": "rconradharris"
+            },
+            "date": "2012-02-21 22:11:12.000000000",
+            "message": "Patch Set 3: (2 inline comments)\n\nNice. Added a couple of extra observations, but they're completely optional... +2'ing.",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "b949870f9adb03f995fe398839e9089221a042fa",
+            "author": {
+                "_account_id": 475,
+                "name": "Rick Harris",
+                "email": "rick.harris@rackspace.com",
+                "username": "rconradharris"
+            },
+            "real_author": {
+                "_account_id": 475,
+                "name": "Rick Harris",
+                "email": "rick.harris@rackspace.com",
+                "username": "rconradharris"
+            },
+            "date": "2012-02-21 22:11:21.000000000",
+            "message": "Patch Set 3: Looks good to me (core reviewer)\n\n",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "e7fa38fa4f81541ff86c4ea1c8bd9350bcfba28e",
+            "author": {
+                "_account_id": 144,
+                "name": "justinsb",
+                "email": "justin@fathomdb.com",
+                "username": "justin-fathomdb"
+            },
+            "real_author": {
+                "_account_id": 144,
+                "name": "justinsb",
+                "email": "justin@fathomdb.com",
+                "username": "justin-fathomdb"
+            },
+            "date": "2012-02-21 22:15:08.000000000",
+            "message": "Uploaded patch set 4.",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "d756a23b655bba3fb14ae936f2709cbec15a1c15",
+            "author": {
+                "_account_id": 475,
+                "name": "Rick Harris",
+                "email": "rick.harris@rackspace.com",
+                "username": "rconradharris"
+            },
+            "real_author": {
+                "_account_id": 475,
+                "name": "Rick Harris",
+                "email": "rick.harris@rackspace.com",
+                "username": "rconradharris"
+            },
+            "date": "2012-02-21 22:23:30.000000000",
+            "message": "Patch Set 4: Looks good to me (core reviewer)\n\nYay.",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "a0f1495b20bf923eae55d94da45159a94f900293",
+            "author": {
+                "_account_id": 2166,
+                "name": "SmokeStack CI",
+                "username": "smokestack",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 2166,
+                "name": "SmokeStack CI",
+                "username": "smokestack",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2012-02-22 02:28:12.000000000",
+            "message": "Patch Set 4:\n\nSmokeStack Results (patch set 4):\n\tUnit Failed:Glance tests failed.  http://smokestack.openstack.org/?go=/jobs/13209\n\tLibvirt(Fedora 16) Success: http://smokestack.openstack.org/?go=/jobs/13207\n\tXenServer(Ubuntu 11.04) Success: http://smokestack.openstack.org/?go=/jobs/13208",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "4e2d6241cd646e205a39094d80c782522ca5d4ca",
+            "author": {
+                "_account_id": 7,
+                "name": "Jay Pipes",
+                "email": "jaypipes@gmail.com",
+                "username": "jaypipes"
+            },
+            "real_author": {
+                "_account_id": 7,
+                "name": "Jay Pipes",
+                "email": "jaypipes@gmail.com",
+                "username": "jaypipes"
+            },
+            "date": "2012-02-22 14:23:19.000000000",
+            "message": "Patch Set 4: Looks good to me (core reviewer); Approved\n\nVery nice cleanup, Justin. Thank you!",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "05547156060fe04582f6e09d4cee66878b575492",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2012-02-22 14:31:49.000000000",
+            "message": "Patch Set 4: Fails\n\nBuild Failed \n \nhttps://jenkins.openstack.org/job/gate-integration-tests-devstack-vm/1703/ : FAILURE \nhttps://jenkins.openstack.org/job/gate-glance-merge/369/ : SUCCESS \nhttps://jenkins.openstack.org/job/gate-glance-pep8/548/ : SUCCESS \nhttps://jenkins.openstack.org/job/gate-glance-python26/29/ : FAILURE \nhttps://jenkins.openstack.org/job/gate-glance-python27/29/ : SUCCESS",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "23e29f27552e2fd63b6e95218a747224d1a8e258",
+            "author": {
+                "_account_id": 7,
+                "name": "Jay Pipes",
+                "email": "jaypipes@gmail.com",
+                "username": "jaypipes"
+            },
+            "real_author": {
+                "_account_id": 7,
+                "name": "Jay Pipes",
+                "email": "jaypipes@gmail.com",
+                "username": "jaypipes"
+            },
+            "date": "2012-02-22 14:42:58.000000000",
+            "message": "Patch Set 4: No score; No score\n\nHi Justin, forgot that assertLess does not exist in unittest library in Python 2.6. Could you change that line to use assertTrue?",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "ca45c6f5c220890f908512e28ad30992fc9fcf56",
+            "author": {
+                "_account_id": 144,
+                "name": "justinsb",
+                "email": "justin@fathomdb.com",
+                "username": "justin-fathomdb"
+            },
+            "real_author": {
+                "_account_id": 144,
+                "name": "justinsb",
+                "email": "justin@fathomdb.com",
+                "username": "justin-fathomdb"
+            },
+            "date": "2012-02-22 18:06:18.000000000",
+            "message": "Uploaded patch set 5.",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "8886bd23a0c4d03958c004c8ef63bcdeac640785",
+            "author": {
+                "_account_id": 144,
+                "name": "justinsb",
+                "email": "justin@fathomdb.com",
+                "username": "justin-fathomdb"
+            },
+            "real_author": {
+                "_account_id": 144,
+                "name": "justinsb",
+                "email": "justin@fathomdb.com",
+                "username": "justin-fathomdb"
+            },
+            "date": "2012-02-22 18:08:32.000000000",
+            "message": "Patch Set 5:\n\nMy bad.  I also tweaked the test in case expected_ids was zero-length.",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "bba79a7fd63fab29e9fb33d0deeb7d0d1bcc0344",
+            "author": {
+                "_account_id": 7,
+                "name": "Jay Pipes",
+                "email": "jaypipes@gmail.com",
+                "username": "jaypipes"
+            },
+            "real_author": {
+                "_account_id": 7,
+                "name": "Jay Pipes",
+                "email": "jaypipes@gmail.com",
+                "username": "jaypipes"
+            },
+            "date": "2012-02-22 18:12:42.000000000",
+            "message": "Patch Set 5: Looks good to me (core reviewer); Approved\n\nThanks, Justin",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "aa3891fb1e3f3d450709a8c468fd76bae61161be",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2012-02-22 18:21:20.000000000",
+            "message": "Patch Set 5: Verified\n\nBuild Successful \n \nhttps://jenkins.openstack.org/job/gate-integration-tests-devstack-vm/1716/ : SUCCESS \nhttps://jenkins.openstack.org/job/gate-glance-merge/371/ : SUCCESS \nhttps://jenkins.openstack.org/job/gate-glance-pep8/550/ : SUCCESS \nhttps://jenkins.openstack.org/job/gate-glance-python26/31/ : SUCCESS \nhttps://jenkins.openstack.org/job/gate-glance-python27/31/ : SUCCESS",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "54cf81d6fb1726c068f51ca0fa19e79c7fbe47c1",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2012-02-22 18:21:21.000000000",
+            "message": "Change has been successfully merged into the git repository.",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "8f0ff697d84c6752bdb4be0e6d3baf006f9b9285",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2012-02-22 18:22:08.000000000",
+            "message": "Patch Set 5:\n\nBuild Failed \n \nhttps://jenkins.openstack.org/job/glance-tarball/384/ : FAILURE",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        }
+    ],
+    "requirements": [],
+    "submit_records": []
+}

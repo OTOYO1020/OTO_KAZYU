@@ -1,0 +1,1806 @@
+{
+    "id": "openstack%2Fglance~master~Ief37d1e29487bb03e612320f5cc06910cfd1c23a",
+    "project": "openstack/glance",
+    "branch": "master",
+    "topic": "bug/1412802",
+    "hashtags": [],
+    "change_id": "Ief37d1e29487bb03e612320f5cc06910cfd1c23a",
+    "subject": "Fix for CooperativeReader to process read length",
+    "status": "MERGED",
+    "created": "2015-01-20 14:30:13.000000000",
+    "updated": "2015-02-05 21:43:02.000000000",
+    "submitted": "2015-02-05 21:43:01.000000000",
+    "submitter": {
+        "_account_id": 3,
+        "name": "Jenkins",
+        "username": "jenkins"
+    },
+    "insertions": 99,
+    "deletions": 7,
+    "total_comment_count": 19,
+    "unresolved_comment_count": 0,
+    "has_review_started": true,
+    "meta_rev_id": "561a1fbe898c14521ce5cedc85267884c3c257df",
+    "_number": 148574,
+    "owner": {
+        "_account_id": 8127,
+        "name": "Alexander Tivelkov",
+        "email": "locher@yandex.ru",
+        "username": "ativelkov"
+    },
+    "labels": {
+        "Verified": {
+            "approved": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 2537,
+                    "name": "Nikhil Komawar",
+                    "email": "nik.komawar@gmail.com",
+                    "username": "nikhil-komawar"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 13962,
+                    "name": "Victor Ryzhenkin",
+                    "email": "vryzhenkin@mirantis.com",
+                    "username": "vryzhenkin"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 9061,
+                    "name": "David Moreau Simard",
+                    "email": "moi@dmsimard.com",
+                    "username": "dmsimard"
+                },
+                {
+                    "value": 0,
+                    "date": "2015-02-05 14:30:55.000000000",
+                    "_account_id": 455,
+                    "name": "Stuart McLaren",
+                    "email": "stuart.mclaren@hpe.com",
+                    "username": "stuart-mclaren"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 12807,
+                    "name": "Steve Lewis (stevelle)",
+                    "email": "stevelle@gmail.com",
+                    "username": "stevelle"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 12000,
+                    "name": "Ian Cordasco",
+                    "email": "sigmavirus24@gmail.com",
+                    "username": "sigmavirus24"
+                },
+                {
+                    "value": 2,
+                    "date": "2015-02-05 21:43:01.000000000",
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 11356,
+                    "name": "Louis Taylor",
+                    "email": "louis@kragniz.eu",
+                    "username": "kragniz"
+                },
+                {
+                    "value": 0,
+                    "date": "2015-02-05 14:19:26.000000000",
+                    "_account_id": 8127,
+                    "name": "Alexander Tivelkov",
+                    "email": "locher@yandex.ru",
+                    "username": "ativelkov"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 11391,
+                    "name": "Mikhail Fedosin",
+                    "email": "mfedosin@redhat.com",
+                    "username": "fedosinme"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 11864,
+                    "name": "Ben Roble",
+                    "email": "ben.roble@rackspace.com",
+                    "username": "broble"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 7156,
+                    "name": "Mathieu Gagn\u00e9",
+                    "email": "mgagne@calavera.ca",
+                    "username": "mgagne"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 6549,
+                    "name": "Zhi Yan Liu",
+                    "email": "lzy.dev@gmail.com",
+                    "username": "lzy-dev"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 9751,
+                    "name": "IBM DB2 CI",
+                    "email": "scecd@cn.ibm.com",
+                    "username": "ibmdb2",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 0,
+                    "_account_id": 7575,
+                    "name": "Sabari",
+                    "email": "smurugesan@vmware.com",
+                    "username": "sabari"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 5202,
+                    "name": "Erno Kuvaja",
+                    "email": "jokke@usr.fi",
+                    "username": "jokke"
+                }
+            ],
+            "values": {
+                "-2": "Fails",
+                "-1": "Doesn't seem to work",
+                " 0": "No score",
+                "+1": "Works for me",
+                "+2": "Verified"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        },
+        "Code-Review": {
+            "approved": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "all": [
+                {
+                    "value": 2,
+                    "date": "2015-02-05 14:45:34.000000000",
+                    "_account_id": 2537,
+                    "name": "Nikhil Komawar",
+                    "email": "nik.komawar@gmail.com",
+                    "username": "nikhil-komawar"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 13962,
+                    "name": "Victor Ryzhenkin",
+                    "email": "vryzhenkin@mirantis.com",
+                    "username": "vryzhenkin"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 9061,
+                    "name": "David Moreau Simard",
+                    "email": "moi@dmsimard.com",
+                    "username": "dmsimard"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 455,
+                    "name": "Stuart McLaren",
+                    "email": "stuart.mclaren@hpe.com",
+                    "username": "stuart-mclaren"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 12807,
+                    "name": "Steve Lewis (stevelle)",
+                    "email": "stevelle@gmail.com",
+                    "username": "stevelle"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 12000,
+                    "name": "Ian Cordasco",
+                    "email": "sigmavirus24@gmail.com",
+                    "username": "sigmavirus24"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 11356,
+                    "name": "Louis Taylor",
+                    "email": "louis@kragniz.eu",
+                    "username": "kragniz"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 8127,
+                    "name": "Alexander Tivelkov",
+                    "email": "locher@yandex.ru",
+                    "username": "ativelkov"
+                },
+                {
+                    "value": 1,
+                    "date": "2015-02-05 13:54:06.000000000",
+                    "permitted_voting_range": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "_account_id": 11391,
+                    "name": "Mikhail Fedosin",
+                    "email": "mfedosin@redhat.com",
+                    "username": "fedosinme"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 11864,
+                    "name": "Ben Roble",
+                    "email": "ben.roble@rackspace.com",
+                    "username": "broble"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 7156,
+                    "name": "Mathieu Gagn\u00e9",
+                    "email": "mgagne@calavera.ca",
+                    "username": "mgagne"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 6549,
+                    "name": "Zhi Yan Liu",
+                    "email": "lzy.dev@gmail.com",
+                    "username": "lzy-dev"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 9751,
+                    "name": "IBM DB2 CI",
+                    "email": "scecd@cn.ibm.com",
+                    "username": "ibmdb2",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 0,
+                    "_account_id": 7575,
+                    "name": "Sabari",
+                    "email": "smurugesan@vmware.com",
+                    "username": "sabari"
+                },
+                {
+                    "value": 2,
+                    "date": "2015-02-05 20:35:26.000000000",
+                    "permitted_voting_range": {
+                        "min": 2,
+                        "max": 2
+                    },
+                    "_account_id": 5202,
+                    "name": "Erno Kuvaja",
+                    "email": "jokke@usr.fi",
+                    "username": "jokke"
+                }
+            ],
+            "values": {
+                "-2": "Do not merge",
+                "-1": "This patch needs further work before it can be merged",
+                " 0": "No score",
+                "+1": "Looks good to me, but someone else must approve",
+                "+2": "Looks good to me (core reviewer)"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        },
+        "Workflow": {
+            "approved": {
+                "_account_id": 5202,
+                "name": "Erno Kuvaja",
+                "email": "jokke@usr.fi",
+                "username": "jokke"
+            },
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 2537,
+                    "name": "Nikhil Komawar",
+                    "email": "nik.komawar@gmail.com",
+                    "username": "nikhil-komawar"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 13962,
+                    "name": "Victor Ryzhenkin",
+                    "email": "vryzhenkin@mirantis.com",
+                    "username": "vryzhenkin"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 9061,
+                    "name": "David Moreau Simard",
+                    "email": "moi@dmsimard.com",
+                    "username": "dmsimard"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 455,
+                    "name": "Stuart McLaren",
+                    "email": "stuart.mclaren@hpe.com",
+                    "username": "stuart-mclaren"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 12807,
+                    "name": "Steve Lewis (stevelle)",
+                    "email": "stevelle@gmail.com",
+                    "username": "stevelle"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 12000,
+                    "name": "Ian Cordasco",
+                    "email": "sigmavirus24@gmail.com",
+                    "username": "sigmavirus24"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 11356,
+                    "name": "Louis Taylor",
+                    "email": "louis@kragniz.eu",
+                    "username": "kragniz"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 8127,
+                    "name": "Alexander Tivelkov",
+                    "email": "locher@yandex.ru",
+                    "username": "ativelkov"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 11391,
+                    "name": "Mikhail Fedosin",
+                    "email": "mfedosin@redhat.com",
+                    "username": "fedosinme"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 11864,
+                    "name": "Ben Roble",
+                    "email": "ben.roble@rackspace.com",
+                    "username": "broble"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 7156,
+                    "name": "Mathieu Gagn\u00e9",
+                    "email": "mgagne@calavera.ca",
+                    "username": "mgagne"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 6549,
+                    "name": "Zhi Yan Liu",
+                    "email": "lzy.dev@gmail.com",
+                    "username": "lzy-dev"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 9751,
+                    "name": "IBM DB2 CI",
+                    "email": "scecd@cn.ibm.com",
+                    "username": "ibmdb2",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 0,
+                    "_account_id": 7575,
+                    "name": "Sabari",
+                    "email": "smurugesan@vmware.com",
+                    "username": "sabari"
+                },
+                {
+                    "value": 1,
+                    "date": "2015-02-05 20:35:26.000000000",
+                    "permitted_voting_range": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "_account_id": 5202,
+                    "name": "Erno Kuvaja",
+                    "email": "jokke@usr.fi",
+                    "username": "jokke"
+                }
+            ],
+            "values": {
+                "-1": "Work in progress",
+                " 0": "Ready for reviews",
+                "+1": "Approved"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        },
+        "Review-Priority": {
+            "all": [
+                {
+                    "value": 0,
+                    "_account_id": 2537,
+                    "name": "Nikhil Komawar",
+                    "email": "nik.komawar@gmail.com",
+                    "username": "nikhil-komawar"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 13962,
+                    "name": "Victor Ryzhenkin",
+                    "email": "vryzhenkin@mirantis.com",
+                    "username": "vryzhenkin"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 9061,
+                    "name": "David Moreau Simard",
+                    "email": "moi@dmsimard.com",
+                    "username": "dmsimard"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 455,
+                    "name": "Stuart McLaren",
+                    "email": "stuart.mclaren@hpe.com",
+                    "username": "stuart-mclaren"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 12807,
+                    "name": "Steve Lewis (stevelle)",
+                    "email": "stevelle@gmail.com",
+                    "username": "stevelle"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 12000,
+                    "name": "Ian Cordasco",
+                    "email": "sigmavirus24@gmail.com",
+                    "username": "sigmavirus24"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 3,
+                    "name": "Jenkins",
+                    "username": "jenkins"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 11356,
+                    "name": "Louis Taylor",
+                    "email": "louis@kragniz.eu",
+                    "username": "kragniz"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 8127,
+                    "name": "Alexander Tivelkov",
+                    "email": "locher@yandex.ru",
+                    "username": "ativelkov"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 11391,
+                    "name": "Mikhail Fedosin",
+                    "email": "mfedosin@redhat.com",
+                    "username": "fedosinme"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 11864,
+                    "name": "Ben Roble",
+                    "email": "ben.roble@rackspace.com",
+                    "username": "broble"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 7156,
+                    "name": "Mathieu Gagn\u00e9",
+                    "email": "mgagne@calavera.ca",
+                    "username": "mgagne"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 6549,
+                    "name": "Zhi Yan Liu",
+                    "email": "lzy.dev@gmail.com",
+                    "username": "lzy-dev"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 9751,
+                    "name": "IBM DB2 CI",
+                    "email": "scecd@cn.ibm.com",
+                    "username": "ibmdb2",
+                    "tags": [
+                        "SERVICE_USER"
+                    ]
+                },
+                {
+                    "value": 0,
+                    "_account_id": 7575,
+                    "name": "Sabari",
+                    "email": "smurugesan@vmware.com",
+                    "username": "sabari"
+                },
+                {
+                    "value": 0,
+                    "_account_id": 5202,
+                    "name": "Erno Kuvaja",
+                    "email": "jokke@usr.fi",
+                    "username": "jokke"
+                }
+            ],
+            "values": {
+                "-1": "Branch Freeze",
+                " 0": "No Priority",
+                "+1": "Important Change",
+                "+2": "Top Priority / Holds Gate"
+            },
+            "description": "",
+            "default_value": 0,
+            "optional": true
+        }
+    },
+    "removable_reviewers": [],
+    "reviewers": {
+        "REVIEWER": [
+            {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            {
+                "_account_id": 455,
+                "name": "Stuart McLaren",
+                "email": "stuart.mclaren@hpe.com",
+                "username": "stuart-mclaren"
+            },
+            {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            {
+                "_account_id": 5202,
+                "name": "Erno Kuvaja",
+                "email": "jokke@usr.fi",
+                "username": "jokke"
+            },
+            {
+                "_account_id": 6549,
+                "name": "Zhi Yan Liu",
+                "email": "lzy.dev@gmail.com",
+                "username": "lzy-dev"
+            },
+            {
+                "_account_id": 7156,
+                "name": "Mathieu Gagn\u00e9",
+                "email": "mgagne@calavera.ca",
+                "username": "mgagne"
+            },
+            {
+                "_account_id": 7575,
+                "name": "Sabari",
+                "email": "smurugesan@vmware.com",
+                "username": "sabari"
+            },
+            {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            {
+                "_account_id": 9061,
+                "name": "David Moreau Simard",
+                "email": "moi@dmsimard.com",
+                "username": "dmsimard"
+            },
+            {
+                "_account_id": 9751,
+                "name": "IBM DB2 CI",
+                "email": "scecd@cn.ibm.com",
+                "username": "ibmdb2",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            {
+                "_account_id": 11356,
+                "name": "Louis Taylor",
+                "email": "louis@kragniz.eu",
+                "username": "kragniz"
+            },
+            {
+                "_account_id": 11391,
+                "name": "Mikhail Fedosin",
+                "email": "mfedosin@redhat.com",
+                "username": "fedosinme"
+            },
+            {
+                "_account_id": 11864,
+                "name": "Ben Roble",
+                "email": "ben.roble@rackspace.com",
+                "username": "broble"
+            },
+            {
+                "_account_id": 12000,
+                "name": "Ian Cordasco",
+                "email": "sigmavirus24@gmail.com",
+                "username": "sigmavirus24"
+            },
+            {
+                "_account_id": 12807,
+                "name": "Steve Lewis (stevelle)",
+                "email": "stevelle@gmail.com",
+                "username": "stevelle"
+            },
+            {
+                "_account_id": 13962,
+                "name": "Victor Ryzhenkin",
+                "email": "vryzhenkin@mirantis.com",
+                "username": "vryzhenkin"
+            }
+        ]
+    },
+    "pending_reviewers": {},
+    "reviewer_updates": [
+        {
+            "updated": "2015-01-22 16:32:59.000000000",
+            "updated_by": {
+                "_account_id": 13962,
+                "name": "Victor Ryzhenkin",
+                "email": "vryzhenkin@mirantis.com",
+                "username": "vryzhenkin"
+            },
+            "reviewer": {
+                "_account_id": 13962,
+                "name": "Victor Ryzhenkin",
+                "email": "vryzhenkin@mirantis.com",
+                "username": "vryzhenkin"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2015-01-22 18:58:21.000000000",
+            "updated_by": {
+                "_account_id": 9061,
+                "name": "David Moreau Simard",
+                "email": "moi@dmsimard.com",
+                "username": "dmsimard"
+            },
+            "reviewer": {
+                "_account_id": 9061,
+                "name": "David Moreau Simard",
+                "email": "moi@dmsimard.com",
+                "username": "dmsimard"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2015-01-22 19:00:59.000000000",
+            "updated_by": {
+                "_account_id": 7156,
+                "name": "Mathieu Gagn\u00e9",
+                "email": "mgagne@calavera.ca",
+                "username": "mgagne"
+            },
+            "reviewer": {
+                "_account_id": 7156,
+                "name": "Mathieu Gagn\u00e9",
+                "email": "mgagne@calavera.ca",
+                "username": "mgagne"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2015-01-23 18:56:41.000000000",
+            "updated_by": {
+                "_account_id": 12807,
+                "name": "Steve Lewis (stevelle)",
+                "email": "stevelle@gmail.com",
+                "username": "stevelle"
+            },
+            "reviewer": {
+                "_account_id": 12807,
+                "name": "Steve Lewis (stevelle)",
+                "email": "stevelle@gmail.com",
+                "username": "stevelle"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2015-01-23 21:16:20.000000000",
+            "updated_by": {
+                "_account_id": 11356,
+                "name": "Louis Taylor",
+                "email": "louis@kragniz.eu",
+                "username": "kragniz"
+            },
+            "reviewer": {
+                "_account_id": 11356,
+                "name": "Louis Taylor",
+                "email": "louis@kragniz.eu",
+                "username": "kragniz"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2015-01-23 21:28:28.000000000",
+            "updated_by": {
+                "_account_id": 11864,
+                "name": "Ben Roble",
+                "email": "ben.roble@rackspace.com",
+                "username": "broble"
+            },
+            "reviewer": {
+                "_account_id": 11864,
+                "name": "Ben Roble",
+                "email": "ben.roble@rackspace.com",
+                "username": "broble"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2015-02-02 17:16:09.000000000",
+            "updated_by": {
+                "_account_id": 7575,
+                "name": "Sabari",
+                "email": "smurugesan@vmware.com",
+                "username": "sabari"
+            },
+            "reviewer": {
+                "_account_id": 7575,
+                "name": "Sabari",
+                "email": "smurugesan@vmware.com",
+                "username": "sabari"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2015-02-02 21:02:26.000000000",
+            "updated_by": {
+                "_account_id": 12000,
+                "name": "Ian Cordasco",
+                "email": "sigmavirus24@gmail.com",
+                "username": "sigmavirus24"
+            },
+            "reviewer": {
+                "_account_id": 12000,
+                "name": "Ian Cordasco",
+                "email": "sigmavirus24@gmail.com",
+                "username": "sigmavirus24"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2015-02-03 04:47:26.000000000",
+            "updated_by": {
+                "_account_id": 6549,
+                "name": "Zhi Yan Liu",
+                "email": "lzy.dev@gmail.com",
+                "username": "lzy-dev"
+            },
+            "reviewer": {
+                "_account_id": 6549,
+                "name": "Zhi Yan Liu",
+                "email": "lzy.dev@gmail.com",
+                "username": "lzy-dev"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2015-02-05 01:54:12.000000000",
+            "updated_by": {
+                "_account_id": 9751,
+                "name": "IBM DB2 CI",
+                "email": "scecd@cn.ibm.com",
+                "username": "ibmdb2",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "reviewer": {
+                "_account_id": 9751,
+                "name": "IBM DB2 CI",
+                "email": "scecd@cn.ibm.com",
+                "username": "ibmdb2",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2015-02-05 13:54:06.000000000",
+            "updated_by": {
+                "_account_id": 11391,
+                "name": "Mikhail Fedosin",
+                "email": "mfedosin@redhat.com",
+                "username": "fedosinme"
+            },
+            "reviewer": {
+                "_account_id": 11391,
+                "name": "Mikhail Fedosin",
+                "email": "mfedosin@redhat.com",
+                "username": "fedosinme"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2015-02-05 14:30:55.000000000",
+            "updated_by": {
+                "_account_id": 455,
+                "name": "Stuart McLaren",
+                "email": "stuart.mclaren@hpe.com",
+                "username": "stuart-mclaren"
+            },
+            "reviewer": {
+                "_account_id": 455,
+                "name": "Stuart McLaren",
+                "email": "stuart.mclaren@hpe.com",
+                "username": "stuart-mclaren"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2015-02-05 14:45:34.000000000",
+            "updated_by": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "reviewer": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2015-02-05 20:35:26.000000000",
+            "updated_by": {
+                "_account_id": 5202,
+                "name": "Erno Kuvaja",
+                "email": "jokke@usr.fi",
+                "username": "jokke"
+            },
+            "reviewer": {
+                "_account_id": 5202,
+                "name": "Erno Kuvaja",
+                "email": "jokke@usr.fi",
+                "username": "jokke"
+            },
+            "state": "REVIEWER"
+        },
+        {
+            "updated": "2015-02-05 21:43:01.000000000",
+            "updated_by": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "reviewer": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "state": "REVIEWER"
+        }
+    ],
+    "messages": [
+        {
+            "id": "1a2bc2ee598ff1332c53ca3403baeefbbe8becaf",
+            "author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "real_author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "date": "2015-01-20 14:30:13.000000000",
+            "message": "Uploaded patch set 1.",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "9fbcb5640078d0e4673c57164c450d57935931a5",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2015-01-20 16:18:03.000000000",
+            "message": "Patch Set 1: Verified+1\n\nBuild succeeded (check pipeline).\n\n- gate-glance-pep8 http://logs.openstack.org/74/148574/1/check/gate-glance-pep8/545df72/ : SUCCESS in 1m 56s\n- gate-glance-docs http://docs-draft.openstack.org/74/148574/1/check/gate-glance-docs/1c580a0//doc/build/html/ : SUCCESS in 2m 36s\n- gate-glance-python27 http://logs.openstack.org/74/148574/1/check/gate-glance-python27/171fd86/ : SUCCESS in 6m 33s\n- check-tempest-dsvm-full http://logs.openstack.org/74/148574/1/check/check-tempest-dsvm-full/b520e07/ : SUCCESS in 34m 21s\n- check-tempest-dsvm-postgres-full http://logs.openstack.org/74/148574/1/check/check-tempest-dsvm-postgres-full/a68b93b/ : SUCCESS in 33m 50s\n- check-tempest-dsvm-neutron-full http://logs.openstack.org/74/148574/1/check/check-tempest-dsvm-neutron-full/80d9505/ : SUCCESS in 49m 28s\n- check-grenade-dsvm http://logs.openstack.org/74/148574/1/check/check-grenade-dsvm/856dc2f/ : SUCCESS in 32m 00s\n- gate-tempest-dsvm-large-ops http://logs.openstack.org/74/148574/1/check/gate-tempest-dsvm-large-ops/c677f68/ : SUCCESS in 17m 50s\n- gate-tempest-dsvm-neutron-large-ops http://logs.openstack.org/74/148574/1/check/gate-tempest-dsvm-neutron-large-ops/d398124/ : SUCCESS in 18m 00s\n- check-devstack-dsvm-cells http://logs.openstack.org/74/148574/1/check/check-devstack-dsvm-cells/e11c31b/ : SUCCESS in 15m 47s\n- gate-rally-dsvm-glance http://logs.openstack.org/74/148574/1/check/gate-rally-dsvm-glance/ddf9e43/ : SUCCESS in 23m 15s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "4cd1936ffa6923bc43db4746c8119c9fc4fd41aa",
+            "author": {
+                "_account_id": 9751,
+                "name": "IBM DB2 CI",
+                "email": "scecd@cn.ibm.com",
+                "username": "ibmdb2",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 9751,
+                "name": "IBM DB2 CI",
+                "email": "scecd@cn.ibm.com",
+                "username": "ibmdb2",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2015-01-21 00:06:59.000000000",
+            "message": "Patch Set 1:\n\nBuild succeeded.\n\n- ibm-db2-ci-glance http://dal05.objectstorage.softlayer.net/v1/AUTH_58396f85-2c60-47b9-aaf8-e03bc24a1a6f/cilog/74/148574/1/check/ibm-db2-ci-glance/511dccb : FAILURE in 1m 01s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "2d86523ac75aefdb699123f2491ba6e78fe6f02a",
+            "author": {
+                "_account_id": 11864,
+                "name": "Ben Roble",
+                "email": "ben.roble@rackspace.com",
+                "username": "broble"
+            },
+            "real_author": {
+                "_account_id": 11864,
+                "name": "Ben Roble",
+                "email": "ben.roble@rackspace.com",
+                "username": "broble"
+            },
+            "date": "2015-01-21 21:05:30.000000000",
+            "message": "Patch Set 1:\n\nWould be nice to see a test for this",
+            "accounts_in_message": [],
+            "_revision_number": 1
+        },
+        {
+            "id": "d48d0e8560b10e093b5d465cb4e19dccbd2f7fc9",
+            "author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "real_author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "date": "2015-01-22 12:16:20.000000000",
+            "message": "Uploaded patch set 2.",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "911453076423acb053c55ed02ad7e76b021ec39e",
+            "author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "real_author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "date": "2015-01-22 12:25:27.000000000",
+            "message": "Patch Set 2:\n\nThanks Ben. I've added some extra tests to test_utils to verify this particular \"read-size\" compliant behaviour. This should be enough.\n\nTesting the actual bug requires swift interaction, so it cannot be test functionally here. We may think about adding appropriate test scenario to Tempest, but it will require generating large (>5Gb) image file for testing, which may be an overhead.",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "37a92c7e96359cd85a66b86618db06e1b4806c71",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2015-01-22 13:16:38.000000000",
+            "message": "Patch Set 2: Verified+1\n\nBuild succeeded (check pipeline).\n\n- gate-glance-pep8 http://logs.openstack.org/74/148574/2/check/gate-glance-pep8/8a15774/ : SUCCESS in 1m 59s\n- gate-glance-docs http://docs-draft.openstack.org/74/148574/2/check/gate-glance-docs/675e290//doc/build/html/ : SUCCESS in 2m 41s\n- gate-glance-python27 http://logs.openstack.org/74/148574/2/check/gate-glance-python27/95b2c75/ : SUCCESS in 7m 09s\n- check-tempest-dsvm-full http://logs.openstack.org/74/148574/2/check/check-tempest-dsvm-full/101eab4/ : SUCCESS in 43m 35s\n- check-tempest-dsvm-postgres-full http://logs.openstack.org/74/148574/2/check/check-tempest-dsvm-postgres-full/de121d0/ : SUCCESS in 48m 10s\n- check-tempest-dsvm-neutron-full http://logs.openstack.org/74/148574/2/check/check-tempest-dsvm-neutron-full/9340e2f/ : SUCCESS in 58m 49s\n- check-grenade-dsvm http://logs.openstack.org/74/148574/2/check/check-grenade-dsvm/cedcfeb/ : SUCCESS in 38m 28s\n- gate-tempest-dsvm-large-ops http://logs.openstack.org/74/148574/2/check/gate-tempest-dsvm-large-ops/4b1810e/ : SUCCESS in 25m 05s\n- gate-tempest-dsvm-neutron-large-ops http://logs.openstack.org/74/148574/2/check/gate-tempest-dsvm-neutron-large-ops/6eb5cb0/ : SUCCESS in 17m 14s\n- check-devstack-dsvm-cells http://logs.openstack.org/74/148574/2/check/check-devstack-dsvm-cells/d3285cc/ : SUCCESS in 16m 43s\n- gate-rally-dsvm-glance http://logs.openstack.org/74/148574/2/check/gate-rally-dsvm-glance/5780d12/ : SUCCESS in 23m 17s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "9a7615e899612fc6eaeca0517d60fe67b0cdc97a",
+            "author": {
+                "_account_id": 12000,
+                "name": "Ian Cordasco",
+                "email": "sigmavirus24@gmail.com",
+                "username": "sigmavirus24"
+            },
+            "real_author": {
+                "_account_id": 12000,
+                "name": "Ian Cordasco",
+                "email": "sigmavirus24@gmail.com",
+                "username": "sigmavirus24"
+            },
+            "date": "2015-01-22 16:11:41.000000000",
+            "message": "Patch Set 2: Code-Review+1",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "d5fc82cc9f7396096eb531757efe3bffcba631e6",
+            "author": {
+                "_account_id": 11864,
+                "name": "Ben Roble",
+                "email": "ben.roble@rackspace.com",
+                "username": "broble"
+            },
+            "real_author": {
+                "_account_id": 11864,
+                "name": "Ben Roble",
+                "email": "ben.roble@rackspace.com",
+                "username": "broble"
+            },
+            "date": "2015-01-22 16:15:25.000000000",
+            "message": "Patch Set 2: Code-Review+1\n\nAlex, thanks for adding tests",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "975a374ed528d89d5996132069d87cef807d2f2a",
+            "author": {
+                "_account_id": 13962,
+                "name": "Victor Ryzhenkin",
+                "email": "vryzhenkin@mirantis.com",
+                "username": "vryzhenkin"
+            },
+            "real_author": {
+                "_account_id": 13962,
+                "name": "Victor Ryzhenkin",
+                "email": "vryzhenkin@mirantis.com",
+                "username": "vryzhenkin"
+            },
+            "date": "2015-01-22 16:32:59.000000000",
+            "message": "Patch Set 2: Code-Review+1",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "1fc80af518bc8abdebbff4fd4e7ad166ba86a812",
+            "author": {
+                "_account_id": 11391,
+                "name": "Mikhail Fedosin",
+                "email": "mfedosin@redhat.com",
+                "username": "fedosinme"
+            },
+            "real_author": {
+                "_account_id": 11391,
+                "name": "Mikhail Fedosin",
+                "email": "mfedosin@redhat.com",
+                "username": "fedosinme"
+            },
+            "date": "2015-01-22 16:33:29.000000000",
+            "message": "Patch Set 2: Code-Review+1\n\nLooks good!",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "5da12182871ad1179d10416128171873c6c8fc2b",
+            "author": {
+                "_account_id": 7156,
+                "name": "Mathieu Gagn\u00e9",
+                "email": "mgagne@calavera.ca",
+                "username": "mgagne"
+            },
+            "real_author": {
+                "_account_id": 7156,
+                "name": "Mathieu Gagn\u00e9",
+                "email": "mgagne@calavera.ca",
+                "username": "mgagne"
+            },
+            "date": "2015-01-22 19:13:57.000000000",
+            "message": "Patch Set 2: Code-Review+1\n\nWorks for us when backported to Icehouse.",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "58875ffc4e2784787717ee0ea9f5961a02b30d3e",
+            "author": {
+                "_account_id": 6549,
+                "name": "Zhi Yan Liu",
+                "email": "lzy.dev@gmail.com",
+                "username": "lzy-dev"
+            },
+            "real_author": {
+                "_account_id": 6549,
+                "name": "Zhi Yan Liu",
+                "email": "lzy.dev@gmail.com",
+                "username": "lzy-dev"
+            },
+            "date": "2015-01-23 12:25:25.000000000",
+            "message": "Patch Set 2:\n\n(1 comment)",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "d918e0b58d8ba3d1af2ff932abf53786b773bb2b",
+            "author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "real_author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "date": "2015-01-23 13:42:32.000000000",
+            "message": "Uploaded patch set 3.",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "dbf7fa79bc1ff4a256640716191738604fb265d6",
+            "author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "real_author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "date": "2015-01-23 13:42:48.000000000",
+            "message": "Patch Set 2:\n\n(1 comment)",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "629c5afbf21b1e386c967cb5342dbb4ecd0424ed",
+            "author": {
+                "_account_id": 6549,
+                "name": "Zhi Yan Liu",
+                "email": "lzy.dev@gmail.com",
+                "username": "lzy-dev"
+            },
+            "real_author": {
+                "_account_id": 6549,
+                "name": "Zhi Yan Liu",
+                "email": "lzy.dev@gmail.com",
+                "username": "lzy-dev"
+            },
+            "date": "2015-01-23 13:43:47.000000000",
+            "message": "Patch Set 3: Code-Review+2\n\nThanks.",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "de48246830d61e9276a1612b0ae75c11eece161c",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2015-01-23 14:46:30.000000000",
+            "message": "Patch Set 3: Verified-1\n\nBuild failed (check pipeline).  For information on how to proceed, see http://docs.openstack.org/infra/manual/developers.html#automated-testing\n\n- gate-glance-pep8 http://logs.openstack.org/74/148574/3/check/gate-glance-pep8/c2fce29/ : SUCCESS in 2m 23s\n- gate-glance-docs http://docs-draft.openstack.org/74/148574/3/check/gate-glance-docs/357a80a//doc/build/html/ : SUCCESS in 2m 15s\n- gate-glance-python27 http://logs.openstack.org/74/148574/3/check/gate-glance-python27/1b286e5/ : FAILURE in 6m 26s\n- check-tempest-dsvm-full http://logs.openstack.org/74/148574/3/check/check-tempest-dsvm-full/496d240/ : SUCCESS in 34m 19s\n- check-tempest-dsvm-postgres-full http://logs.openstack.org/74/148574/3/check/check-tempest-dsvm-postgres-full/9cbbc75/ : SUCCESS in 35m 29s\n- check-tempest-dsvm-neutron-full http://logs.openstack.org/74/148574/3/check/check-tempest-dsvm-neutron-full/74a69f0/ : SUCCESS in 49m 05s\n- check-grenade-dsvm http://logs.openstack.org/74/148574/3/check/check-grenade-dsvm/3ef3ee2/ : SUCCESS in 34m 44s\n- gate-tempest-dsvm-large-ops http://logs.openstack.org/74/148574/3/check/gate-tempest-dsvm-large-ops/7cff3f4/ : SUCCESS in 19m 44s\n- gate-tempest-dsvm-neutron-large-ops http://logs.openstack.org/74/148574/3/check/gate-tempest-dsvm-neutron-large-ops/9a08a2f/ : SUCCESS in 18m 09s\n- check-devstack-dsvm-cells http://logs.openstack.org/74/148574/3/check/check-devstack-dsvm-cells/bbb993a/ : SUCCESS in 17m 35s\n- gate-rally-dsvm-glance http://logs.openstack.org/74/148574/3/check/gate-rally-dsvm-glance/29b3d75/ : SUCCESS in 25m 01s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "78c3fbbad1cfc6d53e2037c70edfc9528fd95b76",
+            "author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "real_author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "date": "2015-01-23 17:52:13.000000000",
+            "message": "Patch Set 3:\n\nSeems like it breaks some tests. Need to make iter initialiser to be lazy.",
+            "accounts_in_message": [],
+            "_revision_number": 3
+        },
+        {
+            "id": "e47a4bde41da45444478860d1cef0f536b771fdf",
+            "author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "real_author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "date": "2015-01-23 17:52:40.000000000",
+            "message": "Uploaded patch set 4.",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "f50eca909bf2940b01b933f4c31a1bf6aeeb74b2",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2015-01-23 18:41:35.000000000",
+            "message": "Patch Set 4: Verified+1\n\nBuild succeeded (check pipeline).\n\n- gate-glance-pep8 http://logs.openstack.org/74/148574/4/check/gate-glance-pep8/7442a1c/ : SUCCESS in 2m 11s\n- gate-glance-docs http://docs-draft.openstack.org/74/148574/4/check/gate-glance-docs/2916006//doc/build/html/ : SUCCESS in 2m 10s\n- gate-glance-python27 http://logs.openstack.org/74/148574/4/check/gate-glance-python27/52f4e48/ : SUCCESS in 4m 52s\n- check-tempest-dsvm-full http://logs.openstack.org/74/148574/4/check/check-tempest-dsvm-full/65b9635/ : SUCCESS in 48m 49s\n- check-tempest-dsvm-postgres-full http://logs.openstack.org/74/148574/4/check/check-tempest-dsvm-postgres-full/67e57c9/ : SUCCESS in 46m 30s\n- check-tempest-dsvm-neutron-full http://logs.openstack.org/74/148574/4/check/check-tempest-dsvm-neutron-full/93bd02a/ : SUCCESS in 46m 07s\n- check-grenade-dsvm http://logs.openstack.org/74/148574/4/check/check-grenade-dsvm/9a9976d/ : SUCCESS in 38m 36s\n- gate-tempest-dsvm-large-ops http://logs.openstack.org/74/148574/4/check/gate-tempest-dsvm-large-ops/83b59f6/ : SUCCESS in 17m 28s\n- gate-tempest-dsvm-neutron-large-ops http://logs.openstack.org/74/148574/4/check/gate-tempest-dsvm-neutron-large-ops/b40112e/ : SUCCESS in 15m 37s\n- check-devstack-dsvm-cells http://logs.openstack.org/74/148574/4/check/check-devstack-dsvm-cells/25f55b5/ : SUCCESS in 16m 44s\n- gate-rally-dsvm-glance http://logs.openstack.org/74/148574/4/check/gate-rally-dsvm-glance/8d2a1af/ : SUCCESS in 25m 52s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "8b2580d935abc81579796855b3462dd1ecad7210",
+            "author": {
+                "_account_id": 12807,
+                "name": "Steve Lewis (stevelle)",
+                "email": "stevelle@gmail.com",
+                "username": "stevelle"
+            },
+            "real_author": {
+                "_account_id": 12807,
+                "name": "Steve Lewis (stevelle)",
+                "email": "stevelle@gmail.com",
+                "username": "stevelle"
+            },
+            "date": "2015-01-23 18:56:41.000000000",
+            "message": "Patch Set 4: Code-Review+1",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "ebe247abdab83fb7bb7884a056337d32d01f91c6",
+            "author": {
+                "_account_id": 12000,
+                "name": "Ian Cordasco",
+                "email": "sigmavirus24@gmail.com",
+                "username": "sigmavirus24"
+            },
+            "real_author": {
+                "_account_id": 12000,
+                "name": "Ian Cordasco",
+                "email": "sigmavirus24@gmail.com",
+                "username": "sigmavirus24"
+            },
+            "date": "2015-01-23 21:02:48.000000000",
+            "message": "Patch Set 4: Code-Review+1",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "b301d549d2e9fd6ec1a449c4ee2880190c4fd83d",
+            "author": {
+                "_account_id": 11356,
+                "name": "Louis Taylor",
+                "email": "louis@kragniz.eu",
+                "username": "kragniz"
+            },
+            "real_author": {
+                "_account_id": 11356,
+                "name": "Louis Taylor",
+                "email": "louis@kragniz.eu",
+                "username": "kragniz"
+            },
+            "date": "2015-01-23 21:16:20.000000000",
+            "message": "Patch Set 4: Code-Review+1\n\nNice commit message!",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "6868a208cc6a9a68b23d569c947a550bf649364e",
+            "author": {
+                "_account_id": 11864,
+                "name": "Ben Roble",
+                "email": "ben.roble@rackspace.com",
+                "username": "broble"
+            },
+            "real_author": {
+                "_account_id": 11864,
+                "name": "Ben Roble",
+                "email": "ben.roble@rackspace.com",
+                "username": "broble"
+            },
+            "date": "2015-01-23 21:28:28.000000000",
+            "message": "Patch Set 4: Code-Review+1",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "e6eb7e237a23406919a46430fd752e7d5f0b8efa",
+            "author": {
+                "_account_id": 9751,
+                "name": "IBM DB2 CI",
+                "email": "scecd@cn.ibm.com",
+                "username": "ibmdb2",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 9751,
+                "name": "IBM DB2 CI",
+                "email": "scecd@cn.ibm.com",
+                "username": "ibmdb2",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2015-01-24 09:38:23.000000000",
+            "message": "Patch Set 2:\n\nBuild succeeded.\n\n- ibm-db2-ci-glance http://dal05.objectstorage.softlayer.net/v1/AUTH_58396f85-2c60-47b9-aaf8-e03bc24a1a6f/cilog/74/148574/2/check/ibm-db2-ci-glance/3ffda06 : SUCCESS in 1h 03m 07s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 2
+        },
+        {
+            "id": "dc54f73ce011bb357cf05233411b68e7803db3d9",
+            "author": {
+                "_account_id": 11391,
+                "name": "Mikhail Fedosin",
+                "email": "mfedosin@redhat.com",
+                "username": "fedosinme"
+            },
+            "real_author": {
+                "_account_id": 11391,
+                "name": "Mikhail Fedosin",
+                "email": "mfedosin@redhat.com",
+                "username": "fedosinme"
+            },
+            "date": "2015-01-24 14:08:17.000000000",
+            "message": "Patch Set 4: Code-Review+1",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "e61a4b0aac30924403191e47efeb9d78eb58ee4e",
+            "author": {
+                "_account_id": 6549,
+                "name": "Zhi Yan Liu",
+                "email": "lzy.dev@gmail.com",
+                "username": "lzy-dev"
+            },
+            "real_author": {
+                "_account_id": 6549,
+                "name": "Zhi Yan Liu",
+                "email": "lzy.dev@gmail.com",
+                "username": "lzy-dev"
+            },
+            "date": "2015-01-26 05:05:40.000000000",
+            "message": "Patch Set 4: Code-Review+2",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "3d29cfc59e72621b3aae1e376158b32d9425f93f",
+            "author": {
+                "_account_id": 12000,
+                "name": "Ian Cordasco",
+                "email": "sigmavirus24@gmail.com",
+                "username": "sigmavirus24"
+            },
+            "real_author": {
+                "_account_id": 12000,
+                "name": "Ian Cordasco",
+                "email": "sigmavirus24@gmail.com",
+                "username": "sigmavirus24"
+            },
+            "date": "2015-02-02 21:02:26.000000000",
+            "message": "Patch Set 4: Code-Review-1\n\n(2 comments)",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "4b02903928b68b68d461b3dc14b5d4ddb1d5e4e8",
+            "author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "real_author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "date": "2015-02-02 22:25:46.000000000",
+            "message": "Patch Set 4: Code-Review-2\n\n(8 comments)\n\nComments inline on the reason for -2.\n\nThis is an important change however, we are waiting to do further investigation on this.",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "48833256eee5b194ec605c2aa8af949a151db842",
+            "author": {
+                "_account_id": 6549,
+                "name": "Zhi Yan Liu",
+                "email": "lzy.dev@gmail.com",
+                "username": "lzy-dev"
+            },
+            "real_author": {
+                "_account_id": 6549,
+                "name": "Zhi Yan Liu",
+                "email": "lzy.dev@gmail.com",
+                "username": "lzy-dev"
+            },
+            "date": "2015-02-03 04:47:26.000000000",
+            "message": "Patch Set 4: -Code-Review\n\nNikhil has as valid point about security. Reset my cents to see feedback on it.",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "50e6e50a4eb0de49331b9ae4f36dc83c24dfab31",
+            "author": {
+                "_account_id": 12000,
+                "name": "Ian Cordasco",
+                "email": "sigmavirus24@gmail.com",
+                "username": "sigmavirus24"
+            },
+            "real_author": {
+                "_account_id": 12000,
+                "name": "Ian Cordasco",
+                "email": "sigmavirus24@gmail.com",
+                "username": "sigmavirus24"
+            },
+            "date": "2015-02-04 21:17:40.000000000",
+            "message": "Patch Set 5: Commit message was updated",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "c56e3b2289c85734fb46dc7baebb1696abd89283",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2015-02-04 22:21:41.000000000",
+            "message": "Patch Set 5: Verified+1\n\nBuild succeeded (check pipeline).\n\n- gate-glance-pep8 http://logs.openstack.org/74/148574/5/check/gate-glance-pep8/15a8da3/ : SUCCESS in 2m 01s\n- gate-glance-docs http://docs-draft.openstack.org/74/148574/5/check/gate-glance-docs/69ad782//doc/build/html/ : SUCCESS in 2m 23s\n- gate-glance-python27 http://logs.openstack.org/74/148574/5/check/gate-glance-python27/9306a63/ : SUCCESS in 7m 05s\n- check-tempest-dsvm-full http://logs.openstack.org/74/148574/5/check/check-tempest-dsvm-full/3c349ad/ : SUCCESS in 39m 04s\n- check-tempest-dsvm-postgres-full http://logs.openstack.org/74/148574/5/check/check-tempest-dsvm-postgres-full/71c3764/ : SUCCESS in 37m 37s\n- check-tempest-dsvm-neutron-full http://logs.openstack.org/74/148574/5/check/check-tempest-dsvm-neutron-full/a65bdfa/ : SUCCESS in 1h 00m 09s\n- check-grenade-dsvm http://logs.openstack.org/74/148574/5/check/check-grenade-dsvm/fdf8c6f/ : SUCCESS in 41m 37s\n- gate-tempest-dsvm-large-ops http://logs.openstack.org/74/148574/5/check/gate-tempest-dsvm-large-ops/e6ec9d9/ : SUCCESS in 22m 23s\n- gate-tempest-dsvm-neutron-large-ops http://logs.openstack.org/74/148574/5/check/gate-tempest-dsvm-neutron-large-ops/e99bc76/ : SUCCESS in 23m 43s\n- check-devstack-dsvm-cells http://logs.openstack.org/74/148574/5/check/check-devstack-dsvm-cells/cc47d36/ : SUCCESS in 18m 56s\n- gate-rally-dsvm-glance http://logs.openstack.org/74/148574/5/check/gate-rally-dsvm-glance/e9d1e5a/ : SUCCESS in 22m 13s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "5155b59de6bf5884c8e8b49157f888ea0d50b1a0",
+            "author": {
+                "_account_id": 9751,
+                "name": "IBM DB2 CI",
+                "email": "scecd@cn.ibm.com",
+                "username": "ibmdb2",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "real_author": {
+                "_account_id": 9751,
+                "name": "IBM DB2 CI",
+                "email": "scecd@cn.ibm.com",
+                "username": "ibmdb2",
+                "tags": [
+                    "SERVICE_USER"
+                ]
+            },
+            "date": "2015-02-05 01:54:12.000000000",
+            "message": "Patch Set 5:\n\nBuild succeeded.\n\n- ibm-db2-ci-glance http://dal05.objectstorage.softlayer.net/v1/AUTH_58396f85-2c60-47b9-aaf8-e03bc24a1a6f/cilog/74/148574/5/check/ibm-db2-ci-glance/9be7d56 : SUCCESS in 1h 28m 24s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 5
+        },
+        {
+            "id": "ca56081f02af7b2398c5822c90b59ea2eb863bca",
+            "author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "real_author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "date": "2015-02-05 11:24:38.000000000",
+            "message": "Uploaded patch set 6.",
+            "accounts_in_message": [],
+            "_revision_number": 6
+        },
+        {
+            "id": "f6b35aa5463d1dd454de2e2da6b145487770e082",
+            "author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "real_author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "date": "2015-02-05 11:25:37.000000000",
+            "message": "Patch Set 4:\n\n(7 comments)",
+            "accounts_in_message": [],
+            "_revision_number": 4
+        },
+        {
+            "id": "425c8fe69e012d1c11352e51103237395b364bfa",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2015-02-05 12:14:24.000000000",
+            "message": "Patch Set 6: Verified+1\n\nBuild succeeded (check pipeline).\n\n- gate-glance-pep8 http://logs.openstack.org/74/148574/6/check/gate-glance-pep8/25ec3c5/ : SUCCESS in 2m 15s\n- gate-glance-docs http://docs-draft.openstack.org/74/148574/6/check/gate-glance-docs/c579308//doc/build/html/ : SUCCESS in 2m 00s\n- gate-glance-python27 http://logs.openstack.org/74/148574/6/check/gate-glance-python27/7a8342a/ : SUCCESS in 4m 36s\n- check-tempest-dsvm-full http://logs.openstack.org/74/148574/6/check/check-tempest-dsvm-full/165f61f/ : SUCCESS in 41m 06s\n- check-tempest-dsvm-postgres-full http://logs.openstack.org/74/148574/6/check/check-tempest-dsvm-postgres-full/981d2fc/ : SUCCESS in 39m 32s\n- check-tempest-dsvm-neutron-full http://logs.openstack.org/74/148574/6/check/check-tempest-dsvm-neutron-full/be514b4/ : SUCCESS in 47m 06s\n- check-grenade-dsvm http://logs.openstack.org/74/148574/6/check/check-grenade-dsvm/d959c92/ : SUCCESS in 37m 20s\n- gate-tempest-dsvm-large-ops http://logs.openstack.org/74/148574/6/check/gate-tempest-dsvm-large-ops/43a7f91/ : SUCCESS in 21m 42s\n- gate-tempest-dsvm-neutron-large-ops http://logs.openstack.org/74/148574/6/check/gate-tempest-dsvm-neutron-large-ops/3b76a37/ : SUCCESS in 18m 20s\n- check-devstack-dsvm-cells http://logs.openstack.org/74/148574/6/check/check-devstack-dsvm-cells/d8c0a2c/ : SUCCESS in 17m 41s\n- gate-rally-dsvm-glance http://logs.openstack.org/74/148574/6/check/gate-rally-dsvm-glance/19bc23c/ : SUCCESS in 22m 36s (non-voting)",
+            "accounts_in_message": [],
+            "_revision_number": 6
+        },
+        {
+            "id": "322dfcc1352f9ddbfb57778025b72058b937ca3f",
+            "author": {
+                "_account_id": 11391,
+                "name": "Mikhail Fedosin",
+                "email": "mfedosin@redhat.com",
+                "username": "fedosinme"
+            },
+            "real_author": {
+                "_account_id": 11391,
+                "name": "Mikhail Fedosin",
+                "email": "mfedosin@redhat.com",
+                "username": "fedosinme"
+            },
+            "date": "2015-02-05 13:54:06.000000000",
+            "message": "Patch Set 6: Code-Review+1",
+            "accounts_in_message": [],
+            "_revision_number": 6
+        },
+        {
+            "id": "8e8d65d7cc62fc76a06471e06a3e62f65e5c7e58",
+            "author": {
+                "_account_id": 11391,
+                "name": "Mikhail Fedosin",
+                "email": "mfedosin@redhat.com",
+                "username": "fedosinme"
+            },
+            "real_author": {
+                "_account_id": 11391,
+                "name": "Mikhail Fedosin",
+                "email": "mfedosin@redhat.com",
+                "username": "fedosinme"
+            },
+            "date": "2015-02-05 14:00:05.000000000",
+            "message": "Patch Set 6:\n\nLooks better now. I think there could be a test on LimitExceeded, but it would eat 128mb of memory, which is pretty insane :)",
+            "accounts_in_message": [],
+            "_revision_number": 6
+        },
+        {
+            "id": "2e97721931868bdc31c74315bc38c7ce0e36dd78",
+            "author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "real_author": {
+                "_account_id": 8127,
+                "name": "Alexander Tivelkov",
+                "email": "locher@yandex.ru",
+                "username": "ativelkov"
+            },
+            "date": "2015-02-05 14:19:26.000000000",
+            "message": "Patch Set 6:\n\nMike, yeah: testing that would either require some hacking to override the limit constant or will really require generating >128 Megs of data, which will abuse zuul",
+            "accounts_in_message": [],
+            "_revision_number": 6
+        },
+        {
+            "id": "5e2e17400e39d5eb891daea95f5fc6ea5fac098c",
+            "author": {
+                "_account_id": 455,
+                "name": "Stuart McLaren",
+                "email": "stuart.mclaren@hpe.com",
+                "username": "stuart-mclaren"
+            },
+            "real_author": {
+                "_account_id": 455,
+                "name": "Stuart McLaren",
+                "email": "stuart.mclaren@hpe.com",
+                "username": "stuart-mclaren"
+            },
+            "date": "2015-02-05 14:30:55.000000000",
+            "message": "Patch Set 6:\n\nI had a go at an alternative approach. Interested to know what people think.\n\nBasically it's this:\n\n diff --git a/glance_store/_drivers/http.py b/glance_store/_drivers/http.py\n index 7a8ec94..e8c4981 100644\n --- a/glance_store/_drivers/http.py\n +++ b/glance_store/_drivers/http.py\n @@ -139,6 +139,7 @@ class Store(glance_store.driver.Store):\n                     return ''\n \n -        return (ResponseIndexable(iterator, content_length), content_length)\n +        return (resp, content_length)\n \n     def get_schemes(self):\n         return ('http', 'https')\n\n\n\n'ResponseIndexible' was added with this change:\n https://review.openstack.org/#/c/4096/\n\nTo address:\n\n   Impedence between the representation returned by Store.get() and\n    the implicit requirements of Store.add() required careful iterator/\n    filelike wrapping.\n\nNow that Store.add does it's own wrapping it looks to me like ResponseIndexible may not be required -- at least not for it's original purpose.\n\nWith this change CooperativeReader will access the read of the underlying fd in this case.\n\nI functionally tested this and it seemed to work for the 'swift_store_large_object_size' reproducer.\n\nI haven't thought too much about corner cases (or glance_store 'correctness') etc yet.",
+            "accounts_in_message": [],
+            "_revision_number": 6
+        },
+        {
+            "id": "5b65f06149af0d4866470cdb75ea67eb2f7f2b0a",
+            "author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "real_author": {
+                "_account_id": 2537,
+                "name": "Nikhil Komawar",
+                "email": "nik.komawar@gmail.com",
+                "username": "nikhil-komawar"
+            },
+            "date": "2015-02-05 14:45:34.000000000",
+            "message": "Patch Set 6: Code-Review+2",
+            "accounts_in_message": [],
+            "_revision_number": 6
+        },
+        {
+            "id": "bf4546f5d2e06f3163e0b71d972f343a5ea308e2",
+            "author": {
+                "_account_id": 455,
+                "name": "Stuart McLaren",
+                "email": "stuart.mclaren@hpe.com",
+                "username": "stuart-mclaren"
+            },
+            "real_author": {
+                "_account_id": 455,
+                "name": "Stuart McLaren",
+                "email": "stuart.mclaren@hpe.com",
+                "username": "stuart-mclaren"
+            },
+            "date": "2015-02-05 18:07:03.000000000",
+            "message": "Patch Set 6:\n\nUpdate on the alternative approach.\n\nTurns out you get a 0 size image when downloading in the normal way from the regualar http store (ie when not using copy-from). Not good!\n\nWhat httplib (used by the http store) returns for a request body is not an iterator, so it is incompatible with the format that wsgi expects.\n\nWe don't his this when using the 'raw' stream from swift client (I did a check) because the 'requests' library (ie not httplib) can return something you can iterate over.\n\nA quick experimental hack to replace httplib with requests for the 'get' when using the http store:\n\n    def get(self, location, offset=0, chunk_size=None, context=None):\n        \"\"\"\n        Takes a `glance_store.location.Location` object that indicates\n        where to find the image file, and returns a tuple of generator\n        (for reading the image file) and image_size\n\n        :param location `glance_store.location.Location` object, supplied\n                        from glance_store.location.get_location_from_uri()\n        \"\"\"\n        import requests\n        url = \"%s://%s%s\" % (location.store_location.scheme, location.store_location.netloc, location.store_location.path)\n        self.request_session = requests.Session()\n        resp = self.request_session.request('GET', url)\n        return (resp, resp.headers['content-length'])\n\nworked for both the copy-from and standard download cases when \n\nObviously we'd need to be careful and this would require more work.\n\nProbably too intrusive to fix this bug -- but in the long run it might be the way to go.",
+            "accounts_in_message": [],
+            "_revision_number": 6
+        },
+        {
+            "id": "102e3aa10233daada9db755b5d07178a6739a136",
+            "author": {
+                "_account_id": 5202,
+                "name": "Erno Kuvaja",
+                "email": "jokke@usr.fi",
+                "username": "jokke"
+            },
+            "real_author": {
+                "_account_id": 5202,
+                "name": "Erno Kuvaja",
+                "email": "jokke@usr.fi",
+                "username": "jokke"
+            },
+            "date": "2015-02-05 20:35:26.000000000",
+            "message": "Patch Set 6: Code-Review+2 Workflow+1\n\nThanks Alex",
+            "accounts_in_message": [],
+            "_revision_number": 6
+        },
+        {
+            "id": "da1edcb912271daeae1ab5277c44d863f671bbcb",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2015-02-05 20:35:27.000000000",
+            "message": "Patch Set 6: -Verified\n\nStarting gate jobs.\nhttp://status.openstack.org/zuul/",
+            "accounts_in_message": [],
+            "_revision_number": 6
+        },
+        {
+            "id": "f89534d022782c2264efb4895f0f045da3aa07b3",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2015-02-05 21:43:01.000000000",
+            "message": "Patch Set 6: Verified+2\n\nBuild succeeded (gate pipeline).\n\n- gate-glance-docs http://docs-draft.openstack.org/74/148574/6/gate/gate-glance-docs/3d2eabd//doc/build/html/ : SUCCESS in 2m 42s\n- gate-glance-pep8 http://logs.openstack.org/74/148574/6/gate/gate-glance-pep8/aeb8b4b/ : SUCCESS in 2m 12s\n- gate-glance-python27 http://logs.openstack.org/74/148574/6/gate/gate-glance-python27/bed9b89/ : SUCCESS in 6m 40s\n- gate-tempest-dsvm-full http://logs.openstack.org/74/148574/6/gate/gate-tempest-dsvm-full/3f0e573/ : SUCCESS in 36m 40s\n- gate-tempest-dsvm-postgres-full http://logs.openstack.org/74/148574/6/gate/gate-tempest-dsvm-postgres-full/e86b106/ : SUCCESS in 36m 55s\n- gate-tempest-dsvm-neutron-full http://logs.openstack.org/74/148574/6/gate/gate-tempest-dsvm-neutron-full/b7baf16/ : SUCCESS in 1h 06m 24s\n- gate-grenade-dsvm http://logs.openstack.org/74/148574/6/gate/gate-grenade-dsvm/9d67d95/ : SUCCESS in 35m 01s\n- gate-tempest-dsvm-large-ops http://logs.openstack.org/74/148574/6/gate/gate-tempest-dsvm-large-ops/6e8dc99/ : SUCCESS in 20m 39s\n- gate-tempest-dsvm-neutron-large-ops http://logs.openstack.org/74/148574/6/gate/gate-tempest-dsvm-neutron-large-ops/c113b03/ : SUCCESS in 17m 54s\n- gate-devstack-dsvm-cells http://logs.openstack.org/74/148574/6/gate/gate-devstack-dsvm-cells/75cdee8/ : SUCCESS in 15m 35s",
+            "accounts_in_message": [],
+            "_revision_number": 6
+        },
+        {
+            "id": "523448ee464ce2db1a4e04bd75680e803a694c03",
+            "author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "real_author": {
+                "_account_id": 3,
+                "name": "Jenkins",
+                "username": "jenkins"
+            },
+            "date": "2015-02-05 21:43:02.000000000",
+            "message": "Change has been successfully merged into the git repository.",
+            "accounts_in_message": [],
+            "_revision_number": 6
+        }
+    ],
+    "requirements": [],
+    "submit_records": []
+}
